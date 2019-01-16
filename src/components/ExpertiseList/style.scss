@@ -1,0 +1,98 @@
+.expertiseList {
+  h3 {
+    padding: 0;
+    margin: 50px 0;
+    @include webkitGradientText;
+  }
+
+  button {
+    margin: 30px auto;
+
+    @include md {
+      min-width: 230px;
+      letter-spacing: 2.49px;
+    }
+  }
+
+  &__element {
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+    background-color: #f4f5f7;
+    align-items: center;
+    cursor: pointer;
+    transition: 300ms ease;
+    overflow: auto;
+
+    img {
+      margin-left: 35px;
+      max-width: none;
+      width: initial;
+    }
+    p {
+      text-transform: uppercase;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 0 auto;
+    }
+
+    &:after {
+      @include pseudo;
+      height: 6px;
+      width: 0;
+      transition: 300ms ease;
+      @include leftRightGradient(#2472b8, #00aadd);
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  @include md {
+    &__element {
+      &:hover {
+        transform: translateY(-3px);
+
+        &:after {
+          width: 100%;
+          left: 0;
+          right: auto;
+        }
+      }
+    }
+  }
+
+  @include max-lg {
+    .grid-container {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      padding: 0 30px;
+    }
+    p {
+      font-size: 1.6rem;
+    }
+  }
+
+  @include max-md {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .grid-container {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: auto;
+    }
+  }
+
+  @include max-sm {
+    img {
+      margin-left: 25px;
+      height: auto; 
+      width: auto; 
+      max-width: 35px;
+      max-height: 35px;
+    }
+  }
+}

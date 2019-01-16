@@ -1,0 +1,316 @@
+.polyclinicsList {
+  background-color: #f4f4f4;
+  padding: 25px 0;
+}
+
+.pcitem {
+  background-color: white;
+  padding: 20px;
+  margin: 0 auto 25px;
+  width: 90%;
+
+  @include md {
+    width: 100%;
+    padding: 37px;
+  }
+
+  .container {
+    width: 100%;
+
+    @include md {
+      max-width: $layoutMinWidth;
+    }
+
+    @include xl {
+      width: 100%;
+    }
+  }
+
+  &__wrapper {
+    box-sizing: border-box;
+    @extend .flexRow;
+    justify-content: space-between;
+    position: relative;
+    align-items: stretch;
+  }
+
+  &__img {
+    width: 100%;
+    display: block;
+    position: relative;
+
+    @include lg {
+      width: 30%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    width: 100%;
+    box-sizing: border-box;
+
+    @include lg {
+      width: 70%;
+      padding-left: 32px;
+    }
+
+    @extend .flexColumn;
+
+    &__details {
+      @extend .flexRow;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      padding: 25px 0 0;
+      border-bottom: 1px solid #e7e7e7;
+      flex-wrap: wrap;
+
+      @include md {
+        padding: 25px 0;
+      }
+
+      @media (min-width: '1050px') {
+        justify-content: space-between;
+        align-content: space-between;
+        align-items: center;
+      }
+
+      &__item {
+        height: 40px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+
+        @include md {
+          margin-bottom: 24px;
+        }
+
+        @media (min-width: '1050px') {
+          width: calc(95% / 3);
+          margin-bottom: 0;
+        }
+
+        img {
+          height: 35px;
+          width: auto;
+
+          @include md {
+            height: 40px;
+          }
+        }
+
+        p {
+          margin: 0;
+          padding: 0;
+          font-size: 1.6rem;
+          line-height: 20px;
+          margin-left: 15px;
+
+          @include md {
+            font-size: 1.7rem;
+            line-height: 25px;
+          }
+        }
+      }
+    }
+
+    &__list {
+      padding: 25px 0 0;
+      @extend .flexRow;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      @include md {
+        border-bottom: 1px solid #e7e7e7;
+        padding: 25px 0;
+      }
+
+      ul {
+        column-count: 1;
+        column-gap: 10px;
+
+        @include md {
+          column-count: 3;
+        }
+        li {
+          display: block;
+        }
+      }
+
+      div {
+        color: $lightBlue;
+        font-size: 1.6rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 0;
+        text-align: center;
+        border-top: 1px solid #cecece;
+        border-bottom: 1px solid #cecece;
+        width: 100%;
+        margin: 16px 0 0 0;
+
+        @include md {
+          margin-bottom: 1.8rem;
+          padding: 0;
+          margin: 0;
+          text-align: left;
+          border-top: 0px #cecece;
+          border-bottom: 0px #cecece;
+          width: auto;
+        }
+
+        .arrow {
+          content: '';
+          padding: 3px;
+          border: solid $lightBlue;
+          display: inline-block;
+          position: relative;
+          vertical-align: middle;
+          border-width: 0 2px 2px 0;
+          transform: rotate(-45deg);
+          margin-bottom: 1px;
+          margin-left: 8px;
+          height: 11px;
+          width: 11px;
+        }
+      }
+    }
+
+    &__desc {
+      padding: 25px 0 0;
+      @extend .flexRow;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      &__txt {
+        width: 100%;
+        font-size: 1.4rem;
+        margin-bottom: 18px;
+
+        @include md {
+          width: 70%;
+          font-size: 1.6rem;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__btnHolder {
+      width: 100%;
+
+      @include md {
+        width: auto;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 240px;
+        margin: 0 auto;
+
+        @include md {
+          width: auto;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+.pcTitle {
+  border-bottom: 1px solid #e7e7e7;
+  padding: 17px 0;
+  display: block;
+
+  @include md {
+    padding: 0px 0 25px 0;
+  }
+
+  img {
+    height: 33px;
+    width: auto;
+    display: inline-block;
+
+    @include md {
+      height: 50px;
+    }
+  }
+
+  &__title {
+    margin-left: 14px;
+    justify-content: space-between;
+    display: inline-flex;
+    flex-flow: column wrap;
+
+    h3 {
+      padding: 0;
+      text-transform: capitalize;
+      color: $darkGray;
+      text-align: left;
+      font-size: 2.4rem;
+      letter-spacing: -1px;
+      line-height: 1;
+
+      @include sm {
+        font-size: 3.2rem;
+      }
+    }
+
+    &__subtitle {
+      @extend .flexRow;
+
+      span {
+        font-size: 1.2rem;
+        line-height: 1;
+        letter-spacing: -1px;
+        font-weight: 300;
+
+        @include sm {
+          font-size: 1.6rem;
+        }
+      }
+
+      &__circles {
+        @extend .flexRow;
+        justify-content: space-between;
+        margin-left: 6px;
+
+        div {
+          display: block;
+          position: relative;
+          width: 8px;
+          height: 8px;
+          margin: 0 2px;
+          border-radius: 50%;
+
+          &:nth-of-type(1) {
+            background-color: #1876ba;
+          }
+          &:nth-of-type(2) {
+            background-color: #2080c0;
+          }
+          &:nth-of-type(3) {
+            background-color: #1c89c4;
+          }
+          &:nth-of-type(4) {
+            background-color: #1e94c8;
+          }
+          &:nth-of-type(5) {
+            background-color: #159dcb;
+          }
+          &:nth-of-type(6) {
+            background-color: #01a6ce;
+          }
+        }
+      }
+    }
+  }
+}

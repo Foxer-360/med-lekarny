@@ -42,7 +42,7 @@ const ExpertiseList = (props: ExpertiseListProps) => {
       </div>
       
       <div className={'container'}>
-        <Button classes="btn--blueBkg btn--fullWidth">vice info</Button>
+        <Button classes="btn--greenBkg btn--fullWidth">vice info</Button>
       </div>
     </section>
   );

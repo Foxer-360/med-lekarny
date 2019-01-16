@@ -43,7 +43,7 @@ const Faq = (props: FaqProps) => {
             </div>
           );
         })}
-        <Button classes={'hCenterBlock btn--blueBkg btn--down btn--fullWidth'}>více info</Button>
+        <Button classes={'hCenterBlock btn--greenBkg btn--down btn--fullWidth'}>více info</Button>
       
       </div>
     </div>

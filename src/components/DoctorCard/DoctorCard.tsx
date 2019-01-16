@@ -106,7 +106,7 @@ const DoctorCard = (props: DoctorCardProps) => {
         </div>
 
         <div className={'doctorCard__btnHolder'}>
-          <Button classes={'btn--blueBkg'} noArrow={true}>
+          <Button classes={'btn--greenBkg'} noArrow={true}>
             objednat
           </Button>
         </div>

@@ -107,7 +107,7 @@
           width: 0%;
           left: 0;
           transition: 300ms ease;
-          @include leftRightGradient($blue, $lightBlue);
+          @include leftRightGradient($green, $lightBlue);
         }
       }
     }
@@ -265,11 +265,11 @@
       }
 
       a {
-        color: $lightBlue;
+        color: $green;
 
         &:hover {
           text-decoration: underline;
-          text-decoration-color: $blue;
+          text-decoration-color: $lightBlue;
         }
       }
     }

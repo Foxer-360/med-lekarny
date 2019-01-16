@@ -53,7 +53,7 @@ const JobPositions = (props: JobPositionsProps) => {
         ))}
       </div>
 
-      <Button classes="hCenterBlock btn--blueBkg btn--down btn--fullWidth">další pozice</Button>
+      <Button classes="hCenterBlock btn--greenBkg btn--down btn--fullWidth">další pozice</Button>
     </div>
   );
 };

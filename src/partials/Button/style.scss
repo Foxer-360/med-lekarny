@@ -67,17 +67,17 @@
     padding: 10px 40px;
   }
 
-  &--blueBkg {
+  &--greenBkg {
     color: white;
-    background-image: linear-gradient(to right, $blue 0%, $lightBlue 100%);
+    background-image: linear-gradient(to right, $green 0%, $lightBlue 100%);
     background-repeat: no-repeat;
     background-position: center;
     padding: 14px 36px;
 
     &:hover {
       @include md {
-        background-image: linear-gradient(to right, $blue 0%, $blue 100%);
-        background-color: $blue;
+        background-image: linear-gradient(to right, $green 0%, $green 100%);
+        background-color: $green;
       }
 
       .arrow {
@@ -93,35 +93,30 @@
 
     &:hover {
       @include md {
-        color: $blue;
+        color: $green;
         background-color: white;
 
         .arrow {
-          border-color: $blue;
+          border-color: $green;
         }
       }
     }
   }
 
-  &--blueBorder {
-    color: $lightBlue;
+  &--greenBorder {
+    color: $green;
     background-color: transparent;
     border: 2px solid transparent;
-    border-image: linear-gradient(to right, $blue 0%, $lightBlue 100%);
+    border-image: linear-gradient(to right, $green 0%, $lightBlue 100%);
     border-image-slice: 1;
+    transition: auto;
 
     .arrow {
-      border-color: $lightBlue;
+      border-color: $green;
     }
 
     &:hover {
-      color: white;
-      background-color: $lightBlue;
-      border-image: none;
-
-      .arrow {
-        border-color: white;
-      }
+      border: 2px solid $green;
     }
   }
 
@@ -130,7 +125,7 @@
     text-transform: none;
 
     .arrow {
-      border-color: $lightBlue;
+      border-color: $green;
     }
   }
 

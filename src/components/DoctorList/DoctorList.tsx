@@ -48,7 +48,7 @@ const DoctorList = (props: DoctorListProps) => {
                       {doctor.clinicName}
                     </a>
 
-                    <Button classes="btn--blueBorder btn--small">vice info</Button>
+                    <Button classes="btn--greenBorder btn--small">vice info</Button>
                   </div>
                 </div>
               );
@@ -56,7 +56,7 @@ const DoctorList = (props: DoctorListProps) => {
         </div>
 
         <div className="doctorList__btnHolder">
-          <Button classes="btn--blueBkg btn--down">zobrazit vice</Button>
+          <Button classes="btn--greenBkg btn--down">zobrazit vice</Button>
         </div>
       </div>
     </section>

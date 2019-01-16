@@ -89,7 +89,7 @@ class ContactForm extends React.Component<ContactFormProps, ContactFormState> {
               </div>
 
               <div className={'flexRow flexAlign--center'}>
-                <Button classes="btn--blueBkg">Odeslat</Button>
+                <Button classes="btn--greenBkg">Odeslat</Button>
               </div>
             </form>
           </div>

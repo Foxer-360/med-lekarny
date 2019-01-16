@@ -30,7 +30,7 @@ const InfoRectangles = (props: InfoRectanglesProps) => {
               style={{ backgroundImage: rectangle.image && `url(${getImageUrl(rectangle.image)})` }}>
               <div>
                 <h5>{rectangle.title}</h5>
-                <Button classes="btn--blueBorder">vice info</Button>
+                <Button classes="btn--greenBorder">vice info</Button>
               </div>
             </div>
           ))}

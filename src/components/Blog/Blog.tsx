@@ -89,7 +89,7 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
           </div>
 
           <div className="blog__btnHolder">
-            <Button classes="btn--blueBkg btn--fullWidth">Načíst další</Button>
+            <Button classes="btn--greenBkg btn--fullWidth">Načíst další</Button>
           </div>
         </div>
       </section>

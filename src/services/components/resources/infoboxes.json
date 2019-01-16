@@ -13,7 +13,7 @@
       {
         "title": "široký výběr zdravýchpotravin",
         "gradientColor": "#ffffff",
-        "button": "btn--blueBorder",
+        "button": "btn--greenBorder",
         "titleColor": "#2eac6c",
         "image": {}
       },
@@ -57,7 +57,7 @@
                 "title": "type of button",
                 "options": {
                   "btn--whiteBorder": "whiteBorder",
-                  "btn--blueBorder": "blueBorder",
+                  "btn--greenBorder": "greenBorder",
                   "btn--blueBkg": "blueBackground"
                 }
               },

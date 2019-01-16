@@ -30,7 +30,7 @@ const Downloads = (props: DownloadsProps) => {
             <div className={'downloads__list__element'} key={i}>
               {item.title && <p>{item.title}</p>}
               {item.url && 
-                <a href={item.url} className={'btn btn--blueBorder'}>
+                <a href={item.url} className={'btn btn--greenBorder'}>
                   Stáhnout
                   <SvgIcon name={'download'} type={'lightBlue'} />
                 </a>

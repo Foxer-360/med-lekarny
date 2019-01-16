@@ -47,10 +47,10 @@ const MapBox: React.SFC<MapBoxProps> = props => {
       </div>
 
       <div className={'mapBox__buttons'}>
-        <Button classes="btn--small btn--blueBkg" noArrow={true}>
+        <Button classes="btn--small btn--greenBkg" noArrow={true}>
           ambulance
         </Button>
-        <Button classes="btn--small btn--blueBorder">kuddy k nam</Button>
+        <Button classes="btn--small btn--greenBorder">kuddy k nam</Button>
       </div>
     </div>
   );

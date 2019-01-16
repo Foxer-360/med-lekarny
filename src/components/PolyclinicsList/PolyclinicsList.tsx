@@ -91,7 +91,7 @@ const PolyclinicsList = (props: PolyclinicsListProps) => {
                       </div>
 
                       <div className={'pcitem__info__btnHolder'}>
-                        <Button classes="btn btn--blueBorder">vice info</Button>
+                        <Button classes="btn btn--greenBorder">vice info</Button>
                       </div>
                     </div>
                   </div>

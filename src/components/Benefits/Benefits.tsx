@@ -24,7 +24,7 @@ const Benefits = (props: BenefitsProps) => {
               return (
                 <div key={index} className={'grid benefits__list__element'}>
                   {(benefit.image && benefit.image.filename && <Media type={'image'} data={benefit.image} />) || (
-                    <img src={'/assets/medicon/images/doctorIcon.svg'} alt="Our benefit" />
+                    <img src={'/assets/mediconLekarny/images/doctorIcon.svg'} alt="Our benefit" />
                   )}
                   <p>{benefit.text}</p>
                 </div>

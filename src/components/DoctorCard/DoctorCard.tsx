@@ -53,7 +53,7 @@ const DoctorCard = (props: DoctorCardProps) => {
       <div className="container">
         <div className={'doctorCard__main'}>
           {(doctorImage && <Media data={doctorImage} type="image" />) || (
-            <img src="/assets/medicon/images/doctorIcon.svg" />
+            <img src="/assets/mediconLekarny/images/doctorIcon.svg" />
           )}
 
           {name && <h3 className={'gradientHeading'}>{name}</h3>}
@@ -73,17 +73,17 @@ const DoctorCard = (props: DoctorCardProps) => {
           <div className={'container'}>
             <div className="doctorCard__info__wrapper">
               <div className={'doctorCard__info__item'}>
-                <img src="/assets/medicon/images/stethoscopeIcon.svg" />
+                <img src="/assets/mediconLekarny/images/stethoscopeIcon.svg" />
                 <p>{specialization}</p>
               </div>
 
               <div className={'doctorCard__info__item'}>
-                <img src="/assets/medicon/images/phoneIcon.svg" />
+                <img src="/assets/mediconLekarny/images/phoneIcon.svg" />
                 {phone && <p>{phone}</p>}
               </div>
 
               <div className={'doctorCard__info__item'}>
-                <img src="/assets/medicon/images/geoIcon.svg" />
+                <img src="/assets/mediconLekarny/images/geoIcon.svg" />
 
                 <div>
                   <p>

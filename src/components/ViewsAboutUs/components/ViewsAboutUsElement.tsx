@@ -14,7 +14,7 @@ export default function ViewsAboutUsElement(props: ViewsAboutUsElementProps) {
   return (
     <div className="viewsAboutUs__list__element">
       {(image && <Media type={'image'} data={image} />) || (
-        <img src={'/assets/medicon/images/review-aboutus-1.jpg'} alt="review about us" />
+        <img src={'/assets/mediconLekarny/images/review-aboutus-1.jpg'} alt="review about us" />
       )}
 
       <div className={'viewsAboutUs__list__element__content'}>

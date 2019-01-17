@@ -41,7 +41,7 @@ const PolyclinicsList = (props: PolyclinicsListProps) => {
 
                     <div className="pcitem__info__details">
                       <div className="pcitem__info__details__item">
-                        <img src="../../../assets/medicon/images/geoIcon.svg" alt="Medicon GeoLocation Icon" />
+                        <img src="../../../assets/mediconLekarny/images/geoIcon.svg" alt="Medicon GeoLocation Icon" />
 
                         <p>
                           {clinic.address} <br />
@@ -50,14 +50,16 @@ const PolyclinicsList = (props: PolyclinicsListProps) => {
                       </div>
 
                       <div className="pcitem__info__details__item">
-                        <img src="../../../assets/medicon/images/phoneIcon.svg" alt="Medicon Phone Icon" />
+                        <img src="../../../assets/mediconLekarny/images/phoneIcon.svg" alt="Medicon Phone Icon" />
                         <p>{clinic.phone}</p>
                       </div>
 
                       <div className="pcitem__info__details__item">
                         {clinic.transportImage && <Media data={clinic.transportImage} type="image" />}
 
-                        {!clinic.transportImage && <img src="../../../assets/medicon/images/metro2.png" alt="" />}
+                        {!clinic.transportImage && 
+                          <img src="../../../assets/mediconLekarny/images/metro2.png" alt="" />
+                        }
 
                         <p>
                           {clinic.transport}

@@ -30,16 +30,33 @@
     background-image: linear-gradient(to left, $green 0%, $lightBlue 100%);
   }
 
+  @include max-sm {
+    &__left {
+      width: 100%;
+    }
+    &__right {
+      width: 100%;
+    }
+  }
+
   &__list {
     float: left;
     z-index: 1;
     position: absolute;
     bottom: 35px;
 
+    @include max-xs {
+      bottom: 25px;
+    }
+
     li {
       padding: 0;
       display: inline;
       margin-right: 35px;
+      
+      @include max-sm {
+        margin-right: 15px;
+      }
 
       &:before {
         content: none;
@@ -54,6 +71,10 @@
     float: right;
     bottom: -70px;
     z-index: 1;
+
+    @include max-sm {
+      bottom: -80px;
+    }
 
     .svgIcon {
       width: 36px;
@@ -75,6 +96,8 @@
     a {
       grid-column: 2/3;
       color: $green;
+      text-align: right;
+      
       p {
         grid-column: 1/2;
         display: block;

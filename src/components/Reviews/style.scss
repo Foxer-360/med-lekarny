@@ -4,6 +4,12 @@
 
   h3 { @include webkitGradientText; }
 
+  &__divider {
+    width: 100%;
+    height: 2px;
+    background-color: #9ed5a4;
+  }
+
   &__list {
     justify-items: center;
     justify-content: center;

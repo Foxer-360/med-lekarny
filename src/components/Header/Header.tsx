@@ -49,7 +49,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           <div className={'header__wrapper'} ref={this.headerWrapper}>
             <div className={'header__logo'}>
               <a href={''}>
-                <img src="/assets/medicon/images/logo.svg" alt="Medicon Logo" />
+                <img src="/assets/mediconLekarny/images/logo.svg" alt="Medicon Logo" />
               </a>
             </div>
 

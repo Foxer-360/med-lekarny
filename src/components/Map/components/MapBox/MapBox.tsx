@@ -6,10 +6,10 @@ interface MapBoxProps {}
 const MapBox: React.SFC<MapBoxProps> = props => {
   return (
     <div className={'mapBox'}>
-      <img src={'/assets/medicon/images/mapbox.png'} />
+      <img src={'/assets/mediconLekarny/images/mapbox.png'} />
 
       <div className={'pcTitle'}>
-        <img src="/assets/medicon/images/logo.svg" alt="Medicon Logo" />
+        <img src="/assets/mediconLekarny/images/logo.svg" alt="Medicon Logo" />
 
         <div className={'pcTitle__title'}>
           <h3>Poliklinika</h3>
@@ -30,7 +30,7 @@ const MapBox: React.SFC<MapBoxProps> = props => {
 
       <div className={'mapBox__contacts'}>
         <div className={'mapBox__contacts__item'}>
-          <img src={'/assets/medicon/images/geoIcon.svg'} />
+          <img src={'/assets/mediconLekarny/images/geoIcon.svg'} />
 
           <div>
             <p>Sokolovská 304 </p>
@@ -39,7 +39,7 @@ const MapBox: React.SFC<MapBoxProps> = props => {
         </div>
 
         <div className={'mapBox__contacts__item'}>
-          <img src={'/assets/medicon/images/phone.png'} />
+          <img src={'/assets/mediconLekarny/images/phone.png'} />
           <div>
             <p>+420 266 006 211</p>
           </div>

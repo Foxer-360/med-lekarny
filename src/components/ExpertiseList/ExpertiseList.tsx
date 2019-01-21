@@ -30,7 +30,7 @@ const ExpertiseList = (props: ExpertiseListProps) => {
 
               {(item.image &&
                 <Media type={'image'} data={item.image} />) ||
-                <img src={'/assets/medicon/images/od-el-1.png'} alt="image" />
+                <img src={'/assets/mediconLekarny/images/od-el-1.png'} alt="image" />
               }
 
               <p>{item.title}</p>

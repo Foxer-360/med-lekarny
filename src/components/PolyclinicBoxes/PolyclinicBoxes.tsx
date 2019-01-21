@@ -30,7 +30,7 @@ const PolyclinicBoxes = (props: PolyclinicBoxesProps) => {
                   {(polyclinic.image && polyclinic.image.filename && 
                     <Media data={polyclinic.image} type={'image'}/>) || (
                     <img 
-                      src={'/assets/medicon/images/poliklinika.png'} 
+                      src={'/assets/mediconLekarny/images/poliklinika.png'} 
                       alt="poliklinika"
                     />
                   )}

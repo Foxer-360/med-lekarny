@@ -1,71 +1,73 @@
 import * as React from 'react';
 import Social from './components/Social';
 import HelpPopup from './components/HelpPopup';
+import Link from '@source/partials/Link';
 
-class Footer extends React.Component<any, any> {
+interface Link {
+  title: string;
+  url: LooseObject;
+}
+
+interface Icon {
+  title: string;
+  url: LooseObject;
+}
+
+export interface FooterProps {
+  data: {
+    links: Link[];
+    icons: Icon[];
+    copyrights: string;
+    gdprText: string;
+    gdprUrl: LooseObject;
+  };
+}
+
+export interface FooterState { }
+
+class Footer extends React.Component<FooterProps, FooterState> {
+  constructor(props: FooterProps) {
+    super(props);
+  }
+
   public render() {
+    const { 
+      links, 
+      icons, 
+      copyrights,
+      gdprText,
+      gdprUrl
+    } = this.props.data;
+
     return (
-      <footer className={'footer'}>
+      <footer>
         <HelpPopup />
-
-        <div className="container">
-          <div className="flexRow flexAlign--space-between">
-            <ul className={'footer__list'}>
-              <li>
-                <a href="#">O společnosti</a>
-              </li>
-              <li>
-                <a href="#">Skupina PRONATAL</a>
-              </li>
-              <li>
-                <a href="#">INCARE</a>
-              </li>
-              <li>
-                <a href="#">Aktuality</a>
-              </li>
-              <li>
-                <a href="#">Kontakty</a>
-              </li>
-            </ul>
-            <ul className={'footer__list'}>
-              <li>
-                <a href="#">Polikliniky</a>
-              </li>
-              <li>
-                <a href="#">Mammacentra</a>
-              </li>
-              <li>
-                <a href="#">Onkocentrum</a>
-              </li>
-              <li>
-                <a href="#">Následná péče </a>
-              </li>
-              <li>
-                <a href="#">Lékárny</a>
-              </li>
-            </ul>
-            <ul className={'footer__list'}>
-              <li>
-                <a href="#">Nejčastější dotazy</a>
-              </li>
-              <li>
-                <a href="#">Nabídka zaměstnání</a>
-              </li>
-              <li>
-                <a href="#">Ochrana osobních údajů</a>
-              </li>
-            </ul>
-            <Social />
+        <div className={'footer'}>
+          <div className={'container'}>
+            <div>
+              <ul className={'footer__list'}>
+                {links && links.map((link, i) => (
+                  <li>
+                    <Link key={i} url={link.url && link.url}>
+                      {link.title && link.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <Social icons={icons} />
+            </div>
           </div>
+          <div className={'footer__left'}/>
+          <div className={'footer__right'}/>
         </div>
-
+        
         <div className="bottom">
           <div className="container">
-            <div className="copyrights grid">
-              <p>© 2018 - MEDICON a.s.</p>
-              <a href="#">
-                <p>Prohlášení o ochraně osobních údajů</p>
-              </a>
+            <div className="bottom__copyrights grid">
+              <p>{copyrights && copyrights}</p>
+              <Link url={gdprUrl && gdprUrl} >
+                {gdprText && gdprText}
+              </Link>
             </div>
           </div>
         </div>

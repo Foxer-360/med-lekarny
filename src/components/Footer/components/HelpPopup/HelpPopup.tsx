@@ -26,24 +26,24 @@ export default class HelpPopup extends React.Component<HelpPopupProps, HelpPopup
       <div className={`helpPopup ${this.state.active ? 'helpPopup--active' : ''} `}>
         <div
           className={'helpPopup__main'}
-          style={{ backgroundImage: 'url(/assets/medicon/images/phone2.png)' }}
+          style={{ backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' }}
           onClick={() => this.toggleList()}
         >
           <h4>Potrebujete poraditz</h4>
         </div>
 
         <ul className={'helpPopup__list'}>
-          <li style={{ backgroundImage: 'url(/assets/medicon/images/phone2.png)' }}>
+          <li style={{ backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' }}>
             <p>Polikinika Budejovicka</p>
             <a href="tel:+420261006111">+420 261 006 111</a>
           </li>
 
-          <li style={{ backgroundImage: 'url(/assets/medicon/images/phone2.png)' }}>
+          <li style={{ backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' }}>
             <p>Polikinika Budejovicka</p>
             <a href="tel:+420261006111">+420 261 006 111</a>
           </li>
 
-          <li style={{ backgroundImage: 'url(/assets/medicon/images/phone2.png)' }}>
+          <li style={{ backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' }}>
             <p>Polikinika Budejovicka</p>
             <a href="tel:+420261006111">+420 261 006 111</a>
           </li>

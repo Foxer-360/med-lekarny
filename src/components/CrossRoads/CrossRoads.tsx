@@ -24,7 +24,7 @@ const CrossRoads = (props: CrossRoadsProps) => {
               <a className={'crossRoads__card'} href="" key={index}>
                 <div className={'crossRoads__card__img'}>
                   {(item.image && <Media type="image" data={item.image} />) || (
-                    <img src="./assets/medicon/images/hospitalIcon.svg" />
+                    <img src="./assets/mediconLekarny/images/hospitalIcon.svg" />
                   )}
                 </div>
                 {item.text && <p>{item.text}</p>}

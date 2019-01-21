@@ -17,7 +17,7 @@ const Highlight = (props: HighlightProps) => {
         <div className="container">
           <div className="flexRow flexAlign--center">
             <div className={'highlight__info flexRow'}>
-              <img src="/assets/medicon/images/info.png" alt="info" />
+              <img src="/assets/mediconLekarny/images/info.png" alt="info" />
               {text && <p>{text}</p>}
             </div>
             

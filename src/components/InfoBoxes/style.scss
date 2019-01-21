@@ -1,12 +1,33 @@
 .info-boxes {
   padding-bottom: 36px;
 
-  h3 { @include webkitGradientText; }
   h5 {
-    color: white;
+    color: $darkGray;
     text-align: left;
     line-height: 1.35;
     padding: 0 0 25px 0;
+    position: relative;
+    font-weight: 600;
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: 3px;
+      width: 75px;
+      top: -30px;
+      background: #3cac4b; /* Old browsers */
+      background: -moz-linear-gradient(left, #3cac4b 0%, #7db9e8 100%, #01aace 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, #3cac4b 0%,#7db9e8 100%,#01aace 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, #3cac4b 0%,#7db9e8 100%,#01aace 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3cac4b', endColorstr='#01aace',GradientType=1 ); /* IE6-9 */
+    }
+  }
+
+  &__divider {
+    width: 100%;
+    height: 2px;
+    margin-bottom: 60px;
+    background-color: #7fd4e7;
   }
 
   &__list {

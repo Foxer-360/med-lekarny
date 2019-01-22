@@ -32,6 +32,7 @@ import * as contactform from './contactform.json';
 import * as downloads from './downloads.json';
 import * as contactsblock from './contactsblock.json';
 import * as faq from './faq.json';
+import * as pharmacies from './pharmacies.json';
 
 export {
   def as default,
@@ -68,4 +69,5 @@ export {
   downloads,
   contactsblock,
   faq,
+  pharmacies,
 };

@@ -15,18 +15,19 @@ var PolyclinicsList = function (props) {
                             React.createElement(PcTitle, { name: clinic.name }),
                             React.createElement("div", { className: "pcitem__info__details" },
                                 React.createElement("div", { className: "pcitem__info__details__item" },
-                                    React.createElement("img", { src: "../../../assets/medicon/images/geoIcon.svg", alt: "Medicon GeoLocation Icon" }),
+                                    React.createElement("img", { src: "../../../assets/mediconLekarny/images/geoIcon.svg", alt: "Medicon GeoLocation Icon" }),
                                     React.createElement("p", null,
                                         clinic.address,
                                         " ",
                                         React.createElement("br", null),
                                         clinic.district)),
                                 React.createElement("div", { className: "pcitem__info__details__item" },
-                                    React.createElement("img", { src: "../../../assets/medicon/images/phoneIcon.svg", alt: "Medicon Phone Icon" }),
+                                    React.createElement("img", { src: "../../../assets/mediconLekarny/images/phoneIcon.svg", alt: "Medicon Phone Icon" }),
                                     React.createElement("p", null, clinic.phone)),
                                 React.createElement("div", { className: "pcitem__info__details__item" },
                                     clinic.transportImage && React.createElement(Media, { data: clinic.transportImage, type: "image" }),
-                                    !clinic.transportImage && React.createElement("img", { src: "../../../assets/medicon/images/metro2.png", alt: "" }),
+                                    !clinic.transportImage &&
+                                        React.createElement("img", { src: "../../../assets/mediconLekarny/images/metro2.png", alt: "" }),
                                     React.createElement("p", null,
                                         clinic.transport,
                                         React.createElement("br", null),
@@ -44,7 +45,7 @@ var PolyclinicsList = function (props) {
                                             paragraph: function (rProps) { return React.createElement("p", null, rProps.children); },
                                         } })),
                                 React.createElement("div", { className: 'pcitem__info__btnHolder' },
-                                    React.createElement(Button, { classes: "btn btn--blueBorder" }, "vice info"))))))))); })));
+                                    React.createElement(Button, { classes: "btn btn--greenBorder" }, "vice info"))))))))); })));
 };
 export default PolyclinicsList;
 //# sourceMappingURL=PolyclinicsList.js.map

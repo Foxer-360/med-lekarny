@@ -14,52 +14,29 @@ var __extends = (this && this.__extends) || (function () {
 import * as React from 'react';
 import Social from './components/Social';
 import HelpPopup from './components/HelpPopup';
+import Link from '@source/partials/Link';
 var Footer = /** @class */ (function (_super) {
     __extends(Footer, _super);
-    function Footer() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function Footer(props) {
+        return _super.call(this, props) || this;
     }
     Footer.prototype.render = function () {
-        return (React.createElement("footer", { className: 'footer' },
+        var _a = this.props.data, links = _a.links, icons = _a.icons, copyrights = _a.copyrights, gdprText = _a.gdprText, gdprUrl = _a.gdprUrl;
+        return (React.createElement("footer", null,
             React.createElement(HelpPopup, null),
-            React.createElement("div", { className: "container" },
-                React.createElement("div", { className: "flexRow flexAlign--space-between" },
-                    React.createElement("ul", { className: 'footer__list' },
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "O spole\u010Dnosti")),
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "Skupina PRONATAL")),
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "INCARE")),
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "Aktuality")),
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "Kontakty"))),
-                    React.createElement("ul", { className: 'footer__list' },
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "Polikliniky")),
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "Mammacentra")),
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "Onkocentrum")),
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "N\u00E1sledn\u00E1 p\u00E9\u010De ")),
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "L\u00E9k\u00E1rny"))),
-                    React.createElement("ul", { className: 'footer__list' },
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "Nej\u010Dast\u011Bj\u0161\u00ED dotazy")),
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "Nab\u00EDdka zam\u011Bstn\u00E1n\u00ED")),
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#" }, "Ochrana osobn\u00EDch \u00FAdaj\u016F"))),
-                    React.createElement(Social, null))),
+            React.createElement("div", { className: 'footer' },
+                React.createElement("div", { className: 'container' },
+                    React.createElement("div", null,
+                        React.createElement("ul", { className: 'footer__list' }, links && links.map(function (link, i) { return (React.createElement("li", null,
+                            React.createElement(Link, { key: i, url: link.url && link.url }, link.title && link.title))); })),
+                        React.createElement(Social, { icons: icons }))),
+                React.createElement("div", { className: 'footer__left' }),
+                React.createElement("div", { className: 'footer__right' })),
             React.createElement("div", { className: "bottom" },
                 React.createElement("div", { className: "container" },
-                    React.createElement("div", { className: "copyrights grid" },
-                        React.createElement("p", null, "\u00A9 2018 - MEDICON a.s."),
-                        React.createElement("a", { href: "#" },
-                            React.createElement("p", null, "Prohl\u00E1\u0161en\u00ED o ochran\u011B osobn\u00EDch \u00FAdaj\u016F")))))));
+                    React.createElement("div", { className: "bottom__copyrights grid" },
+                        React.createElement("p", null, copyrights && copyrights),
+                        React.createElement(Link, { url: gdprUrl && gdprUrl }, gdprText && gdprText))))));
     };
     return Footer;
 }(React.Component));

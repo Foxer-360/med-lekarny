@@ -29,16 +29,16 @@ var HelpPopup = /** @class */ (function (_super) {
     HelpPopup.prototype.render = function () {
         var _this = this;
         return (React.createElement("div", { className: "helpPopup " + (this.state.active ? 'helpPopup--active' : '') + " " },
-            React.createElement("div", { className: 'helpPopup__main', style: { backgroundImage: 'url(/assets/medicon/images/phone2.png)' }, onClick: function () { return _this.toggleList(); } },
+            React.createElement("div", { className: 'helpPopup__main', style: { backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' }, onClick: function () { return _this.toggleList(); } },
                 React.createElement("h4", null, "Potrebujete poraditz")),
             React.createElement("ul", { className: 'helpPopup__list' },
-                React.createElement("li", { style: { backgroundImage: 'url(/assets/medicon/images/phone2.png)' } },
+                React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' } },
                     React.createElement("p", null, "Polikinika Budejovicka"),
                     React.createElement("a", { href: "tel:+420261006111" }, "+420 261 006 111")),
-                React.createElement("li", { style: { backgroundImage: 'url(/assets/medicon/images/phone2.png)' } },
+                React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' } },
                     React.createElement("p", null, "Polikinika Budejovicka"),
                     React.createElement("a", { href: "tel:+420261006111" }, "+420 261 006 111")),
-                React.createElement("li", { style: { backgroundImage: 'url(/assets/medicon/images/phone2.png)' } },
+                React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' } },
                     React.createElement("p", null, "Polikinika Budejovicka"),
                     React.createElement("a", { href: "tel:+420261006111" }, "+420 261 006 111")))));
     };

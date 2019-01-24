@@ -21,33 +21,38 @@ var data = {
         {
             title: 'Těhotenství',
             text: 'Epilepsie při vhodné léčbě těhotenství nebrání',
-            img: '/assets/medicon/images/blog.png',
+            img: '/assets/mediconLekarny/images/blog.png',
             color: '#386fa2',
         },
         {
             title: 'Hledáme',
             text: 'Pro věrné zákazníky našich lékáren máme věrnostní program',
-            img: '/assets/medicon/images/blog.png',
+            img: '/assets/mediconLekarny/images/blog.png',
             color: '#d09d56',
             special: true,
         },
         {
             title: 'Věrnostní karta',
             text: 'Pro věrné zákazníky našich lékáren máme věrnostní program',
-            img: '/assets/medicon/images/blog.png',
+            img: '/assets/mediconLekarny/images/blog.png',
             color: '#d09d56',
         },
         {
             title: 'MAMMACENTRA',
             text: 'V našich čtyřech MAMMACENTRECH zdravotnický personál každý rok vyšetří na 50 000 žen.',
-            img: '/assets/medicon/images/blog.png',
+            img: '/assets/mediconLekarny/images/blog.png',
             color: '#4c959f',
         },
-        { title: 'Home care', text: 'Pomáháme při domácí pěči', img: '/assets/medicon/images/blog.png', color: '#d3969f' },
+        {
+            title: 'Home care',
+            text: 'Pomáháme při domácí pěči',
+            img: '/assets/mediconLekarny/images/blog.png',
+            color: '#d3969f'
+        },
         {
             title: 'in care',
             text: 'Nadstandartní zdravotní péče pro firmy i jednotlivce',
-            img: '/assets/medicon/images/blog.png',
+            img: '/assets/mediconLekarny/images/blog.png',
             color: '#386fa2',
         },
     ],
@@ -69,7 +74,7 @@ var Blog = /** @class */ (function (_super) {
                 React.createElement("div", { className: 'blog__blur' },
                     React.createElement("div", null)),
                 React.createElement("div", { className: "blog__btnHolder" },
-                    React.createElement(Button, { classes: "btn--blueBkg btn--fullWidth" }, "Na\u010D\u00EDst dal\u0161\u00ED")))));
+                    React.createElement(Button, { classes: "btn--greenBkg btn--fullWidth" }, "Na\u010D\u00EDst dal\u0161\u00ED")))));
     };
     return Blog;
 }(React.Component));

@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import * as React from 'react';
 import { isObjectLike } from 'lodash';
 import WebFont from 'webfontloader';
-import { Dummy, AlertNotFound, Hero, Header, CrossRoads, Benefits, Highlight, Footer, Reviews, TextBlock, Map, InfoBoxes, DoctorList, PolyclinicsList, ExpertiseList, InfoRectangles, PolyclinicInfo, Blog, PolyclinicBoxes, DoctorCard, Odbornost, MyProblem, JobPositions, JobOffers, CareerForm, ExpertiseDescription, MedicalGroup, Timeline, ViewsAboutUs, ContactInfo, ContactForm, Downloads, ContactsBlock, Faq, } from '../../components';
+import { Dummy, AlertNotFound, Hero, Header, CrossRoads, Benefits, Highlight, Footer, Reviews, TextBlock, Map, InfoBoxes, DoctorList, PolyclinicsList, ExpertiseList, InfoRectangles, PolyclinicInfo, Blog, PolyclinicBoxes, DoctorCard, Odbornost, MyProblem, JobPositions, JobOffers, CareerForm, ExpertiseDescription, MedicalGroup, Timeline, ViewsAboutUs, ContactInfo, ContactForm, Downloads, ContactsBlock, Faq, Pharmacies, MenuBlocks, PromotionPreviews, } from '../../components';
 import * as resources from './resources';
 // WEB FONTS
 WebFont.load({
@@ -59,6 +59,9 @@ var ComponentsService = /** @class */ (function () {
             DOWNLOADS: 'Downloads',
             CONTACTSBLOCK: 'ContactsBlock',
             FAQ: 'Faq',
+            PHARMACIES: 'Pharmacies',
+            MENUBLOCKS: 'MenuBlocks',
+            PROMOTIONPREVIEWS: 'PromotionPreviews',
         };
     }
     /***/
@@ -138,6 +141,12 @@ var ComponentsService = /** @class */ (function () {
                 return ContactsBlock;
             case this.Types.FAQ:
                 return Faq;
+            case this.Types.PHARMACIES:
+                return Pharmacies;
+            case this.Types.MENUBLOCKS:
+                return MenuBlocks;
+            case this.Types.PROMOTIONPREVIEWS:
+                return PromotionPreviews;
             default:
                 return function () { return React.createElement(AlertNotFound, { type: "component" }); };
         }

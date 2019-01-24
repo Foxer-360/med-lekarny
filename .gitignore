@@ -1,4 +1,5 @@
-# Ignore NodeJS modules
 node_modules/
-.prettierrc
 .vscode/
+build/
+lib/
+.prettierrc

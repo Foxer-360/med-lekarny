@@ -7,7 +7,7 @@ var Highlight = function (props) {
             React.createElement("div", { className: "container" },
                 React.createElement("div", { className: "flexRow flexAlign--center" },
                     React.createElement("div", { className: 'highlight__info flexRow' },
-                        React.createElement("img", { src: "/assets/medicon/images/info.png", alt: "info" }),
+                        React.createElement("img", { src: "/assets/mediconLekarny/images/info.png", alt: "info" }),
                         text && React.createElement("p", null, text)),
                     React.createElement(Button, { classes: "btn--whiteBorder btn--fullWidth" }, "vice info"))))));
 };

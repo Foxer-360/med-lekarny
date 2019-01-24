@@ -32,5 +32,8 @@ import * as contactform from './contactform.json';
 import * as downloads from './downloads.json';
 import * as contactsblock from './contactsblock.json';
 import * as faq from './faq.json';
-export { def as default, benefits, crossroads, doctorlist, dummy, footer, header, hero, highlight, infoboxes, map, polyclinicslist, reviews, textblock, expertiselist, inforectangles, polyclinicinfo, blog, polyclinicboxes, doctorcard, odbornost, myproblem, jobpositions, joboffers, careerform, expertisedescription, medicalgroup, viewsaboutus, contactinfo, timeline, contactform, downloads, contactsblock, faq, };
+import * as pharmacies from './pharmacies.json';
+import * as menublocks from './menublocks.json';
+import * as promotionpreviews from './promotionpreviews.json';
+export { def as default, benefits, crossroads, doctorlist, dummy, footer, header, hero, highlight, infoboxes, map, polyclinicslist, reviews, textblock, expertiselist, inforectangles, polyclinicinfo, blog, polyclinicboxes, doctorcard, odbornost, myproblem, jobpositions, joboffers, careerform, expertisedescription, medicalgroup, viewsaboutus, contactinfo, timeline, contactform, downloads, contactsblock, faq, pharmacies, menublocks, promotionpreviews, };
 //# sourceMappingURL=index.js.map

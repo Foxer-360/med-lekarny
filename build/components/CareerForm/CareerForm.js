@@ -102,7 +102,7 @@ var CareerForm = /** @class */ (function (_super) {
                                 React.createElement("a", { href: gdprLink }, "zpracov\u00E1n\u00EDm osobn\u00EDch"),
                                 " \u00FAdaj\u016F.")),
                         React.createElement("div", { className: 'flexRow flexAlign--center' },
-                            React.createElement(Button, { classes: "btn--blueBkg btn--fullWidth" }, "Odeslat")))))));
+                            React.createElement(Button, { classes: "btn--greenBkg btn--fullWidth" }, "Odeslat")))))));
     };
     return CareerForm;
 }(React.Component));

@@ -32,6 +32,7 @@ import ContactForm from './ContactForm';
 import Downloads from './Downloads';
 import ContactsBlock from './ContactsBlock';
 import Faq from './Faq';
+import Pharmacies from './Pharmacies';
 
 export {
   AlertNotFound,
@@ -68,4 +69,5 @@ export {
   Downloads,
   ContactsBlock,
   Faq,
+  Pharmacies,
 };

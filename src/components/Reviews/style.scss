@@ -2,7 +2,10 @@
   margin-bottom: 40px;
   color: $darkGray;
 
-  h3 { @include webkitGradientText; }
+  h3 { 
+    @include webkitGradientText;
+    padding-top: 45px;
+  }
 
   &__divider {
     width: 100%;
@@ -24,9 +27,15 @@
       display: grid;
       grid-template-columns: 130px 1fr;
 
+      img {
+        width: initial;
+        max-width: auto;
+        height: 130px;
+      }
+
       &__content {
         display: grid;
-        padding: 15px 5px 0 15px;
+        padding: 15px 15px 0 0;
 
         cite {
           line-height: initial;

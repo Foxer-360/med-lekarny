@@ -58,6 +58,11 @@
       height: 100%;
       position: relative;
 
+      img {
+        width: initial;
+        max-width: 100%;
+      }
+
       @include xl {
         &:not(:last-of-type) {
           &:after {

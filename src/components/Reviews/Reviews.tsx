@@ -19,9 +19,9 @@ const Reviews = (props: ReviewsProps) => {
 
   return (
     <section className="reviews">
-      <div className={'reviews__divider'} />
-      {title && <h3>{title}</h3>}
       <div className="container">
+        <div className={'reviews__divider'} />
+        {title && <h3>{title}</h3>}
         <div className="grid reviews__list">
           {reviews && reviews.map((review, index) => (
             <ReviewElement key={index} image={review.image} cite={review.cite} starCount={review.starCount} />

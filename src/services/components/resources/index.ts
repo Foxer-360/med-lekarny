@@ -33,6 +33,7 @@ import * as downloads from './downloads.json';
 import * as contactsblock from './contactsblock.json';
 import * as faq from './faq.json';
 import * as pharmacies from './pharmacies.json';
+import * as menublocks from './menublocks.json';
 
 export {
   def as default,
@@ -70,4 +71,5 @@ export {
   contactsblock,
   faq,
   pharmacies,
+  menublocks,
 };

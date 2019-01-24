@@ -37,6 +37,7 @@ import {
   ContactsBlock,
   Faq,
   Pharmacies,
+  MenuBlocks,
 } from '../../components';
 import * as resources from './resources';
 
@@ -86,6 +87,7 @@ class ComponentsService {
     CONTACTSBLOCK: 'ContactsBlock',
     FAQ: 'Faq',
     PHARMACIES: 'Pharmacies',
+    MENUBLOCKS: 'MenuBlocks',
   };
 
   /***/
@@ -168,6 +170,8 @@ class ComponentsService {
         return Faq;
       case this.Types.PHARMACIES:
         return Pharmacies;
+      case this.Types.MENUBLOCKS:
+        return MenuBlocks;
 
       default:
         return () => <AlertNotFound type="component" />;

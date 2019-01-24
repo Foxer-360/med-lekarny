@@ -1,81 +1,47 @@
 import * as React from 'react';
 import Link from '@source/partials/Link';
+import Media from '@source/partials/Media';
+import getImageUrl from '@source/helpers/getImageUrl';
+
+interface MenuBlock {
+  title: string;
+  color: string;
+  image: LooseObject;
+  icon: LooseObject;
+  url: LooseObject;
+}
 
 export interface MenuBlocksProps {
-  languageCode?: string;
+  data: {
+    menuBlocks: MenuBlock[];
+  };
 }
 
 const MenuBlocks = (props: MenuBlocksProps) => {
+  const { menuBlocks } = props.data;
 
   return (
     <div className="container">
       <div className={'menu-blocks grid'}>
-        <a 
-          style={{ backgroundImage: `url(/assets/mediconLekarny/images/menu-blocks/akcebg.jpg)` }} 
-          className={'menu-blocks__item'}
-        >
-          <img src={'/assets/mediconLekarny/images/menu-blocks/akce.svg'} alt="Akce a slevy"/>
-          <p>Akce a slevy</p>
-          <div
-            className={'menu-blocks__item__colorGradient'}
-            style={{ background: `linear-gradient(40deg, rgba(0, 173, 204, 0.7) 0%, transparent 100%)` }}
-          />
-        </a>
-        <a 
-          style={{ backgroundImage: `url(/assets/mediconLekarny/images/menu-blocks/klubbg.jpg)` }} 
-          className={'menu-blocks__item'}
-        >
-          <img src={'/assets/mediconLekarny/images/menu-blocks/klub.svg'} alt="Klub výhod"/>
-          <p>Klub výhod</p>
-          <div
-            className={'menu-blocks__item__colorGradient'}
-            style={{ background: `linear-gradient(40deg, rgba(0, 173, 204, 0.7) 0%, transparent 100%)` }}
-          />
-        </a>
-        <a 
-          style={{ backgroundImage: `url(/assets/mediconLekarny/images/menu-blocks/lekarnabg.jpg)` }} 
-          className={'menu-blocks__item'}
-        >
-          <img src={'/assets/mediconLekarny/images/menu-blocks/lekarna.svg'} alt="Lékárna"/>
-          <p>Lékárna</p>
-          <div
-            className={'menu-blocks__item__colorGradient'}
-            style={{ background: `linear-gradient(40deg, rgba(0, 173, 204, 0.7) 0%, transparent 100%)` }}
-          />
-        </a>
-        <a 
-          style={{ backgroundImage: `url(/assets/mediconLekarny/images/menu-blocks/dermocentrumbg.jpg)` }} 
-          className={'menu-blocks__item'}
-        >
-          <img src={'/assets/mediconLekarny/images/menu-blocks/dermocentrum.svg'} alt="Dermocentrum"/>
-          <p>Dermocentrum</p>
-          <div
-            className={'menu-blocks__item__colorGradient'}
-            style={{ background: `linear-gradient(40deg, rgba(239, 64, 76, 0.6) 0%, transparent 100%)` }}
-          />
-        </a>
-        <a 
-          style={{ backgroundImage: `url(/assets/mediconLekarny/images/menu-blocks/potrebybg.jpg)` }} 
-          className={'menu-blocks__item'}
-        >
-          <img src={'/assets/mediconLekarny/images/menu-blocks/potreby.svg'} alt="Zdravotní potřeby"/>
-          <p>Zdravotní potřeby</p>
-          <div
-            className={'menu-blocks__item__colorGradient'}
-            style={{ background: `linear-gradient(40deg, rgba(250, 167, 74, 0.9) 0%, transparent 100%)` }}
-          />
-        </a>
-        <a 
-          style={{ backgroundImage: `url(/assets/mediconLekarny/images/menu-blocks/prirodnibg.jpg)` }} 
-          className={'menu-blocks__item'}
-        >
-          <img src={'/assets/mediconLekarny/images/menu-blocks/prirodni.svg'} alt="Přírodní lékarna"/>
-          <p>Přírodní lékarna</p>
-          <div
-            className={'menu-blocks__item__colorGradient'}
-            style={{ background: `linear-gradient(40deg, rgba(62, 172, 73, 0.8) 0%, transparent 100%)` }}
-          />
-        </a>
+        {menuBlocks && menuBlocks.map((block, i) => {
+          return (
+            <Link 
+              key={i}
+              url={block.url && block.url}
+              className={'menu-blocks__item'}
+              style={{ backgroundImage: block.image && `url(${getImageUrl(block.image)})` }}
+            >
+              {block.icon && <Media type={'image'} data={block.icon} />}
+              <p>{block.title && block.title}</p>
+              <div
+                className={'menu-blocks__item__colorGradient'}
+                style={{ 
+                  background: `linear-gradient(40deg, ${block.color && block.color || '#3eac49'} 0%, transparent 100%)` 
+                }}
+              />
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

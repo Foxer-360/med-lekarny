@@ -1,14 +1,10 @@
 import * as React from 'react';
 import SvgIcon from '@source/partials/SvgIcon';
-var Social = function (props) { return (React.createElement("div", { className: "social flexColumn" },
-    React.createElement("a", { href: "#" },
-        React.createElement(SvgIcon, { type: 'white', name: "fb" })),
-    React.createElement("p", null,
-        React.createElement("strong", null, "MEDICON a.s."),
-        React.createElement("br", null),
-        "Antala Sta\u0161ka 1670/80 ",
-        React.createElement("br", null),
-        "140 00 Praha 4 ",
-        React.createElement("br", null)))); };
+import Link from '@source/partials/Link';
+var Social = function (props) {
+    var icons = props.icons;
+    return (React.createElement("div", { className: 'social' }, icons && icons.map(function (icon, i) { return (React.createElement(Link, { key: i, url: icon.url && icon.url },
+        React.createElement(SvgIcon, { type: 'white', name: icon.title && icon.title }))); })));
+};
 export default Social;
 //# sourceMappingURL=Social.js.map

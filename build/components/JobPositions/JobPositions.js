@@ -18,7 +18,7 @@ var JobPositions = function (props) {
                 React.createElement("p", null, position.name),
                 React.createElement(Button, { classes: 'btn--whiteBorder btn--fullWidth' }, "Vice info")),
             React.createElement("div", { className: 'positions__colorGradient', style: { background: "linear-gradient(to bottom, transparent 0%, #2473ba 100%)" } }))); })),
-        React.createElement(Button, { classes: "hCenterBlock btn--blueBkg btn--down btn--fullWidth" }, "dal\u0161\u00ED pozice")));
+        React.createElement(Button, { classes: "hCenterBlock btn--greenBkg btn--down btn--fullWidth" }, "dal\u0161\u00ED pozice")));
 };
 export default JobPositions;
 //# sourceMappingURL=JobPositions.js.map

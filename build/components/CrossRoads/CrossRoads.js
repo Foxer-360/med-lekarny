@@ -6,7 +6,7 @@ var CrossRoads = function (props) {
         React.createElement("div", { className: 'container' },
             React.createElement("div", { className: 'crossRoads__wrapper' }, items &&
                 items.map(function (item, index) { return (React.createElement("a", { className: 'crossRoads__card', href: "", key: index },
-                    React.createElement("div", { className: 'crossRoads__card__img' }, (item.image && React.createElement(Media, { type: "image", data: item.image })) || (React.createElement("img", { src: "./assets/medicon/images/hospitalIcon.svg" }))),
+                    React.createElement("div", { className: 'crossRoads__card__img' }, (item.image && React.createElement(Media, { type: "image", data: item.image })) || (React.createElement("img", { src: "./assets/mediconLekarny/images/hospitalIcon.svg" }))),
                     item.text && React.createElement("p", null, item.text))); })))));
 };
 export default CrossRoads;

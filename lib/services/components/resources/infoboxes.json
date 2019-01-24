@@ -4,25 +4,19 @@
     "title": "Z našich lékáren",
     "boxes": [
       {
-        "title": "široký výběr zdravýchpotravin",
-        "gradientColor": "#5a2a20",
-        "button": "btn--whiteBorder",
-        "titleColor": "#ffffff",
-        "image": {}
+        "title": "U nás si můžete změřit tlak",
+        "image": {},
+        "url": ""
       },
       {
-        "title": "široký výběr zdravýchpotravin",
-        "gradientColor": "#ffffff",
-        "button": "btn--blueBorder",
-        "titleColor": "#2eac6c",
-        "image": {}
+        "title": "Týden zaměřený pro vaše mazlíčky",
+        "image": {},
+        "url": ""
       },
       {
-        "title": "široký výběr zdravýchpotravin",
-        "gradientColor": "#ffffff",
-        "button": "btn--whiteBorder",
-        "titleColor": "#ffffff",
-        "image": {}
+        "title": "Nebojte se s námi poradit",
+        "image": {},
+        "url": ""
       }
     ]
   },
@@ -30,10 +24,6 @@
     "schema": {
       "type": "object",
       "properties": {
-        "title": {
-          "type": "text",
-          "title": "Title"
-        },
         "boxes": {
           "type": "array",
           "title": "Boxes",
@@ -43,35 +33,12 @@
                 "type": "text",
                 "title": "Text"
               },
-              "gradientColor": {
-                "type": "enum",
-                "title": "Background gradient color",
-                "options": {
-                  "#ffffff": "white",
-                  "#2473ba": "blue",
-                  "#5a2a20": "brown"
-                }
-              },
-              "button": {
-                "type": "enum",
-                "title": "type of button",
-                "options": {
-                  "btn--whiteBorder": "whiteBorder",
-                  "btn--blueBorder": "blueBorder",
-                  "btn--blueBkg": "blueBackground"
-                }
-              },
-              "titleColor": {
-                "type": "enum",
-                "title": "Color of title",
-                "options": {
-                  "#ffffff": "white",
-                  "#2473ba": "blue",
-                  "#2eac6c": "green"
-                }
-              },
               "image": {
                 "type": "image"
+              },
+              "url": {
+                "type": "urlAutocomplete",
+                "title": "URL"
               }
             }
           }

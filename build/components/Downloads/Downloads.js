@@ -10,7 +10,7 @@ var Downloads = function (props) {
             React.createElement("div", { className: "grid downloads__list" }, downloads && downloads.map(function (item, i) { return (React.createElement("div", { className: 'downloads__list__element', key: i },
                 item.title && React.createElement("p", null, item.title),
                 item.url &&
-                    React.createElement("a", { href: item.url, className: 'btn btn--blueBorder' },
+                    React.createElement("a", { href: item.url, className: 'btn btn--greenBorder' },
                         "St\u00E1hnout",
                         React.createElement(SvgIcon, { name: 'download', type: 'lightBlue' })))); }))),
         React.createElement(DividerCircles, null)));

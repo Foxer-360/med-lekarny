@@ -9,10 +9,10 @@ var ExpertiseList = function (props) {
             React.createElement("div", { className: "expertiseList__element" },
                 (item.image &&
                     React.createElement(Media, { type: 'image', data: item.image })) ||
-                    React.createElement("img", { src: '/assets/medicon/images/od-el-1.png', alt: "image" }),
+                    React.createElement("img", { src: '/assets/mediconLekarny/images/od-el-1.png', alt: "image" }),
                 React.createElement("p", null, item.title)))); })),
         React.createElement("div", { className: 'container' },
-            React.createElement(Button, { classes: "btn--blueBkg btn--fullWidth" }, "vice info"))));
+            React.createElement(Button, { classes: "btn--greenBkg btn--fullWidth" }, "vice info"))));
 };
 export default ExpertiseList;
 //# sourceMappingURL=ExpertiseList.js.map

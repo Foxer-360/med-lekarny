@@ -34,6 +34,7 @@ import ContactsBlock from './ContactsBlock';
 import Faq from './Faq';
 import Pharmacies from './Pharmacies';
 import MenuBlocks from './MenuBlocks';
+import PromotionPreviews from './PromotionPreviews';
 
 export {
   AlertNotFound,
@@ -72,4 +73,5 @@ export {
   Faq,
   Pharmacies,
   MenuBlocks,
+  PromotionPreviews,
 };

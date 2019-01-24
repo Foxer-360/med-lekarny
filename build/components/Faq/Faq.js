@@ -33,7 +33,7 @@ var Faq = function (props) {
                     React.createElement("h3", null, item.title),
                     React.createElement("p", null, item.description)));
             }),
-            React.createElement(Button, { classes: 'hCenterBlock btn--blueBkg btn--down btn--fullWidth' }, "v\u00EDce info"))));
+            React.createElement(Button, { classes: 'hCenterBlock btn--greenBkg btn--down btn--fullWidth' }, "v\u00EDce info"))));
 };
 export default Faq;
 //# sourceMappingURL=Faq.js.map

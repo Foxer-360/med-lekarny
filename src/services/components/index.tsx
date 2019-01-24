@@ -38,6 +38,7 @@ import {
   Faq,
   Pharmacies,
   MenuBlocks,
+  PromotionPreviews,
 } from '../../components';
 import * as resources from './resources';
 
@@ -88,6 +89,7 @@ class ComponentsService {
     FAQ: 'Faq',
     PHARMACIES: 'Pharmacies',
     MENUBLOCKS: 'MenuBlocks',
+    PROMOTIONPREVIEWS: 'PromotionPreviews',
   };
 
   /***/
@@ -172,6 +174,8 @@ class ComponentsService {
         return Pharmacies;
       case this.Types.MENUBLOCKS:
         return MenuBlocks;
+      case this.Types.PROMOTIONPREVIEWS:
+        return PromotionPreviews;
 
       default:
         return () => <AlertNotFound type="component" />;

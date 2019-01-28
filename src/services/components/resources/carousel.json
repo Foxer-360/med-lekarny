@@ -1,0 +1,49 @@
+{
+  "name": "Carousel",
+  "data": {
+    "slides": [
+      {
+        "image": {},
+        "title": "Sleva na vitamíny"
+      },
+      {
+        "image": {},
+        "title": "Pro kojence"
+      },
+      {
+        "image": {},
+        "title": "Péče o tělo"
+      },
+      {
+        "image": {},
+        "title": "Nadpis akce 1"
+      },
+      {
+        "image": {},
+        "title": "Nadpis akce 2"
+      }
+    ]
+  },
+  "form": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "slides": {
+          "type": "array",
+          "title": "Slides",
+          "items": {
+            "properties": {
+              "image": {
+                "type": "image"
+              },
+              "title": {
+                "type": "text",
+                "title": "Title"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+.carousel {
+  max-height: 600px;
+  padding-top: 5%;
+
+  li {
+    padding: 0 !important;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  img {
+    width: initial;
+    max-width: initial;
+  }
+
+  .alice-carousel__dots {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+
+    .__active {
+      background-color: $green;
+    }
+  }
+  &__images {
+    height: 100%;
+    float: left;
+    width: 80%;
+  }
+
+  &__titles {
+    float: left;
+    width: 20%;
+    font-size: 18px;
+    height: 100%;
+    text-transform: uppercase;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+    
+    &__title {
+      &--active {
+        color: $green; 
+        font-weight: 700;
+        background-color: white;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        border-bottom: none !important;
+      }
+    }
+
+    ul {
+      min-height: 100%;
+      display: grid;
+      background-color: #f4f5f6;
+      grid-template-rows: repeat( auto-fit, minmax(120px, 1fr));
+
+      li {
+        line-height: 120px;
+        text-align: center;
+        cursor: pointer;
+        
+        &:not(:last-of-type) {
+          border-bottom: 2px solid #dddedf;
+        }
+      }
+    }
+  }
+}

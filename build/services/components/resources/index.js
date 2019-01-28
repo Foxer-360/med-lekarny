@@ -35,5 +35,6 @@ import * as faq from './faq.json';
 import * as pharmacies from './pharmacies.json';
 import * as menublocks from './menublocks.json';
 import * as promotionpreviews from './promotionpreviews.json';
-export { def as default, benefits, crossroads, doctorlist, dummy, footer, header, hero, highlight, infoboxes, map, polyclinicslist, reviews, textblock, expertiselist, inforectangles, polyclinicinfo, blog, polyclinicboxes, doctorcard, odbornost, myproblem, jobpositions, joboffers, careerform, expertisedescription, medicalgroup, viewsaboutus, contactinfo, timeline, contactform, downloads, contactsblock, faq, pharmacies, menublocks, promotionpreviews, };
+import * as carousel from './carousel.json';
+export { def as default, benefits, crossroads, doctorlist, dummy, footer, header, hero, highlight, infoboxes, map, polyclinicslist, reviews, textblock, expertiselist, inforectangles, polyclinicinfo, blog, polyclinicboxes, doctorcard, odbornost, myproblem, jobpositions, joboffers, careerform, expertisedescription, medicalgroup, viewsaboutus, contactinfo, timeline, contactform, downloads, contactsblock, faq, pharmacies, menublocks, promotionpreviews, carousel, };
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,8 @@
 .promotions {
   height: 100%;
   margin-bottom: 60px;
+  background-color: white;
+  z-index: 5;
   box-shadow: 0 0 40px rgba(0, 64, 79, 0.12);
 
   li {

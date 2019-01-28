@@ -35,5 +35,6 @@ import Faq from './Faq';
 import Pharmacies from './Pharmacies';
 import MenuBlocks from './MenuBlocks';
 import PromotionPreviews from './PromotionPreviews';
-export { AlertNotFound, Benefits, CrossRoads, Dummy, Footer, Header, Hero, Highlight, InfoBoxes, Map, Reviews, TextBlock, DoctorList, PolyclinicsList, ExpertiseList, InfoRectangles, PolyclinicInfo, PolyclinicBoxes, DoctorCard, Blog, JobOffers, Odbornost, MyProblem, JobPositions, CareerForm, ExpertiseDescription, MedicalGroup, ViewsAboutUs, ContactInfo, Timeline, ContactForm, Downloads, ContactsBlock, Faq, Pharmacies, MenuBlocks, PromotionPreviews, };
+import Carousel from './Carousel';
+export { AlertNotFound, Benefits, CrossRoads, Dummy, Footer, Header, Hero, Highlight, InfoBoxes, Map, Reviews, TextBlock, DoctorList, PolyclinicsList, ExpertiseList, InfoRectangles, PolyclinicInfo, PolyclinicBoxes, DoctorCard, Blog, JobOffers, Odbornost, MyProblem, JobPositions, CareerForm, ExpertiseDescription, MedicalGroup, ViewsAboutUs, ContactInfo, Timeline, ContactForm, Downloads, ContactsBlock, Faq, Pharmacies, MenuBlocks, PromotionPreviews, Carousel, };
 //# sourceMappingURL=index.js.map

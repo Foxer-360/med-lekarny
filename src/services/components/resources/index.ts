@@ -35,6 +35,7 @@ import * as faq from './faq.json';
 import * as pharmacies from './pharmacies.json';
 import * as menublocks from './menublocks.json';
 import * as promotionpreviews from './promotionpreviews.json';
+import * as carousel from './carousel.json';
 
 export {
   def as default,
@@ -74,4 +75,5 @@ export {
   pharmacies,
   menublocks,
   promotionpreviews,
+  carousel,
 };

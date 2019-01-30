@@ -40,7 +40,6 @@ const PromotionPreviews = (props: PromotionPreviewsProps) => {
           mouseDragEnabled={true}
           autoPlayInterval={6000}
           stopAutoPlayOnHover={true}
-          stagePadding={{paddingLeft: 0, paddingRight: 0}}
         >
           {promotionPreviews && promotionPreviews.map((item, i) => {
             return (

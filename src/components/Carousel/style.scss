@@ -1,0 +1,84 @@
+.carousel {
+  display: grid;
+  background-color: #f4f5f6;
+  grid-template-rows: auto minmax(1fr, 490px);
+  grid-template-columns: 80% 20%;
+
+   &__divider {
+    grid-row: 1/2;
+    height: 110px;
+
+     @include max-md {
+      height: 54px;
+    }
+  }
+
+   ul {
+    @include reset-list;
+    li { padding: 0; }
+  }
+
+   img {
+    max-height: 490px;
+
+     @media (max-width: 720px) {
+      min-height: 160px;
+    }
+  }
+
+   .alice-carousel__dots {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+
+     .__active {
+      background-color: $green;
+    }
+  }
+
+   &__images {
+    grid-row: 2/3;
+  }
+
+   &__titles {
+    height: 100%;
+    grid-row: 2/3;
+    font-size: 1.8rem;
+    overflow-y: hidden;
+    text-transform: uppercase;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+
+     @media (max-width: 955px) {
+      font-size: 1.6rem;
+    }
+
+     @media (max-width: 900px) {
+      font-size: 1.4rem;
+    }
+
+     @media (max-width: 720px) {
+      font-size: 1.2rem;
+    }
+
+     &__list {
+      display: grid;
+      height: 100%;
+      grid-template-rows: repeat(5, 1fr);
+
+       &__item {
+        text-align: center;
+        cursor: pointer;
+        display: grid;
+        line-height: initial;
+        word-wrap: none;
+        align-items: center;
+
+         &:not(:last-of-type) {
+          border-bottom: 2px solid #dddedf;
+        }
+      }
+    }
+  }
+}

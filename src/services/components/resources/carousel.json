@@ -4,23 +4,28 @@
     "slides": [
       {
         "image": {},
-        "title": "Sleva na vitamíny"
+        "title": "Sleva na vitamíny",
+        "url": ""
       },
       {
         "image": {},
-        "title": "Pro kojence"
+        "title": "Pro kojence",
+        "url": ""
       },
       {
         "image": {},
-        "title": "Péče o tělo"
+        "title": "Péče o tělo",
+        "url": ""
       },
       {
         "image": {},
-        "title": "Nadpis akce 1"
+        "title": "Nadpis akce 1",
+        "url": ""
       },
       {
         "image": {},
-        "title": "Nadpis akce 2"
+        "title": "Nadpis akce 2",
+        "url": ""
       }
     ]
   },
@@ -30,7 +35,7 @@
       "properties": {
         "slides": {
           "type": "array",
-          "title": "Slides",
+          "title": "Slides - recommended 5 slides",
           "items": {
             "properties": {
               "image": {
@@ -39,6 +44,10 @@
               "title": {
                 "type": "text",
                 "title": "Title"
+              },
+              "url": {
+                "type": "urlAutocomplete",
+                "title": "URL"
               }
             }
           }

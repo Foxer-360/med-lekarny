@@ -1,18 +1,29 @@
 .carousel {
-  max-height: 600px;
-  padding-top: 5%;
+  display: grid;
+  background-color: #f4f5f6;
+  grid-template-rows: auto minmax(1fr, 490px);
+  grid-template-columns: 80% 20%;
 
-  li {
-    padding: 0 !important;
+  &__divider {
+    grid-row: 1/2;
+    height: 110px;
 
-    &::before {
-      display: none;
+    @include max-md {
+      height: 54px;
     }
   }
 
+  ul {
+    @include reset-list;
+    li { padding: 0; }
+  }
+
   img {
-    width: initial;
-    max-width: initial;
+    max-height: 490px;
+
+    @media (max-width: 720px) {
+      min-height: 160px;
+    }
   }
 
   .alice-carousel__dots {
@@ -26,40 +37,43 @@
       background-color: $green;
     }
   }
+
   &__images {
-    height: 100%;
-    float: left;
-    width: 80%;
+    grid-row: 2/3;
   }
 
   &__titles {
-    float: left;
-    width: 20%;
-    font-size: 18px;
     height: 100%;
+    grid-row: 2/3;
+    font-size: 1.8rem;
+    overflow-y: hidden;
     text-transform: uppercase;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
-    
-    &__title {
-      &--active {
-        color: $green; 
-        font-weight: 700;
-        background-color: white;
-        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-        border-bottom: none !important;
-      }
+
+    @media (max-width: 955px) {
+      font-size: 1.6rem;
     }
 
-    ul {
-      min-height: 100%;
-      display: grid;
-      background-color: #f4f5f6;
-      grid-template-rows: repeat( auto-fit, minmax(120px, 1fr));
+    @media (max-width: 900px) {
+      font-size: 1.4rem;
+    }
 
-      li {
-        line-height: 120px;
+    @media (max-width: 720px) {
+      font-size: 1.2rem;
+    }
+
+    &__list {
+      display: grid;
+      height: 100%;
+      grid-template-rows: repeat(5, 1fr);
+      
+      &__item {
         text-align: center;
         cursor: pointer;
+        display: grid;
+        line-height: initial;
+        word-wrap: none;
+        align-items: center;
         
         &:not(:last-of-type) {
           border-bottom: 2px solid #dddedf;

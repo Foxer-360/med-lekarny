@@ -2,9 +2,11 @@ import * as React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import Media from '@source/partials/Media';
+import Link from '@source/partials/Link';
 
 interface Slide {
   image: LooseObject;
+  url: LooseObject;
   title: string;
 }
 
@@ -41,10 +43,16 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     const { slides } = this.props.data;
     let images = [];
     
+    // recommended image size 1500px x 490px
     if (slides) {
       slides.map((slide, i) => {
         if (slide.image) {
-          images.push(<Media key={i} type={'image'} data={slide.image} />);
+          images.push
+          (
+            <Link url={slide.url && slide.url}>
+              <Media key={i} type={'image'} data={slide.image} />
+            </Link>
+          );
         }
       });
     }
@@ -56,12 +64,14 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     console.log(this.state.currentIndex);
     return (
       <div className={'carousel'}>
+        <div className={'carousel__divider'} />
+        
         <div className={'carousel__images'}>
           <AliceCarousel 
             autoPlay={true}
             dotsDisabled={true}
             buttonsDisabled={true}
-            autoPlayInterval={2500}
+            autoPlayInterval={3500}
             items={this.state.galleryItems}
             onSlideChanged={(e) => {
               this.setState({ currentIndex: e.item }); 
@@ -71,21 +81,21 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
         </div>
 
         <div className={'carousel__titles'}>
-          <ul>
+          <ul className={'carousel__titles__list'}>
             {slides && slides.map((slide, i) => (
               <li 
                 key={i} 
                 onClick={() => this.slideTo(i)}
+                className={'carousel__titles__list__item'}
                 style={i === this.state.currentIndex ? { 
                   color: '#3eac49', 
                   fontWeight: 700,
                   backgroundColor: 'white',
                   boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
                   borderBottom: 'none !important'
-                 } : {}} 
-                // className={i === this.state.currentIndex ? 'carousel__titles__title--active' : ''}
+                 } : {}}
               >
-                {slide.title && slide.title}
+                <span>{slide.title && slide.title}</span>
               </li>
             ))}
           </ul>

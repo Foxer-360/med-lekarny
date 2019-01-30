@@ -6,13 +6,18 @@
   position: relative;
   cursor: pointer;
 
+  @include xl {
+    display: none;
+    margin: 0;
+  }
+
   .hamburger {
     width: 25px;
     height: 25px;
     z-index: 100;
 
     & > div {
-      background-color: $lightBlue;
+      background-color: #3c3c3b;
       height: 2px;
       width: 100%;
       display: block;
@@ -24,7 +29,7 @@
       &:after,
       &:before {
         @include pseudo();
-        background-color: $lightBlue;
+        background-color: #3c3c3b;
         height: 2px;
         width: 100%;
         display: block;
@@ -66,7 +71,7 @@
       &:after,
       &:before {
         @include pseudo();
-        background-color: $blue;
+        background-color: #3c3c3b;
         height: 2px;
         width: 0%;
         display: block;
@@ -120,7 +125,7 @@
 
     @include md {
       margin-left: 17px;
-      color: $lightBlue;
+      color: #3c3c3b;
       font-family: $mons;
       font-size: 1.4rem;
       font-weight: 600;

@@ -11,11 +11,9 @@ const Hamburger = (props: HamburgerProps) => {
       <div className={`hamburger`}>
         <div />
       </div>
-
       <div className={`hamburgerActive`}>
         <div />
       </div>
-      <span>menu</span>
     </div>
   );
 };

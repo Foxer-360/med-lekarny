@@ -1,6 +1,7 @@
 {
   "name": "Carousel",
   "data": {
+    "displayOnTop": true,
     "slides": [
       {
         "image": {},
@@ -33,6 +34,10 @@
     "schema": {
       "type": "object",
       "properties": {
+        "displayOnTop": {
+          "type": "boolean",
+          "title": "Add indent at the top?"
+        },
         "slides": {
           "type": "array",
           "title": "Slides - recommended 5 slides",

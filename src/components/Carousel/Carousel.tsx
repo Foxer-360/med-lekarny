@@ -12,6 +12,7 @@ interface Slide {
 
 export interface CarouselProps {
   data: {
+    displayOnTop: boolean;
     slides: Slide[];
   };
 }
@@ -58,13 +59,13 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
   }
 
    public render() {
-    const { slides } = this.props.data;
+    const { slides, displayOnTop } = this.props.data;
     
     return (
       <div className={'carousel'}>
-        <div className={'carousel__divider'} />
+        {displayOnTop ? <div className={'carousel__divider'} /> : ''}
 
-         <div className={'carousel__images'}>
+         <div className={'carousel__images'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
           <AliceCarousel 
             autoPlay={true}
             dotsDisabled={true}
@@ -78,7 +79,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
           />
         </div>
 
-         <div className={'carousel__titles'}>
+         <div className={'carousel__titles'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
           <ul className={'carousel__titles__list'}>
             {slides && slides.map((slide, i) => (
               <li 
@@ -98,7 +99,6 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
             ))}
           </ul>
         </div>
-        <br style={{ clear: 'both'}} />
       </div>
     );
   }

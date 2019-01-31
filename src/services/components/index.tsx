@@ -42,6 +42,7 @@ import {
   Carousel,
   Headline,
   CustomInfoBoxes,
+  Gallery,
 } from '../../components';
 import * as resources from './resources';
 
@@ -97,6 +98,7 @@ class ComponentsService {
     HEADLINE: 'Headline',
     CUSTOMINFOBOXES: 'CustomInfoBoxes',
     PHARMACIEINFO: 'PharmacieInfo',
+    GALLERY: 'Gallery',
   };
 
   /***/
@@ -189,6 +191,8 @@ class ComponentsService {
         return CustomInfoBoxes;
       case this.Types.PHARMACIEINFO:
         return PharmacieInfo;
+      case this.Types.GALLERY:
+        return Gallery;
 
       default:
         return () => <AlertNotFound type="component" />;

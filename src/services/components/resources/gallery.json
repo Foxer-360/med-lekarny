@@ -1,0 +1,28 @@
+{
+  "name": "Gallery",
+  "data": {
+    "slides": [
+      {
+        "image": {}
+      }
+    ]
+  },
+  "form": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "slides": {
+          "type": "array",
+          "title": "Slides",
+          "items": {
+            "properties": {
+              "image": {
+                "type": "image"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

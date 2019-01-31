@@ -1,6 +1,6 @@
 .polyclinicsList {
   background-color: #f4f4f4;
-  padding: 25px 0;
+  padding-bottom: 25px;
 }
 
 .pcitem {
@@ -132,6 +132,7 @@
       }
 
       ul {
+        width: 100%;
         column-count: 1;
         column-gap: 10px;
 
@@ -197,7 +198,7 @@
         margin-bottom: 18px;
 
         @include md {
-          width: 70%;
+          width: 100%;
           font-size: 1.6rem;
           margin-bottom: 0;
         }
@@ -209,6 +210,7 @@
 
       @include md {
         width: auto;
+        padding-top: 30px;
       }
 
       .btn {
@@ -218,6 +220,7 @@
 
         @include md {
           width: auto;
+          float: right;
           margin: 0;
         }
       }
@@ -230,7 +233,7 @@
   padding: 17px 0;
   display: block;
 
-  @include md {
+  @include lg {
     padding: 0px 0 25px 0;
   }
 
@@ -255,7 +258,7 @@
       text-transform: capitalize;
       color: $darkGray;
       text-align: left;
-      font-size: 2.4rem;
+      font-size: 2.0rem;
       letter-spacing: -1px;
       line-height: 1;
 
@@ -292,22 +295,22 @@
           border-radius: 50%;
 
           &:nth-of-type(1) {
-            background-color: #1876ba;
+            background-color: #3dac53;
           }
           &:nth-of-type(2) {
-            background-color: #2080c0;
+            background-color: #35ab6d;
           }
           &:nth-of-type(3) {
-            background-color: #1c89c4;
+            background-color: #2cac89;
           }
           &:nth-of-type(4) {
-            background-color: #1e94c8;
+            background-color: #1eab9f;
           }
           &:nth-of-type(5) {
-            background-color: #159dcb;
+            background-color: #1cabb5;
           }
           &:nth-of-type(6) {
-            background-color: #01a6ce;
+            background-color: #0baacc;
           }
         }
       }

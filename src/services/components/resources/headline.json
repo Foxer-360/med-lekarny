@@ -1,0 +1,17 @@
+{
+  "name": "Headline",
+  "data": {
+    "title": "Default headline"
+  },
+  "form": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "text",
+          "title": "Headline"
+        }
+      }
+    }
+  }
+}

@@ -34,8 +34,6 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
   }
 
    slideTo = (i) => {
-    console.log(`currentIndex ` + this.state.currentIndex);
-    console.log(`index ` + i);
     this.setState({ currentIndex: i });
   }
 
@@ -61,7 +59,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
 
    public render() {
     const { slides } = this.props.data;
-    console.log(this.state.currentIndex);
+    
     return (
       <div className={'carousel'}>
         <div className={'carousel__divider'} />

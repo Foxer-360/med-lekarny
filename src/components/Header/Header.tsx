@@ -44,18 +44,10 @@ const ComposedQuery = adopt({
   },
 });
 
-interface Url {
-  url: LooseObject;
-  title: string;
-}
-
 export interface HeaderProps {
   navigations?: LooseObject;
   languages?: LooseObject;
   languageCode?: string;
-  data: {
-    urls: Url[];
-  };
 }
 
 export interface HeaderState {
@@ -101,7 +93,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   }
 
   public render() {
-    const { urls } = this.props.data;
     this.state.menuActive ? (document.body.style.position = 'fixed') : (document.body.style.position = 'static');
 
     return (
@@ -123,17 +114,23 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           const transformedNavigations = this.transformNavigationsIntoTree(navigations, data.pagesUrls);
 
           const mainNav = 'main';
+          const topNav = 'top';
 
           const mainNavItems =
             transformedNavigations && transformedNavigations[mainNav] ? transformedNavigations[mainNav] : [];
+          
+          const topNavItems =
+            transformedNavigations && transformedNavigations[topNav] ? transformedNavigations[topNav] : [];
 
           return (
             <header className={`header ${this.state.menuActive ? 'menuActive' : ''}`}>
               <div className={'header__top'}>
                 <div style={{ position: 'relative' }} className={'container'}>
                   <ul className={'header__top__list'}>
-                    {urls && urls.map((url, index) => (
-                      <li key={index}><Link url={url.url && url.url}>{url.title}</Link></li>
+                    {topNavItems && topNavItems.map((navItem, i) => (
+                      <li key={i}>
+                        <DomLink to={navItem.url ? navItem.url : ''}>{navItem.name || navItem.title}</DomLink>
+                      </li>
                     ))}
                   </ul>
                 </div>

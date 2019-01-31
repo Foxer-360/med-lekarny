@@ -1,9 +1,4 @@
 .headline {
-  padding-top: 180px;
-  background-color: #f4f4f4;
-
-  @include max-md { padding-top: 160px; }
-
   h3 { 
     @include webkitGradientText;
     @include max-md { padding-bottom: 30px; }

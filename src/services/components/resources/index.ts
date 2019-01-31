@@ -14,7 +14,7 @@ import * as doctorlist from './doctorlist.json';
 import * as pharmacieslist from './pharmacieslist.json';
 import * as expertiselist from './expertiselist.json';
 import * as inforectangles from './inforectangles.json';
-import * as polyclinicinfo from './polyclinicinfo.json';
+import * as pharmacieinfo from './pharmacieinfo.json';
 import * as blog from './blog.json';
 import * as odbornost from './odbornost.json';
 import * as polyclinicboxes from './polyclinicboxes.json';
@@ -56,7 +56,7 @@ export {
   textblock,
   expertiselist,
   inforectangles,
-  polyclinicinfo,
+  pharmacieinfo,
   blog,
   polyclinicboxes,
   doctorcard,

@@ -11,7 +11,7 @@ import Map from './Map';
 import Reviews from './Reviews';
 import TextBlock from './TextBlock';
 import DoctorList from './DoctorList';
-import PolyclinicsList from './PolyclinicsList';
+import PharmaciesList from './PharmaciesList';
 import ExpertiseList from './ExpertiseList';  
 import InfoRectangles from './InfoRectangles';
 import PolyclinicInfo from './PolyclinicInfo';
@@ -36,6 +36,7 @@ import Pharmacies from './Pharmacies';
 import MenuBlocks from './MenuBlocks';
 import PromotionPreviews from './PromotionPreviews';
 import Carousel from './Carousel';
+import Headline from './Headline';
 
 export {
   AlertNotFound,
@@ -51,7 +52,7 @@ export {
   Reviews,
   TextBlock,
   DoctorList,
-  PolyclinicsList,
+  PharmaciesList,
   ExpertiseList,
   InfoRectangles,
   PolyclinicInfo,
@@ -76,4 +77,5 @@ export {
   MenuBlocks,
   PromotionPreviews,
   Carousel,
+  Headline,
 };

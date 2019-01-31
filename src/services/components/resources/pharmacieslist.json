@@ -1,7 +1,7 @@
 {
-  "name": "PolyclinicsList",
+  "name": "PharmaciesList",
   "data": {
-    "clinics": [
+    "pharmacies": [
       {
         "name": "Budějovická",
         "address": "Antala Staška 1670/80",
@@ -20,14 +20,14 @@
     "schema": {
       "type": "object",
       "properties": {
-        "clinics": {
+        "pharmacies": {
           "type": "array",
-          "title": "Clinics",
+          "title": "Pharmacies",
           "items": {
             "properties": {
               "name": {
                 "type": "text",
-                "title": "Clinic Name"
+                "title": "Pharmacie Name"
               },
               "address": {
                 "type": "text",

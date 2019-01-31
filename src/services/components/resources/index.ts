@@ -11,7 +11,7 @@ import * as map from './map.json';
 import * as reviews from './reviews.json';
 import * as textblock from './textblock.json';
 import * as doctorlist from './doctorlist.json';
-import * as polyclinicslist from './polyclinicslist.json';
+import * as pharmacieslist from './pharmacieslist.json';
 import * as expertiselist from './expertiselist.json';
 import * as inforectangles from './inforectangles.json';
 import * as polyclinicinfo from './polyclinicinfo.json';
@@ -36,6 +36,7 @@ import * as pharmacies from './pharmacies.json';
 import * as menublocks from './menublocks.json';
 import * as promotionpreviews from './promotionpreviews.json';
 import * as carousel from './carousel.json';
+import * as headline from './headline.json';
 
 export {
   def as default,
@@ -49,7 +50,7 @@ export {
   highlight,
   infoboxes,
   map,
-  polyclinicslist,
+  pharmacieslist,
   reviews,
   textblock,
   expertiselist,
@@ -76,4 +77,5 @@ export {
   menublocks,
   promotionpreviews,
   carousel,
+  headline,
 };

@@ -15,7 +15,7 @@ import {
   Map,
   InfoBoxes,
   DoctorList,
-  PolyclinicsList,
+  PharmaciesList,
   ExpertiseList,
   InfoRectangles,
   PolyclinicInfo,
@@ -40,6 +40,7 @@ import {
   MenuBlocks,
   PromotionPreviews,
   Carousel,
+  Headline,
 } from '../../components';
 import * as resources from './resources';
 
@@ -67,7 +68,7 @@ class ComponentsService {
     INFOBOXES: 'InfoBoxes',
     MAP: 'Map',
     DOCTORLIST: 'DoctorList',
-    POLYCLINICSLIST: 'PolyclinicsList',
+    PHARMACIESLIST: 'PharmaciesList',
     EXPERTISELIST: 'ExpertiseList',
     INFORECTANGLES: 'InfoRectangles',
     POLYCLINICINFO: 'PolyclinicInfo',
@@ -92,6 +93,7 @@ class ComponentsService {
     MENUBLOCKS: 'MenuBlocks',
     PROMOTIONPREVIEWS: 'PromotionPreviews',
     CAROUSEL: 'Carousel',
+    HEADLINE: 'Headline',
   };
 
   /***/
@@ -130,8 +132,8 @@ class ComponentsService {
         return InfoBoxes;
       case this.Types.DOCTORLIST:
         return DoctorList;
-      case this.Types.POLYCLINICSLIST:
-        return PolyclinicsList;
+      case this.Types.PHARMACIESLIST:
+        return PharmaciesList;
       case this.Types.EXPERTISELIST:
         return ExpertiseList;
       case this.Types.INFORECTANGLES:
@@ -180,6 +182,8 @@ class ComponentsService {
         return PromotionPreviews;
       case this.Types.CAROUSEL:
         return Carousel;
+      case this.Types.HEADLINE:
+        return Headline;
 
       default:
         return () => <AlertNotFound type="component" />;

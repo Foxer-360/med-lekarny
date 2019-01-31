@@ -37,6 +37,7 @@ import * as menublocks from './menublocks.json';
 import * as promotionpreviews from './promotionpreviews.json';
 import * as carousel from './carousel.json';
 import * as headline from './headline.json';
+import * as custominfoboxes from './custominfoboxes.json';
 
 export {
   def as default,
@@ -78,4 +79,5 @@ export {
   promotionpreviews,
   carousel,
   headline,
+  custominfoboxes,
 };

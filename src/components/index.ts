@@ -37,6 +37,7 @@ import MenuBlocks from './MenuBlocks';
 import PromotionPreviews from './PromotionPreviews';
 import Carousel from './Carousel';
 import Headline from './Headline';
+import CustomInfoBoxes from './CustomInfoBoxes';
 
 export {
   AlertNotFound,
@@ -78,4 +79,5 @@ export {
   PromotionPreviews,
   Carousel,
   Headline,
+  CustomInfoBoxes,
 };

@@ -1,5 +1,4 @@
 .polyclinicsList {
-  background-color: #f4f4f4;
   padding-bottom: 25px;
 }
 
@@ -8,6 +7,7 @@
   padding: 20px;
   margin: 0 auto 25px;
   width: 90%;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 
   @include md {
     width: 100%;
@@ -97,12 +97,7 @@
         }
 
         img {
-          height: 35px;
           width: auto;
-
-          @include md {
-            height: 40px;
-          }
         }
 
         p {

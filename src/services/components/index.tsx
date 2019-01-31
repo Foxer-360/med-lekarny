@@ -41,6 +41,7 @@ import {
   PromotionPreviews,
   Carousel,
   Headline,
+  CustomInfoBoxes,
 } from '../../components';
 import * as resources from './resources';
 
@@ -94,6 +95,7 @@ class ComponentsService {
     PROMOTIONPREVIEWS: 'PromotionPreviews',
     CAROUSEL: 'Carousel',
     HEADLINE: 'Headline',
+    CUSTOMINFOBOXES: 'CustomInfoBoxes',
   };
 
   /***/
@@ -184,6 +186,8 @@ class ComponentsService {
         return Carousel;
       case this.Types.HEADLINE:
         return Headline;
+      case this.Types.CUSTOMINFOBOXES:
+        return CustomInfoBoxes;
 
       default:
         return () => <AlertNotFound type="component" />;

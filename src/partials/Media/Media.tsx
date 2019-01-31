@@ -44,7 +44,6 @@ class Media extends React.Component<MediaProps, MediaState> {
   render() {
     const { data } = this.props;
 
-
     switch (data && data.type) {
       case 'image':
         return this.renderAsImage(data);

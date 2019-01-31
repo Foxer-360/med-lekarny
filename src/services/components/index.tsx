@@ -18,7 +18,7 @@ import {
   PharmaciesList,
   ExpertiseList,
   InfoRectangles,
-  PolyclinicInfo,
+  PharmacieInfo,
   Blog,
   PolyclinicBoxes,
   DoctorCard,
@@ -96,6 +96,7 @@ class ComponentsService {
     CAROUSEL: 'Carousel',
     HEADLINE: 'Headline',
     CUSTOMINFOBOXES: 'CustomInfoBoxes',
+    PHARMACIEINFO: 'PharmacieInfo',
   };
 
   /***/
@@ -140,8 +141,6 @@ class ComponentsService {
         return ExpertiseList;
       case this.Types.INFORECTANGLES:
         return InfoRectangles;
-      case this.Types.POLYCLINICINFO:
-        return PolyclinicInfo;
       case this.Types.BLOG:
         return Blog;
       case this.Types.POLYCLINICBOXES:
@@ -188,6 +187,8 @@ class ComponentsService {
         return Headline;
       case this.Types.CUSTOMINFOBOXES:
         return CustomInfoBoxes;
+      case this.Types.PHARMACIEINFO:
+        return PharmacieInfo;
 
       default:
         return () => <AlertNotFound type="component" />;

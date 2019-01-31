@@ -17,6 +17,9 @@
 
   &__holder {
     padding-top: 10%;
+    @include max-sm {
+      padding-top: 25%;
+    }
   }
 
   h1 {

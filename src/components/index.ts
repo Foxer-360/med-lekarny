@@ -14,7 +14,7 @@ import DoctorList from './DoctorList';
 import PharmaciesList from './PharmaciesList';
 import ExpertiseList from './ExpertiseList';  
 import InfoRectangles from './InfoRectangles';
-import PolyclinicInfo from './PolyclinicInfo';
+import PharmacieInfo from './PharmacieInfo';
 import Blog from './Blog';
 import PolyclinicBoxes from './PolyclinicBoxes';
 import DoctorCard from './DoctorCard';
@@ -56,7 +56,7 @@ export {
   PharmaciesList,
   ExpertiseList,
   InfoRectangles,
-  PolyclinicInfo,
+  PharmacieInfo,
   PolyclinicBoxes,
   DoctorCard,
   Blog,

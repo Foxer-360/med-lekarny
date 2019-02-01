@@ -37,8 +37,8 @@ const Gallery = (props: GalleryProps) => {
           stopAutoPlayOnHover={true}
         >
           {slides && slides.map((slide, i) => (
-            <div className={'gallery__item'}>
-              {slide.image && <Media key={i} type={'image'} data={slide.image} />}
+            <div className={'gallery__item'} key={i}>
+              {slide.image && <Media type={'image'} data={slide.image} />}
             </div>
           ))}
         </AliceCarousel>

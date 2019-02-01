@@ -40,6 +40,7 @@ import * as headline from './headline.json';
 import * as custominfoboxes from './custominfoboxes.json';
 import * as gallery from './gallery.json';
 import * as discountoffer from './discountoffer.json';
+import * as promotionsanddiscounts from './promotionsanddiscounts.json';
 
 export {
   def as default,
@@ -84,4 +85,5 @@ export {
   custominfoboxes,
   gallery,
   discountoffer,
+  promotionsanddiscounts,
 };

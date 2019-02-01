@@ -44,6 +44,7 @@ import {
   CustomInfoBoxes,
   Gallery,
   DiscountOffer,
+  PromotionsAndDiscounts,
 } from '../../components';
 import * as resources from './resources';
 
@@ -101,6 +102,7 @@ class ComponentsService {
     PHARMACIEINFO: 'PharmacieInfo',
     GALLERY: 'Gallery',
     DISCOUNTOFFER: 'DiscountOffer',
+    PROMOTIONSANDDISCOUNTS: 'PromotionsAndDiscounts',
   };
 
   /***/
@@ -197,6 +199,8 @@ class ComponentsService {
         return Gallery;
       case this.Types.DISCOUNTOFFER:
         return DiscountOffer;
+      case this.Types.PROMOTIONSANDDISCOUNTS:
+        return PromotionsAndDiscounts;
 
       default:
         return () => <AlertNotFound type="component" />;

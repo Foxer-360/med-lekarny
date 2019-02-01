@@ -39,6 +39,7 @@ import * as carousel from './carousel.json';
 import * as headline from './headline.json';
 import * as custominfoboxes from './custominfoboxes.json';
 import * as gallery from './gallery.json';
+import * as discountoffer from './discountoffer.json';
 
 export {
   def as default,
@@ -82,4 +83,5 @@ export {
   headline,
   custominfoboxes,
   gallery,
+  discountoffer,
 };

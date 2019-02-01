@@ -39,6 +39,7 @@ import Carousel from './Carousel';
 import Headline from './Headline';
 import CustomInfoBoxes from './CustomInfoBoxes';
 import Gallery from './Gallery';
+import DiscountOffer from './DiscountOffer';
 
 export {
   AlertNotFound,
@@ -82,4 +83,5 @@ export {
   Headline,
   CustomInfoBoxes,
   Gallery,
+  DiscountOffer,
 };

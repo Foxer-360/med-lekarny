@@ -40,6 +40,7 @@ import Headline from './Headline';
 import CustomInfoBoxes from './CustomInfoBoxes';
 import Gallery from './Gallery';
 import DiscountOffer from './DiscountOffer';
+import PromotionsAndDiscounts from './PromotionsAndDiscounts';
 
 export {
   AlertNotFound,
@@ -84,4 +85,5 @@ export {
   CustomInfoBoxes,
   Gallery,
   DiscountOffer,
+  PromotionsAndDiscounts,  
 };

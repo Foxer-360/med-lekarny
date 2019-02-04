@@ -45,6 +45,7 @@ import {
   Gallery,
   DiscountOffer,
   PromotionsAndDiscounts,
+  Partners,
 } from '../../components';
 import * as resources from './resources';
 
@@ -103,6 +104,7 @@ class ComponentsService {
     GALLERY: 'Gallery',
     DISCOUNTOFFER: 'DiscountOffer',
     PROMOTIONSANDDISCOUNTS: 'PromotionsAndDiscounts',
+    PARTNERS: 'Partners',
   };
 
   /***/
@@ -201,6 +203,8 @@ class ComponentsService {
         return DiscountOffer;
       case this.Types.PROMOTIONSANDDISCOUNTS:
         return PromotionsAndDiscounts;
+      case this.Types.PARTNERS:
+        return Partners;
 
       default:
         return () => <AlertNotFound type="component" />;

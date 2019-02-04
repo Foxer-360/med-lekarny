@@ -41,6 +41,7 @@ import CustomInfoBoxes from './CustomInfoBoxes';
 import Gallery from './Gallery';
 import DiscountOffer from './DiscountOffer';
 import PromotionsAndDiscounts from './PromotionsAndDiscounts';
+import Partners from './Partners';
 
 export {
   AlertNotFound,
@@ -85,5 +86,6 @@ export {
   CustomInfoBoxes,
   Gallery,
   DiscountOffer,
-  PromotionsAndDiscounts,  
+  PromotionsAndDiscounts,
+  Partners,
 };

@@ -42,6 +42,7 @@ import Gallery from './Gallery';
 import DiscountOffer from './DiscountOffer';
 import PromotionsAndDiscounts from './PromotionsAndDiscounts';
 import Partners from './Partners';
+import PaymentMethods from './PaymentMethods';
 
 export {
   AlertNotFound,
@@ -88,4 +89,5 @@ export {
   DiscountOffer,
   PromotionsAndDiscounts,
   Partners,
+  PaymentMethods,
 };

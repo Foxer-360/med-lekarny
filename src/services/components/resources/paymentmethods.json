@@ -1,0 +1,33 @@
+{
+  "name": "PaymentMethods",
+  "data": {
+    "title": "Způsoby placení",
+    "methods": [
+      {
+        "image": {}
+      }
+    ]
+  },
+  "form": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "text",
+          "title": "Title"
+        },
+        "methods": {
+          "type": "array",
+          "title": "Payment Methods",
+          "items": {
+            "properties": {
+              "image": {
+                "type": "image"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import DividerCircles from '../../../DividerCircles';
 
 export interface DoctorScheduleProps {
   data: [
@@ -31,7 +30,7 @@ const DoctorSchedule = (props: DoctorScheduleProps) => {
                     <p>{item.morningHoursdescription}</p>
                   </td>
                   <td>
-                    <DividerCircles />
+                    
                   </td>
                   <td>
                     <p>{item.eveningOpeningHours}</p>

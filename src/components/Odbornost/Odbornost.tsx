@@ -1,5 +1,4 @@
 import * as React from 'react';
-import DividerCircles from '../DividerCircles';
 import Media from '@source/partials/Media';
 
 export interface OdbornostProps {
@@ -15,7 +14,6 @@ const Odbornost = (props: OdbornostProps) => {
 
   return (
     <div className={'odbornost'}>
-      <DividerCircles />
 
       <div className={'container'}>
         <div className={'odbornost__doctor'}>

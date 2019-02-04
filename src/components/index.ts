@@ -44,6 +44,8 @@ import PromotionsAndDiscounts from './PromotionsAndDiscounts';
 import Partners from './Partners';
 import PaymentMethods from './PaymentMethods';
 import ClubBenefits from './ClubBenefits';
+import DividerLine from './DividerLine';
+import BenefitBlocks from './BenefitBlocks';
 
 export {
   AlertNotFound,
@@ -92,4 +94,6 @@ export {
   Partners,
   PaymentMethods,
   ClubBenefits,
+  DividerLine,
+  BenefitBlocks,
 };

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import DividerCircles from '../DividerCircles';
 import ExpertiseDescriptionCare from './components/ExpertiseDescriptionCare';
 import ExpertiseDescriptionExamination from './components/ExpertiseDescriptionExamination';
 import ExpertiseDescriptionBoxes from './components/ExpertiseDescriptionBoxes';
@@ -42,7 +41,6 @@ const Description = (props: DescriptionProps) => {
         title={titleExamination} 
         examinations={examinations} 
       />
-      <DividerCircles />
       <ExpertiseDescriptionBoxes boxes={boxes} />
       </section>
     </div>

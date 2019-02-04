@@ -1,0 +1,38 @@
+{
+  "name": "Partners",
+  "data": {
+    "title": "Partneři",
+    "partners": [
+      {
+        "image": {},
+        "url": ""
+      }
+    ]
+  },
+  "form": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "text",
+          "title": "Title"
+        },
+        "partners": {
+          "type": "array",
+          "title": "Partners",
+          "items": {
+            "properties": {
+              "image": {
+                "type": "image"
+              },
+              "url": {
+                "type": "urlAutocomplete",
+                "title": "Partners Url"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

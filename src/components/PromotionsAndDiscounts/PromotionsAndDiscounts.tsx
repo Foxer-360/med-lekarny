@@ -11,7 +11,7 @@ interface Item {
 
 export interface PromotionsAndDiscountsProps {
   data: {
-    title: string;
+    title?: string;
     items: Item[];
   };
 }
@@ -31,7 +31,7 @@ const PromotionsAndDiscounts = (props: PromotionsAndDiscountsProps) => {
   return (
     <div className={'prom-and-disc'}>
       <div className="container">
-        {title && <h3>{title}</h3>}
+        {title && <h3>{title}</h3> || <div style={{ height: 50 }}/>}
 
         <AliceCarousel  
           responsive={responsive}

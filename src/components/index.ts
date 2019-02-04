@@ -43,6 +43,7 @@ import DiscountOffer from './DiscountOffer';
 import PromotionsAndDiscounts from './PromotionsAndDiscounts';
 import Partners from './Partners';
 import PaymentMethods from './PaymentMethods';
+import ClubBenefits from './ClubBenefits';
 
 export {
   AlertNotFound,
@@ -90,4 +91,5 @@ export {
   PromotionsAndDiscounts,
   Partners,
   PaymentMethods,
+  ClubBenefits,
 };

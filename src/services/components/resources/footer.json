@@ -1,26 +1,6 @@
 {
   "name": "Footer",
   "data": {
-    "links": [
-      {
-        "title": "O nás",
-        "url": ""
-      },
-      {
-        "title": "Kariéra",
-        "url": ""
-      },
-      {
-        "title": "Kontakty",
-        "url": ""
-      }
-    ],
-    "icons": [
-      {
-        "title": "fb",
-        "url": ""
-      }
-    ],
     "copyrights": "© 2019 - MEDICON a.s.",
     "gdprText": "Prohlášení o ochraně osobních údajů",
     "gdprUrl": ""
@@ -29,22 +9,6 @@
     "schema": {
       "type": "object",
       "properties": {
-        "links": {
-          "type": "array",
-          "title": "Menu links",
-          "items": {
-            "properties": {
-              "title": {
-                "type": "text",
-                "title": "Text of link"
-              },
-              "url": {
-                "type": "urlAutocomplete",
-                "title": "URL"
-              }
-            }
-          }
-        },
         "icons": {
           "type": "array",
           "title": "Social icons",

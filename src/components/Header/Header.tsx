@@ -4,7 +4,6 @@ import { Link as DomLink } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
-import Link from '@source/partials/Link';
 
 const GET_CONTEXT = gql`
   {

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import DividerCircles from '../DividerCircles';
 import ReactMarkdown from 'react-markdown';
 
 interface ManagementContact {
@@ -78,8 +77,6 @@ const ContactsBlock = (props: ContactsBlockProps) => {
 
           </div>
         </div>
-
-        <DividerCircles />
 
         <div className={'grid contacts-block__list'}>
           

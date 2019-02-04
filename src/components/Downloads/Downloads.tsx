@@ -1,5 +1,4 @@
 import * as React from 'react';
-import DividerCircles from '../DividerCircles';
 import SvgIcon from '@source/partials/SvgIcon';
 
 interface Downloads {
@@ -40,7 +39,6 @@ const Downloads = (props: DownloadsProps) => {
 
         </div>
       </div>
-      <DividerCircles />
     </div>
   );
 };

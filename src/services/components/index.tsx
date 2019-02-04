@@ -47,6 +47,7 @@ import {
   PromotionsAndDiscounts,
   Partners,
   PaymentMethods,
+  ClubBenefits,
 } from '../../components';
 import * as resources from './resources';
 
@@ -107,6 +108,7 @@ class ComponentsService {
     PROMOTIONSANDDISCOUNTS: 'PromotionsAndDiscounts',
     PARTNERS: 'Partners',
     PAYMENTMETHODS: 'PaymentMethods',
+    CLUBBENEFITS: 'ClubBenefits',
   };
 
   /***/
@@ -209,6 +211,8 @@ class ComponentsService {
         return Partners;
       case this.Types.PAYMENTMETHODS:
         return PaymentMethods;
+      case this.Types.CLUBBENEFITS:
+        return ClubBenefits;
 
       default:
         return () => <AlertNotFound type="component" />;

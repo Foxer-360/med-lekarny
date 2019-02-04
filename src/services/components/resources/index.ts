@@ -43,6 +43,7 @@ import * as discountoffer from './discountoffer.json';
 import * as promotionsanddiscounts from './promotionsanddiscounts.json';
 import * as partners from './partners.json';
 import * as paymentmethods from './paymentmethods.json';
+import * as clubbenefits from './clubbenefits.json';
 
 export {
   def as default,
@@ -90,4 +91,5 @@ export {
   promotionsanddiscounts,
   partners,
   paymentmethods,
+  clubbenefits,
 };

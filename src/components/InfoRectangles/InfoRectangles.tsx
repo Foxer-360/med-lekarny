@@ -1,11 +1,15 @@
 import * as React from 'react';
-import Button from '@source/partials/Button';
 import getImageUrl from '@source/helpers/getImageUrl';
+import Link from '@source/partials/Link';
+import Media from '@source/partials/Media';
 
 interface InfoRectangles {
   image: LooseObject;
+  icon: LooseObject;
   title: string;
   url: string;
+  titleColor: string;
+  gradientColor: string;
 }
 
 export interface InfoRectanglesProps {
@@ -18,26 +22,38 @@ const InfoRectangles = (props: InfoRectanglesProps) => {
   const { infoRectangles } = props.data;
 
   return (
-    <section className="info-rectangles">
-    
+    <section className={'info-rectangles'}>
       <div className="container">
-        <div className="grid-container">
+        <div className={'info-rectangles__divider'} />
+        <div className={'info-rectangles__list grid'}>
+          {infoRectangles && infoRectangles.map((rectangle, i) => (
+            <Link 
+              key={i} 
+              src={rectangle.url && rectangle.url}
+              className={'info-rectangles__list__item'}
+              style={{ backgroundImage: rectangle.image && `url(${getImageUrl(rectangle.image)})` }}
+            >
 
-          {infoRectangles && infoRectangles.map((rectangle, index) => (
-            <div 
-              key={index}
-              className={'info-element'} 
-              style={{ backgroundImage: rectangle.image && `url(${getImageUrl(rectangle.image)})` }}>
-              <div>
-                <h5>{rectangle.title}</h5>
-                <Button classes="btn--greenBorder">vice info</Button>
+              <div className={'info-rectangles__list__item__content'}>
+                {rectangle.icon && <Media type={'image'} data={rectangle.icon} />}
+                {rectangle.title && <p style={rectangle.titleColor && { color: `${rectangle.titleColor}` } || {}}>
+                  {rectangle.title}
+                </p>}
               </div>
-            </div>
+
+              {rectangle.gradientColor && (
+                <div
+                  className={'info-rectangles__list__item--colorGradient'}
+                  style={{ 
+                    background: `linear-gradient(to left, rgba(125, 185, 232, 0) 0%, 
+                    ${rectangle.gradientColor} 100%)` 
+                  }}
+                />
+              )}
+            </Link>
           ))}
-          
         </div>
       </div>
-      
     </section>
   );
 };

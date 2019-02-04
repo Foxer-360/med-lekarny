@@ -1,44 +1,78 @@
 .info-rectangles {
   margin-bottom: 50px;
-  
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-  }
 
-  h5 {
-    text-align: left;
-    color: $lightBlue;
-  }
-
-  .info-element {
-    height: 270px;
+  &__divider {
     width: 100%;
-    background-clip: border-box;
-    display: table;
-    box-shadow: 0 0 10px rgba(15, 52, 86, 0.2);
-    background-size: cover;
-
-    div {
-      display: table-cell;
-      vertical-align: bottom;
-      padding-bottom: 35px;
-    }
-
-    h5,
-    button {
-      margin-left: 35px;
-    }
-
-    h5 {
-      padding: 0;
-      padding-bottom: 35px;
-    }
+    height: 2px;
+    display: block;
+    background-color: #c5e3a8;
+    margin-bottom: 60px;
   }
 
-  @include max-md {
-    .grid-container {
-      grid-template-columns: repeat(1, 1fr);
+  &__list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 225px;
+
+    @include max-md {
+      grid-template-columns: 1fr;   
+    }
+
+    &__item {
+      height: 100%;
+      width: 100%;
+      display: table;
+      min-height: 225px;
+      max-height: 225px;
+      background-clip: border-box;
+      box-shadow: 0 0 10px rgba(15, 52, 86, 0.2);
+      background-size: cover;
+      position: relative;
+
+      &:hover {
+        box-shadow: 0 0 20px rgba(15, 52, 86, 0.2);
+      }
+
+      &__content {
+        display: table-cell;
+        vertical-align: bottom;
+        padding: 0 0 35px 50px;
+        position: relative;
+        z-index: 2;
+       
+        img {
+          width: 84px;
+          height: 84px;
+        }
+      
+        p {
+          font-size: 2.2rem;
+          padding: 50px 0 0 0;
+          letter-spacing: 2px;
+          font-weight: 600;
+          color: white;
+          text-transform: uppercase;
+
+          @include max-lg {
+            padding: 35px 0 0 0;
+            font-size: 2rem;
+            letter-spacing: 1.8px;
+            line-height: initial;
+          }
+
+          @include max-sm {
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+          }
+        }
+      }
+
+      &--colorGradient {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        left: 0;
+      }
     }
   }
 }

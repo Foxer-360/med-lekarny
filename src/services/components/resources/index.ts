@@ -42,6 +42,7 @@ import * as gallery from './gallery.json';
 import * as discountoffer from './discountoffer.json';
 import * as promotionsanddiscounts from './promotionsanddiscounts.json';
 import * as partners from './partners.json';
+import * as paymentmethods from './paymentmethods.json';
 
 export {
   def as default,
@@ -88,4 +89,5 @@ export {
   discountoffer,
   promotionsanddiscounts,
   partners,
+  paymentmethods,
 };

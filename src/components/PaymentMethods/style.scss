@@ -1,0 +1,22 @@
+.payment-methods {
+  margin-bottom: 60px;
+  
+  h3 {
+    @include webkitGradientText();
+    padding-top: 0;
+  }
+  
+  &__list {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 40px 20px;
+
+    &__item {
+      img {
+        width: initial;
+      }
+    }
+  }
+}

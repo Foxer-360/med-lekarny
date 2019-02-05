@@ -1,6 +1,11 @@
 .info-boxes {
   padding-bottom: 55px;
 
+  h3 {
+    @include webkitGradientText();
+    padding-top: 0;
+  }
+
   h5 {
     color: $darkGray;
     text-align: left;

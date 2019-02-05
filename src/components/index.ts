@@ -23,7 +23,7 @@ import MyProblem from './MyProblem';
 import JobPositions from './JobPositions';
 import JobOffers from './JobOffers';
 import CareerForm from './CareerForm';
-import ExpertiseDescription from './ExpertiseDescription';
+import DescriptionList from './DescriptionList';
 import Timeline from './Timeline';
 import MedicalGroup from './MedicalGroup';
 import ViewsAboutUs from './ViewsAboutUs';
@@ -75,7 +75,7 @@ export {
   MyProblem,
   JobPositions,
   CareerForm,
-  ExpertiseDescription,
+  DescriptionList,
   MedicalGroup,
   ViewsAboutUs,
   ContactInfo,

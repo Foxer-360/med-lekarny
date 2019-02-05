@@ -28,16 +28,27 @@
       grid-template-columns: 1fr;
       grid-template-rows: 2fr 1fr;
       grid-gap: 0;
+      position: relative;
 
       @include max-xs {
         min-width: 280px;
         min-height: 280px;
       }
 
+      &:before {
+        content: '';
+        display: block;
+        top: 0;
+        height: 10px;
+        width: 100%;
+        position: absolute;
+        background-image: linear-gradient(to right, #3eac49 0%, #00aad0 100%);
+      }
+
       &__top {
         position: relative;
         border-bottom: 1px solid #dcdde0;
-        padding: 25px;
+        padding: 40px 25px 25px 25px;
 
         img {
           position: absolute;

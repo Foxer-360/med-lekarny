@@ -46,6 +46,7 @@ import * as paymentmethods from './paymentmethods.json';
 import * as clubbenefits from './clubbenefits.json';
 import * as dividerline from './dividerline.json';
 import * as benefitblocks from './benefitblocks.json';
+import * as registrationblock from './registrationblock.json';
 
 export {
   def as default,
@@ -96,4 +97,5 @@ export {
   clubbenefits,
   dividerline,
   benefitblocks,
+  registrationblock,
 };

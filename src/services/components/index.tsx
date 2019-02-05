@@ -50,6 +50,7 @@ import {
   ClubBenefits,
   DividerLine,
   BenefitBlocks,
+  RegistrationBlock,
 } from '../../components';
 import * as resources from './resources';
 
@@ -113,6 +114,7 @@ class ComponentsService {
     CLUBBENEFITS: 'ClubBenefits',
     DIVIDERLINE: 'DividerLine',
     BENEFITBLOCKS: 'BenefitBlocks',
+    REGISTRATIONBLOCK: 'RegistrationBlock',
   };
 
   /***/
@@ -221,6 +223,8 @@ class ComponentsService {
         return DividerLine;
       case this.Types.BENEFITBLOCKS:
         return BenefitBlocks;
+      case this.Types.REGISTRATIONBLOCK:
+        return RegistrationBlock;
 
       default:
         return () => <AlertNotFound type="component" />;

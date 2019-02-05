@@ -10,16 +10,17 @@ interface Box {
 export interface InfoBoxesProps {
   data: {
     boxes: Box[];
+    dividerOnTop: boolean;
   };
 }
 
 const InfoBoxes = (props: InfoBoxesProps) => {
-  const { boxes } = props.data;
+  const { boxes, dividerOnTop } = props.data;
 
   return (
     <section className={'info-boxes'}>
       <div className={'container'}>
-        <div className={'info-boxes__divider'} />
+        {dividerOnTop ? <div className={'info-boxes__divider'} /> : ''} />
         <div className={'grid info-boxes__list'}>
           {boxes && boxes.map((box, i) => (
             <InfoElement

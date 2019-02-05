@@ -51,6 +51,7 @@ import {
   DividerLine,
   BenefitBlocks,
   RegistrationBlock,
+  TextBlockWithImage,
 } from '../../components';
 import * as resources from './resources';
 
@@ -115,6 +116,7 @@ class ComponentsService {
     DIVIDERLINE: 'DividerLine',
     BENEFITBLOCKS: 'BenefitBlocks',
     REGISTRATIONBLOCK: 'RegistrationBlock',
+    TEXTBLOCKWITHIMAGE: 'TextBlockWithImage',
   };
 
   /***/
@@ -225,7 +227,9 @@ class ComponentsService {
         return BenefitBlocks;
       case this.Types.REGISTRATIONBLOCK:
         return RegistrationBlock;
-
+      case this.Types.TEXTBLOCKWITHIMAGE:
+        return TextBlockWithImage;
+        
       default:
         return () => <AlertNotFound type="component" />;
     }

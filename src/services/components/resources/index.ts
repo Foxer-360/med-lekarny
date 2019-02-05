@@ -48,6 +48,7 @@ import * as dividerline from './dividerline.json';
 import * as benefitblocks from './benefitblocks.json';
 import * as registrationblock from './registrationblock.json';
 import * as textblockwithimage from './textblockwithimage.json';
+import * as miniboxes from './miniboxes.json';
 
 export {
   def as default,
@@ -100,4 +101,5 @@ export {
   benefitblocks,
   registrationblock,
   textblockwithimage,
+  miniboxes,
 };

@@ -1,0 +1,56 @@
+.mini-boxes {
+  margin-bottom: 50px;
+
+  h3 { 
+    @include webkitGradientText();
+  }
+
+  &__divider {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #7fd4e7;
+    margin-top: 50px;
+  }
+
+  &__list {
+    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+    grid-template-rows: auto;
+    position: relative;
+    justify-items: center;
+    align-items: center;
+
+    &__item {
+      position: relative;
+      width: 100%;
+      height: 226px;
+      overflow: hidden;
+      background-size: cover;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+      }
+
+      p {
+        z-index: 2;
+        position: relative;
+        color: white;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        top: 75%;
+        padding-left: 30px;
+      }
+
+      &--colorGradient {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}

@@ -48,6 +48,7 @@ import DividerLine from './DividerLine';
 import BenefitBlocks from './BenefitBlocks';
 import RegistrationBlock from './RegistrationBlock';
 import TextBlockWithImage from './TextBlockWithImage';
+import MiniBoxes from './MiniBoxes';
 
 export {
   AlertNotFound,
@@ -100,4 +101,5 @@ export {
   BenefitBlocks,
   RegistrationBlock,
   TextBlockWithImage,
+  MiniBoxes,
 };

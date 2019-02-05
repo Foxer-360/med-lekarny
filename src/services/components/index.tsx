@@ -52,6 +52,7 @@ import {
   BenefitBlocks,
   RegistrationBlock,
   TextBlockWithImage,
+  MiniBoxes,
 } from '../../components';
 import * as resources from './resources';
 
@@ -117,6 +118,7 @@ class ComponentsService {
     BENEFITBLOCKS: 'BenefitBlocks',
     REGISTRATIONBLOCK: 'RegistrationBlock',
     TEXTBLOCKWITHIMAGE: 'TextBlockWithImage',
+    MINIBOXES: 'MiniBoxes',
   };
 
   /***/
@@ -229,6 +231,8 @@ class ComponentsService {
         return RegistrationBlock;
       case this.Types.TEXTBLOCKWITHIMAGE:
         return TextBlockWithImage;
+      case this.Types.MINIBOXES:
+        return MiniBoxes;
         
       default:
         return () => <AlertNotFound type="component" />;

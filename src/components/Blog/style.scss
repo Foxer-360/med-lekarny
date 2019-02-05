@@ -13,6 +13,10 @@
 .blog {
   padding: 39px 0;
 
+  .searchBar {
+    margin-bottom: 55px;
+  }
+
   @include md {
     padding: 70px 0;
   }
@@ -128,14 +132,14 @@
 
   &--special {
     height: auto;
-    background-color: #00aad0;
+    background-color: #2473ba;
     transition: 300ms ease;
 
     @include md {
       height: auto;
 
       &:hover {
-        background-color: #2473ba;
+        background-color: $lightBlue;
       }
     }
 

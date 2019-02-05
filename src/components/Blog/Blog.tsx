@@ -1,70 +1,58 @@
 import * as React from 'react';
 import Masonry from 'react-masonry-css';
 import { BlogCard } from './components/blogCard';
-import Button from '../../partials/Button';
 import SearchBar from '../SearchBar/SearchBar';
+
+interface BlogItem {
+  title: string;
+  text: string;
+  img: LooseObject;
+  color: string;
+  special?: boolean;
+}
 
 export interface BlogProps {
   data: {
     title: string;
     displaySearch: boolean;
+    blogItems: BlogItem[];
   };
 }
 
-export interface BlogState {}
-
-const data = {
-  items: [
-    {
-      title: 'Těhotenství',
-      text: 'Epilepsie při vhodné léčbě těhotenství nebrání',
-      img: '/assets/mediconLekarny/images/blog.png',
-      color: '#386fa2',
-    },
-    {
-      title: 'Hledáme',
-      text: 'Pro věrné zákazníky našich lékáren máme věrnostní program',
-      img: '/assets/mediconLekarny/images/blog.png',
-      color: '#d09d56',
-      special: true,
-    },
-
-    {
-      title: 'Věrnostní karta',
-      text: 'Pro věrné zákazníky našich lékáren máme věrnostní program',
-      img: '/assets/mediconLekarny/images/blog.png',
-      color: '#d09d56',
-    },
-    {
-      title: 'MAMMACENTRA',
-      text: 'V našich čtyřech MAMMACENTRECH zdravotnický personál každý rok vyšetří na 50 000 žen.',
-      img: '/assets/mediconLekarny/images/blog.png',
-      color: '#4c959f',
-    },
-    { 
-      title: 'Home care', 
-      text: 'Pomáháme při domácí pěči', 
-      img: '/assets/mediconLekarny/images/blog.png', 
-      color: '#d3969f' 
-    },
-    {
-      title: 'in care',
-      text: 'Nadstandartní zdravotní péče pro firmy i jednotlivce',
-      img: '/assets/mediconLekarny/images/blog.png',
-      color: '#386fa2',
-    },
-  ],
-};
+export interface BlogState {
+  showMore: boolean;
+}
 
 export default class Blog extends React.Component<BlogProps, BlogState> {
   constructor(props: BlogProps) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      showMore: false
+    };
   }
 
   public render() {
-    const { title, displaySearch } = this.props.data;
+    const { title, displaySearch, blogItems } = this.props.data;
+    const blogCards = [];
+    let sixBlogCards = [];
+
+    if (blogItems && blogItems.length > 1) {
+      blogItems.map((item, index) => (
+        blogCards.push(
+          <BlogCard
+            title={item.title}
+            text={item.text}
+            key={index}
+            color={item.color}
+            img={item.img}
+            special={item.special && item.special}
+          />)
+      ));
+
+      sixBlogCards = blogCards.slice(0, 6);
+    }
+
     return (
       <section className={'blog'}>
         <div className="container">
@@ -77,16 +65,7 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column"
           >
-            {data.items.map((item, index) => (
-              <BlogCard
-                title={item.title}
-                text={item.text}
-                key={index}
-                color={item.color}
-                img={item.img}
-                special={item.special}
-              />
-            ))}
+            {this.state.showMore ? (blogCards) : (sixBlogCards)}
           </Masonry>
 
           <div className={'blog__blur'}>
@@ -94,7 +73,12 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
           </div>
 
           <div className="blog__btnHolder">
-            <Button classes="btn--greenBkg btn--fullWidth">Načíst další</Button>
+            <button 
+              className={`btn btn--greenBkg btn--fullWidth btn--${this.state.showMore ? 'up' : 'down'}`} 
+              onClick={() => this.setState({ showMore: !this.state.showMore })}
+            >
+              Načíst další<span className="arrow" />
+            </button>
           </div>
         </div>
       </section>

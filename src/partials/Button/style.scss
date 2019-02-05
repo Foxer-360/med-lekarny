@@ -47,6 +47,21 @@
     }
   }
 
+  &--up {
+    .arrow {
+      transform: rotate(225deg);
+    }
+
+    &:hover {
+      @include md {
+        .arrow {
+          left: 10px;
+          top: 5px;
+        }
+      }
+    }
+  }
+
   &--down {
     .arrow {
       transform: rotate(45deg);

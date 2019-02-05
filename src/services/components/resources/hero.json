@@ -3,7 +3,6 @@
   "data": {
     "title": "Sample Title",
     "text": "Sample Text",
-    "displaySearch": false,
     "image": {}
   },
   "form": {
@@ -18,10 +17,6 @@
         "text": {
           "type": "text",
           "title": "Text"
-        },
-        "displaySearch": {
-          "type": "boolean",
-          "title": "Display Search Bar?"
         },
         "image": {
           "type": "image"

@@ -73,7 +73,7 @@
       width: 0;
       left: 0;
       top: 0;
-      @include leftRightGradient(#2472b8, #00aadd);
+      @include leftRightGradient($green, #00aadd);
       z-index: 2;
       transition: 300ms ease;
 
@@ -89,7 +89,7 @@
 
   &--lightBlue {
     .searchBar__bar {
-      @include leftRightGradient(#2472b8, #00aadd);
+      @include leftRightGradient($green, #00aadd);
     }
   }
 

@@ -27,7 +27,7 @@ import {
   JobPositions,
   JobOffers,
   CareerForm,
-  ExpertiseDescription,
+  DescriptionList,
   MedicalGroup,
   Timeline,
   ViewsAboutUs,
@@ -91,7 +91,7 @@ class ComponentsService {
     JOBPOSITIONS: 'JobPositions',
     JOBOFFERS: 'JobOffers',
     CAREERFORM: 'CareerForm',
-    EXPERTISEDESCRIPTION: 'ExpertiseDescription',
+    DESCRIPTIONLIST: 'DescriptionList',
     MEDICALGROUP: 'MedicalGroup',
     TIMELINE: 'Timeline',
     VIEWSABOUTUS: 'ViewsAboutUs',
@@ -177,8 +177,8 @@ class ComponentsService {
         return JobOffers;
       case this.Types.CAREERFORM:
         return CareerForm;
-      case this.Types.EXPERTISEDESCRIPTION:
-        return ExpertiseDescription;
+      case this.Types.DESCRIPTIONLIST:
+        return DescriptionList;
       case this.Types.MEDICALGROUP:
         return MedicalGroup;
       case this.Types.TIMELINE:

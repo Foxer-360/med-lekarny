@@ -9,18 +9,20 @@ interface Box {
 
 export interface InfoBoxesProps {
   data: {
+    title?: string;
+    dividerOnTop?: boolean;
     boxes: Box[];
-    dividerOnTop: boolean;
   };
 }
 
 const InfoBoxes = (props: InfoBoxesProps) => {
-  const { boxes, dividerOnTop } = props.data;
+  const { title, dividerOnTop, boxes } = props.data;
 
   return (
     <section className={'info-boxes'}>
       <div className={'container'}>
-        {dividerOnTop ? <div className={'info-boxes__divider'} /> : ''} />
+        {dividerOnTop ? <div className={'info-boxes__divider'} /> : ''}
+        {title && <h3>{title}</h3>}
         <div className={'grid info-boxes__list'}>
           {boxes && boxes.map((box, i) => (
             <InfoElement

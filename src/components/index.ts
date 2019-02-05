@@ -47,6 +47,7 @@ import ClubBenefits from './ClubBenefits';
 import DividerLine from './DividerLine';
 import BenefitBlocks from './BenefitBlocks';
 import RegistrationBlock from './RegistrationBlock';
+import TextBlockWithImage from './TextBlockWithImage';
 
 export {
   AlertNotFound,
@@ -98,4 +99,5 @@ export {
   DividerLine,
   BenefitBlocks,
   RegistrationBlock,
+  TextBlockWithImage,
 };

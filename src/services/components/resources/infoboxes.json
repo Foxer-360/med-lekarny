@@ -1,7 +1,6 @@
 {
   "name": "InfoBoxes",
   "data": {
-    "title": "Z našich lékáren",
     "boxes": [
       {
         "title": "U nás si můžete změřit tlak",
@@ -18,7 +17,8 @@
         "image": {},
         "url": ""
       }
-    ]
+    ],
+    "dividerOnTop": true
   },
   "form": {
     "schema": {
@@ -42,6 +42,10 @@
               }
             }
           }
+        },
+        "dividerOnTop": {
+          "type": "boolean",
+          "title": "Enable divider on top?"
         }
       }
     }

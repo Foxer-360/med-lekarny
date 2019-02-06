@@ -47,7 +47,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
         if (slide.image) {
           images.push
           (
-            <Link url={slide.url.url}>
+            <Link url={slide.url && slide.url.url}>
               <Media key={i} type={'image'} data={slide.image} />
             </Link>
           );

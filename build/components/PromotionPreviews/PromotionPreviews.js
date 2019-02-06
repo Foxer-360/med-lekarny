@@ -20,7 +20,7 @@ var PromotionPreviews = function (props) {
                     React.createElement("div", { className: 'promotion-previews__item__right' },
                         React.createElement("p", { className: 'promotion-previews__item__right__title' }, item.title && item.title),
                         React.createElement("p", { className: 'promotion-previews__item__right__description' }, item.description && item.description),
-                        React.createElement(Link, { url: item.url && item.url, className: 'promotion-previews__item__right__url' }, item.titleURL && item.titleURL))));
+                        React.createElement(Link, { url: item.url && item.url.url, className: 'promotion-previews__item__right__url' }, item.titleURL && item.titleURL))));
             })))));
 };
 export default PromotionPreviews;

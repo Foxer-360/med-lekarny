@@ -16,7 +16,7 @@ export interface PartnersProps {
 
 const Partners = (props: PartnersProps) => {
   const { title, partners } = props.data;
-
+  
   return (
     <div className={'partners'}>
       <div className="container">
@@ -27,7 +27,7 @@ const Partners = (props: PartnersProps) => {
         <div className={'partners__list grid'}>
           {partners && partners.map((partner, i) => {
             return (
-              <Link key={i} src={partner.url && partner.url}>
+              <Link key={i} src={partner.url && partner.url.url}>
                 {partner.image && <Media type={'image'} data={partner.image} />}
               </Link>
             );

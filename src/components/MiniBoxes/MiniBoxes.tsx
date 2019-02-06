@@ -19,7 +19,7 @@ export interface MiniBoxesProps {
 
 const MiniBoxes = (props: MiniBoxesProps) => {
   const { title, dividerOnTop, miniBoxes } = props.data;
-
+  
   return (
     <div className={'mini-boxes'}>
       <div className="container">
@@ -31,7 +31,7 @@ const MiniBoxes = (props: MiniBoxesProps) => {
             return (
               <Link 
                 key={i} 
-                url={box.url && box.url} 
+                url={box.url && box.url.url} 
                 className={'mini-boxes__list__item'}
                 style={{ backgroundImage: box.image && `url(${getImageUrl(box.image)})` }}
               >

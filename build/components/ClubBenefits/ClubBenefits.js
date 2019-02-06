@@ -12,7 +12,7 @@ var ClubBenefits = function (props) {
             buttonTitle &&
                 React.createElement(Button, { url: buttonUrl && buttonUrl, classes: 'btn--greenBkg hCenterBlock' }, buttonTitle),
             conditionsUrl &&
-                React.createElement(Link, { className: 'club-benefits__conditions', url: conditionsUrl.url }, "V\u0161eobecn\u00E9 obchodn\u00ED podm\u00EDnky"))));
+                React.createElement(Link, { className: 'club-benefits__conditions', url: conditionsUrl && conditionsUrl.url }, "V\u0161eobecn\u00E9 obchodn\u00ED podm\u00EDnky"))));
 };
 export default ClubBenefits;
 //# sourceMappingURL=ClubBenefits.js.map

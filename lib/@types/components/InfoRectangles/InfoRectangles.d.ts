@@ -3,7 +3,7 @@ interface InfoRectangles {
     image: LooseObject;
     icon: LooseObject;
     title: string;
-    url: string;
+    url: LooseObject;
     titleColor: string;
     gradientColor: string;
 }

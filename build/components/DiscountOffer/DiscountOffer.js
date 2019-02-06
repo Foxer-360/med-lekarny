@@ -16,7 +16,7 @@ var DiscountOffer = function (props) {
                 React.createElement("div", { className: 'discount-offer__list__item grid' },
                     promotionText && React.createElement(ReactMarkdown, { source: promotionText }),
                     promotionImage && React.createElement(Media, { type: 'image', data: promotionImage })),
-                React.createElement(Link, { url: productUrl && productUrl },
+                React.createElement(Link, { url: productUrl && productUrl.url },
                     React.createElement("div", { className: 'discount-offer__list__item grid' },
                         React.createElement("span", null, productText && productText),
                         productImage && React.createElement(Media, { type: 'image', data: productImage })))))));

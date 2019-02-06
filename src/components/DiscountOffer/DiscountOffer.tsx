@@ -47,7 +47,7 @@ const DiscountOffer = (props: DiscountOfferProps) => {
             {promotionText && <ReactMarkdown source={promotionText} />}
             {promotionImage && <Media type={'image'} data={promotionImage} />}
           </div>
-          <Link url={productUrl && productUrl}>
+          <Link url={productUrl && productUrl.url}>
             <div className={'discount-offer__list__item grid'}>
               <span>{productText && productText}</span>
               {productImage && <Media type={'image'} data={productImage} />}

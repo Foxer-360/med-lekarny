@@ -9,9 +9,9 @@ var RegistrationBlock = function (props) {
             title && React.createElement("h3", null, title),
             text && React.createElement(ReactMarkdown, { source: text }),
             btnTitle &&
-                React.createElement(Button, { url: btnUrl && btnUrl, classes: 'btn--greenBkg hCenterBlock' }, btnTitle),
+                React.createElement(Button, { url: btnUrl && btnUrl.url, classes: 'btn--greenBkg hCenterBlock' }, btnTitle),
             conditionsUrl &&
-                React.createElement(Link, { className: 'registration-block__conditions', url: conditionsUrl }, "V\u0161eobecn\u00E9 obchodn\u00ED podm\u00EDnky"))));
+                React.createElement(Link, { className: 'registration-block__conditions', url: conditionsUrl && conditionsUrl.url }, "V\u0161eobecn\u00E9 obchodn\u00ED podm\u00EDnky"))));
 };
 export default RegistrationBlock;
 //# sourceMappingURL=RegistrationBlock.js.map

@@ -6,11 +6,13 @@
   font-weight: 600;
   padding: 12px 35px;
   transition: ease 0.2s;
-  letter-spacing: 2.4px;
+  letter-spacing: 1.8px;
   box-sizing: border-box;
   font-family: 'Montserrat';
   text-transform: uppercase;
   font-size: 1.6rem;
+  max-width: 310px;
+  text-align: center;
 
   .arrow {
     content: '';
@@ -90,6 +92,8 @@
     padding: 14px 36px;
 
     &:hover {
+      color: white;
+      
       @include md {
         background-image: linear-gradient(to right, $green 0%, $green 100%);
         background-color: $green;

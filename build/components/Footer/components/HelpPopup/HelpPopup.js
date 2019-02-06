@@ -33,14 +33,20 @@ var HelpPopup = /** @class */ (function (_super) {
                 React.createElement("h4", null, "Potrebujete poraditz")),
             React.createElement("ul", { className: 'helpPopup__list' },
                 React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' } },
-                    React.createElement("p", null, "Polikinika Budejovicka"),
-                    React.createElement("a", { href: "tel:+420261006111" }, "+420 261 006 111")),
+                    React.createElement("p", null, "Pharmacentrum Bud\u011Bjovick\u00E1"),
+                    React.createElement("a", { href: "tel:+420261006330" }, "+420 261 006 330")),
                 React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' } },
-                    React.createElement("p", null, "Polikinika Budejovicka"),
-                    React.createElement("a", { href: "tel:+420261006111" }, "+420 261 006 111")),
+                    React.createElement("p", null, "Pharmacentrum DBK"),
+                    React.createElement("a", { href: "tel:+420296825318" }, "+420 296\u00A0825\u00A0318")),
                 React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' } },
-                    React.createElement("p", null, "Polikinika Budejovicka"),
-                    React.createElement("a", { href: "tel:+420261006111" }, "+420 261 006 111")))));
+                    React.createElement("p", null, "Pharmacentrum Vyso\u010Dany"),
+                    React.createElement("a", { href: "tel:+420266006324" }, "+420 266\u00A0006\u00A0324")),
+                React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' } },
+                    React.createElement("p", null, "Pharmacentrum Hole\u0161ovice"),
+                    React.createElement("a", { href: "tel:+420227777699" }, "+420 227 777 699")),
+                React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' } },
+                    React.createElement("p", null, "MEDICON Pharm s.r.o."),
+                    React.createElement("a", { href: "tel:+420261006330" }, "+420 261 006 330")))));
     };
     return HelpPopup;
 }(React.Component));

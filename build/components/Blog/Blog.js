@@ -41,7 +41,7 @@ var Blog = /** @class */ (function (_super) {
                 React.createElement("div", { className: 'blog__blur' },
                     React.createElement("div", null)),
                 React.createElement("div", { className: "blog__btnHolder" },
-                    React.createElement("button", { className: "btn btn--greenBkg btn--fullWidth btn--" + (this.state.showMore ? 'up' : 'down'), onClick: function () { return _this.setState({ showMore: !_this.state.showMore }); } },
+                    React.createElement("button", { className: "btn btn--greenBkg btn--fullWidth btn--" + (this.state.showMore && blogItems.length > 6 ? 'up' : 'down'), onClick: function () { return _this.setState({ showMore: !_this.state.showMore }); } },
                         "Na\u010D\u00EDst dal\u0161\u00ED",
                         React.createElement("span", { className: "arrow" }))))));
     };

@@ -2,13 +2,33 @@
   "name": "DiscountOffer",
   "data": {
     "discountText": "**Slevy** z doplatků na léky na recept",
-    "discountImage": {},
+    "discountImage": {
+      "recommendedSizes": {
+        "width": "173",
+        "height": "173"
+      }
+    },
     "couponText": "**Kupón** pro členy klubu",
-    "couponImage": {},
+    "couponImage": {
+      "recommendedSizes": {
+        "width": "173",
+        "height": "173"
+      }
+    },
     "promotionText": "**Akce** na značku produktu",
-    "promotionImage": {},
+    "promotionImage": {
+      "recommendedSizes": {
+        "width": "173",
+        "height": "173"
+      }
+    },
     "productText": "Sleva 40 Kč",
-    "productImage": {},
+    "productImage": {
+      "recommendedSizes": {
+        "width": "173",
+        "height": "173"
+      }
+    },
     "productUrl": ""
   },
   "form": {

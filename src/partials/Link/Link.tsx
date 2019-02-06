@@ -20,7 +20,6 @@ const ComposedQuery = adopt({
   context: ({ render }) => <Query query={GET_CONTEXT}>{({ data }) => render(data)}</Query>,
   getPagesUrls: ({ render, context: { languageData } }) => {
     if (!languageData) {
-      console.log(languageData);
       return render({ loading: true });
     }
     return (

@@ -32,7 +32,6 @@ const Gallery = (props: GalleryProps) => {
           responsive={responsive}
           dotsDisabled={true}
           autoPlay={autoPlay}
-          infinite={true}
           autoPlayInterval={6000}
           stopAutoPlayOnHover={true}
         >

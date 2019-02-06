@@ -63,12 +63,13 @@
       line-height: inherit;
     }
 
-    img { 
+    .mediaRatio {
       z-index: 3;
       position: relative;
       margin-bottom: 50px;
-      width: initial;
-      max-width: 100%;
+      padding: 0 !important;
+      height: 80px;
+      width: 80px;
     }
 
     &__colorGradient {

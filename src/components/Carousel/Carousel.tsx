@@ -32,23 +32,22 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
       itemsInSlide: 1,
       galleryItems: this.galleryItems(),
     };
-  }
+  }  
 
    slideTo = (i) => {
     this.setState({ currentIndex: i });
   }
 
-   galleryItems() {
+   galleryItems() {  
     const { slides } = this.props.data;
     let images = [];
 
-     // recommended image size 1500px x 490px
     if (slides) {
       slides.map((slide, i) => {
         if (slide.image) {
           images.push
           (
-            <Link url={slide.url && slide.url}>
+            <Link url={slide.url && slide.url.url}>
               <Media key={i} type={'image'} data={slide.image} />
             </Link>
           );
@@ -70,7 +69,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
             autoPlay={true}
             dotsDisabled={true}
             buttonsDisabled={true}
-            autoPlayInterval={3500}
+            autoPlayInterval={1000000}
             items={this.state.galleryItems}
             onSlideChanged={(e) => {
               this.setState({ currentIndex: e.item }); 

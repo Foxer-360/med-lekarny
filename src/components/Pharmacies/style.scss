@@ -58,9 +58,10 @@
       height: 100%;
       position: relative;
 
-      img {
-        width: initial;
-        max-width: 100%;
+      .mediaRatio {
+        padding: 0 !important;
+        height: 28px;
+        width: 208px;
       }
 
       @include xl {

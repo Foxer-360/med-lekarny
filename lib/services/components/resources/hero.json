@@ -1,0 +1,27 @@
+{
+  "name": "Hero",
+  "data": {
+    "title": "Sample Title",
+    "text": "Sample Text",
+    "image": {}
+  },
+  "form": {
+    "schema": {
+      "type": "object",
+
+      "properties": {
+        "title": {
+          "type": "text",
+          "title": "Title"
+        },
+        "text": {
+          "type": "text",
+          "title": "Text"
+        },
+        "image": {
+          "type": "image"
+        }
+      }
+    }
+  }
+}

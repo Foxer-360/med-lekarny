@@ -15,16 +15,21 @@ export interface RegistrationBlockProps {
 
 const RegistrationBlock = (props: RegistrationBlockProps) => {
   const { title, text, btnTitle, btnUrl, conditionsUrl } = props.data;
-  
+
   return (
     <div className={'registration-block'}>
       <div className="container">
         {title && <h3>{title}</h3>}
         {text && <ReactMarkdown source={text} />}
         {btnTitle && 
-          <Button url={btnUrl && btnUrl} classes={'btn--greenBkg hCenterBlock'}>{btnTitle}</Button>}
+          <Button url={btnUrl && btnUrl.url} classes={'btn--greenBkg hCenterBlock'}>{btnTitle}</Button>}
         {conditionsUrl && 
-          <Link className={'registration-block__conditions'} url={conditionsUrl}>Všeobecné obchodní podmínky</Link>}
+          <Link 
+            className={'registration-block__conditions'} 
+            url={conditionsUrl && conditionsUrl.url}
+          >
+            Všeobecné obchodní podmínky
+          </Link>}
       </div>
     </div>
   );

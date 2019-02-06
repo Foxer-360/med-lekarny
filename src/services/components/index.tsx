@@ -2,57 +2,35 @@ import * as React from 'react';
 import { isObjectLike } from 'lodash';
 import WebFont from 'webfontloader';
 import {
-  Dummy,
   AlertNotFound,
   Hero,
+  Blog,
   Header,
-  CrossRoads,
-  Benefits,
-  Highlight,
   Footer,
   Reviews,
-  TextBlock,
-  Map,
+  Gallery,
+  Carousel,
+  Partners,
+  Headline,
+  MiniBoxes,
   InfoBoxes,
-  DoctorList,
-  PharmaciesList,
-  ExpertiseList,
-  InfoRectangles,
-  PharmacieInfo,
-  Blog,
-  PolyclinicBoxes,
-  DoctorCard,
-  Odbornost,
-  MyProblem,
-  JobPositions,
-  JobOffers,
-  CareerForm,
-  DescriptionList,
-  MedicalGroup,
-  Timeline,
-  ViewsAboutUs,
-  ContactInfo,
-  ContactForm,
-  Downloads,
-  ContactsBlock,
-  Faq,
+  TextBlock,
   Pharmacies,
   MenuBlocks,
-  PromotionPreviews,
-  Carousel,
-  Headline,
-  CustomInfoBoxes,
-  Gallery,
-  DiscountOffer,
-  PromotionsAndDiscounts,
-  Partners,
-  PaymentMethods,
-  ClubBenefits,
   DividerLine,
+  ClubBenefits,
   BenefitBlocks,
+  PharmacieInfo,
+  DiscountOffer,
+  PaymentMethods,
+  PharmaciesList,
+  InfoRectangles,
+  DescriptionList,
+  CustomInfoBoxes,
   RegistrationBlock,
+  PromotionPreviews,
   TextBlockWithImage,
-  MiniBoxes,
+  PromotionsAndDiscounts,
 } from '../../components';
 import * as resources from './resources';
 
@@ -68,39 +46,17 @@ WebFont.load({
  */
 class ComponentsService {
   Types: LooseObject<string> = {
-    DUMMY: 'Dummy',
     HERO: 'Hero',
     HEADER: 'Header',
-    CROSSROADS: 'CrossRoads',
-    BENEFITS: 'Benefits',
-    HIGHLIGHT: 'Highlight',
     FOOTER: 'Footer',
     REVIEWS: 'Reviews',
     TEXTBLOCK: 'TextBlock',
     INFOBOXES: 'InfoBoxes',
-    MAP: 'Map',
-    DOCTORLIST: 'DoctorList',
     PHARMACIESLIST: 'PharmaciesList',
-    EXPERTISELIST: 'ExpertiseList',
     INFORECTANGLES: 'InfoRectangles',
     POLYCLINICINFO: 'PolyclinicInfo',
     BLOG: 'Blog',
-    POLYCLINICBOXES: 'PolyclinicBoxes',
-    DOCTORCARD: 'DoctorCard',
-    ODBORNOST: 'Odbornost',
-    MYPROBLEM: 'MyProblem',
-    JOBPOSITIONS: 'JobPositions',
-    JOBOFFERS: 'JobOffers',
-    CAREERFORM: 'CareerForm',
     DESCRIPTIONLIST: 'DescriptionList',
-    MEDICALGROUP: 'MedicalGroup',
-    TIMELINE: 'Timeline',
-    VIEWSABOUTUS: 'ViewsAboutUs',
-    CONTACTINFO: 'ContactInfo',
-    CONTACTFORM: 'ContactForm',
-    DOWNLOADS: 'Downloads',
-    CONTACTSBLOCK: 'ContactsBlock',
-    FAQ: 'Faq',
     PHARMACIES: 'Pharmacies',
     MENUBLOCKS: 'MenuBlocks',
     PROMOTIONPREVIEWS: 'PromotionPreviews',
@@ -133,18 +89,10 @@ class ComponentsService {
   /***/
   getComponent(type: string) {
     switch (type) {
-      case this.Types.DUMMY:
-        return Dummy;
       case this.Types.HEADER:
         return Header;
       case this.Types.HERO:
         return Hero;
-      case this.Types.CROSSROADS:
-        return CrossRoads;
-      case this.Types.BENEFITS:
-        return Benefits;
-      case this.Types.HIGHLIGHT:
-        return Highlight;
       case this.Types.FOOTER:
         return Footer;
       case this.Types.REVIEWS:
@@ -155,48 +103,12 @@ class ComponentsService {
         return Map;
       case this.Types.INFOBOXES:
         return InfoBoxes;
-      case this.Types.DOCTORLIST:
-        return DoctorList;
-      case this.Types.PHARMACIESLIST:
-        return PharmaciesList;
-      case this.Types.EXPERTISELIST:
-        return ExpertiseList;
       case this.Types.INFORECTANGLES:
         return InfoRectangles;
       case this.Types.BLOG:
         return Blog;
-      case this.Types.POLYCLINICBOXES:
-        return PolyclinicBoxes;
-      case this.Types.DOCTORCARD:
-        return DoctorCard;
-      case this.Types.ODBORNOST:
-        return Odbornost;
-      case this.Types.MYPROBLEM:
-        return MyProblem;
-      case this.Types.JOBPOSITIONS:
-        return JobPositions;
-      case this.Types.JOBOFFERS:
-        return JobOffers;
-      case this.Types.CAREERFORM:
-        return CareerForm;
       case this.Types.DESCRIPTIONLIST:
         return DescriptionList;
-      case this.Types.MEDICALGROUP:
-        return MedicalGroup;
-      case this.Types.TIMELINE:
-        return Timeline;
-      case this.Types.VIEWSABOUTUS:
-        return ViewsAboutUs;
-      case this.Types.CONTACTINFO:
-        return ContactInfo;
-      case this.Types.CONTACTFORM:
-        return ContactForm;
-      case this.Types.DOWNLOADS:
-        return Downloads;
-      case this.Types.CONTACTSBLOCK:
-        return ContactsBlock;
-      case this.Types.FAQ:
-        return Faq;
       case this.Types.PHARMACIES:
         return Pharmacies;
       case this.Types.MENUBLOCKS:
@@ -233,6 +145,8 @@ class ComponentsService {
         return TextBlockWithImage;
       case this.Types.MINIBOXES:
         return MiniBoxes;
+      case this.Types.PHARMACIESLIST:
+        return PharmaciesList;
         
       default:
         return () => <AlertNotFound type="component" />;

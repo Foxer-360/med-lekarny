@@ -3,7 +3,12 @@
   "data": {
     "slides": [
       {
-        "image": {}
+        "image": {
+          "recommendedSizes": {
+            "width": "295",
+            "height": "295"
+          }
+        }
       }
     ]
   },

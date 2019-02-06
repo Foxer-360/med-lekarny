@@ -17,7 +17,7 @@ interface Pharmacie {
   services: string;
 }
 
-interface PharmaciesListProps {
+export interface PharmaciesListProps {
   data: {
     pharmacies: Pharmacie[];
   };

@@ -3,6 +3,7 @@
   
   h3 {
     @include webkitGradientText();
+    padding: 45px !important;
   }
 
   &__divider {
@@ -19,8 +20,10 @@
     align-items: center;
     grid-gap: 40px 20px;
 
-    img {
-      width: initial;
+    .mediaRatio {
+      padding: 0 !important;
+      width: 170px;
+      height: 65px;
     }
   }
 }

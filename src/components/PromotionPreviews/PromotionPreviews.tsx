@@ -36,7 +36,6 @@ const PromotionPreviews = (props: PromotionPreviewsProps) => {
           dotsDisabled={true} 
           buttonsDisabled={true}
           autoPlay={autoPlay}
-          infinite={true}
           mouseDragEnabled={true}
           autoPlayInterval={6000}
           stopAutoPlayOnHover={true}
@@ -57,7 +56,7 @@ const PromotionPreviews = (props: PromotionPreviewsProps) => {
                     {item.description && item.description}
                   </p>
                   <Link 
-                    url={item.url && item.url}
+                    url={item.url && item.url.url}
                     className={'promotion-previews__item__right__url'}
                   >
                     {item.titleURL && item.titleURL}

@@ -27,7 +27,7 @@ const PromotionsAndDiscounts = (props: PromotionsAndDiscountsProps) => {
   if (items.length > 3) {
     autoPlay = true;
   }
-
+  
   return (
     <div className={'prom-and-disc'}>
       <div className="container">
@@ -37,14 +37,13 @@ const PromotionsAndDiscounts = (props: PromotionsAndDiscountsProps) => {
           responsive={responsive}
           dotsDisabled={true}
           autoPlay={autoPlay}
-          infinite={true}
           autoPlayInterval={6000}
           stopAutoPlayOnHover={true}
         >
           {items && items.map((item, i) => {
             return (
               <div key={i} className={'prom-and-disc__item'}>
-                <Link src={item.url && item.url}>
+                <Link src={item.url && item.url.url}>
                   {item.image && <Media type={'image'} data={item.image} />}
                 </Link>
               </div>

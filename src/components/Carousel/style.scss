@@ -10,7 +10,7 @@
     height: 125px;
 
      @include max-md {
-      height: 54px;
+      height: 100px;
     }
   }
 
@@ -19,11 +19,13 @@
     li { padding: 0; }
   }
 
-   img {
-    max-height: 490px;
 
-     @media (max-width: 720px) {
-      min-height: 160px;
+  .mediaRatio  {
+    height: 490px;
+    padding-top: 0!important;
+
+    @media (max-width: 720px) {
+      height: 260px;
     }
   }
 

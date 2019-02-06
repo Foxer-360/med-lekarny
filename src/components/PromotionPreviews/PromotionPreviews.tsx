@@ -36,7 +36,6 @@ const PromotionPreviews = (props: PromotionPreviewsProps) => {
           dotsDisabled={true} 
           buttonsDisabled={true}
           autoPlay={autoPlay}
-          infinite={true}
           mouseDragEnabled={true}
           autoPlayInterval={6000}
           stopAutoPlayOnHover={true}

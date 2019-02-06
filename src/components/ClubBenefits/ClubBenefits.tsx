@@ -37,7 +37,7 @@ const ClubBenefits = (props: ClubBenefitsProps) => {
           </Button>}
         
         {conditionsUrl && 
-          <Link className={'club-benefits__conditions'} url={conditionsUrl}>Všeobecné obchodní podmínky</Link>}
+          <Link className={'club-benefits__conditions'} url={conditionsUrl.url}>Všeobecné obchodní podmínky</Link>}
       </div>
     </div>
   );

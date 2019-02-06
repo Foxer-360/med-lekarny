@@ -1,0 +1,53 @@
+{
+  "name": "DiscountOffer",
+  "data": {
+    "discountText": "**Slevy** z doplatků na léky na recept",
+    "discountImage": {},
+    "couponText": "**Kupón** pro členy klubu",
+    "couponImage": {},
+    "promotionText": "**Akce** na značku produktu",
+    "promotionImage": {},
+    "productText": "Sleva 40 Kč",
+    "productImage": {},
+    "productUrl": ""
+  },
+  "form": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "discountText": {
+          "type": "markdown",
+          "title": "Discount text"
+        },
+        "discountImage": {
+          "type": "image"
+        },
+        "couponText": {
+          "type": "markdown",
+          "title": "Coupon text"
+        },
+        "couponImage": {
+          "type": "image"
+        },
+        "promotionText": {
+          "type": "markdown",
+          "title": "Promotion text"
+        },
+        "promotionImage": {
+          "type": "image"
+        },
+        "productText": {
+          "type": "text",
+          "title": "Product text"
+        },
+        "productImage": {
+          "type": "image"
+        },
+        "productUrl": {
+          "type": "urlAutocomplete",
+          "title": "URL"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "name": "InfoBoxes",
+  "data": {
+    "title": "Default title",
+    "dividerOnTop": false,
+    "boxes": [
+      {
+        "title": "U nás si můžete změřit tlak",
+        "image": {},
+        "url": ""
+      },
+      {
+        "title": "Týden zaměřený pro vaše mazlíčky",
+        "image": {},
+        "url": ""
+      },
+      {
+        "title": "Nebojte se s námi poradit",
+        "image": {},
+        "url": ""
+      }
+    ]
+  },
+  "form": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "text",
+          "title": "Title"
+        },
+        "dividerOnTop": {
+          "type": "boolean",
+          "title": "Enable divider on top?"
+        },
+        "boxes": {
+          "type": "array",
+          "title": "Boxes",
+          "items": {
+            "properties": {
+              "title": {
+                "type": "text",
+                "title": "Text"
+              },
+              "image": {
+                "type": "image"
+              },
+              "url": {
+                "type": "urlAutocomplete",
+                "title": "URL"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

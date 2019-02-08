@@ -4,7 +4,12 @@
     "title": "Partneři",
     "partners": [
       {
-        "image": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "170",
+            "height": "65"
+          }
+        },
         "url": ""
       }
     ]

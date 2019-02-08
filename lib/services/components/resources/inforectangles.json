@@ -3,16 +3,36 @@
   "data": {
     "infoRectangles": [
       {
-        "image": {},
-        "icon": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "610",
+            "height": "225"
+          }
+        },
+        "icon": {
+          "recommendedSizes": {
+            "width": "83",
+            "height": "83"
+          }
+        },
         "title": "Leták ke stažení",
         "url": "",
         "titleColor": "#ffffff",
         "gradientColor": "#00aad0"
       },
       {
-        "image": {},
-        "icon": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "610",
+            "height": "225"
+          }
+        },
+        "icon": {
+          "recommendedSizes": {
+            "width": "83",
+            "height": "83"
+          }
+        },
         "title": "Kupón pro členy klubu",
         "url": "",
         "titleColor": "#ffffff",

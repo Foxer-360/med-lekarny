@@ -7,7 +7,7 @@ interface PromotionPreview {
   title: string;
   description: string;
   date: string;
-  titleURL: string;
+  titleUrl: string;
   url: LooseObject;
 }
 
@@ -59,7 +59,7 @@ const PromotionPreviews = (props: PromotionPreviewsProps) => {
                     url={item.url && item.url.url}
                     className={'promotion-previews__item__right__url'}
                   >
-                    {item.titleURL && item.titleURL}
+                    {item.titleUrl && item.titleUrl}
                   </Link>
                 </div>
               </div> 

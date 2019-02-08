@@ -6,17 +6,32 @@
     "boxes": [
       {
         "title": "U nás si můžete změřit tlak",
-        "image": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "url": ""
       },
       {
         "title": "Týden zaměřený pro vaše mazlíčky",
-        "image": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "url": ""
       },
       {
         "title": "Nebojte se s námi poradit",
-        "image": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "url": ""
       }
     ]

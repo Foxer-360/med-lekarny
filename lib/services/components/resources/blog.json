@@ -7,38 +7,68 @@
       {
         "title": "Lorem ipsum",
         "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-        "img": {},
+        "img": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "color": "#3eac49"
       },
       {
         "title": "Lorem ipsum",
         "text": "„Epilepsie při vhodné léčbě těhotenství nebrání“",
-        "img": {},
+        "img": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "color": "#f6ac59",
         "special": true
       },
       {
         "title": "Lorem ipsum",
         "text": "Pro věrné zákazníky našich lékáren máme věrnostní program",
-        "img": {},
+        "img": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "color": "#e7535e"
       },
       {
         "title": "Lorem ipsum",
         "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-        "img": {},
+        "img": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "color": "#2473ba"
       },
       {
         "title": "Lorem ipsum",
         "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-        "img": {},
+        "img": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "color": "black"
       },
       {
         "title": "Lorem ipsum",
         "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-        "img": {},
+        "img": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "color": "white"
       }
     ]

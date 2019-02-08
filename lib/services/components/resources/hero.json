@@ -3,7 +3,12 @@
   "data": {
     "title": "Sample Title",
     "text": "Sample Text",
-    "image": {}
+    "image": {
+      "recommendedSizes": {
+        "width": "1900",
+        "height": "610"
+      }
+    }
   },
   "form": {
     "schema": {

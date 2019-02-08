@@ -6,21 +6,21 @@
         "title": "Poradenská akce",
         "description": "Lorem ipsum dolor sit amet, consectetur cras amet.",
         "date": "3.10.",
-        "titleURL": "Ve všech našich lékárnách",
+        "titleUrl": "Ve všech našich lékárnách",
         "url": ""
       },
       {
         "title": "Poradenská akce",
         "description": "Lorem ipsum dolor sit amet, consectetur cras amet.",
         "date": "8.10.",
-        "titleURL": "V lékarně Budějovická",
+        "titleUrl": "V lékarně Budějovická",
         "url": ""
       },
       {
         "title": "Poradenská akce",
         "description": "Lorem ipsum dolor sit amet, consectetur cras amet.",
         "date": "1.12.",
-        "titleURL": "Ve dvou našich lékárnách",
+        "titleUrl": "Ve dvou našich lékárnách",
         "url": ""
       }
     ]

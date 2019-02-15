@@ -3,7 +3,7 @@ import Button from '@source/partials/Button';
 import getImageUrl from '@source/helpers/getImageUrl';
 import Link from '@source/partials/Link';
 export default function InfoElement(props) {
-    var title = props.title, gradientColor = props.gradientColor, image = props.image, button = props.button, titleColor = props.titleColor, link = props.link, languageCode = props.languageCode;
+    var title = props.title, gradientColor = props.gradientColor, image = props.image, button = props.button, titleColor = props.titleColor, link = props.link;
     return (React.createElement(Link, { url: link && link.url, className: 'custom-info-boxes__list__element', style: { backgroundImage: image && "url(" + getImageUrl(image) + ")" } },
         React.createElement("div", { className: 'fullWidthContainer custom-info-boxes__list__element__content' },
             titleColor && title && React.createElement("h5", { style: { color: "" + titleColor } }, title),

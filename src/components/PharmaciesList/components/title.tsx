@@ -7,7 +7,7 @@ export interface TitleProps {
 const Title = (props: TitleProps) => {
   return (
     <div className={'pcTitle'}>
-      <img src="/assets/mediconLekarny/images/logo.svg" alt="Medicon Logo" />
+      <img src="/assets/medicon/images/logo.svg" alt="Medicon Logo" />
 
       <div className={'pcTitle__title'}>
         <h3>Pharmacentrum</h3>

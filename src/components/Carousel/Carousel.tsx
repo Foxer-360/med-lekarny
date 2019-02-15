@@ -20,6 +20,7 @@ export interface CarouselProps {
 export interface CarouselState {
   currentIndex: number;
   itemsInSlide: number;
+  // tslint:disable-next-line:no-any
   galleryItems: any;
 }
 
@@ -45,12 +46,18 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     if (slides) {
       slides.map((slide, i) => {
         if (slide.image) {
-          images.push
-          (
-            <Link url={slide.url.url}>
-              <Media key={i} type={'image'} data={slide.image} />
-            </Link>
-          );
+          if (slide.url) {
+            images.push(
+              <Link url={slide.url.url}>
+                <Media key={i} type={'image'} data={slide.image} />
+              </Link>);
+          } else {
+            images.push(
+              <div>
+                <Media key={i} type={'image'} data={slide.image} />
+              </div>
+            );
+          }
         }
       });
     }

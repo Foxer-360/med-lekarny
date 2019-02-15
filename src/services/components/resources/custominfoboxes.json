@@ -8,21 +8,36 @@
         "gradientColor": "#00aad0",
         "button": "btn--whiteBorder",
         "titleColor": "#ffffff",
-        "image": {}
+        "image": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        }
       },
       {
         "title": "široký výběr zdravýchpotravin",
         "gradientColor": "#5a2a20",
         "button": "btn--whiteBorder",
         "titleColor": "#ffffff",
-        "image": {}
+        "image": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        }
       },
       {
         "title": "Máme široký výběr zdravotnických potřeb",
         "gradientColor": "#ffffff",
         "button": "btn--greenBorder",
         "titleColor": "#ffffff",
-        "image": {}
+        "image": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        }
       }
     ]
   },

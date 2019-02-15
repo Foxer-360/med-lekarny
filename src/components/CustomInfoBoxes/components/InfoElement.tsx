@@ -14,7 +14,7 @@ export interface InfoElementProps {
 }
 
 export default function InfoElement(props: InfoElementProps) {
-  const { title, gradientColor, image, button, titleColor, link, languageCode } = props;
+  const { title, gradientColor, image, button, titleColor, link } = props;
 
   return (
     <Link

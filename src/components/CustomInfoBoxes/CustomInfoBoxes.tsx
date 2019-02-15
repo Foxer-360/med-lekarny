@@ -26,7 +26,7 @@ const CustomInfoBoxes = (props: CustomInfoBoxesProps) => {
       {title && title.length > 1 && <h3>{title}</h3>}
 
       <div className={'container'}>
-        <div className={'grid custom-info-boxes__list'}>
+        <div className={'custom-info-boxes__list grid'}>
           {boxes && boxes.map((box, i) => (
             <InfoElement
               link={box.link}

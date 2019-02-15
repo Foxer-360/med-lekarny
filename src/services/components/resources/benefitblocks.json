@@ -6,28 +6,58 @@
       {
         "title": "Mereni tela na InBody",
         "subtitle": "(bez kozultace)",
-        "icon": {},
+        "icon": {
+          "recommendedSizes": {
+            "width": "50",
+            "height": "50"
+          }
+        },
         "text": "Nechte si zmerit objem svalove atukove hmoty obsah nitro - extrabnecne vody, rozlozeni svalu a tuku v tel, hmotnost kosternich mineralu a mnoho dalsich dop. parametru. Vysledky mereni vam vyteskneme. **Objednavky na tel:**",
         "gradientText": "Platnost: 01.01.2019 - 31.01.2019",
-        "logo": {},
+        "logo": {
+          "recommendedSizes": {
+            "width": "160",
+            "height": "40"
+          }
+        },
         "bottomText": "**Lorem** ipsum dolor sit amet, consectetuer adipiscing elit nam sed tellus id magna elementum"
       },
       {
         "title": "Mereni tela na InBody",
         "subtitle": "(bez kozultace)",
-        "icon": {},
+        "icon": {
+          "recommendedSizes": {
+            "width": "50",
+            "height": "50"
+          }
+        },
         "text": "Nechte si zmerit objem svalove atukove hmoty obsah nitro - extrabnecne vody, rozlozeni svalu a tuku v tel, hmotnost kosternich mineralu a mnoho dalsich dop. parametru. Vysledky mereni vam vyteskneme. **Objednavky na tel:**",
         "gradientText": "Platnost: **01.01.2019 - 31.01.2019**",
-        "logo": {},
+        "logo": {
+          "recommendedSizes": {
+            "width": "160",
+            "height": "40"
+          }
+        },
         "bottomText": "Lorem ipsum **dolor sit amet, consectetuer adipiscing elit nam sed tellus id magna elementum**"
       },
       {
         "title": "Mereni tela na InBody",
         "subtitle": "(bez kozultace)",
-        "icon": {},
+        "icon": {
+          "recommendedSizes": {
+            "width": "50",
+            "height": "50"
+          }
+        },
         "text": "Nechte si zmerit objem svalove atukove hmoty obsah nitro - extrabnecne vody, rozlozeni svalu a tuku v tel, hmotnost kosternich mineralu a mnoho dalsich dop. parametru. Vysledky mereni vam vyteskneme. **Objednavky na tel:**",
         "gradientText": "**Platnost:** 01.01.2019 - 31.01.2019",
-        "logo": {},
+        "logo": {
+          "recommendedSizes": {
+            "width": "160",
+            "height": "40"
+          }
+        },
         "bottomText": "Lorem ipsum dolor sit amet, **consectetuer** adipiscing elit nam sed tellus id magna elementum"
       }
     ] 

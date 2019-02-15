@@ -36,8 +36,14 @@ var Carousel = /** @class */ (function (_super) {
         if (slides) {
             slides.map(function (slide, i) {
                 if (slide.image) {
-                    images.push(React.createElement(Link, { url: slide.url.url },
-                        React.createElement(Media, { key: i, type: 'image', data: slide.image })));
+                    if (slide.url) {
+                        images.push(React.createElement(Link, { url: slide.url.url },
+                            React.createElement(Media, { key: i, type: 'image', data: slide.image })));
+                    }
+                    else {
+                        images.push(React.createElement("div", null,
+                            React.createElement(Media, { key: i, type: 'image', data: slide.image })));
+                    }
                 }
             });
         }

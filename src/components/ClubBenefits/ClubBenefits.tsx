@@ -32,12 +32,16 @@ const ClubBenefits = (props: ClubBenefitsProps) => {
         </div>
 
         {buttonTitle && 
-          <Button url={buttonUrl && buttonUrl} classes={'btn--greenBkg hCenterBlock'}>
-            {buttonTitle}
-          </Button>}
+          <div style={{ width: '30%', margin: '0 auto' }}>
+            <Button url={buttonUrl} classes={'btn--greenBkg hCenterBlock'}>
+              {buttonTitle}
+            </Button>
+          </div>}
         
         {conditionsUrl && 
-          <Link className={'club-benefits__conditions'} url={conditionsUrl.url}>Všeobecné obchodní podmínky</Link>}
+          <Link className={'club-benefits__conditions'} url={conditionsUrl.url}>
+            Všeobecné obchodní podmínky
+          </Link>}
       </div>
     </div>
   );

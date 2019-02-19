@@ -15,7 +15,7 @@ var Pharmacies = function (props) {
                 React.createElement("br", { style: { clear: 'both' } })),
             React.createElement("div", { className: 'pharmacies__list grid' }, pharmacies && pharmacies.map(function (pharmacie, i) { return (React.createElement("div", { key: i, className: 'pharmacies__list__item' },
                 pharmacie.image && React.createElement(Media, { type: 'image', data: pharmacie.image }),
-                React.createElement(ReactMarkdown, { source: pharmacie.text && pharmacie.text }))); })))));
+                pharmacie.text && React.createElement(ReactMarkdown, { source: pharmacie.text }))); })))));
 };
 export default Pharmacies;
 //# sourceMappingURL=Pharmacies.js.map

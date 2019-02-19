@@ -36,7 +36,7 @@ const Pharmacies = (props: PharmaciesProps) => {
           {pharmacies && pharmacies.map((pharmacie, i) => (
             <div key={i} className={'pharmacies__list__item'}>
               {pharmacie.image && <Media type={'image'} data={pharmacie.image} />}
-              <ReactMarkdown source={pharmacie.text && pharmacie.text} />
+              {pharmacie.text && <ReactMarkdown source={pharmacie.text} />}
             </div>
           ))}
         </div>

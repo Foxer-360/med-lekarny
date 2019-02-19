@@ -108,7 +108,7 @@ var Header = /** @class */ (function (_super) {
                     React.createElement("div", { className: 'header__wrapper', ref: _this.headerWrapper },
                         React.createElement("div", { className: 'header__logo' },
                             React.createElement(DomLink, { to: '/' },
-                                React.createElement("img", { src: "/assets/medicon/images/mediconLekarnyLogo.png", alt: "Medicon Lekarny Logo" }))),
+                                React.createElement("img", { src: "/assets/mediconLekarny/images/mediconLekarnyLogo.png", alt: "Medicon Lekarny Logo" }))),
                         React.createElement("nav", null,
                             React.createElement("ul", null, mainNavItems &&
                                 mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },

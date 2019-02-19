@@ -16,8 +16,8 @@
         "gradientText": "Platnost: 01.01.2019 - 31.01.2019",
         "logo": {
           "recommendedSizes": {
-            "width": "160",
-            "height": "40"
+            "width": "155",
+            "height": "35"
           }
         },
         "bottomText": "**Lorem** ipsum dolor sit amet, consectetuer adipiscing elit nam sed tellus id magna elementum"
@@ -35,8 +35,8 @@
         "gradientText": "Platnost: **01.01.2019 - 31.01.2019**",
         "logo": {
           "recommendedSizes": {
-            "width": "160",
-            "height": "40"
+            "width": "155",
+            "height": "35"
           }
         },
         "bottomText": "Lorem ipsum **dolor sit amet, consectetuer adipiscing elit nam sed tellus id magna elementum**"
@@ -54,8 +54,8 @@
         "gradientText": "**Platnost:** 01.01.2019 - 31.01.2019",
         "logo": {
           "recommendedSizes": {
-            "width": "160",
-            "height": "40"
+            "width": "155",
+            "height": "35"
           }
         },
         "bottomText": "Lorem ipsum dolor sit amet, **consectetuer** adipiscing elit nam sed tellus id magna elementum"

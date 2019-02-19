@@ -10,10 +10,9 @@ var ClubBenefits = function (props) {
                 return (React.createElement("div", { key: i, className: 'club-benefits__list__item' }, benefit.title && React.createElement(ReactMarkdown, { source: benefit.title })));
             })),
             buttonTitle &&
-                React.createElement("div", { style: { width: '30%', margin: '0 auto' } },
-                    React.createElement(Button, { url: buttonUrl, classes: 'btn--greenBkg hCenterBlock' }, buttonTitle)),
+                React.createElement(Button, { url: buttonUrl && buttonUrl, classes: 'btn--greenBkg hCenterBlock' }, buttonTitle),
             conditionsUrl &&
-                React.createElement(Link, { className: 'club-benefits__conditions', url: conditionsUrl.url }, "V\u0161eobecn\u00E9 obchodn\u00ED podm\u00EDnky"))));
+                React.createElement(Link, { className: 'club-benefits__conditions', url: conditionsUrl && conditionsUrl.url }, "V\u0161eobecn\u00E9 obchodn\u00ED podm\u00EDnky"))));
 };
 export default ClubBenefits;
 //# sourceMappingURL=ClubBenefits.js.map

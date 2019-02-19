@@ -1,5 +1,4 @@
 import * as React from 'react';
-import SearchBar from '../SearchBar/SearchBar';
 import getImageUrl from '../../helpers/getImageUrl';
 
 export interface HeroProps {

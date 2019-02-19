@@ -88,7 +88,7 @@ var Footer = /** @class */ (function (_super) {
                     React.createElement("div", { className: "container" },
                         React.createElement("div", { className: "bottom__copyrights grid" },
                             React.createElement("p", null, copyrights && copyrights),
-                            React.createElement(Link, { url: gdprUrl && gdprUrl }, gdprText && gdprText))))));
+                            React.createElement(Link, { url: gdprUrl && gdprUrl.url }, gdprText && gdprText))))));
         }));
     };
     Footer.prototype.transformNavigationsIntoTree = function (navigation, urls) {

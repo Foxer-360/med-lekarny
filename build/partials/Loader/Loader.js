@@ -1,12 +1,6 @@
 import * as React from 'react';
 export function Loader(props) {
-    return (React.createElement("div", { className: 'loader' },
-        React.createElement("span", null),
-        React.createElement("span", null),
-        React.createElement("span", null),
-        React.createElement("span", null),
-        React.createElement("span", null),
-        React.createElement("span", null)));
+    return React.createElement("div", null, "Loading...");
 }
 export default Loader;
 //# sourceMappingURL=Loader.js.map

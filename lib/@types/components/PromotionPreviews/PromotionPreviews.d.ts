@@ -4,7 +4,7 @@ interface PromotionPreview {
     title: string;
     description: string;
     date: string;
-    titleURL: string;
+    titleUrl: string;
     url: LooseObject;
 }
 export interface PromotionPreviewsProps {

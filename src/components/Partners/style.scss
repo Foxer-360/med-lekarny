@@ -3,6 +3,7 @@
   
   h3 {
     @include webkitGradientText();
+    padding: 45px !important;
   }
 
   &__divider {
@@ -20,9 +21,9 @@
     grid-gap: 40px 20px;
 
     .mediaRatio {
-      padding-top: 0 !important;
+      padding: 0 !important;
       width: 170px;
-      height: 70px;
+      height: 65px;
     }
   }
 }

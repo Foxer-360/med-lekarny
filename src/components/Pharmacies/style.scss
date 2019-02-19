@@ -59,10 +59,9 @@
       position: relative;
 
       .mediaRatio {
-        padding-top: 0 !important;
-        width: 210px;
-        height: 30px;
-        margin-bottom: 20px;
+        padding: 0 !important;
+        height: 28px;
+        width: 208px;
       }
 
       @include xl {

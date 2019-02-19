@@ -19,7 +19,7 @@ export interface MiniBoxesProps {
 
 const MiniBoxes = (props: MiniBoxesProps) => {
   const { title, dividerOnTop, miniBoxes } = props.data;
-
+  
   return (
     <div className={'mini-boxes'}>
       <div className="container">

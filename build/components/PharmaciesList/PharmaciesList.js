@@ -15,19 +15,19 @@ var PharmaciesList = function (props) {
                             React.createElement(PcTitle, { name: pharmacie.name && pharmacie.name }),
                             React.createElement("div", { className: "pcitem__info__details" },
                                 React.createElement("div", { className: "pcitem__info__details__item" },
-                                    React.createElement("img", { src: "../../../assets/medicon/images/geoIcon.png", alt: "Medicon GeoLocation Icon" }),
+                                    React.createElement("img", { src: "../../../assets/mediconLekarny/images/geoIcon.png", alt: "Medicon GeoLocation Icon" }),
                                     React.createElement("p", null,
                                         pharmacie.address && pharmacie.address,
                                         " ",
                                         React.createElement("br", null),
                                         pharmacie.district && pharmacie.district)),
                                 React.createElement("div", { className: "pcitem__info__details__item" },
-                                    React.createElement("img", { src: "../../../assets/medicon/images/phoneIcon.png", alt: "Medicon Phone Icon" }),
+                                    React.createElement("img", { src: "../../../assets/mediconLekarny/images/phoneIcon.png", alt: "Medicon Phone Icon" }),
                                     React.createElement("p", null, pharmacie.phone && pharmacie.phone)),
                                 React.createElement("div", { className: "pcitem__info__details__item" },
                                     pharmacie.transportImage && React.createElement(Media, { data: pharmacie.transportImage, type: "image" }),
                                     !pharmacie.transportImage &&
-                                        React.createElement("img", { src: "../../../assets/medicon/images/metro2.png", alt: "" }),
+                                        React.createElement("img", { src: "../../../assets/mediconLekarny/images/metro2.png", alt: "" }),
                                     React.createElement("p", null,
                                         pharmacie.transport && pharmacie.transport,
                                         React.createElement("br", null),
@@ -35,14 +35,12 @@ var PharmaciesList = function (props) {
                             pharmacie.services &&
                                 React.createElement("div", { className: 'pcitem__info__list' },
                                     React.createElement(ReactMarkdown, { source: pharmacie.services, renderers: {
-                                            // tslint:disable-next-line:no-any
                                             paragraph: function (rProps) { return React.createElement("ul", null, rProps.children); },
                                         } })),
                             pharmacie.description &&
                                 React.createElement("div", { className: 'pcitem__info__desc' },
                                     React.createElement("div", { className: 'pcitem__info__desc__txt' },
                                         React.createElement(ReactMarkdown, { source: pharmacie.description, renderers: {
-                                                // tslint:disable-next-line:no-any
                                                 paragraph: function (rProps) { return React.createElement("p", null, rProps.children); },
                                             } }))),
                             React.createElement("div", { className: 'pcitem__info__btnHolder' },

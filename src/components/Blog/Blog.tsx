@@ -74,7 +74,8 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
 
           <div className="blog__btnHolder">
             <button 
-              className={`btn btn--greenBkg btn--fullWidth btn--${this.state.showMore ? 'up' : 'down'}`} 
+              className={`btn btn--greenBkg btn--fullWidth btn--${
+                this.state.showMore && blogItems.length > 6 ? 'up' : 'down'}`} 
               onClick={() => this.setState({ showMore: !this.state.showMore })}
             >
               Načíst další<span className="arrow" />

@@ -12,7 +12,7 @@ const Social = (props: SocialProps) => {
   return (
     <div className={'social'}>
       {icons && icons.map((icon, i) => (
-        <Link key={i} url={icon.url && icon.url}>
+        <Link key={i} url={icon.url && icon.url.url}>
           <SvgIcon type={'white'} name={icon.title && icon.title} />
         </Link>
       ))}

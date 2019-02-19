@@ -46,18 +46,12 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     if (slides) {
       slides.map((slide, i) => {
         if (slide.image) {
-          if (slide.url) {
-            images.push(
-              <Link url={slide.url.url}>
-                <Media key={i} type={'image'} data={slide.image} />
-              </Link>);
-          } else {
-            images.push(
-              <div>
-                <Media key={i} type={'image'} data={slide.image} />
-              </div>
-            );
-          }
+          images.push
+          (
+            <Link url={slide.url && slide.url.url}>
+              <Media key={i} type={'image'} data={slide.image} />
+            </Link>
+          );
         }
       });
     }

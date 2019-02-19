@@ -5,7 +5,12 @@
     padding: 55px;
   }
 
-  .mediaRatio { margin-bottom: 50px; }
+  .mediaRatio {
+    max-width: 820px;
+    padding: 0 !important;
+    height: 360px;
+    margin-bottom: 50px;
+  }
 
   p {
     max-width: 820px;

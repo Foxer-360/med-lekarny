@@ -16,7 +16,7 @@ export interface PartnersProps {
 
 const Partners = (props: PartnersProps) => {
   const { title, partners } = props.data;
-
+  
   return (
     <div className={'partners'}>
       <div className="container">

@@ -51,9 +51,9 @@
         padding: 40px 25px 25px 25px;
 
         .mediaRatio {
-          padding-top: 0 !important;
           position: absolute;
           z-index: 1;
+          padding: 0 !important;
           
           &:nth-child(1) {
             top: 20px;
@@ -65,8 +65,8 @@
         .mediaRatio:last-child {
           right: 20px;
           bottom: 20px;
-          width: 160px;
-          height: 40px;
+          width: 155px;
+          height: 35px;
         }
 
         h5 {

@@ -27,7 +27,7 @@ const PromotionsAndDiscounts = (props: PromotionsAndDiscountsProps) => {
   if (items.length > 3) {
     autoPlay = true;
   }
-
+  
   return (
     <div className={'prom-and-disc'}>
       <div className="container">

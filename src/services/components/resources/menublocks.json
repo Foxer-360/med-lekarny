@@ -5,12 +5,7 @@
       {
         "title": "Akce a slevy",
         "color": "#00adcc",
-        "image": {
-          "recommendedSizes": {
-            "width": "610",
-            "height": "250"
-          }
-        },
+        "image": {},
         "icon": {
           "recommendedSizes": {
             "width": "80",
@@ -22,12 +17,7 @@
       {
         "title": "Klub výhod",
         "color": "#00adcc",
-        "image": {
-          "recommendedSizes": {
-            "width": "610",
-            "height": "250"
-          }
-        },
+        "image": {},
         "icon": {
           "recommendedSizes": {
             "width": "80",
@@ -39,12 +29,7 @@
       {
         "title": "Lékárna",
         "color": "#00adcc",
-        "image": {
-          "recommendedSizes": {
-            "width": "610",
-            "height": "250"
-          }
-        },
+        "image": {},
         "icon": {
           "recommendedSizes": {
             "width": "80",
@@ -56,12 +41,7 @@
       {
         "title": "Dermocentrum",
         "color": "#ef404c",
-        "image": {
-          "recommendedSizes": {
-            "width": "610",
-            "height": "250"
-          }
-        },
+        "image": {},
         "icon": {
           "recommendedSizes": {
             "width": "80",
@@ -73,12 +53,7 @@
       {
         "title": "Zdravotní potřeby",
         "color": "#faa74a",
-        "image": {
-          "recommendedSizes": {
-            "width": "610",
-            "height": "250"
-          }
-        },
+        "image": {},
         "icon": {
           "recommendedSizes": {
             "width": "80",
@@ -90,12 +65,7 @@
       {
         "title": "Přírodní lékarna",
         "color": "#3eac49",
-        "image": {
-          "recommendedSizes": {
-            "width": "610",
-            "height": "250"
-          }
-        },
+        "image": {},
         "icon": {
           "recommendedSizes": {
             "width": "80",

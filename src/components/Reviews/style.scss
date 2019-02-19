@@ -27,9 +27,9 @@
       display: grid;
       grid-template-columns: 130px 1fr;
 
-      img {
-        width: initial;
-        max-width: auto;
+      .mediaRatio {
+        padding-top: 0 !important;
+        width: 105px;
         height: 130px;
       }
 

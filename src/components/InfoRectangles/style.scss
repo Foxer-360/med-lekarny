@@ -39,7 +39,8 @@
         position: relative;
         z-index: 2;
        
-        img {
+        .mediaRatio {
+          padding-top: 0 !important;
           width: 84px;
           height: 84px;
         }

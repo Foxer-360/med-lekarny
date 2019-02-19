@@ -7,7 +7,7 @@ interface InfoRectangles {
   image: LooseObject;
   icon: LooseObject;
   title: string;
-  url: string;
+  url: LooseObject;
   titleColor: string;
   gradientColor: string;
 }
@@ -29,7 +29,7 @@ const InfoRectangles = (props: InfoRectanglesProps) => {
           {infoRectangles && infoRectangles.map((rectangle, i) => (
             <Link 
               key={i} 
-              src={rectangle.url && rectangle.url}
+              src={rectangle.url && rectangle.url.url}
               className={'info-rectangles__list__item'}
               style={{ backgroundImage: rectangle.image && `url(${getImageUrl(rectangle.image)})` }}
             >

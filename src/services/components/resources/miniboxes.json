@@ -7,25 +7,45 @@
       {
         "title": "Měření tlaku",
         "gradientColor": "#00aad0",
-        "image": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "295",
+            "height": "225"
+          }
+        },
         "url": ""
       },
       {
         "title": "Měření cukru",
         "gradientColor": "#00aad0",
-        "image": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "295",
+            "height": "225"
+          }
+        },
         "url": ""
       },
       {
         "title": "Testování paměti",
         "gradientColor": "#00aad0",
-        "image": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "295",
+            "height": "225"
+          }
+        },
         "url": ""
       },
       {
         "title": "Odvikání kouření",
         "gradientColor": "#00aad0",
-        "image": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "295",
+            "height": "225"
+          }
+        },
         "url": ""
       }
     ]

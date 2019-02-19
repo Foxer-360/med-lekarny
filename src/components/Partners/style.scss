@@ -19,8 +19,10 @@
     align-items: center;
     grid-gap: 40px 20px;
 
-    img {
-      width: initial;
+    .mediaRatio {
+      padding-top: 0 !important;
+      width: 170px;
+      height: 70px;
     }
   }
 }

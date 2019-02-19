@@ -27,7 +27,7 @@ const MenuBlocks = (props: MenuBlocksProps) => {
           return (
             <Link 
               key={i}
-              url={block.url.url}
+              url={block.url && block.url.url}
               className={'menu-blocks__item'}
               style={{ backgroundImage: block.image && `url(${getImageUrl(block.image)})` }}
             >

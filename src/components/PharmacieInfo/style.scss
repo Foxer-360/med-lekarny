@@ -54,6 +54,7 @@
         font-size: 1.8rem;
         max-width: 240px;
         padding-top: 0 !important;
+        vertical-align: middle;
 
         @include max-md {
           max-width: 80%;

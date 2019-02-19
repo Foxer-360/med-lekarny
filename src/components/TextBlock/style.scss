@@ -12,16 +12,15 @@
 
     &__text {
       font-size: 1.6rem;
-      font-weight: 400;
+      font-weight: 200;
       line-height: 30px;
 
       color: $darkGray;
 
       @include md {
         font-size: 1.8rem;
-        font-weight: 400;
         line-height: 34px;
-        font-weight: 400;
+        font-weight: 200;
         text-align: center;
         letter-spacing: 0.8px;
       }

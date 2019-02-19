@@ -26,7 +26,7 @@ export default class HelpPopup extends React.Component<HelpPopupProps, HelpPopup
       <div className={`helpPopup ${this.state.active ? 'helpPopup--active' : ''} `}>
         <div
           className={'helpPopup__main'}
-          style={{ backgroundImage: 'url(/assets/mediconLekarny/images/phone2.png)' }}
+          style={{ backgroundImage: 'url(/assets/medicon/images/phone2.png)' }}
           onClick={() => this.toggleList()}
         >
           <h4>Potrebujete poraditz</h4>

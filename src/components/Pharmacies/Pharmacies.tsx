@@ -21,13 +21,13 @@ const Pharmacies = (props: PharmaciesProps) => {
       <div className={'container'}>
         <div className={'pharmacies__divider'}>
           <div>
-            <img src={'/assets/mediconLekarny/images/pharmacies-divider-ad.png'} />
+            <img src={'/assets/medicon/images/pharmacies-divider-ad.png'} />
           </div>          
           <div>
-            <img src={'/assets/mediconLekarny/images/pharmacies-divider.png'} />
+            <img src={'/assets/medicon/images/pharmacies-divider.png'} />
           </div>
           <div>
-            <img src={'/assets/mediconLekarny/images/pharmacies-divider-ad.png'} />
+            <img src={'/assets/medicon/images/pharmacies-divider-ad.png'} />
           </div>
           <br style={{ clear: 'both'}} />
         </div>
@@ -36,7 +36,7 @@ const Pharmacies = (props: PharmaciesProps) => {
           {pharmacies && pharmacies.map((pharmacie, i) => (
             <div key={i} className={'pharmacies__list__item'}>
               {pharmacie.image && <Media type={'image'} data={pharmacie.image} />}
-              <ReactMarkdown source={pharmacie.text && pharmacie.text} />
+              {pharmacie.text && <ReactMarkdown source={pharmacie.text} />}
             </div>
           ))}
         </div>

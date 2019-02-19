@@ -20,20 +20,20 @@ const PharmacieInfo = (props: PharmacieInfoProps) => {
         <div className={'pharmacie-info__top-divider'} />
         <div className={'pharmacie-info__content'}>
           <div className={'pharmacie-info__content__item'}>
-            <img src={'/assets/mediconLekarny/images/phone.png'} alt="phone nubmer"/>
+            <img src={'/assets/medicon/images/phone.png'} alt="phone nubmer"/>
             {phone && <p>{phone}</p>}
           </div>
           <div className={'pharmacie-info__content__item'}>
-            <img src={'/assets/mediconLekarny/images/geo.png'} alt="address"/>
+            <img src={'/assets/medicon/images/geo.png'} alt="address"/>
             {geo && <p>{geo}</p>}
           </div>
           <div className={'pharmacie-info__content__item'}>
-            <img src={'/assets/mediconLekarny/images/officeHours.png'} alt="office hours"/>
+            <img src={'/assets/medicon/images/officeHours.png'} alt="office hours"/>
             {officeHours && <p>{officeHours}</p>}
           </div>
           <div className={'pharmacie-info__content__item'}>
             {(transportImage && <Media type={'image'} data={transportImage} />) || (
-              <img src={'/assets/mediconLekarny/images/metro.svg'} alt="metro"/>
+              <img src={'/assets/medicon/images/metro.svg'} alt="metro"/>
             )}
             {transport && <p>{transport}</p>}
           </div>

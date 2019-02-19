@@ -35,6 +35,17 @@
         height: 50px;
         display: inline-block;
       }
+
+      .mediaRatio {
+        padding-top: 0 !important;
+        height: 35px;
+        width: 35px;
+
+        @include md {
+          height: 50px;
+          width: 50px;
+        }
+      }
   
       p {
         display: inline-block;

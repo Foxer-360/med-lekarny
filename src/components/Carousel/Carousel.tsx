@@ -20,6 +20,7 @@ export interface CarouselProps {
 export interface CarouselState {
   currentIndex: number;
   itemsInSlide: number;
+  // tslint:disable-next-line:no-any
   galleryItems: any;
 }
 

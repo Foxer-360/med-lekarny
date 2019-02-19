@@ -18,13 +18,18 @@ const Reviews = (props: ReviewsProps) => {
   const { title, reviews } = props.data;
 
   return (
-    <section className="reviews">
-      <div className="container">
+    <section className={'reviews'}>
+      <div className={'container'}>
         <div className={'reviews__divider'} />
         {title && <h3>{title}</h3>}
-        <div className="grid reviews__list">
-          {reviews && reviews.map((review, index) => (
-            <ReviewElement key={index} image={review.image} cite={review.cite} starCount={review.starCount} />
+        <div className={'reviews__list grid'}>
+          {reviews && reviews.map((review, i) => (
+            <ReviewElement 
+              key={i} 
+              image={review.image} 
+              cite={review.cite} 
+              starCount={review.starCount} 
+            />
           ))}
         </div>
       </div>

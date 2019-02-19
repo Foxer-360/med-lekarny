@@ -14,14 +14,14 @@ export interface PaymentMethodsProps {
 
 const PaymentMethods = (props: PaymentMethodsProps) => {
   const { title, methods } = props.data;
-  
+
   return (
     <div className={'payment-methods'}>
       <div className={'container'}>
         {title && <h3>{title}</h3>}
         <div className={'payment-methods__list grid'}>
           {methods && methods.map((method, i) => (
-            <div className={'payment-methods__list__item'}>
+            <div key={i} className={'payment-methods__list__item'}>
               {method.image && <Media key={i} type={'image'} data={method.image} />}
             </div>
           ))}

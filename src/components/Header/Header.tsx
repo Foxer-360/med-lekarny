@@ -138,7 +138,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                 <div className={'header__wrapper'} ref={this.headerWrapper}>
                   <div className={'header__logo'}>
                     <DomLink to={'/'}>
-                      <img src="/assets/mediconLekarny/images/mediconLekarnyLogo.png" alt="Medicon Lekarny Logo" />
+                      <img src="/assets/medicon/images/mediconLekarnyLogo.png" alt="Medicon Lekarny Logo" />
                     </DomLink>
                   </div>
                   <nav>

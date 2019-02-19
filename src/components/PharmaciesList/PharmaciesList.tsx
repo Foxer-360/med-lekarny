@@ -43,7 +43,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
 
                     <div className="pcitem__info__details">
                       <div className="pcitem__info__details__item">
-                        <img src="../../../assets/mediconLekarny/images/geoIcon.png" alt="Medicon GeoLocation Icon" />
+                        <img src="../../../assets/medicon/images/geoIcon.png" alt="Medicon GeoLocation Icon" />
 
                         <p>
                           {pharmacie.address && pharmacie.address} <br />
@@ -52,7 +52,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                       </div>
 
                       <div className="pcitem__info__details__item">
-                        <img src="../../../assets/mediconLekarny/images/phoneIcon.png" alt="Medicon Phone Icon" />
+                        <img src="../../../assets/medicon/images/phoneIcon.png" alt="Medicon Phone Icon" />
                         <p>{pharmacie.phone && pharmacie.phone}</p>
                       </div>
 
@@ -60,7 +60,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                         {pharmacie.transportImage && <Media data={pharmacie.transportImage} type="image" />}
 
                         {!pharmacie.transportImage && 
-                          <img src="../../../assets/mediconLekarny/images/metro2.png" alt="" />
+                          <img src="../../../assets/medicon/images/metro2.png" alt="" />
                         }
 
                         <p>
@@ -76,6 +76,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                         <ReactMarkdown
                           source={pharmacie.services}
                           renderers={{
+                            // tslint:disable-next-line:no-any
                             paragraph: (rProps: any) => <ul>{rProps.children}</ul>,
                           }}
                         />
@@ -88,6 +89,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                           <ReactMarkdown
                             source={pharmacie.description}
                             renderers={{
+                              // tslint:disable-next-line:no-any
                               paragraph: (rProps: any) => <p>{rProps.children}</p>,
                             }}
                           />

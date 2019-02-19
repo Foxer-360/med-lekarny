@@ -21,6 +21,7 @@ const RegistrationBlock = (props: RegistrationBlockProps) => {
       <div className="container">
         {title && <h3>{title}</h3>}
         {text && <ReactMarkdown source={text} />}
+        
         {btnTitle && 
           <Button url={btnUrl && btnUrl.url} classes={'btn--greenBkg hCenterBlock'}>{btnTitle}</Button>}
         {conditionsUrl && 

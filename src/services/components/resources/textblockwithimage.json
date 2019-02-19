@@ -2,7 +2,12 @@
   "name": "TextBlockWithImage",
   "data": {
     "title": "Lorem ipsum",
-    "image": {},
+    "image": {
+      "recommendedSizes": {
+        "width": "820",
+        "height": "360"
+      }
+    },
     "text": "Popis problému Lorem ipsum dolor sit amet, consectetur adipiscing **elit.**"
   },
   "form": {

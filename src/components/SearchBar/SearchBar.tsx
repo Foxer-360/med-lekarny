@@ -11,6 +11,7 @@ export interface SearchBarState {
 }
 
 class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
+  // tslint:disable-next-line:no-any
   public searchBar: any;
   constructor(props: SearchBarProps) {
     super(props);

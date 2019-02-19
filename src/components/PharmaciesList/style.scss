@@ -35,15 +35,16 @@
   }
 
   &__img {
-    width: 100%;
-    display: block;
-    position: relative;
+    width: 30%;
+    min-height: 100%;
 
-    @include lg {
-      width: 30%;
+    @include max-lg {
+      width: 100%;
+      min-height: 300px;
     }
 
-    img {
+    .mediaRatio {
+      padding-top: 0 !important;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -97,7 +98,23 @@
         }
 
         img {
+          height: 35px;
           width: auto;
+
+          @include md {
+            height: 40px;
+          }
+        }
+
+        .mediaRatio {
+          padding-top: 0 !important;
+          height: 35px;
+          width: 35px;
+
+          @include md {
+            height: 50px;
+            width: 50px;
+          }
         }
 
         p {

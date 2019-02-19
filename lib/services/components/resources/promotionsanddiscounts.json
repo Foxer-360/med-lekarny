@@ -4,19 +4,39 @@
     "title": "Akce a slevy",
     "items": [
       {
-        "image": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "url": ""
       },
       {
-        "image": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "url": ""
       },
       {
-        "image": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "url": ""
       },
       {
-        "image": {},
+        "image": {
+          "recommendedSizes": {
+            "width": "400",
+            "height": "400"
+          }
+        },
         "url": ""
       }
     ]

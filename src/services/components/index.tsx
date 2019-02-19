@@ -54,7 +54,6 @@ class ComponentsService {
     INFOBOXES: 'InfoBoxes',
     PHARMACIESLIST: 'PharmaciesList',
     INFORECTANGLES: 'InfoRectangles',
-    POLYCLINICINFO: 'PolyclinicInfo',
     BLOG: 'Blog',
     DESCRIPTIONLIST: 'DescriptionList',
     PHARMACIES: 'Pharmacies',

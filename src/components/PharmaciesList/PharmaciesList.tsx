@@ -76,6 +76,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                         <ReactMarkdown
                           source={pharmacie.services}
                           renderers={{
+                            // tslint:disable-next-line:no-any
                             paragraph: (rProps: any) => <ul>{rProps.children}</ul>,
                           }}
                         />
@@ -88,6 +89,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                           <ReactMarkdown
                             source={pharmacie.description}
                             renderers={{
+                              // tslint:disable-next-line:no-any
                               paragraph: (rProps: any) => <p>{rProps.children}</p>,
                             }}
                           />

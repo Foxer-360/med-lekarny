@@ -35,12 +35,14 @@ var PharmaciesList = function (props) {
                             pharmacie.services &&
                                 React.createElement("div", { className: 'pcitem__info__list' },
                                     React.createElement(ReactMarkdown, { source: pharmacie.services, renderers: {
+                                            // tslint:disable-next-line:no-any
                                             paragraph: function (rProps) { return React.createElement("ul", null, rProps.children); },
                                         } })),
                             pharmacie.description &&
                                 React.createElement("div", { className: 'pcitem__info__desc' },
                                     React.createElement("div", { className: 'pcitem__info__desc__txt' },
                                         React.createElement(ReactMarkdown, { source: pharmacie.description, renderers: {
+                                                // tslint:disable-next-line:no-any
                                                 paragraph: function (rProps) { return React.createElement("p", null, rProps.children); },
                                             } }))),
                             React.createElement("div", { className: 'pcitem__info__btnHolder' },

@@ -43,7 +43,7 @@ const PromotionsAndDiscounts = (props: PromotionsAndDiscountsProps) => {
           {items && items.map((item, i) => {
             return (
               <div key={i} className={'prom-and-disc__item'}>
-                <Link src={item.url && item.url}>
+                <Link src={item.url && item.url.url}>
                   {item.image && <Media type={'image'} data={item.image} />}
                 </Link>
               </div>

@@ -14,7 +14,7 @@ export interface PaymentMethodsProps {
 
 const PaymentMethods = (props: PaymentMethodsProps) => {
   const { title, methods } = props.data;
-  
+
   return (
     <div className={'payment-methods'}>
       <div className={'container'}>

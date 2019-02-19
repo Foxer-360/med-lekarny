@@ -8,6 +8,7 @@ export interface InfoBoxesProps {
     data: {
         title?: string;
         dividerOnTop?: boolean;
+        indentAtBottom: boolean;
         boxes: Box[];
     };
 }

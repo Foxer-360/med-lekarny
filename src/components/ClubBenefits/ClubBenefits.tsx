@@ -32,7 +32,7 @@ const ClubBenefits = (props: ClubBenefitsProps) => {
         </div>
 
         {buttonTitle && 
-          <div style={{ width: '30%', margin: '0 auto' }}>
+          <div className={'club-benefits__btn-holder'}>
             <Button url={buttonUrl} classes={'btn--greenBkg hCenterBlock'}>
               {buttonTitle}
             </Button>

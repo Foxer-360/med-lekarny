@@ -1,6 +1,18 @@
 .club-benefits {
   margin-top: 60px;
   
+  &__btn-holder {
+    max-width: 35%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    
+    @include max-lg { max-width: 45%; }
+    @include max-md { max-width: 55%; }
+    @include max-sm { max-width: 85%; }
+    @include max-xs { max-width: 100%; }
+  }
+  
   &__list {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;

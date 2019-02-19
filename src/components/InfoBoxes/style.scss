@@ -1,9 +1,8 @@
 .info-boxes {
-  padding-bottom: 55px;
 
   h3 {
     @include webkitGradientText();
-    padding-top: 0;
+    padding: 45px;
   }
 
   h5 {
@@ -31,7 +30,6 @@
   &__divider {
     width: 100%;
     height: 2px;
-    margin-bottom: 60px;
     background-color: #7fd4e7;
   }
 

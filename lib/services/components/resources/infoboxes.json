@@ -3,6 +3,7 @@
   "data": {
     "title": "Default title",
     "dividerOnTop": false,
+    "indentAtBottom": true,
     "boxes": [
       {
         "title": "U nás si můžete změřit tlak",
@@ -47,6 +48,10 @@
         "dividerOnTop": {
           "type": "boolean",
           "title": "Enable divider on top?"
+        },
+        "indentAtBottom": {
+          "type": "boolean",
+          "title": "Add indent at bottom?"
         },
         "boxes": {
           "type": "array",

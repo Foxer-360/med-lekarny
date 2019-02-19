@@ -14,8 +14,17 @@
     }
   }
 
-  .btn {
-    margin-top: 50px;
+  &__btn-holder {
+    max-width: 35%;
+    display: block;
+    margin: 0 auto;
+    
+    @include max-lg { max-width: 45%; }
+    @include max-md { max-width: 55%; }
+    @include max-sm { max-width: 85%; }
+    @include max-xs { max-width: 100%; }
+
+    .btn { margin-top: 50px; }
   }
 
   &__conditions {

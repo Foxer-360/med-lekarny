@@ -14,8 +14,10 @@
     grid-gap: 40px 20px;
 
     &__item {
-      img {
-        width: initial;
+      .mediaRatio {
+        padding-top: 0 !important;
+        width: 90px;
+        height: 55px;
       }
     }
   }

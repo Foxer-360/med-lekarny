@@ -4,7 +4,12 @@
     "title": "Způsoby placení",
     "methods": [
       {
-        "image": {}
+        "image": {
+          "recommendedSizes": {
+            "width": "90",
+            "height": "55"
+          }
+        }
       }
     ]
   },

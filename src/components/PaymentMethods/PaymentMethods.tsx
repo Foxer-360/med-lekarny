@@ -21,7 +21,7 @@ const PaymentMethods = (props: PaymentMethodsProps) => {
         {title && <h3>{title}</h3>}
         <div className={'payment-methods__list grid'}>
           {methods && methods.map((method, i) => (
-            <div className={'payment-methods__list__item'}>
+            <div key={i} className={'payment-methods__list__item'}>
               {method.image && <Media key={i} type={'image'} data={method.image} />}
             </div>
           ))}

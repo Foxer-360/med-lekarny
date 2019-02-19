@@ -23,7 +23,12 @@ const RegistrationBlock = (props: RegistrationBlockProps) => {
         {text && <ReactMarkdown source={text} />}
         
         {btnTitle && 
-          <Button url={btnUrl && btnUrl.url} classes={'btn--greenBkg hCenterBlock'}>{btnTitle}</Button>}
+          <div className={'registration-block__btn-holder'}>
+            <Button url={btnUrl} classes={'btn--greenBkg hCenterBlock'}>
+              {btnTitle}
+            </Button>
+          </div>}
+
         {conditionsUrl && 
           <Link 
             className={'registration-block__conditions'} 

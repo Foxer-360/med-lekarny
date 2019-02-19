@@ -13,11 +13,14 @@
     }
   }
 
-  img { 
-    width: initial;
+  .mediaRatio {
+    padding-top: 0 !important;
     display: block;
     margin: 0 auto;
     align-self: center;
+    width: 175px;
+    height: 175px;
+    z-index: 1;
   }
 
   p {
@@ -29,6 +32,7 @@
     font-size: 1.8rem;
     letter-spacing: 0.05rem;
     color: #00aad0;
+    z-index: 3;
   }
 
   &__list {
@@ -60,6 +64,7 @@
         padding: 0 15px;
         padding-top: 15%;
         background-image: linear-gradient(to right, #3eac49 0%, #00aad0 100%);
+        z-index: 3;
       }
 
       &:not(:only-child) {
@@ -104,7 +109,7 @@
       }
 
       &:last-child {
-        img {
+        .mediaRatio {
           border-radius: 100px;
         }
       }

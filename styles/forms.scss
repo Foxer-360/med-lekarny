@@ -36,7 +36,7 @@
 
       input {
         font-size: 1.8rem;
-        font-weight: 200;
+        font-weight: 400;
         letter-spacing: 0.72px;
         color: $darkGray;
         padding: 25px 0 15px;
@@ -76,7 +76,7 @@
         left: 0;
         opacity: 0.6;
         color: $darkGray;
-        font-weight: 200;
+        font-weight: 400;
         transition: 0.2s cubic-bezier(0.9, -0.15, 0.1, 1.15), opacity 0.2s ease-out;
         will-change: bottom;
         line-height: 1;
@@ -118,7 +118,7 @@
       select {
         color: $darkGray;
         font-size: 1.8rem;
-        font-weight: 200;
+        font-weight: 400;
         letter-spacing: 0.72px;
         padding: 25px 0 15px;
         width: 100%;
@@ -132,7 +132,7 @@
 
         @include md {
           font-size: 2rem;
-          font-weight: 200;
+          font-weight: 400;
           letter-spacing: 0.89px;
         }
 
@@ -168,7 +168,7 @@
         padding: 17px 22px;
         color: $darkGray;
         font-size: 2rem;
-        font-weight: 200;
+        font-weight: 400;
         letter-spacing: 0.89px;
         width: 100%;
         margin-top: 15px;
@@ -212,7 +212,7 @@
       label {
         text-transform: uppercase;
         padding-bottom: 15px;
-        font-weight: 200;
+        font-weight: 400;
         font-size: 1.8rem;
         letter-spacing: 0.72px;
 
@@ -229,7 +229,7 @@
         box-sizing: border-box;
         padding: 25px;
         font-size: 1.8rem;
-        font-weight: 200;
+        font-weight: 400;
         letter-spacing: 0.72px;
 
         @include md {
@@ -246,7 +246,7 @@
       padding: 30px 0;
       font-size: 1.8rem;
       letter-spacing: 0.72px;
-      font-weight: 200;
+      font-weight: 400;
       flex-flow: row nowrap;
       line-height: 1;
 

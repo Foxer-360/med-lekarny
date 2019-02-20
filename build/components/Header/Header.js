@@ -94,6 +94,7 @@ var Header = /** @class */ (function (_super) {
                 return "Error..." + error;
             }
             var navigations = context.navigationsData, languageCode = context.languageData.code;
+            var langCode = context;
             var transformedNavigations = _this.transformNavigationsIntoTree(navigations, data.pagesUrls);
             var mainNav = 'main';
             var topNav = 'top';

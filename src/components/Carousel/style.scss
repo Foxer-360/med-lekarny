@@ -1,8 +1,8 @@
 .carousel {
   display: grid;
   background-color: #f4f5f6;
-  grid-template-rows: auto minmax(1fr, 490px);
-  grid-template-columns: 80% 20%;
+  grid-template-rows: auto;
+  grid-template-columns: 75% 25%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
 
    &__divider {

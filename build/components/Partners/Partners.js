@@ -8,7 +8,7 @@ var Partners = function (props) {
             React.createElement("div", { className: 'partners__divider' }),
             title && React.createElement("h3", null, title),
             React.createElement("div", { className: 'partners__list grid' }, partners && partners.map(function (partner, i) {
-                return (React.createElement(Link, { key: i, src: partner.url && partner.url.url }, partner.image && React.createElement(Media, { type: 'image', data: partner.image })));
+                return (React.createElement(Link, { key: i, url: partner.url && partner.url.url }, partner.image && React.createElement(Media, { type: 'image', data: partner.image })));
             })))));
 };
 export default Partners;

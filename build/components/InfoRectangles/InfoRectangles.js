@@ -8,7 +8,7 @@ var InfoRectangles = function (props) {
         React.createElement("div", { className: "container" },
             React.createElement("div", { className: 'info-rectangles__divider' }),
             React.createElement("div", { className: 'info-rectangles__list grid' }, infoRectangles && infoRectangles.map(function (rectangle, i) {
-                return (React.createElement(Link, { key: i, src: rectangle.url && rectangle.url.url, className: 'info-rectangles__list__item', style: { backgroundImage: rectangle.image && "url(" + getImageUrl(rectangle.image) + ")" } },
+                return (React.createElement(Link, { key: i, url: rectangle.url && rectangle.url.url, className: 'info-rectangles__list__item', style: { backgroundImage: rectangle.image && "url(" + getImageUrl(rectangle.image) + ")" } },
                     React.createElement("div", { className: 'info-rectangles__list__item__content' },
                         rectangle.icon && React.createElement(Media, { type: 'image', data: rectangle.icon }),
                         rectangle.title && React.createElement("p", { style: rectangle.titleColor && { color: "" + rectangle.titleColor } || {} }, rectangle.title)),

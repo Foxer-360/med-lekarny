@@ -78,8 +78,8 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
             slideToIndex={this.state.currentIndex}
           />
         </div>
-
-         <div className={'carousel__titles'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
+         
+        <div className={'carousel__titles'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
           <ul className={'carousel__titles__list'}>
             {slides && slides.map((slide, i) => (
               <li 

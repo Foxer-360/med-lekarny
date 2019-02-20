@@ -3,6 +3,7 @@ import SvgIcon from '@source/partials/SvgIcon';
 import Link from '@source/partials/Link';
 
 export interface SocialProps {
+  // tslint:disable-next-line:no-any
   icons: Array<any>;
 }
 

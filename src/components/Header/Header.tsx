@@ -55,6 +55,7 @@ export interface HeaderState {
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
+  // tslint:disable-next-line:no-any
   public headerWrapper: any;
 
   constructor(props: HeaderProps) {
@@ -110,6 +111,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             languageData: { code: languageCode },
           } = context;
 
+          const langCode = context;
+
           const transformedNavigations = this.transformNavigationsIntoTree(navigations, data.pagesUrls);
 
           const mainNav = 'main';
@@ -120,7 +123,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           
           const topNavItems =
             transformedNavigations && transformedNavigations[topNav] ? transformedNavigations[topNav] : [];
-
+          
           return (
             <header className={`header ${this.state.menuActive ? 'menuActive' : ''}`}>
               <div className={'header__top'}>

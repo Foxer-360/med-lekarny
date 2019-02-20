@@ -31,7 +31,7 @@ const InfoRectangles = (props: InfoRectanglesProps) => {
             return (
               <Link 
                 key={i} 
-                src={rectangle.url && rectangle.url.url}
+                url={rectangle.url && rectangle.url.url}
                 className={'info-rectangles__list__item'}
                 style={{ backgroundImage: rectangle.image && `url(${getImageUrl(rectangle.image)})` }}
               >

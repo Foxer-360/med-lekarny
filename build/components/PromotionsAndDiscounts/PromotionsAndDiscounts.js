@@ -17,7 +17,7 @@ var PromotionsAndDiscounts = function (props) {
             title && React.createElement("h3", null, title) || React.createElement("div", { style: { height: 50 } }),
             React.createElement(AliceCarousel, { responsive: responsive, dotsDisabled: true, autoPlay: autoPlay, autoPlayInterval: 6000, stopAutoPlayOnHover: true }, items && items.map(function (item, i) {
                 return (React.createElement("div", { key: i, className: 'prom-and-disc__item' },
-                    React.createElement(Link, { src: item.url && item.url.url }, item.image && React.createElement(Media, { type: 'image', data: item.image }))));
+                    React.createElement(Link, { url: item.url && item.url.url }, item.image && React.createElement(Media, { type: 'image', data: item.image }))));
             })))));
 };
 export default PromotionsAndDiscounts;

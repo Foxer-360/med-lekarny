@@ -21,13 +21,13 @@ const Pharmacies = (props: PharmaciesProps) => {
       <div className={'container'}>
         <div className={'pharmacies__divider'}>
           <div>
-            <img src={'/assets/medicon/images/pharmacies-divider-ad.png'} />
+            <img src={'/assets/mediconLekarny/images/pharmacies-divider-ad.png'} />
           </div>          
           <div>
-            <img src={'/assets/medicon/images/pharmacies-divider.png'} />
+            <img src={'/assets/mediconLekarny/images/pharmacies-divider.png'} />
           </div>
           <div>
-            <img src={'/assets/medicon/images/pharmacies-divider-ad.png'} />
+            <img src={'/assets/mediconLekarny/images/pharmacies-divider-ad.png'} />
           </div>
           <br style={{ clear: 'both'}} />
         </div>

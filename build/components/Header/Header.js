@@ -32,7 +32,7 @@ import { Link as DomLink } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
-var GET_CONTEXT = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client\n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client\n  }\n"])));
+var GET_CONTEXT = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"])));
 var GET_PAGES_URLS = gql(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
 var ComposedQuery = adopt({
     context: function (_a) {
@@ -109,7 +109,7 @@ var Header = /** @class */ (function (_super) {
                     React.createElement("div", { className: 'header__wrapper', ref: _this.headerWrapper },
                         React.createElement("div", { className: 'header__logo' },
                             React.createElement(DomLink, { to: '/' },
-                                React.createElement("img", { src: "/assets/medicon/images/mediconLekarnyLogo.png", alt: "Medicon Lekarny Logo" }))),
+                                React.createElement("img", { src: "/assets/mediconLekarny/images/mediconLekarnyLogo.png", alt: "Medicon Lekarny Logo" }))),
                         React.createElement("nav", null,
                             React.createElement("ul", null, mainNavItems &&
                                 mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },

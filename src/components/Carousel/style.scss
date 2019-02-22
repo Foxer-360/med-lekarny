@@ -5,7 +5,7 @@
   grid-template-columns: 75% 25%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
 
-   &__divider {
+  &__divider {
     grid-row: 1/2;
     height: 125px;
 
@@ -14,11 +14,10 @@
     }
   }
 
-   ul {
+  ul {
     @include reset-list;
     li { padding: 0; }
   }
-
 
   .mediaRatio  {
     height: 490px;
@@ -29,23 +28,27 @@
     }
   }
 
-   .alice-carousel__dots {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
+  .alice-carousel {
+    &__dots {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
 
-     .__active {
-      background-color: $green;
+      .__active {
+        background-color: $green;
+      }
     }
   }
-
-   &__images {
+  
+  &__images {
+    max-height: 490px;
+    overflow: hidden;
     grid-row: 2/3;
   }
 
-   &__titles {
+  &__titles {
     height: 100%;
     grid-row: 2/3;
     font-size: 1.8rem;
@@ -53,24 +56,24 @@
     text-transform: uppercase;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
 
-     @media (max-width: 955px) {
+    @media (max-width: 955px) {
       font-size: 1.6rem;
     }
 
-     @media (max-width: 900px) {
+    @media (max-width: 900px) {
       font-size: 1.4rem;
     }
 
-     @media (max-width: 720px) {
+    @media (max-width: 720px) {
       font-size: 1.2rem;
     }
 
-     &__list {
+    &__list {
       display: grid;
       height: 100%;
       grid-template-rows: repeat(5, 1fr);
 
-       &__item {
+      &__item {
         text-align: center;
         cursor: pointer;
         display: grid;
@@ -78,7 +81,7 @@
         word-wrap: none;
         align-items: center;
 
-         &:not(:last-of-type) {
+        &:not(:last-of-type) {
           border-bottom: 2px solid #dddedf;
         }
       }

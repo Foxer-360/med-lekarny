@@ -6,9 +6,9 @@ import Loader from '../Loader';
 import { adopt } from 'react-adopt';
 
 const isExternalLink = url => {
-  const pattern = /^https?|^www/i;
-  return pattern.test(url);
-};
+  const pattern = /^https?|^www|^mailto:|^tel:|^sms:|^call:/gi;
+  return pattern.test(url);   
+}; 
 
 const GET_CONTEXT = gql`
   {
@@ -45,13 +45,12 @@ const GET_PAGES_URLS = gql`
 `;
 
 const ComposerLink = props => {
-  const { children, urlNewWindow, url, pageId, ...args } = props;
-
+  const { children, urlNewWindow, url, pageId, dynamic, ...args } = props;
   return (
     <ComposedQuery>
       {({ getPagesUrls: { loading, error, data } }) => {
         if (loading) {
-          return <div>Loading...</div>;
+          return <Loader />;
         }
 
         if (error) {
@@ -76,7 +75,7 @@ const ComposerLink = props => {
           );
         } else {
           return (
-            <Link to={pageUrlObj ? pageUrlObj.url : '/404'} {...args}>
+            <Link to={(dynamic && url) || (pageUrlObj ? pageUrlObj.url : '/404')} {...args}>
               {children}
             </Link>
           );

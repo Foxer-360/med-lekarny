@@ -1,5 +1,6 @@
 .pharmacies {
-
+  padding-top: 55px;
+  
   &__divider {
     margin-bottom: 50px;
 
@@ -56,6 +57,7 @@
     &__item {
       justify-self: center;
       height: 100%;
+      max-width: 220px;
       position: relative;
 
       .mediaRatio {

@@ -129,7 +129,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   <ul className={'header__top__list'}>
                     {topNavItems && topNavItems.map((navItem, i) => (
                       <li key={i}>
-                        <Link {...navItem.url}>{navItem.name || navItem.title}</Link>
+                        <Link url={navItem.url}>{navItem.name || navItem.title}</Link>
                       </li>
                     ))}
                   </ul>
@@ -147,7 +147,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                       {mainNavItems &&
                         mainNavItems.map((navItem, i) => (
                           <li key={i}>
-                             <Link {...navItem.url}>{navItem.name || navItem.title}</Link>
+                            <Link url={navItem.url}>{navItem.name || navItem.title}</Link>
                           </li>
                         ))}
                     </ul>
@@ -168,7 +168,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                       mainNavItems.map((navItem, i) => (
                         <li key={i}>
                           {
-                            <Link {...navItem.url} onClick={() => this.closeMenu()}>
+                            <Link url={navItem.url} onClick={() => this.closeMenu()}>
                               {navItem.name || navItem.title}
                             </Link>}
                         </li>

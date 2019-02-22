@@ -103,7 +103,7 @@ var Header = /** @class */ (function (_super) {
                 React.createElement("div", { className: 'header__top' },
                     React.createElement("div", { style: { position: 'relative' }, className: 'container' },
                         React.createElement("ul", { className: 'header__top__list' }, topNavItems && topNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
-                            React.createElement(Link, __assign({}, navItem.url), navItem.name || navItem.title))); })))),
+                            React.createElement(Link, { url: navItem.url }, navItem.name || navItem.title))); })))),
                 React.createElement("div", { className: "container" },
                     React.createElement("div", { className: 'header__wrapper', ref: _this.headerWrapper },
                         React.createElement("div", { className: 'header__logo' },
@@ -112,7 +112,7 @@ var Header = /** @class */ (function (_super) {
                         React.createElement("nav", null,
                             React.createElement("ul", null, mainNavItems &&
                                 mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
-                                    React.createElement(Link, __assign({}, navItem.url), navItem.name || navItem.title))); })),
+                                    React.createElement(Link, { url: navItem.url }, navItem.name || navItem.title))); })),
                             React.createElement(Hamburger, { active: _this.state.menuActive, onClick: _this.toggleMenu })))),
                 React.createElement("div", { className: 'header__iso' },
                     React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 100 100", preserveAspectRatio: "none" },
@@ -120,7 +120,7 @@ var Header = /** @class */ (function (_super) {
                 React.createElement("div", { className: "hiddenMenu " + (_this.state.menuActive ? 'hiddenMenu--active' : '') },
                     React.createElement("div", { className: 'hiddenMenu__wrapper' },
                         React.createElement("ul", null, mainNavItems &&
-                            mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i }, React.createElement(Link, __assign({}, navItem.url, { onClick: function () { return _this.closeMenu(); } }), navItem.name || navItem.title))); }))))));
+                            mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i }, React.createElement(Link, { url: navItem.url, onClick: function () { return _this.closeMenu(); } }, navItem.name || navItem.title))); }))))));
         }));
     };
     Header.prototype.transformNavigationsIntoTree = function (navigation, urls) {

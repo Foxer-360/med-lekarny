@@ -26,9 +26,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import Loader from '../Loader';
 import { adopt } from 'react-adopt';
 var isExternalLink = function (url) {
-    var pattern = /^https?|^www/i;
+    var pattern = /^https?|^www|^mailto:|^tel:|^sms:|^call:/gi;
     return pattern.test(url);
 };
 var GET_CONTEXT = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n  }\n"], ["\n  {\n    languageData @client\n  }\n"])));
@@ -52,11 +53,11 @@ var ComposedQuery = adopt({
 });
 var GET_PAGES_URLS = gql(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
 var ComposerLink = function (props) {
-    var children = props.children, urlNewWindow = props.urlNewWindow, url = props.url, pageId = props.pageId, args = __rest(props, ["children", "urlNewWindow", "url", "pageId"]);
+    var children = props.children, urlNewWindow = props.urlNewWindow, url = props.url, pageId = props.pageId, dynamic = props.dynamic, args = __rest(props, ["children", "urlNewWindow", "url", "pageId", "dynamic"]);
     return (React.createElement(ComposedQuery, null, function (_a) {
         var _b = _a.getPagesUrls, loading = _b.loading, error = _b.error, data = _b.data;
         if (loading) {
-            return React.createElement("div", null, "Loading...");
+            return React.createElement(Loader, null);
         }
         if (error) {
             return "Error: " + error;
@@ -70,7 +71,7 @@ var ComposerLink = function (props) {
             return (React.createElement("a", __assign({ href: (isExternalLink(url) && url) || (pageUrlObj && pageUrlObj.url) || '/404' }, args, { target: urlNewWindow ? '_blank' : '' }), children));
         }
         else {
-            return (React.createElement(Link, __assign({ to: pageUrlObj ? pageUrlObj.url : '/404' }, args), children));
+            return (React.createElement(Link, __assign({ to: (dynamic && url) || (pageUrlObj ? pageUrlObj.url : '/404') }, args), children));
         }
     }));
 };

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Hamburger from './components/Hamburger';
-import { Link as DomLink } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
+import Link from '@source/partials/Link';
 
 const GET_CONTEXT = gql`
   {
@@ -111,8 +111,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             languageData: { code: languageCode },
           } = context;
 
-          const langCode = context;
-
           const transformedNavigations = this.transformNavigationsIntoTree(navigations, data.pagesUrls);
 
           const mainNav = 'main';
@@ -131,7 +129,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   <ul className={'header__top__list'}>
                     {topNavItems && topNavItems.map((navItem, i) => (
                       <li key={i}>
-                        <DomLink to={navItem.url ? navItem.url : ''}>{navItem.name || navItem.title}</DomLink>
+                        <Link {...navItem.url}>{navItem.name || navItem.title}</Link>
                       </li>
                     ))}
                   </ul>
@@ -140,16 +138,16 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               <div className="container">
                 <div className={'header__wrapper'} ref={this.headerWrapper}>
                   <div className={'header__logo'}>
-                    <DomLink to={'/'}>
+                    <Link url={`/${context.websiteData.title.toLowerCase()}/${context.languageData.code}`}>
                       <img src="/assets/mediconLekarny/images/mediconLekarnyLogo.png" alt="Medicon Lekarny Logo" />
-                    </DomLink>
+                    </Link>
                   </div>
                   <nav>
                     <ul>
                       {mainNavItems &&
                         mainNavItems.map((navItem, i) => (
                           <li key={i}>
-                            <DomLink to={navItem.url ? navItem.url : ''}>{navItem.name}</DomLink>
+                             <Link {...navItem.url}>{navItem.name || navItem.title}</Link>
                           </li>
                         ))}
                     </ul>
@@ -170,9 +168,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                       mainNavItems.map((navItem, i) => (
                         <li key={i}>
                           {
-                            <DomLink to={navItem.url ? navItem.url : ''} onClick={() => this.closeMenu()}>
-                              {navItem.name}
-                            </DomLink>}
+                            <Link {...navItem.url} onClick={() => this.closeMenu()}>
+                              {navItem.name || navItem.title}
+                            </Link>}
                         </li>
                       ))}
                   </ul>

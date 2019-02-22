@@ -1,5 +1,5 @@
 .reviews {
-  margin-bottom: 40px;
+  padding-bottom: 20px;
   color: $darkGray;
 
   h3 { 
@@ -25,12 +25,13 @@
       background-color: #f4f5f7;
       background-repeat: no-repeat;
       display: grid;
-      grid-template-columns: 130px 1fr;
+      grid-template-columns: 110px 1fr;
 
       .mediaRatio {
         padding-top: 0 !important;
         width: 105px;
         height: 130px;
+        align-self: center;
       }
 
       &__content {

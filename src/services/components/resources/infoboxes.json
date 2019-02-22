@@ -3,7 +3,7 @@
   "data": {
     "title": "Default title",
     "dividerOnTop": false,
-    "indentAtBottom": true,
+    "indentAtBottom": false,
     "boxes": [
       {
         "title": "U nás si můžete změřit tlak",

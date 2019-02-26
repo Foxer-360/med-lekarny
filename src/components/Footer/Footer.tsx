@@ -1,12 +1,11 @@
 import * as React from 'react';
 import Social from './components/Social';
 import HelpPopup from './components/HelpPopup';
-import Link from '@source/partials/Link';
-
-import { Link as DomLink } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
+import Link from '../../partials/Link';
+import Loader from '@source/partials/Loader';
 
 const GET_CONTEXT = gql`
   {
@@ -52,10 +51,6 @@ interface Icon {
 }
 
 export interface FooterProps {
-  navigations?: LooseObject;
-  languages?: LooseObject;
-  languageCode?: string;
-
   data: {
     icons: Icon[];
     copyrights: string;
@@ -64,7 +59,7 @@ export interface FooterProps {
   };
 }
 
-export interface FooterState { }
+export interface FooterState {}
 
 class Footer extends React.Component<FooterProps, FooterState> {
   constructor(props: FooterProps) {
@@ -82,8 +77,14 @@ class Footer extends React.Component<FooterProps, FooterState> {
     return (
       <ComposedQuery>
         {({ getPagesUrls: { loading, error, data }, context }) => {
-          if (!context.navigationsData || !context.languageData || !context.languagesData || !data || !data.pagesUrls) {
-            return <div>Loading...</div>;
+          if (
+            !context.navigationsData || 
+            !context.languageData || 
+            !context.languagesData || 
+            !data || 
+            !data.pagesUrls
+          ) {
+            return <Loader />;
           }
 
           if (error) {
@@ -111,7 +112,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
                     <ul className={'footer__list'}>
                       {bottomNavItems && bottomNavItems.map((navItem, i) => (
                         <li key={i}>
-                          <DomLink to={navItem.url ? navItem.url : ''}>{navItem.name || navItem.title}</DomLink>
+                          <Link to={navItem.url ? navItem.url : ''}>{navItem.name || navItem.title}</Link>
                         </li>
                       ))}
                     </ul>

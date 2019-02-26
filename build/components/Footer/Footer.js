@@ -78,7 +78,7 @@ var Footer = /** @class */ (function (_super) {
             var transformedNavigations = _this.transformNavigationsIntoTree(navigations, data.pagesUrls);
             var bottomNav = 'bottom';
             var bottomNavItems = transformedNavigations && transformedNavigations[bottomNav] ? transformedNavigations[bottomNav] : [];
-            return (React.createElement("footer", null,
+            return (React.createElement("footer", { style: { position: 'relative', width: '100%', bottom: '0' } },
                 React.createElement(HelpPopup, null),
                 React.createElement("div", { className: 'footer' },
                     React.createElement("div", { className: 'container' },

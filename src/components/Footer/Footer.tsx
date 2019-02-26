@@ -104,7 +104,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
             transformedNavigations && transformedNavigations[bottomNav] ? transformedNavigations[bottomNav] : [];
 
           return (
-            <footer>
+            <footer style={{ position: 'relative', width: '100%', bottom: '0' }}>
               <HelpPopup />
               <div className={'footer'}>
                 <div className={'container'}>

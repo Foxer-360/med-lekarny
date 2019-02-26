@@ -2,6 +2,7 @@ import * as React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import Media from '@source/partials/Media';
+import List from '../List';
 
 interface Slide {
   image: LooseObject;
@@ -26,23 +27,27 @@ const Gallery = (props: GalleryProps) => {
   }
 
   return (
-    <div className={'gallery'}>
-      <div className={'container'}>
-        <AliceCarousel  
-          responsive={responsive}
-          dotsDisabled={true}
-          autoPlay={autoPlay}
-          autoPlayInterval={6000}
-          stopAutoPlayOnHover={true}
-        >
-          {slides && slides.map((slide, i) => (
-            <div className={'gallery__item'} key={i}>
-              {slide.image && <Media type={'image'} data={slide.image} />}
-            </div>
-          ))}
-        </AliceCarousel>
-      </div>
-    </div>
+    <List data={slides}>
+      {({ data }) => (
+        <div className={'gallery'}>
+          <div className={'container'}>
+            <AliceCarousel  
+              responsive={responsive}
+              dotsDisabled={true}
+              autoPlay={autoPlay}
+              autoPlayInterval={7000}
+              stopAutoPlayOnHover={true}
+            >
+              {data && data.map((slide, i) => (
+                <div className={'gallery__item'} key={i}>
+                  {slide.image && <Media type={'image'} data={slide.image} />}
+                </div>
+              ))}
+            </AliceCarousel>
+          </div>
+        </div>
+      )}
+    </List>
   );
 };
 

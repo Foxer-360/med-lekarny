@@ -8,6 +8,7 @@ var TextBlock = function (props) {
                 title && React.createElement("h3", { className: 'gradientHeading' }, title),
                 text && (React.createElement("div", { className: "textBlock__container__text" },
                     React.createElement(ReactMarkdown, { source: text, renderers: {
+                            // tslint:disable-next-line:no-any
                             paragraph: function (rProps) { return React.createElement(React.Fragment, null, rProps.children); },
                         } })))))));
 };

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ReviewElement from './components/ReviewElement';
+import List from '../List';
 
 interface Reviews {
   cite: string;
@@ -18,22 +19,26 @@ const Reviews = (props: ReviewsProps) => {
   const { title, reviews } = props.data;
 
   return (
-    <section className={'reviews'}>
-      <div className={'container'}>
-        <div className={'reviews__divider'} />
-        {title && <h3>{title}</h3>}
-        <div className={'reviews__list grid'}>
-          {reviews && reviews.map((review, i) => (
-            <ReviewElement 
-              key={i} 
-              image={review.image} 
-              cite={review.cite} 
-              starCount={review.starCount} 
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+    <List data={reviews}>
+      {({ data }) => (
+        <section className={'reviews'}>
+          <div className={'container'}>
+            <div className={'reviews__divider'} />
+            {title && <h3>{title}</h3>}
+            <div className={'reviews__list grid'}>
+              {data && data.map((review, i) => (
+                <ReviewElement 
+                  key={i} 
+                  image={review.image} 
+                  cite={review.cite} 
+                  starCount={review.starCount} 
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+    </List>
   );
 };
 

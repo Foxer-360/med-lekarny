@@ -3,6 +3,7 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import Link from '@source/partials/Link';
 import Media from '@source/partials/Media';
+import List from '../List';
 
 interface Item {
   image: LooseObject;
@@ -29,29 +30,33 @@ const PromotionsAndDiscounts = (props: PromotionsAndDiscountsProps) => {
   }
   
   return (
-    <div className={'prom-and-disc'}>
-      <div className="container">
-        {title && <h3>{title}</h3> || <div style={{ height: 50 }}/>}
-
-        <AliceCarousel  
-          responsive={responsive}
-          dotsDisabled={true}
-          autoPlay={autoPlay}
-          autoPlayInterval={6000}
-          stopAutoPlayOnHover={true}
-        >
-          {items && items.map((item, i) => {
-            return (
-              <div key={i} className={'prom-and-disc__item'}>
-                <Link url={item.url && item.url.url}>
-                  {item.image && <Media type={'image'} data={item.image} />}
-                </Link>
-              </div>
-            );
-          })}
-        </AliceCarousel>
-      </div>
-    </div>
+    <List data={items}>
+      {({ data }) => (
+        <div className={'prom-and-disc'}>
+          <div className="container">
+            {title && <h3>{title}</h3> || <div style={{ height: 50 }}/>}
+    
+            <AliceCarousel  
+              responsive={responsive}
+              dotsDisabled={true}
+              autoPlay={autoPlay}
+              autoPlayInterval={6000}
+              stopAutoPlayOnHover={true}
+            >
+              {data && data.map((item, i) => {
+                return (
+                  <div key={i} className={'prom-and-disc__item'}>
+                    <Link url={item.url && item.url.url}>
+                      {item.image && <Media type={'image'} data={item.image} />}
+                    </Link>
+                  </div>
+                );
+              })}
+            </AliceCarousel>
+          </div>
+        </div>
+      )}
+    </List>
   );
 };
 

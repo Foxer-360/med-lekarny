@@ -32,6 +32,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import Link from '@source/partials/Link';
+import Loader from '@source/partials/Loader';
 var GET_CONTEXT = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"])));
 var GET_PAGES_URLS = gql(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
 var ComposedQuery = adopt({
@@ -87,8 +88,12 @@ var Header = /** @class */ (function (_super) {
         this.state.menuActive ? (document.body.style.position = 'fixed') : (document.body.style.position = 'static');
         return (React.createElement(ComposedQuery, null, function (_a) {
             var _b = _a.getPagesUrls, loading = _b.loading, error = _b.error, data = _b.data, context = _a.context;
-            if (!context.navigationsData || !context.languageData || !context.languagesData || !data || !data.pagesUrls) {
-                return React.createElement("div", null, "Loading...");
+            if (!context.navigationsData ||
+                !context.languageData ||
+                !context.languagesData ||
+                !data ||
+                !data.pagesUrls) {
+                return React.createElement(Loader, null);
             }
             if (error) {
                 return "Error..." + error;
@@ -103,7 +108,7 @@ var Header = /** @class */ (function (_super) {
                 React.createElement("div", { className: 'header__top' },
                     React.createElement("div", { style: { position: 'relative' }, className: 'container' },
                         React.createElement("ul", { className: 'header__top__list' }, topNavItems && topNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
-                            React.createElement(Link, __assign({}, navItem.url), navItem.name || navItem.title))); })))),
+                            React.createElement(Link, { url: navItem.url && navItem.url }, navItem.name || navItem.title))); })))),
                 React.createElement("div", { className: "container" },
                     React.createElement("div", { className: 'header__wrapper', ref: _this.headerWrapper },
                         React.createElement("div", { className: 'header__logo' },
@@ -112,7 +117,7 @@ var Header = /** @class */ (function (_super) {
                         React.createElement("nav", null,
                             React.createElement("ul", null, mainNavItems &&
                                 mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
-                                    React.createElement(Link, __assign({}, navItem.url), navItem.name || navItem.title))); })),
+                                    React.createElement(Link, { url: navItem.url && navItem.url }, navItem.name || navItem.title))); })),
                             React.createElement(Hamburger, { active: _this.state.menuActive, onClick: _this.toggleMenu })))),
                 React.createElement("div", { className: 'header__iso' },
                     React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 100 100", preserveAspectRatio: "none" },
@@ -120,7 +125,7 @@ var Header = /** @class */ (function (_super) {
                 React.createElement("div", { className: "hiddenMenu " + (_this.state.menuActive ? 'hiddenMenu--active' : '') },
                     React.createElement("div", { className: 'hiddenMenu__wrapper' },
                         React.createElement("ul", null, mainNavItems &&
-                            mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i }, React.createElement(Link, __assign({}, navItem.url, { onClick: function () { return _this.closeMenu(); } }), navItem.name || navItem.title))); }))))));
+                            mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i }, React.createElement(Link, { url: navItem.url && navItem.url, onClick: function () { return _this.closeMenu(); } }, navItem.name || navItem.title))); }))))));
         }));
     };
     Header.prototype.transformNavigationsIntoTree = function (navigation, urls) {

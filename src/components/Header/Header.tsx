@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import Link from '@source/partials/Link';
+import Loader from '@source/partials/Loader';
 
 const GET_CONTEXT = gql`
   {
@@ -98,8 +99,14 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <ComposedQuery>
         {({ getPagesUrls: { loading, error, data }, context }) => {
-          if (!context.navigationsData || !context.languageData || !context.languagesData || !data || !data.pagesUrls) {
-            return <div>Loading...</div>;
+          if (
+            !context.navigationsData || 
+            !context.languageData || 
+            !context.languagesData || 
+            !data || 
+            !data.pagesUrls
+          ) {
+            return <Loader />;
           }
 
           if (error) {
@@ -129,7 +136,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   <ul className={'header__top__list'}>
                     {topNavItems && topNavItems.map((navItem, i) => (
                       <li key={i}>
-                        <Link {...navItem.url}>{navItem.name || navItem.title}</Link>
+                        <Link url={navItem.url && navItem.url}>
+                          {navItem.name || navItem.title}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -147,7 +156,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                       {mainNavItems &&
                         mainNavItems.map((navItem, i) => (
                           <li key={i}>
-                             <Link {...navItem.url}>{navItem.name || navItem.title}</Link>
+                            <Link url={navItem.url && navItem.url}>
+                              {navItem.name || navItem.title}
+                            </Link>
                           </li>
                         ))}
                     </ul>
@@ -168,7 +179,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                       mainNavItems.map((navItem, i) => (
                         <li key={i}>
                           {
-                            <Link {...navItem.url} onClick={() => this.closeMenu()}>
+                            <Link url={navItem.url && navItem.url} onClick={() => this.closeMenu()}>
                               {navItem.name || navItem.title}
                             </Link>}
                         </li>

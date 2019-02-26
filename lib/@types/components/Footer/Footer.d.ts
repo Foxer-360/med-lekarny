@@ -4,9 +4,6 @@ interface Icon {
     url: LooseObject;
 }
 export interface FooterProps {
-    navigations?: LooseObject;
-    languages?: LooseObject;
-    languageCode?: string;
     data: {
         icons: Icon[];
         copyrights: string;

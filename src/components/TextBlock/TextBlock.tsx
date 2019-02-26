@@ -22,6 +22,7 @@ const TextBlock = (props: TextBlockProps) => {
               <ReactMarkdown
                 source={text}
                 renderers={{
+                  // tslint:disable-next-line:no-any
                   paragraph: (rProps: any) => <>{rProps.children}</>,
                 }}
               />

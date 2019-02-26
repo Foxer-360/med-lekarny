@@ -29,11 +29,11 @@ var __assign = (this && this.__assign) || function () {
 import * as React from 'react';
 import Social from './components/Social';
 import HelpPopup from './components/HelpPopup';
-import Link from '@source/partials/Link';
-import { Link as DomLink } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
+import Link from '../../partials/Link';
+import Loader from '@source/partials/Loader';
 var GET_CONTEXT = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client\n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client\n  }\n"])));
 var GET_PAGES_URLS = gql(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
 var ComposedQuery = adopt({
@@ -64,8 +64,12 @@ var Footer = /** @class */ (function (_super) {
         var _a = this.props.data, icons = _a.icons, copyrights = _a.copyrights, gdprText = _a.gdprText, gdprUrl = _a.gdprUrl;
         return (React.createElement(ComposedQuery, null, function (_a) {
             var _b = _a.getPagesUrls, loading = _b.loading, error = _b.error, data = _b.data, context = _a.context;
-            if (!context.navigationsData || !context.languageData || !context.languagesData || !data || !data.pagesUrls) {
-                return React.createElement("div", null, "Loading...");
+            if (!context.navigationsData ||
+                !context.languageData ||
+                !context.languagesData ||
+                !data ||
+                !data.pagesUrls) {
+                return React.createElement(Loader, null);
             }
             if (error) {
                 return "Error..." + error;
@@ -80,7 +84,7 @@ var Footer = /** @class */ (function (_super) {
                     React.createElement("div", { className: 'container' },
                         React.createElement("div", null,
                             React.createElement("ul", { className: 'footer__list' }, bottomNavItems && bottomNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
-                                React.createElement(DomLink, { to: navItem.url ? navItem.url : '' }, navItem.name || navItem.title))); })),
+                                React.createElement(Link, { to: navItem.url ? navItem.url : '' }, navItem.name || navItem.title))); })),
                             React.createElement(Social, { icons: icons }))),
                     React.createElement("div", { className: 'footer__left' }),
                     React.createElement("div", { className: 'footer__right' })),

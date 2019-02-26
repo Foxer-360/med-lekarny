@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ReactMarkdown from 'react-markdown';
 import SvgIcon from '@source/partials/SvgIcon';
 import Link from '@source/partials/Link';
 

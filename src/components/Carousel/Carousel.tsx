@@ -3,6 +3,7 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import Media from '@source/partials/Media';
 import Link from '@source/partials/Link';
+import List from '../List';
 
 interface Slide {
   image: LooseObject;
@@ -62,44 +63,48 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     const { slides, displayOnTop } = this.props.data;
     
     return (
-      <div className={'carousel'}>
-        {displayOnTop ? <div className={'carousel__divider'} /> : ''}
-
-         <div className={'carousel__images'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
-          <AliceCarousel 
-            autoPlay={true}
-            dotsDisabled={true}
-            buttonsDisabled={true}
-            autoPlayInterval={1000000}
-            items={this.state.galleryItems}
-            onSlideChanged={(e) => {
-              this.setState({ currentIndex: e.item }); 
-            }}
-            slideToIndex={this.state.currentIndex}
-          />
-        </div>
-         
-        <div className={'carousel__titles'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
-          <ul className={'carousel__titles__list'}>
-            {slides && slides.map((slide, i) => (
-              <li 
-                key={i} 
-                onClick={() => this.slideTo(i)}
-                className={'carousel__titles__list__item'}
-                style={i === this.state.currentIndex ? { 
-                  color: '#3eac49', 
-                  fontWeight: 700,
-                  backgroundColor: 'white',
-                  boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
-                  borderBottom: 'none !important'
-                 } : {}}
-              >
-                <span>{slide.title && slide.title}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <List data={slides}>
+        {({ data }) => (
+          <div className={'carousel'}>
+            {displayOnTop ? <div className={'carousel__divider'} /> : ''}
+    
+            <div className={'carousel__images'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
+              <AliceCarousel 
+                autoPlay={true}
+                dotsDisabled={true}
+                buttonsDisabled={true}
+                autoPlayInterval={10000}
+                items={this.state.galleryItems}
+                onSlideChanged={(e) => {
+                  this.setState({ currentIndex: e.item }); 
+                }}
+                slideToIndex={this.state.currentIndex}
+              />
+            </div>
+            
+            <div className={'carousel__titles'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
+              <ul className={'carousel__titles__list'}>
+                {slides && slides.map((slide, i) => (
+                  <li 
+                    key={i} 
+                    onClick={() => this.slideTo(i)}
+                    className={'carousel__titles__list__item'}
+                    style={i === this.state.currentIndex ? { 
+                      color: '#3eac49', 
+                      fontWeight: 700,
+                      backgroundColor: 'white',
+                      boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
+                      borderBottom: 'none !important'
+                    } : {}}
+                  >
+                    <span>{slide.title && slide.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>    
+        )}
+      </List>
     );
   }
 }

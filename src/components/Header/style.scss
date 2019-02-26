@@ -187,6 +187,8 @@
     padding: 100px 30px 50px 30px;
     overflow-y: scroll;
     max-height: 100%;
+    display: grid;
+    height: 100%;
 
     @include md {
       padding: 150px 50px 50px 50px;
@@ -208,6 +210,7 @@
 
     ul {
       @include reset-list;
+      align-self: center;
 
       li {
         text-align: center;

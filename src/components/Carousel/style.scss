@@ -5,6 +5,10 @@
   grid-template-columns: 75% 25%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
 
+  @include max-md {
+    grid-template-columns: 100%;
+  }
+
   &__divider {
     grid-row: 1/2;
     height: 125px;
@@ -28,24 +32,14 @@
     }
   }
 
-  .alice-carousel {
-    &__dots {
-      margin: 0;
-      padding: 0;
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-
-      .__active {
-        background-color: $green;
-      }
-    }
-  }
-  
   &__images {
     max-height: 490px;
     overflow: hidden;
     grid-row: 2/3;
+
+    @media (max-width: 720px) {
+      max-height: 260px;
+    }
   }
 
   &__titles {
@@ -55,6 +49,10 @@
     overflow-y: hidden;
     text-transform: uppercase;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+
+    @include max-md {
+      display: none;
+    }
 
     @media (max-width: 955px) {
       font-size: 1.6rem;

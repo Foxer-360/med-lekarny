@@ -72,7 +72,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     
             <div className={'carousel__images'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
               <Slider  
-                delay={500000} 
+                delay={8000} 
                 showDots={true}
                 autoplay={true}
                 showArrows={false} 

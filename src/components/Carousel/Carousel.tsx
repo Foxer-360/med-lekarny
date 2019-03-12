@@ -1,9 +1,9 @@
 import * as React from 'react';
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
-import Media from '@source/partials/Media';
-import Link from '@source/partials/Link';
+
 import List from '../List';
+import Link from '@source/partials/Link';
+import Media from '@source/partials/Media';
+import Slider from '@source/partials/Slider';
 
 interface Slide {
   image: LooseObject;
@@ -20,9 +20,9 @@ export interface CarouselProps {
 
 export interface CarouselState {
   currentIndex: number;
-  itemsInSlide: number;
   // tslint:disable-next-line:no-any
   galleryItems: any;
+  activeSlide: number;
 }
 
 class Carousel extends React.Component<CarouselProps, CarouselState> {
@@ -31,16 +31,18 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
 
     this.state = {
       currentIndex: 0,
-      itemsInSlide: 1,
+      activeSlide: 0,
       galleryItems: this.galleryItems(),
     };
-  }  
 
-   slideTo = (i) => {
-    this.setState({ currentIndex: i });
+    this.onSlideChanged.bind(this);
   }
 
-   galleryItems() {  
+  onSlideChanged = (e) => {
+    this.setState({ currentIndex: e.item });
+  }
+
+  galleryItems() {  
     const { slides } = this.props.data;
     let images = [];
 
@@ -69,25 +71,22 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
             {displayOnTop ? <div className={'carousel__divider'} /> : ''}
     
             <div className={'carousel__images'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
-              <AliceCarousel 
-                autoPlay={true}
-                dotsDisabled={true}
-                buttonsDisabled={true}
-                autoPlayInterval={10000}
-                items={this.state.galleryItems}
-                onSlideChanged={(e) => {
-                  this.setState({ currentIndex: e.item }); 
-                }}
+              <Slider  
+                delay={8000} 
+                showDots={true}
+                autoplay={true}
+                showArrows={false} 
+                onSlideChanged={this.onSlideChanged}
+                slides={this.state.galleryItems}
                 slideToIndex={this.state.currentIndex}
               />
             </div>
             
             <div className={'carousel__titles'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
               <ul className={'carousel__titles__list'}>
-                {slides && slides.map((slide, i) => (
+                {data && data.map((slide, i) => (
                   <li 
                     key={i} 
-                    onClick={() => this.slideTo(i)}
                     className={'carousel__titles__list__item'}
                     style={i === this.state.currentIndex ? { 
                       color: '#3eac49', 

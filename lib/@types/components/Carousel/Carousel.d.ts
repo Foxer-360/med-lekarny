@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Slide from './components/Slide';
 interface Slide {
     image: LooseObject;
     url: LooseObject;
@@ -11,14 +12,24 @@ export interface CarouselProps {
     };
 }
 export interface CarouselState {
+    interval: any;
+    slides: Array<any>;
     currentIndex: number;
-    galleryItems: any;
-    activeSlide: number;
+    delay: number;
+    translateValue: number;
+    autoplay: boolean;
+    showDots: boolean;
+    showArrows: boolean;
 }
 declare class Carousel extends React.Component<CarouselProps, CarouselState> {
     constructor(props: CarouselProps);
-    onSlideChanged: (e: any) => void;
+    componentDidMount(): void;
+    componentWillUnmount: () => void;
     galleryItems(): any[];
+    goToNextSlide: () => void;
+    goToPrevSlide: () => void;
+    goTo: (index: any) => void;
+    slideWidth: () => number;
     render(): JSX.Element;
 }
 export default Carousel;

@@ -15,22 +15,83 @@ import * as React from 'react';
 import List from '../List';
 import Link from '@source/partials/Link';
 import Media from '@source/partials/Media';
-import Slider from '@source/partials/Slider';
+import Dots from './components/Dots';
+import Slide from './components/Slide';
+import LeftArrow from './components/LeftArrow';
+import RightArrow from './components/RightArrow';
 var Carousel = /** @class */ (function (_super) {
     __extends(Carousel, _super);
     function Carousel(props) {
         var _this = _super.call(this, props) || this;
-        _this.onSlideChanged = function (e) {
-            _this.setState({ currentIndex: e.item });
+        _this.componentWillUnmount = function () { return clearInterval(_this.state.interval); };
+        _this.goToNextSlide = function () {
+            if (_this.state.currentIndex === _this.state.slides.length - 1) {
+                return _this.setState({
+                    currentIndex: 0,
+                    translateValue: 0
+                });
+            }
+            _this.setState(function (prevState) { return ({
+                currentIndex: prevState.currentIndex + 1,
+                translateValue: prevState.translateValue + -(_this.slideWidth())
+            }); });
+        };
+        _this.goToPrevSlide = function () {
+            if (_this.state.currentIndex === 0) {
+                _this.setState({
+                    currentIndex: _this.state.slides.length,
+                    translateValue: _this.state.slides.length * -(_this.slideWidth())
+                });
+            }
+            _this.setState(function (prevState) { return ({
+                currentIndex: prevState.currentIndex - 1,
+                translateValue: prevState.translateValue + _this.slideWidth()
+            }); });
+        };
+        _this.goTo = function (index) {
+            if (index === _this.state.currentIndex) {
+                return;
+            }
+            if (index > _this.state.currentIndex) {
+                _this.setState({
+                    currentIndex: index,
+                    translateValue: index * -(_this.slideWidth())
+                });
+            }
+            else {
+                _this.setState({
+                    currentIndex: index,
+                    translateValue: _this.state.translateValue + (_this.state.currentIndex - index) * (_this.slideWidth())
+                });
+            }
+        };
+        _this.slideWidth = function () {
+            if (document.querySelector('.slider__slide')) {
+                return document.querySelector('.slider__slide').clientWidth;
+            }
+            else {
+                return 0; // fix for backoffice
+            }
         };
         _this.state = {
+            delay: 2000,
+            autoplay: true,
+            showDots: true,
+            interval: null,
             currentIndex: 0,
-            activeSlide: 0,
-            galleryItems: _this.galleryItems(),
+            translateValue: 0,
+            showArrows: false,
+            slides: _this.galleryItems(),
         };
-        _this.onSlideChanged.bind(_this);
         return _this;
     }
+    Carousel.prototype.componentDidMount = function () {
+        this.setState({ slides: this.state.slides });
+        if (this.state.autoplay) {
+            var interval = setInterval(this.goToNextSlide, this.state.delay);
+            this.setState({ interval: interval });
+        }
+    };
     Carousel.prototype.galleryItems = function () {
         var slides = this.props.data.slides;
         var images = [];
@@ -47,14 +108,23 @@ var Carousel = /** @class */ (function (_super) {
     Carousel.prototype.render = function () {
         var _this = this;
         var _a = this.props.data, slides = _a.slides, displayOnTop = _a.displayOnTop;
+        var Slider = (React.createElement("div", { className: "slider" },
+            React.createElement("div", { className: "slider__wrapper", style: {
+                    transform: "translateX(" + this.state.translateValue + "px)",
+                    transition: 'transform ease-out 0.25s'
+                } }, this.state.slides.map(function (slide, i) { return (React.createElement(Slide, { key: i, slide: slide })); })),
+            this.state.showArrows ? (React.createElement(React.Fragment, null,
+                React.createElement(LeftArrow, { goToPrevSlide: this.goToPrevSlide }),
+                React.createElement(RightArrow, { goToNextSlide: this.goToNextSlide }))) : '',
+            this.state.showDots ?
+                React.createElement(Dots, { goTo: this.goTo, len: this.state.slides.length, currentIndex: this.state.currentIndex }) : ''));
         return (React.createElement(List, { data: slides }, function (_a) {
             var data = _a.data;
             return (React.createElement("div", { className: 'carousel' },
                 displayOnTop ? React.createElement("div", { className: 'carousel__divider' }) : '',
-                React.createElement("div", { className: 'carousel__images', style: displayOnTop ? {} : { gridRow: 'auto' } },
-                    React.createElement(Slider, { delay: 500000, showDots: true, autoplay: true, showArrows: false, onSlideChanged: _this.onSlideChanged, slides: _this.state.galleryItems, slideToIndex: _this.state.currentIndex })),
+                React.createElement("div", { className: 'carousel__images', style: displayOnTop ? {} : { gridRow: 'auto' } }, Slider),
                 React.createElement("div", { className: 'carousel__titles', style: displayOnTop ? {} : { gridRow: 'auto' } },
-                    React.createElement("ul", { className: 'carousel__titles__list' }, data && data.map(function (slide, i) { return (React.createElement("li", { key: i, className: 'carousel__titles__list__item', style: i === _this.state.currentIndex ? {
+                    React.createElement("ul", { className: 'carousel__titles__list' }, data && data.map(function (slide, i) { return (React.createElement("li", { key: i, onClick: function () { return _this.goTo(i); }, className: 'carousel__titles__list__item', style: i === _this.state.currentIndex ? {
                             color: '#3eac49',
                             fontWeight: 700,
                             backgroundColor: 'white',

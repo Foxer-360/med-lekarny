@@ -12,23 +12,23 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import * as React from 'react';
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
-import Media from '@source/partials/Media';
-import Link from '@source/partials/Link';
 import List from '../List';
+import Link from '@source/partials/Link';
+import Media from '@source/partials/Media';
+import Slider from '@source/partials/Slider';
 var Carousel = /** @class */ (function (_super) {
     __extends(Carousel, _super);
     function Carousel(props) {
         var _this = _super.call(this, props) || this;
-        _this.slideTo = function (i) {
-            _this.setState({ currentIndex: i });
+        _this.onSlideChanged = function (e) {
+            _this.setState({ currentIndex: e.item });
         };
         _this.state = {
             currentIndex: 0,
-            itemsInSlide: 1,
+            activeSlide: 0,
             galleryItems: _this.galleryItems(),
         };
+        _this.onSlideChanged.bind(_this);
         return _this;
     }
     Carousel.prototype.galleryItems = function () {
@@ -52,11 +52,9 @@ var Carousel = /** @class */ (function (_super) {
             return (React.createElement("div", { className: 'carousel' },
                 displayOnTop ? React.createElement("div", { className: 'carousel__divider' }) : '',
                 React.createElement("div", { className: 'carousel__images', style: displayOnTop ? {} : { gridRow: 'auto' } },
-                    React.createElement(AliceCarousel, { autoPlay: true, dotsDisabled: true, buttonsDisabled: true, autoPlayInterval: 10000, items: _this.state.galleryItems, onSlideChanged: function (e) {
-                            _this.setState({ currentIndex: e.item });
-                        }, slideToIndex: _this.state.currentIndex })),
+                    React.createElement(Slider, { delay: 500000, showDots: true, autoplay: true, showArrows: false, onSlideChanged: _this.onSlideChanged, slides: _this.state.galleryItems, slideToIndex: _this.state.currentIndex })),
                 React.createElement("div", { className: 'carousel__titles', style: displayOnTop ? {} : { gridRow: 'auto' } },
-                    React.createElement("ul", { className: 'carousel__titles__list' }, slides && slides.map(function (slide, i) { return (React.createElement("li", { key: i, onClick: function () { return _this.slideTo(i); }, className: 'carousel__titles__list__item', style: i === _this.state.currentIndex ? {
+                    React.createElement("ul", { className: 'carousel__titles__list' }, data && data.map(function (slide, i) { return (React.createElement("li", { key: i, className: 'carousel__titles__list__item', style: i === _this.state.currentIndex ? {
                             color: '#3eac49',
                             fontWeight: 700,
                             backgroundColor: 'white',

@@ -21,6 +21,12 @@ var Slider = /** @class */ (function (_super) {
     function Slider(props) {
         var _this = _super.call(this, props) || this;
         _this.componentWillUnmount = function () { return clearInterval(_this.state.interval); };
+        _this.componentWillReceiveProps = function (nextProps) {
+            // console.log('Slider ' + nextProps.slideToIndex);
+            if (nextProps.slideToIndex !== _this.state.currentIndex) {
+                _this.onSlideToIndexChange(_this.state.currentIndex, nextProps.slideToIndex);
+            }
+        };
         _this.onSlideToIndexChange = function (currentIndex, slideToIndex) {
             if (slideToIndex === currentIndex + 1) {
                 _this.goToNextSlide();
@@ -44,6 +50,9 @@ var Slider = /** @class */ (function (_super) {
                 currentIndex: prevState.currentIndex + 1,
                 translateValue: prevState.translateValue + -(_this.slideWidth())
             }); });
+            if (_this.state.currentIndex === 0) {
+                return _this.onSlideChanged(_this.state.currentIndex + 1);
+            }
             _this.onSlideChanged(_this.state.currentIndex);
         };
         _this.goToPrevSlide = function () {
@@ -53,6 +62,10 @@ var Slider = /** @class */ (function (_super) {
                     translateValue: _this.state.slides.length * -(_this.slideWidth())
                 });
                 _this.onSlideChanged(_this.state.slides.length);
+            }
+            if (_this.state.currentIndex === 1) {
+                _this.setState({ currentIndex: 0 });
+                return _this.onSlideChanged(0);
             }
             _this.setState(function (prevState) { return ({
                 currentIndex: prevState.currentIndex - 1,

@@ -35,12 +35,12 @@ var Blog = /** @class */ (function (_super) {
         }
         return (React.createElement("section", { className: 'blog' },
             React.createElement("div", { className: "container" },
-                title && React.createElement("h1", null, title),
+                title && React.createElement("h1", { style: displaySearch ? { paddingBottom: 0 } : {} }, title),
                 displaySearch && React.createElement(SearchBar, { placeholder: 'Vyhledat téma', barColor: 'gray' }),
                 React.createElement(Masonry, { breakpointCols: { default: 3, 4000: 3, 800: 2, 500: 1 }, className: "my-masonry-grid", columnClassName: "my-masonry-grid_column" }, this.state.showMore ? (blogCards) : (sixBlogCards)),
                 React.createElement("div", { className: 'blog__blur' },
                     React.createElement("div", null)),
-                React.createElement("div", { className: "blog__btnHolder" },
+                blogItems && blogItems.length > 6 && React.createElement("div", { className: "blog__btnHolder" },
                     React.createElement("button", { className: "btn btn--greenBkg btn--fullWidth btn--" + (this.state.showMore && blogItems.length > 6 ? 'up' : 'down'), onClick: function () { return _this.setState({ showMore: !_this.state.showMore }); } },
                         "Na\u010D\u00EDst dal\u0161\u00ED",
                         React.createElement("span", { className: "arrow" }))))));

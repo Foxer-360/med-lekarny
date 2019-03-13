@@ -43,18 +43,17 @@ var Gallery = function (props) {
     }
     if (slides.length > 1) {
         arrayOfMobiletSlides = splitArray(arrayOfSlides, 1);
-        console.log(arrayOfMobiletSlides);
     }
     return (React.createElement(List, { data: {} }, function (_a) {
         var data = _a.data;
         return (React.createElement("div", { className: 'gallery' },
             React.createElement("div", { className: 'container' },
                 React.createElement(Default, null,
-                    React.createElement(Slider, { autoplay: autoPlay, showArrows: true, delay: 500000, showDots: false, slides: arrayOfDesktopSlides })),
+                    React.createElement(Slider, { autoplay: autoPlay, showArrows: true, delay: 7000, showDots: false, slides: arrayOfDesktopSlides })),
                 React.createElement(Tablet, null,
-                    React.createElement(Slider, { autoplay: autoPlay, showArrows: true, delay: 500000, showDots: false, slides: arrayOfTabletSlides })),
+                    React.createElement(Slider, { autoplay: autoPlay, showArrows: true, delay: 7000, showDots: false, slides: arrayOfTabletSlides })),
                 React.createElement(Mobile, null,
-                    React.createElement(Slider, { autoplay: autoPlay, showArrows: true, delay: 500000, showDots: false, slides: arrayOfMobiletSlides })))));
+                    React.createElement(Slider, { autoplay: autoPlay, showArrows: true, delay: 7000, showDots: false, slides: arrayOfMobiletSlides })))));
     }));
 };
 export default Gallery;

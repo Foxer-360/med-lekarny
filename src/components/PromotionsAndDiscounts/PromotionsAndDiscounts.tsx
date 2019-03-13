@@ -54,8 +54,8 @@ const PromotionsAndDiscounts = (props: PromotionsAndDiscountsProps) => {
   let arrayOfTabletSlides = [];
   let arrayOfMobiletSlides = [];
 
-  if (items.length > 3) {
-    // Split an array of 4 elements
+  if (items.length >= 3) {
+    // Split an array of 3 elements
     arrayOfDesktopSlides = splitArray(arrayOfSlides, 3);
   }
   if (items.length > 2) {

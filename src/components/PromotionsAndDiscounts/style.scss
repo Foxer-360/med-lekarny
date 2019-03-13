@@ -64,9 +64,5 @@
     @include max-sm {
       grid-template-columns: repeat(1, 1fr);
     }
-
-    &__item {
-      height: 400px;
-    }
   }
 }

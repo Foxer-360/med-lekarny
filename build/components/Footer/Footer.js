@@ -27,13 +27,13 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import * as React from 'react';
-import Social from './components/Social';
-import HelpPopup from './components/HelpPopup';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import Link from '../../partials/Link';
+import Social from './components/Social';
 import Loader from '@source/partials/Loader';
+import HelpPopup from './components/HelpPopup';
 var GET_CONTEXT = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client\n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client\n  }\n"])));
 var GET_PAGES_URLS = gql(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
 var ComposedQuery = adopt({
@@ -90,7 +90,7 @@ var Footer = /** @class */ (function (_super) {
                     React.createElement("div", { className: 'footer__right' })),
                 React.createElement("div", { className: "bottom" },
                     React.createElement("div", { className: "container" },
-                        React.createElement("div", { className: "bottom__copyrights grid" },
+                        React.createElement("div", { className: "bottom__copyrights" },
                             React.createElement("p", null, copyrights && copyrights),
                             React.createElement(Link, { url: gdprUrl && gdprUrl.url }, gdprText && gdprText))))));
         }));

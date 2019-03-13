@@ -1,11 +1,12 @@
 import * as React from 'react';
-import Social from './components/Social';
-import HelpPopup from './components/HelpPopup';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
+
 import Link from '../../partials/Link';
+import Social from './components/Social';
 import Loader from '@source/partials/Loader';
+import HelpPopup from './components/HelpPopup';
 
 const GET_CONTEXT = gql`
   {
@@ -125,7 +126,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
               
               <div className="bottom">
                 <div className="container">
-                  <div className="bottom__copyrights grid">
+                  <div className="bottom__copyrights">
                     <p>{copyrights && copyrights}</p>
                     <Link url={gdprUrl && gdprUrl.url} >
                       {gdprText && gdprText}

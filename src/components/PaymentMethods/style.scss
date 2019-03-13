@@ -3,7 +3,7 @@
   
   h3 {
     @include webkitGradientText();
-    padding-top: 0;
+    padding-top: 5px;
   }
   
   &__list {

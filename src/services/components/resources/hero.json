@@ -3,9 +3,8 @@
   "data": {
     "title": "Sample Title",
     "text": "Sample Text",
-    "placeholder": "Search..",
-    "displaySearch": false,
-    "displayOverlay": false,
+    "displayWhiteOverlay": false,
+    "displayBlackOverlay": false,
     "TitleColor": "blue",
     "textColor": "gray",
     "image": {
@@ -18,11 +17,18 @@
   "form": {
     "schema": {
       "type": "object",
-
       "properties": {
-        "displayOverlay": {
+        "displayWhiteOverlay": {
           "type": "boolean",
-          "title": "Display Overlay?"
+          "title": "Display white overlay?"
+        },
+        "displayBlackOverlay": {
+          "type": "boolean",
+          "title": "Display black overlay?"
+        },
+        "opacity": {
+          "type": "number",
+          "title": "Transparency(opacity) from 0 to 1 "
         },
         "title": {
           "type": "text",
@@ -47,14 +53,6 @@
             "gray": "gray",
             "white": "white"
           }
-        },
-        "placeholder": {
-          "type": "text",
-          "title": "placeholder"
-        },
-        "displaySearch": {
-          "type": "boolean",
-          "title": "Display Search Bar?"
         },
         "image": {
           "type": "image"

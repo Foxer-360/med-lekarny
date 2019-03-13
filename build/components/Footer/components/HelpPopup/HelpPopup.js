@@ -30,7 +30,7 @@ var HelpPopup = /** @class */ (function (_super) {
         var _this = this;
         return (React.createElement("div", { className: "helpPopup " + (this.state.active ? 'helpPopup--active' : '') + " " },
             React.createElement("div", { className: 'helpPopup__main', style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' }, onClick: function () { return _this.toggleList(); } },
-                React.createElement("h4", null, "Potrebujete poraditz")),
+                React.createElement("h4", null, "Pot\u0159ebujete poradit?")),
             React.createElement("ul", { className: 'helpPopup__list' },
                 React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
                     React.createElement("p", null, "Pharmacentrum Bud\u011Bjovick\u00E1"),

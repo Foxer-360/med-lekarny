@@ -1,5 +1,4 @@
 /// <reference types="react" />
-import 'react-alice-carousel/lib/alice-carousel.css';
 interface PromotionPreview {
     title: string;
     description: string;

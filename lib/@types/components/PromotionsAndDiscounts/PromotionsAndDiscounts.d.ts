@@ -1,5 +1,4 @@
 /// <reference types="react" />
-import 'react-alice-carousel/lib/alice-carousel.css';
 interface Item {
     image: LooseObject;
     url: LooseObject;

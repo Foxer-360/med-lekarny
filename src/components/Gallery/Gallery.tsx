@@ -58,7 +58,6 @@ const Gallery = (props: GalleryProps) => {
   }
   if (slides.length > 1) {
     arrayOfMobiletSlides = splitArray(arrayOfSlides, 1);
-    console.log(arrayOfMobiletSlides);
   }
 
   return (

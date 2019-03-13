@@ -56,7 +56,7 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
     return (
       <section className={'blog'}>
         <div className="container">
-          {title && <h1>{title}</h1>}
+          {title && <h1 style={displaySearch ? {paddingBottom: 0} : {}}>{title}</h1>}
 
           {displaySearch && <SearchBar placeholder={'Vyhledat téma'} barColor={'gray'} />}
 
@@ -72,7 +72,7 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
             <div />
           </div>
 
-          <div className="blog__btnHolder">
+          {blogItems && blogItems.length > 6 && <div className="blog__btnHolder">
             <button 
               className={`btn btn--greenBkg btn--fullWidth btn--${
                 this.state.showMore && blogItems.length > 6 ? 'up' : 'down'}`} 
@@ -80,7 +80,7 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
             >
               Načíst další<span className="arrow" />
             </button>
-          </div>
+          </div>}
         </div>
       </section>
     );

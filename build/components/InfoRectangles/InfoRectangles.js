@@ -1,8 +1,8 @@
 import * as React from 'react';
-import getImageUrl from '@source/helpers/getImageUrl';
+import List from '../List';
 import Link from '@source/partials/Link';
 import Media from '@source/partials/Media';
-import List from '../List';
+import getImageUrl from '@source/helpers/getImageUrl';
 var InfoRectangles = function (props) {
     var infoRectangles = props.data.infoRectangles;
     return (React.createElement(List, { data: infoRectangles }, function (_a) {
@@ -16,8 +16,10 @@ var InfoRectangles = function (props) {
                             rectangle.icon && React.createElement(Media, { type: 'image', data: rectangle.icon }),
                             rectangle.title &&
                                 React.createElement("p", { style: rectangle.titleColor && { color: "" + rectangle.titleColor } || {} }, rectangle.title)),
+                        console.log(rectangle),
                         rectangle.gradientColor && (React.createElement("div", { className: 'info-rectangles__list__item--colorGradient', style: {
-                                background: "linear-gradient(to left, rgba(125, 185, 232, 0) 0%, \n                          " + rectangle.gradientColor + " 100%)"
+                                background: "linear-gradient(to left, rgba(125, 185, 232, 0) 0%, \n                          " + rectangle.gradientColor + " 100%)",
+                                opacity: rectangle.opacity && rectangle.opacity
                             } }))));
                 })))));
     }));

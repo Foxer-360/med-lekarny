@@ -3,6 +3,7 @@
   "data": {
     "infoRectangles": [
       {
+        "opacity": 0.5,
         "image": {
           "recommendedSizes": {
             "width": "610",
@@ -21,6 +22,7 @@
         "gradientColor": "#00aad0"
       },
       {
+        "opacity": 0.5,
         "image": {
           "recommendedSizes": {
             "width": "610",
@@ -49,6 +51,10 @@
           "title": "Rectangles",
           "items": {
             "properties": {
+              "opacity": {
+                "type": "number",
+                "title": "Transparency from 0 to 1. For for example: 0.5 is 50%"
+              },
               "image": {
                 "type": "image"
               },

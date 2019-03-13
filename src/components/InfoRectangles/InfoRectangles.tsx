@@ -1,10 +1,12 @@
 import * as React from 'react';
-import getImageUrl from '@source/helpers/getImageUrl';
+
+import List from '../List';
 import Link from '@source/partials/Link';
 import Media from '@source/partials/Media';
-import List from '../List';
+import getImageUrl from '@source/helpers/getImageUrl';
 
 interface InfoRectangles {
+  opacity: number;
   image: LooseObject;
   icon: LooseObject;
   title: string;
@@ -46,13 +48,14 @@ const InfoRectangles = (props: InfoRectanglesProps) => {
                           {rectangle.title}
                         </p>}
                     </div>
-      
+      {console.log(rectangle)}
                     {rectangle.gradientColor && (
                       <div
                         className={'info-rectangles__list__item--colorGradient'}
                         style={{ 
                           background: `linear-gradient(to left, rgba(125, 185, 232, 0) 0%, 
-                          ${rectangle.gradientColor} 100%)` 
+                          ${rectangle.gradientColor} 100%)`,
+                          opacity: rectangle.opacity && rectangle.opacity
                         }}
                       />
                     )}

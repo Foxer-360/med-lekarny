@@ -3,12 +3,12 @@ export interface HeroProps {
     data: {
         title: string;
         text: string;
-        placeholder: string;
-        displaySearch: boolean;
         image: LooseObject;
-        displayOverlay: boolean;
+        displayBlackOverlay: boolean;
+        displayWhiteOverlay: boolean;
         titleColor: string;
         textColor: string;
+        opacity: number;
     };
 }
 export interface HeroState {

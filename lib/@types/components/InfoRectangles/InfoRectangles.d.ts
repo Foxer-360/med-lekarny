@@ -1,5 +1,6 @@
 /// <reference types="react" />
 interface InfoRectangles {
+    opacity: number;
     image: LooseObject;
     icon: LooseObject;
     title: string;

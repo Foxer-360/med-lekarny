@@ -70,7 +70,7 @@ const Gallery = (props: GalleryProps) => {
               <Slider 
                 autoplay={autoPlay}
                 showArrows={true}
-                delay={500000}
+                delay={7000}
                 showDots={false}
                 slides={arrayOfDesktopSlides}
               />
@@ -79,7 +79,7 @@ const Gallery = (props: GalleryProps) => {
               <Slider 
                 autoplay={autoPlay}
                 showArrows={true}
-                delay={500000}
+                delay={7000}
                 showDots={false}
                 slides={arrayOfTabletSlides}
               />
@@ -88,7 +88,7 @@ const Gallery = (props: GalleryProps) => {
               <Slider 
                 autoplay={autoPlay}
                 showArrows={true}
-                delay={500000}
+                delay={7000}
                 showDots={false}
                 slides={arrayOfMobiletSlides}
               />

@@ -25,43 +25,52 @@ var Carousel = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.componentWillUnmount = function () { return clearInterval(_this.state.interval); };
         _this.goToNextSlide = function () {
+            clearInterval(_this.state.interval);
             if (_this.state.currentIndex === _this.state.slides.length - 1) {
                 return _this.setState({
                     currentIndex: 0,
-                    translateValue: 0
+                    translateValue: 0,
+                    interval: setInterval(_this.goToNextSlide, _this.state.delay)
                 });
             }
             _this.setState(function (prevState) { return ({
                 currentIndex: prevState.currentIndex + 1,
-                translateValue: prevState.translateValue + -(_this.slideWidth())
+                translateValue: prevState.translateValue + -(_this.slideWidth()),
+                interval: setInterval(_this.goToNextSlide, _this.state.delay)
             }); });
         };
         _this.goToPrevSlide = function () {
+            clearInterval(_this.state.interval);
             if (_this.state.currentIndex === 0) {
-                _this.setState({
+                return _this.setState({
                     currentIndex: _this.state.slides.length,
-                    translateValue: _this.state.slides.length * -(_this.slideWidth())
+                    translateValue: _this.state.slides.length * -(_this.slideWidth()),
+                    interval: setInterval(_this.goToNextSlide, _this.state.delay)
                 });
             }
             _this.setState(function (prevState) { return ({
                 currentIndex: prevState.currentIndex - 1,
-                translateValue: prevState.translateValue + _this.slideWidth()
+                translateValue: prevState.translateValue + _this.slideWidth(),
+                interval: setInterval(_this.goToNextSlide, _this.state.delay)
             }); });
         };
         _this.goTo = function (index) {
             if (index === _this.state.currentIndex) {
                 return;
             }
+            clearInterval(_this.state.interval);
             if (index > _this.state.currentIndex) {
                 _this.setState({
                     currentIndex: index,
-                    translateValue: index * -(_this.slideWidth())
+                    translateValue: index * -(_this.slideWidth()),
+                    interval: setInterval(_this.goToNextSlide, _this.state.delay)
                 });
             }
             else {
                 _this.setState({
                     currentIndex: index,
-                    translateValue: _this.state.translateValue + (_this.state.currentIndex - index) * (_this.slideWidth())
+                    translateValue: _this.state.translateValue + (_this.state.currentIndex - index) * (_this.slideWidth()),
+                    interval: setInterval(_this.goToNextSlide, _this.state.delay)
                 });
             }
         };
@@ -74,7 +83,7 @@ var Carousel = /** @class */ (function (_super) {
             }
         };
         _this.state = {
-            delay: 2000,
+            delay: 7000,
             autoplay: true,
             showDots: true,
             interval: null,

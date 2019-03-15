@@ -25,9 +25,9 @@ export interface SliderState {
 class Slider extends React.Component<SliderProps, SliderState> {
   constructor(props: SliderProps) {
     super(props);
-
+    
     this.state = {
-      slides: [],
+      slides: this.props.slides,
       interval: null,
       currentIndex: 0,
       translateValue: 0,
@@ -36,12 +36,15 @@ class Slider extends React.Component<SliderProps, SliderState> {
   
   componentDidMount () {
     const { autoplay, delay } = this.props;
-    this.setState({slides: this.props.slides});
 
     if (autoplay) {
       let interval = setInterval(this.goToNextSlide, delay);
       this.setState({ interval });
     }
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({ slides: nextProps.slides });
   }
 
   componentWillUnmount = () => clearInterval(this.state.interval);
@@ -109,12 +112,12 @@ class Slider extends React.Component<SliderProps, SliderState> {
           style={{ 
             transform: `translateX(${this.state.translateValue}px)`, 
             transition: 'transform ease-out 0.25s'}}
-        >  
-            {
-              this.state.slides.map((slide, i) => (
-                <Slide key={i} slide={slide} />
-              ))
-            } 
+        >
+          {
+            this.state.slides.map((slide, i) => (
+              <Slide key={i} slide={slide} />
+            ))
+          } 
         </div>
 
         {this.props.showArrows ? (

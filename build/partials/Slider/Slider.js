@@ -20,6 +20,9 @@ var Slider = /** @class */ (function (_super) {
     __extends(Slider, _super);
     function Slider(props) {
         var _this = _super.call(this, props) || this;
+        _this.componentWillReceiveProps = function (nextProps) {
+            _this.setState({ slides: nextProps.slides });
+        };
         _this.componentWillUnmount = function () { return clearInterval(_this.state.interval); };
         _this.goToNextSlide = function () {
             if (_this.state.currentIndex === _this.state.slides.length - 1) {
@@ -71,7 +74,7 @@ var Slider = /** @class */ (function (_super) {
             }
         };
         _this.state = {
-            slides: [],
+            slides: _this.props.slides,
             interval: null,
             currentIndex: 0,
             translateValue: 0,
@@ -80,7 +83,6 @@ var Slider = /** @class */ (function (_super) {
     }
     Slider.prototype.componentDidMount = function () {
         var _a = this.props, autoplay = _a.autoplay, delay = _a.delay;
-        this.setState({ slides: this.props.slides });
         if (autoplay) {
             var interval = setInterval(this.goToNextSlide, delay);
             this.setState({ interval: interval });

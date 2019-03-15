@@ -4,6 +4,7 @@ import Responsive from 'react-responsive';
 import List from '../List';
 import Media from '@source/partials/Media';
 import Slider from '@source/partials/Slider';
+import splitArray from '@source/helpers/splitArray';
 
 interface Slide {
   image: LooseObject;
@@ -20,81 +21,59 @@ const Tablet = props => <Responsive {...props} minWidth={577} maxWidth={991} />;
 const Default = props => <Responsive {...props} minWidth={992} />;
 
 const Gallery = (props: GalleryProps) => {
-  const { slides } = props.data;
-  
-  const splitArray = (array, size) => {
-    let result = [];
-    for (let i = 0; i < Math.ceil(array.length / size); i++) {
-      result[i] = (
-        <div className={'gallery__list'}>
-          {array.slice((i * size), (i * size) + size)}
-        </div>
-      );
-    }
-    return result;
-  };
-
-  let autoPlay = false;
-  if (slides.length > 4) {
-    autoPlay = true;
-  }
-
-  let arrayOfSlides = slides && slides.map((slide, i) => (
-    <div className={'gallery__list__item'} key={i}>
-      {slide.image && <Media type={'image'} data={slide.image} />}
-    </div>
-  ));
-
-  let arrayOfDesktopSlides = [];
-  let arrayOfTabletSlides = [];
-  let arrayOfMobiletSlides = [];
-
-  if (slides.length > 4) {
-    // Split an array of 4 elements
-    arrayOfDesktopSlides = splitArray(arrayOfSlides, 4);
-  }
-  if (slides.length > 2) {
-    arrayOfTabletSlides = splitArray(arrayOfSlides, 2);
-  }
-  if (slides.length > 1) {
-    arrayOfMobiletSlides = splitArray(arrayOfSlides, 1);
-  }
 
   return (
-    <List data={{}}>
-      {({ data }) => (
-        <div className={'gallery'}>
-          <div className={'container'}>
-            <Default>
-              <Slider 
-                autoplay={autoPlay}
-                showArrows={true}
-                delay={7000}
-                showDots={false}
-                slides={arrayOfDesktopSlides}
-              />
-            </Default>
-            <Tablet>
-              <Slider 
-                autoplay={autoPlay}
-                showArrows={true}
-                delay={7000}
-                showDots={false}
-                slides={arrayOfTabletSlides}
-              />
-            </Tablet>
-            <Mobile>
-              <Slider 
-                autoplay={autoPlay}
-                showArrows={true}
-                delay={7000}
-                showDots={false}
-                slides={arrayOfMobiletSlides}
-              />
-            </Mobile>
+    <List data={props.data.slides || []}>
+      {({ data: slides }) => {
+      
+        let arrayOfSlides = (slides && slides.map((slide, i) => (
+          <div className={'gallery__list__item'} key={i}>
+            {slide.image && <Media type={'image'} data={slide.image} />}
           </div>
-        </div>
-      )}
+        ))) || [];
+      
+        let arrayOfDesktopSlides = [];
+        let arrayOfTabletSlides = [];
+        let arrayOfMobiletSlides = [];
+      
+        arrayOfDesktopSlides = splitArray(arrayOfSlides, 4, 'gallery__list');
+        arrayOfTabletSlides = splitArray(arrayOfSlides, 2, 'gallery__list');
+        arrayOfMobiletSlides = splitArray(arrayOfSlides, 1, 'gallery__list');
+        
+        return (
+          <div className={'gallery'}>
+            <div className={'container'}>
+              <Default>
+                <Slider 
+                  delay={7000}
+                  showDots={false}
+                  slides={arrayOfDesktopSlides}
+                  autoplay={arrayOfSlides.length > 4 ? true : false}
+                  showArrows={arrayOfSlides.length > 4 ? true : false}
+                />
+              </Default>
+              <Tablet>
+                <Slider 
+                  delay={7000}
+                  showDots={false}
+                  slides={arrayOfTabletSlides}
+                  autoplay={arrayOfSlides.length > 2 ? true : false}
+                  showArrows={arrayOfSlides.length > 2 ? true : false}
+                />
+              </Tablet>
+              <Mobile>
+                <Slider 
+                  delay={7000}
+                  showDots={false}
+                  slides={arrayOfMobiletSlides}
+                  autoplay={arrayOfSlides.length > 1 ? true : false}
+                  showArrows={arrayOfSlides.length > 1 ? true : false}
+                />
+              </Mobile>
+            </div>
+          </div>
+        );
+      }}
     </List>
   );
 };

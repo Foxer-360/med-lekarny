@@ -144,7 +144,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                 <div className={'header__wrapper'} ref={this.headerWrapper}>
                   <div className={'header__logo'}>
                     
-                    <Link url={`/${context.languageData.code}`}>
+                    <Link url={`${context.websiteData.urlMask}/${context.languageData.code}`}>
                       <img src="/assets/mediconLekarny/images/mediconLekarnyLogo.png" alt="Medicon Lekarny Logo" />
                     </Link>
                   </div>

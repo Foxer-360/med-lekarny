@@ -11,7 +11,7 @@ const GET_CONTEXT = gql`
   {
     languageData @client
     pageData @client
-    websiteData @rest
+    websiteData @client
     languagesData @client
     navigationsData @client 
   }
@@ -143,7 +143,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               <div className="container">
                 <div className={'header__wrapper'} ref={this.headerWrapper}>
                   <div className={'header__logo'}>
-                    {console.log(context.websiteData)}
+                    
                     <Link url={`/${context.languageData.code}`}>
                       <img src="/assets/mediconLekarny/images/mediconLekarnyLogo.png" alt="Medicon Lekarny Logo" />
                     </Link>

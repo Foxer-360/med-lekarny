@@ -27,14 +27,14 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import * as React from 'react';
-import Hamburger from './components/Hamburger';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 import Link from '@source/partials/Link';
 import Loader from '@source/partials/Loader';
+import Hamburger from './components/Hamburger';
 var GET_CONTEXT = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"])));
-var GET_PAGES_URLS = gql(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
+var GET_PAGES_URLS = gql(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!, $websiteId: ID!) {\n    pagesUrls(where: { language: $language, websiteId: $websiteId }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!, $websiteId: ID!) {\n    pagesUrls(where: { language: $language, websiteId: $websiteId }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
 var ComposedQuery = adopt({
     context: function (_a) {
         var render = _a.render;
@@ -44,11 +44,11 @@ var ComposedQuery = adopt({
         });
     },
     getPagesUrls: function (_a) {
-        var render = _a.render, languageData = _a.context.languageData;
-        if (!languageData) {
+        var render = _a.render, _b = _a.context, languageData = _b.languageData, websiteData = _b.websiteData;
+        if (!(languageData && websiteData)) {
             return render({});
         }
-        return (React.createElement(Query, { query: GET_PAGES_URLS, variables: { language: languageData.id } }, function (data) {
+        return (React.createElement(Query, { query: GET_PAGES_URLS, variables: { language: languageData.id, websiteId: websiteData.id } }, function (data) {
             return render(data);
         }));
     },
@@ -108,16 +108,17 @@ var Header = /** @class */ (function (_super) {
                 React.createElement("div", { className: 'header__top' },
                     React.createElement("div", { style: { position: 'relative' }, className: 'container' },
                         React.createElement("ul", { className: 'header__top__list' }, topNavItems && topNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
-                            React.createElement(Link, { url: navItem.url && navItem.url }, navItem.name || navItem.title))); })))),
+                            React.createElement(Link, __assign({}, navItem.url), navItem.name || navItem.title))); })))),
                 React.createElement("div", { className: "container" },
                     React.createElement("div", { className: 'header__wrapper', ref: _this.headerWrapper },
                         React.createElement("div", { className: 'header__logo' },
-                            React.createElement(Link, { url: "/" + context.websiteData.title.toLowerCase() + "/" + context.languageData.code },
+                            React.createElement(Link, { url: (context.websiteData.urlMask === '/' ?
+                                    '' : context.websiteData.urlMask) + "/" + context.languageData.code },
                                 React.createElement("img", { src: "/assets/mediconLekarny/images/mediconLekarnyLogo.png", alt: "Medicon Lekarny Logo" }))),
                         React.createElement("nav", null,
                             React.createElement("ul", null, mainNavItems &&
                                 mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
-                                    React.createElement(Link, { url: navItem.url && navItem.url }, navItem.name || navItem.title))); })),
+                                    React.createElement(Link, __assign({}, navItem.url), navItem.name || navItem.title))); })),
                             React.createElement(Hamburger, { active: _this.state.menuActive, onClick: _this.toggleMenu })))),
                 React.createElement("div", { className: 'header__iso' },
                     React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 100 100", preserveAspectRatio: "none" },
@@ -125,7 +126,7 @@ var Header = /** @class */ (function (_super) {
                 React.createElement("div", { className: "hiddenMenu " + (_this.state.menuActive ? 'hiddenMenu--active' : '') },
                     React.createElement("div", { className: 'hiddenMenu__wrapper' },
                         React.createElement("ul", null, mainNavItems &&
-                            mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i }, React.createElement(Link, { url: navItem.url && navItem.url, onClick: function () { return _this.closeMenu(); } }, navItem.name || navItem.title))); }))))));
+                            mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i }, React.createElement(Link, __assign({}, navItem.url, { onClick: function () { return _this.closeMenu(); } }), navItem.name || navItem.title))); }))))));
         }));
     };
     Header.prototype.transformNavigationsIntoTree = function (navigation, urls) {
@@ -155,6 +156,10 @@ var Header = /** @class */ (function (_super) {
                 if (node.title && node.link) {
                     item.url = node.link;
                 }
+                item.url = {
+                    url: item.url,
+                    pageId: item.id,
+                };
                 res.push(item);
             }
         });

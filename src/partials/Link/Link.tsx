@@ -7,23 +7,24 @@ import { adopt } from 'react-adopt';
 
 const isExternalLink = url => {
   const pattern = /^https?|^www|^mailto:|^tel:|^sms:|^call:/gi;
-  return pattern.test(url);   
-}; 
+  return pattern.test(url);
+};
 
 const GET_CONTEXT = gql`
   {
     languageData @client
+    websiteData @client
   }
 `;
 
 const ComposedQuery = adopt({
   context: ({ render }) => <Query query={GET_CONTEXT}>{({ data }) => render(data)}</Query>,
-  getPagesUrls: ({ render, context: { languageData } }) => {
-    if (!languageData) {
+  getPagesUrls: ({ render, context: { languageData, websiteData } }) => {
+    if (!(languageData && websiteData)) {
       return render({ loading: true });
     }
     return (
-      <Query query={GET_PAGES_URLS} variables={{ language: languageData.id }}>
+      <Query query={GET_PAGES_URLS} variables={{ language: languageData.id, websiteId: websiteData.id }}>
         {data => {
           return render(data);
         }}
@@ -33,8 +34,8 @@ const ComposedQuery = adopt({
 });
 
 const GET_PAGES_URLS = gql`
-  query pagesUrls($language: ID!) {
-    pagesUrls(where: { language: $language }) {
+  query pagesUrls($language: ID!, $websiteId: ID!) {
+    pagesUrls(where: { language: $language, websiteId: $websiteId }) {
       id
       page
       url

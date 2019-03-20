@@ -1,15 +1,18 @@
 import * as React from 'react';
-import PcTitle from './components/title';
-import Button from '../../partials/Button';
-import Media from '../../partials/Media';
 import ReactMarkdown from 'react-markdown';
+
 import List from '../List';
+import Link from '@source/partials/Link';
+import PcTitle from './components/title';
+import Media from '@source//partials/Media';
+import Button from '@source//partials/Button';
 
 interface Pharmacie {
   name: string;
   image: LooseObject;
   description: string;
   address: string;
+  addressUrl: LooseObject;
   district: string;
   phone: string;
   transport: string;
@@ -52,7 +55,9 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                             />
     
                             <p>
-                              {pharmacie.address && pharmacie.address} <br />
+                              <Link urlNewWindow={true} url={pharmacie.addressUrl && pharmacie.addressUrl.url}>
+                                {pharmacie.address && pharmacie.address}
+                              </Link> <br />
                               {pharmacie.district && pharmacie.district}
                             </p>
                           </div>

@@ -87,6 +87,12 @@
         align-items: center;
         margin-bottom: 12px;
 
+        a {
+          &:hover {
+            color: $green;
+          }
+        }
+
         @include md {
           margin-bottom: 24px;
         }

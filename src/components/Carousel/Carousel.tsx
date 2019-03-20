@@ -40,7 +40,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     super(props);
 
     this.state = {
-      delay: 7000,
+      delay: 10000,
       autoplay: true,
       showDots: true,
       interval: null,

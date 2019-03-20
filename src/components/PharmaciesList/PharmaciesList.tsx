@@ -58,7 +58,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                               <Link urlNewWindow={true} url={pharmacie.addressUrl && pharmacie.addressUrl.url}>
                                 {pharmacie.address && pharmacie.address}
                               </Link> <br />
-                              {pharmacie.district && pharmacie.district}
+                              {pharmacie.district}
                             </p>
                           </div>
     
@@ -67,7 +67,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                               src="../../../assets/mediconLekarny/images/phoneIcon.svg" 
                               alt="Medicon Phone Icon" 
                             />
-                            <p>{pharmacie.phone && pharmacie.phone}</p>
+                            {pharmacie.phone && <a href={`tel:${pharmacie.phone}`}>{pharmacie.phone}</a>}
                           </div>
     
                           <div className="pcitem__info__details__item">
@@ -78,9 +78,9 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                             }
     
                             <p>
-                              {pharmacie.transport && pharmacie.transport}
+                              {pharmacie.transport}
                               <br />
-                              {pharmacie.station && pharmacie.station}
+                              {pharmacie.station}
                             </p>
                           </div>
                         </div>

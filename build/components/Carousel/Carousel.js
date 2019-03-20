@@ -83,7 +83,7 @@ var Carousel = /** @class */ (function (_super) {
             }
         };
         _this.state = {
-            delay: 7000,
+            delay: 10000,
             autoplay: true,
             showDots: true,
             interval: null,

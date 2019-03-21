@@ -1,15 +1,18 @@
 import * as React from 'react';
-import PcTitle from './components/title';
-import Button from '../../partials/Button';
-import Media from '../../partials/Media';
 import ReactMarkdown from 'react-markdown';
+
 import List from '../List';
+import Link from '@source/partials/Link';
+import PcTitle from './components/title';
+import Media from '@source//partials/Media';
+import Button from '@source//partials/Button';
 
 interface Pharmacie {
   name: string;
   image: LooseObject;
   description: string;
   address: string;
+  addressUrl: LooseObject;
   district: string;
   phone: string;
   transport: string;
@@ -52,8 +55,10 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                             />
     
                             <p>
-                              {pharmacie.address && pharmacie.address} <br />
-                              {pharmacie.district && pharmacie.district}
+                              <Link urlNewWindow={true} url={pharmacie.addressUrl && pharmacie.addressUrl.url}>
+                                {pharmacie.address && pharmacie.address}
+                              </Link> <br />
+                              {pharmacie.district}
                             </p>
                           </div>
     
@@ -62,7 +67,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                               src="../../../assets/mediconLekarny/images/phoneIcon.svg" 
                               alt="Medicon Phone Icon" 
                             />
-                            <p>{pharmacie.phone && pharmacie.phone}</p>
+                            {pharmacie.phone && <a href={`tel:${pharmacie.phone}`}>{pharmacie.phone}</a>}
                           </div>
     
                           <div className="pcitem__info__details__item">
@@ -73,9 +78,9 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                             }
     
                             <p>
-                              {pharmacie.transport && pharmacie.transport}
+                              {pharmacie.transport}
                               <br />
-                              {pharmacie.station && pharmacie.station}
+                              {pharmacie.station}
                             </p>
                           </div>
                         </div>

@@ -1,9 +1,10 @@
 import * as React from 'react';
-import PcTitle from './components/title';
-import Button from '../../partials/Button';
-import Media from '../../partials/Media';
 import ReactMarkdown from 'react-markdown';
 import List from '../List';
+import Link from '@source/partials/Link';
+import PcTitle from './components/title';
+import Media from '@source//partials/Media';
+import Button from '@source//partials/Button';
 var PharmaciesList = function (props) {
     var pharmacies = props.data.pharmacies;
     return (React.createElement(List, { data: pharmacies }, function (_a) {
@@ -20,21 +21,21 @@ var PharmaciesList = function (props) {
                                     React.createElement("div", { className: "pcitem__info__details__item" },
                                         React.createElement("img", { src: "../../../assets/mediconLekarny/images/geoIcon.svg", alt: "Medicon GeoLocation Icon" }),
                                         React.createElement("p", null,
-                                            pharmacie.address && pharmacie.address,
+                                            React.createElement(Link, { urlNewWindow: true, url: pharmacie.addressUrl && pharmacie.addressUrl.url }, pharmacie.address && pharmacie.address),
                                             " ",
                                             React.createElement("br", null),
-                                            pharmacie.district && pharmacie.district)),
+                                            pharmacie.district)),
                                     React.createElement("div", { className: "pcitem__info__details__item" },
                                         React.createElement("img", { src: "../../../assets/mediconLekarny/images/phoneIcon.svg", alt: "Medicon Phone Icon" }),
-                                        React.createElement("p", null, pharmacie.phone && pharmacie.phone)),
+                                        pharmacie.phone && React.createElement("a", { href: "tel:" + pharmacie.phone }, pharmacie.phone)),
                                     React.createElement("div", { className: "pcitem__info__details__item" },
                                         pharmacie.transportImage && React.createElement(Media, { data: pharmacie.transportImage, type: "image" }),
                                         !pharmacie.transportImage &&
                                             React.createElement("img", { src: "../../../assets/mediconLekarny/images/metro.svg", alt: "" }),
                                         React.createElement("p", null,
-                                            pharmacie.transport && pharmacie.transport,
+                                            pharmacie.transport,
                                             React.createElement("br", null),
-                                            pharmacie.station && pharmacie.station))),
+                                            pharmacie.station))),
                                 pharmacie.services &&
                                     React.createElement("div", { className: 'pcitem__info__list' },
                                         React.createElement(ReactMarkdown, { source: pharmacie.services, renderers: {

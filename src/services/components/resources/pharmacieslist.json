@@ -5,13 +5,14 @@
       {
         "name": "Budějovická",
         "address": "Antala Staška 1670/80",
+        "addressUrl": "",
         "distric": "140 00 Praha 4",
-        "phone": "+420 261 006 111",
+        "phone": "+420261006111",
         "transport": "Metro C",
         "transportImage": {
           "recommendedSizes": {
-            "width": "50",
-            "height": "50"
+            "width": "40",
+            "height": "40"
           }
         },
         "station": "stanice Budějovická",
@@ -19,8 +20,8 @@
         "services": "* Psychologie * Neurologie * Mammacentrum",
         "image": {
           "recommendedSizes": {
-            "width": "420",
-            "height": "420"
+            "width": "370",
+            "height": "370"
           }
         }
       }
@@ -43,13 +44,17 @@
                 "type": "text",
                 "title": "Address"
               },
+              "addressUrl": {
+                "type": "urlAutocomplete",
+                "title": "Address url"
+              },
               "district": {
                 "type": "text",
                 "title": "District"
               },
               "phone": {
                 "type": "text",
-                "title": "Phone"
+                "title": "Phone (without spaces)"
               },
               "transportImage": {
                 "type": "image"

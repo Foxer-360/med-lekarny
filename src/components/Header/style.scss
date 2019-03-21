@@ -6,6 +6,10 @@
   position: fixed;
   z-index: 400;
 
+  &__logo {
+    img { max-width: 190px; }
+  }
+  
   &__top {
     height: 45px;
     background-image: linear-gradient(to right, #3eac49 0%, #00aad0 100%);

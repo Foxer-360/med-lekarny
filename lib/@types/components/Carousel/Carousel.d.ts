@@ -20,11 +20,14 @@ export interface CarouselState {
     autoplay: boolean;
     showDots: boolean;
     showArrows: boolean;
+    pause: boolean;
 }
 declare class Carousel extends React.Component<CarouselProps, CarouselState> {
     constructor(props: CarouselProps);
     componentDidMount(): void;
     componentWillUnmount: () => void;
+    pause(e: any): void;
+    run(e: any): void;
     galleryItems(): any[];
     goToNextSlide: () => void;
     goToPrevSlide: () => void;

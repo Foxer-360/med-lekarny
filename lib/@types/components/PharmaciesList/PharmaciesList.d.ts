@@ -4,6 +4,7 @@ interface Pharmacie {
     image: LooseObject;
     description: string;
     address: string;
+    addressUrl: LooseObject;
     district: string;
     phone: string;
     transport: string;

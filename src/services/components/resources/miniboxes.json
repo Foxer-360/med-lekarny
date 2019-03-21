@@ -84,6 +84,19 @@
                   "black": "Black"
                 }
               },
+              "titleColor": {
+                "type": "enum",
+                "title": "Title Color",
+                "options": {
+                  "#00aad0": "Light Blue",
+                  "#00adcc": "Blue",
+                  "#ef404c": "Red",
+                  "#faa74a": "Orange",
+                  "#3eac49": "Green",
+                  "white": "White",
+                  "black": "Black"
+                }
+              },
               "image": {
                 "type": "image"
               },

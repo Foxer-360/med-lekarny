@@ -6,6 +6,7 @@ import List from '../List';
 interface MiniBox {
   title: string;
   gradientColor: string;
+  titleColor: string;
   image: LooseObject;
   url: LooseObject;
 }
@@ -38,7 +39,14 @@ const MiniBoxes = (props: MiniBoxesProps) => {
                     className={'mini-boxes__list__item'}
                     style={{ backgroundImage: box.image && `url(${getImageUrl(box.image)})` }}
                   >
-                    {box.title && <p>{box.title}</p>}
+                    {box.title && 
+                      <p 
+                        style={
+                          box.titleColor ? 
+                          { color: `${box.titleColor}` } : 
+                          {}}
+                      >{box.title}
+                      </p>}
                     <div
                       className={'mini-boxes__list__item--colorGradient'}
                       style={{ 

@@ -12,7 +12,10 @@ var MiniBoxes = function (props) {
                 title && React.createElement("h3", null, title),
                 React.createElement("div", { className: 'mini-boxes__list grid' }, data && data.map(function (box, i) {
                     return (React.createElement(Link, { key: i, url: box.url && box.url.url, className: 'mini-boxes__list__item', style: { backgroundImage: box.image && "url(" + getImageUrl(box.image) + ")" } },
-                        box.title && React.createElement("p", null, box.title),
+                        box.title &&
+                            React.createElement("p", { style: box.titleColor ?
+                                    { color: "" + box.titleColor } :
+                                    {} }, box.title),
                         React.createElement("div", { className: 'mini-boxes__list__item--colorGradient', style: {
                                 background: "linear-gradient(to bottom, rgba(125, 185, 232, 0) 0%, \n                        " + box.gradientColor + " 100%)"
                             } })));

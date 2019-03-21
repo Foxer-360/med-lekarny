@@ -36,7 +36,7 @@
   
   &__img {
     width: 30%;
-    min-height: 100%;
+    max-height: 370px;
 
     @include max-lg {
       width: 100%;

@@ -33,6 +33,7 @@ export interface CarouselState {
   autoplay: boolean;
   showDots: boolean;
   showArrows: boolean;
+  pause: boolean;
 }
 
 class Carousel extends React.Component<CarouselProps, CarouselState> {
@@ -47,6 +48,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
       currentIndex: 0,
       translateValue: 0,
       showArrows: false,
+      pause: false,
       slides: this.galleryItems(),
     };
   }
@@ -54,13 +56,33 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
   componentDidMount () {
     this.setState({slides: this.state.slides});
 
-    if (this.state.autoplay) {
+    if (this.state.autoplay && !this.state.pause) {
       let interval = setInterval(this.goToNextSlide, this.state.delay);
       this.setState({ interval });
     }
   }
 
-  componentWillUnmount = () => clearInterval(this.state.interval);
+  componentWillUnmount = () => {
+    if (!this.state.pause && this.state.autoplay) {
+      clearInterval(this.state.interval);
+    }
+  }
+
+  pause(e: any) {
+    e.preventDefault();
+    if (this.state.autoplay && !this.state.pause) {
+      let interval = setInterval(this.goToNextSlide, 1000000);
+      this.setState({ interval: interval, pause: true });
+    }
+  }
+
+  run(e: any) {
+    e.preventDefault();
+    if (this.state.autoplay && this.state.pause) {
+      let interval = setInterval(this.goToNextSlide, this.state.delay);
+      this.setState({ interval: interval, pause: false });
+    }
+  }
 
   galleryItems() {  
     const { slides } = this.props.data;
@@ -82,6 +104,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
   }
 
   goToNextSlide = () => {
+    if (this.state.pause) { return; }
     clearInterval(this.state.interval);
 
     if (this.state.currentIndex === this.state.slides.length - 1) {
@@ -149,7 +172,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     const { slides, displayOnTop } = this.props.data;
 
     const Slider = (
-      <div className="slider">
+      <div className="slider" onMouseEnter={e => this.pause(e)} onMouseLeave={e => this.run(e)}>
         <div 
           className="slider__wrapper"
           style={{ 

@@ -23,8 +23,15 @@ var Carousel = /** @class */ (function (_super) {
     __extends(Carousel, _super);
     function Carousel(props) {
         var _this = _super.call(this, props) || this;
-        _this.componentWillUnmount = function () { return clearInterval(_this.state.interval); };
+        _this.componentWillUnmount = function () {
+            if (!_this.state.pause && _this.state.autoplay) {
+                clearInterval(_this.state.interval);
+            }
+        };
         _this.goToNextSlide = function () {
+            if (_this.state.pause) {
+                return;
+            }
             clearInterval(_this.state.interval);
             if (_this.state.currentIndex === _this.state.slides.length - 1) {
                 return _this.setState({
@@ -90,15 +97,30 @@ var Carousel = /** @class */ (function (_super) {
             currentIndex: 0,
             translateValue: 0,
             showArrows: false,
+            pause: false,
             slides: _this.galleryItems(),
         };
         return _this;
     }
     Carousel.prototype.componentDidMount = function () {
         this.setState({ slides: this.state.slides });
-        if (this.state.autoplay) {
+        if (this.state.autoplay && !this.state.pause) {
             var interval = setInterval(this.goToNextSlide, this.state.delay);
             this.setState({ interval: interval });
+        }
+    };
+    Carousel.prototype.pause = function (e) {
+        e.preventDefault();
+        if (this.state.autoplay && !this.state.pause) {
+            var interval = setInterval(this.goToNextSlide, 1000000);
+            this.setState({ interval: interval, pause: true });
+        }
+    };
+    Carousel.prototype.run = function (e) {
+        e.preventDefault();
+        if (this.state.autoplay && this.state.pause) {
+            var interval = setInterval(this.goToNextSlide, this.state.delay);
+            this.setState({ interval: interval, pause: false });
         }
     };
     Carousel.prototype.galleryItems = function () {
@@ -117,7 +139,7 @@ var Carousel = /** @class */ (function (_super) {
     Carousel.prototype.render = function () {
         var _this = this;
         var _a = this.props.data, slides = _a.slides, displayOnTop = _a.displayOnTop;
-        var Slider = (React.createElement("div", { className: "slider" },
+        var Slider = (React.createElement("div", { className: "slider", onMouseEnter: function (e) { return _this.pause(e); }, onMouseLeave: function (e) { return _this.run(e); } },
             React.createElement("div", { className: "slider__wrapper", style: {
                     transform: "translateX(" + this.state.translateValue + "px)",
                     transition: 'transform ease-out 0.25s'

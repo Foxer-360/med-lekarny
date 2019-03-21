@@ -44,8 +44,8 @@
     position: absolute;
     height: 20px;
     bottom: -20px;
-    width: 100%;
     left: 0;
+    width: 75%;
 
     @include md {
       height: 70px;

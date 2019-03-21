@@ -2,6 +2,7 @@
 export interface PharmacieInfoProps {
     data: {
         geo: string;
+        geoUrl: LooseObject;
         phone: string;
         officeHours: string;
         transport: string;

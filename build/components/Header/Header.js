@@ -57,15 +57,6 @@ var Header = /** @class */ (function (_super) {
     __extends(Header, _super);
     function Header(props) {
         var _this = _super.call(this, props) || this;
-        _this.getVertex = function () {
-            var offsetLeft = _this.headerWrapper.current && _this.headerWrapper.current.offsetLeft + 61;
-            var windowWidth = window.innerWidth;
-            var vX = (offsetLeft * 100) / windowWidth;
-            vX === 0 ? vX = 9.5 : vX = vX;
-            _this.setState({
-                vX: vX,
-            });
-        };
         _this.closeMenu = function () {
             _this.setState({
                 menuActive: false,
@@ -76,13 +67,9 @@ var Header = /** @class */ (function (_super) {
                 menuActive: !_this.state.menuActive,
             });
         };
-        _this.headerWrapper = React.createRef();
-        _this.state = { vX: 9.5, menuActive: false };
+        _this.state = { menuActive: false };
         return _this;
     }
-    Header.prototype.componentDidMount = function () {
-        this.getVertex();
-    };
     Header.prototype.render = function () {
         var _this = this;
         this.state.menuActive ? (document.body.style.position = 'fixed') : (document.body.style.position = 'static');
@@ -110,7 +97,7 @@ var Header = /** @class */ (function (_super) {
                         React.createElement("ul", { className: 'header__top__list' }, topNavItems && topNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
                             React.createElement(Link, __assign({}, navItem.url), navItem.name || navItem.title))); })))),
                 React.createElement("div", { className: "container" },
-                    React.createElement("div", { className: 'header__wrapper', ref: _this.headerWrapper },
+                    React.createElement("div", { className: 'header__wrapper' },
                         React.createElement("div", { className: 'header__logo' },
                             React.createElement(Link, { url: (context.websiteData.urlMask === '/' ?
                                     '' : context.websiteData.urlMask) + "/" + context.languageData.code },
@@ -122,7 +109,7 @@ var Header = /** @class */ (function (_super) {
                             React.createElement(Hamburger, { active: _this.state.menuActive, onClick: _this.toggleMenu })))),
                 React.createElement("div", { className: 'header__iso' },
                     React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 100 100", preserveAspectRatio: "none" },
-                        React.createElement("polygon", { fill: "white", points: "0,0 0,50 " + _this.state.vX + ",100 100,0" }))),
+                        React.createElement("polygon", { fill: "white", points: "0,0 0,20 15,70 100,0" }))),
                 React.createElement("div", { className: "hiddenMenu " + (_this.state.menuActive ? 'hiddenMenu--active' : '') },
                     React.createElement("div", { className: 'hiddenMenu__wrapper' },
                         React.createElement("ul", null, mainNavItems &&

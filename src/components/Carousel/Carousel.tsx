@@ -75,16 +75,18 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
   pause(e: any) {
     e.preventDefault();
     if (this.state.autoplay && !this.state.pause) {
+      clearInterval(this.state.interval);
       let interval = setInterval(this.goToNextSlide, 1000000);
-      this.setState({ interval: interval, pause: true });
+      this.setState({ interval, pause: true });
     }
   }
 
   run(e: any) {
     e.preventDefault();
     if (this.state.autoplay && this.state.pause) {
+      clearInterval(this.state.interval);
       let interval = setInterval(this.goToNextSlide, this.state.delay);
-      this.setState({ interval: interval, pause: false });
+      this.setState({ interval, pause: false });
     }
   }
 
@@ -99,15 +101,16 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
         interval: setInterval(this.goToNextSlide, this.state.delay)
       });
     }
-    
-    this.setState(prevState => ({
-      currentIndex: prevState.currentIndex + 1,
-      translateValue: prevState.translateValue + -(this.slideWidth()),
+
+    this.setState({
+      currentIndex: this.state.currentIndex + 1,
+      translateValue: this.state.translateValue + -(this.slideWidth()),
       interval: setInterval(this.goToNextSlide, this.state.delay)
-    }));
+    });
   }
 
   goToPrevSlide = () => {
+    if (this.state.pause) { return; }
     clearInterval(this.state.interval);
 
     if (this.state.currentIndex === 0) { 
@@ -127,7 +130,6 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
 
   goTo = (index) => {
     if (index === this.state.currentIndex) { return; }
-
     clearInterval(this.state.interval);
 
     if (index > this.state.currentIndex) {
@@ -149,8 +151,9 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     if (document.querySelector('.slider__slide')) {
       return document.querySelector('.slider__slide').clientWidth;
     } else {
-      var test = document.querySelector('iframe').clientWidth;
-      return (test / 100) * 75; // for desktop backoffice
+      var iFrameWidth = document.querySelector('iframe').clientWidth;
+      // fix for desktop backoffice: 75% width because '.slider__slide' 75% too (Not whole Carousel)
+      return (iFrameWidth / 100) * 75;
     }
   }
   

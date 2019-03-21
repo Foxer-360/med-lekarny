@@ -44,13 +44,16 @@ var Carousel = /** @class */ (function (_super) {
                     interval: setInterval(_this.goToNextSlide, _this.state.delay)
                 });
             }
-            _this.setState(function (prevState) { return ({
-                currentIndex: prevState.currentIndex + 1,
-                translateValue: prevState.translateValue + -(_this.slideWidth()),
+            _this.setState({
+                currentIndex: _this.state.currentIndex + 1,
+                translateValue: _this.state.translateValue + -(_this.slideWidth()),
                 interval: setInterval(_this.goToNextSlide, _this.state.delay)
-            }); });
+            });
         };
         _this.goToPrevSlide = function () {
+            if (_this.state.pause) {
+                return;
+            }
             clearInterval(_this.state.interval);
             if (_this.state.currentIndex === 0) {
                 return _this.setState({
@@ -90,8 +93,9 @@ var Carousel = /** @class */ (function (_super) {
                 return document.querySelector('.slider__slide').clientWidth;
             }
             else {
-                var test = document.querySelector('iframe').clientWidth;
-                return (test / 100) * 75; // for desktop backoffice
+                var iFrameWidth = document.querySelector('iframe').clientWidth;
+                // fix for desktop backoffice: 75% width because '.slider__slide' 75% too (Not whole Carousel)
+                return (iFrameWidth / 100) * 75;
             }
         };
         _this.state = {
@@ -116,6 +120,7 @@ var Carousel = /** @class */ (function (_super) {
     Carousel.prototype.pause = function (e) {
         e.preventDefault();
         if (this.state.autoplay && !this.state.pause) {
+            clearInterval(this.state.interval);
             var interval = setInterval(this.goToNextSlide, 1000000);
             this.setState({ interval: interval, pause: true });
         }
@@ -123,6 +128,7 @@ var Carousel = /** @class */ (function (_super) {
     Carousel.prototype.run = function (e) {
         e.preventDefault();
         if (this.state.autoplay && this.state.pause) {
+            clearInterval(this.state.interval);
             var interval = setInterval(this.goToNextSlide, this.state.delay);
             this.setState({ interval: interval, pause: false });
         }

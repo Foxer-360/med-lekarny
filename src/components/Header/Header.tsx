@@ -52,31 +52,16 @@ export interface HeaderProps {
 }
 
 export interface HeaderState {
-  vX: number;
   menuActive: boolean;
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
-  // tslint:disable-next-line:no-any
-  public headerWrapper: any;
 
   constructor(props: HeaderProps) {
     super(props);
-    this.headerWrapper = React.createRef();
-    this.state = { vX: 9.5, menuActive: false };
+    this.state = { menuActive: false };
   }
 
-  getVertex = () => {
-    let offsetLeft = this.headerWrapper.current && this.headerWrapper.current.offsetLeft + 61;
-    let windowWidth = window.innerWidth;
-    let vX = (offsetLeft * 100) / windowWidth;
-    
-    vX === 0 ? vX = 9.5 : vX = vX;
-
-    this.setState({
-      vX,
-    });
-  }
 
   closeMenu = () => {
     this.setState({
@@ -88,10 +73,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     this.setState({
       menuActive: !this.state.menuActive,
     });
-  }
-
-  componentDidMount() {
-    this.getVertex();
   }
 
   public render() {
@@ -141,7 +122,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                 </div>
               </div>
               <div className="container">
-                <div className={'header__wrapper'} ref={this.headerWrapper}>
+                <div className={'header__wrapper'}>
                   <div className={'header__logo'}>
                     
                     <Link 
@@ -168,7 +149,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               </div>
               <div className={'header__iso'}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <polygon fill="white" points={`0,0 0,50 ${this.state.vX},100 100,0`} />
+                  <polygon fill="white" points={`0,0 0,20 15,70 100,0`} />
                 </svg>
               </div>
 

@@ -9,7 +9,10 @@
             "height": "28"
           }
         },
-        "text": "**A. Staška 1670/80,** Praha 4, 140 00"
+        "title": "**Poliklinika Budějovická,**",
+        "text": "Praha 4, 140 00",
+        "address": "A. Staška 1670/80,",
+        "addredssUrl": ""
       },
       {
         "image": {
@@ -18,7 +21,10 @@
             "height": "28"
           }
         },
-        "text": "**Roškotova 1225/1,** Praha 4, 140 00"
+        "title": "**Poliklinika Holešovice,**",
+        "text": "Praha 7, 170 00",
+        "address": "Plynární 1617/10,",
+        "addredssUrl": ""
       },
       {
         "image": {
@@ -27,7 +33,10 @@
             "height": "28"
           }
         },
-        "text": "**Sokolovská 810/304,** Praha 9, 190 61"
+        "title": "**Poliklinika Vysočany,**",
+        "text": "Praha 9, 190 61, Praha 4, 140 00",
+        "address": "Sokolovská 810/304,",
+        "addredssUrl": ""
       },
       {
         "image": {
@@ -36,7 +45,10 @@
             "height": "28"
           }
         },
-        "text": "**Budějovická 1667/64,** Praha 4, 140 00"
+        "title": "**OD DBK,**",
+        "text": "Praha 4, 140 00",
+        "address": "Budějovická 1667/64,",
+        "addredssUrl": ""
       }
     ]
   },
@@ -54,7 +66,19 @@
               },
               "text": {
                 "type": "markdown",
+                "title": "Text"
+              },
+              "title": {
+                "type": "markdown",
+                "title": "Title"
+              },
+              "address": {
+                "type": "text",
                 "title": "Address"
+              },
+              "addressUrl": {
+                "type": "urlAutocomplete",
+                "title": "Address URL"
               }
             }
           }

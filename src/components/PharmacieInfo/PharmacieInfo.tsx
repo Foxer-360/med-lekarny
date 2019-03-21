@@ -1,9 +1,12 @@
 import * as React from 'react';
+
+import Link from '@source/partials/Link';
 import Media from '@source/partials/Media';
 
 export interface PharmacieInfoProps {
   data: {
     geo: string;
+    geoUrl: LooseObject;
     phone: string;
     officeHours: string;
     transport: string;
@@ -12,7 +15,7 @@ export interface PharmacieInfoProps {
 }
 
 const PharmacieInfo = (props: PharmacieInfoProps) => {
-  const { geo, phone, transport, transportImage, officeHours } = props.data;
+  const { geo, geoUrl, phone, transport, transportImage, officeHours } = props.data;
   
   return (
     <div className={'pharmacie-info'}>
@@ -21,21 +24,21 @@ const PharmacieInfo = (props: PharmacieInfoProps) => {
         <div className={'pharmacie-info__content'}>
           <div className={'pharmacie-info__content__item'}>
             <img src={'/assets/mediconLekarny/images/phoneIcon.svg'} alt="phone nubmer"/>
-            {phone && <p>{phone}</p>}
+            {phone && <a href={`tel:${phone}`}>{phone}</a>}
           </div>
           <div className={'pharmacie-info__content__item'}>
             <img src={'/assets/mediconLekarny/images/geoIcon.svg'} alt="address"/>
-            {geo && <p>{geo}</p>}
+            <Link urlNewWindow={true} url={geoUrl && geoUrl.url}>{geo}</Link>
           </div>
           <div className={'pharmacie-info__content__item'}>
             <img src={'/assets/mediconLekarny/images/officeHours.svg'} alt="office hours"/>
-            {officeHours && <p>{officeHours}</p>}
+            <p>{officeHours}</p>
           </div>
           <div className={'pharmacie-info__content__item'}>
             {(transportImage && <Media type={'image'} data={transportImage} />) || (
               <img src={'/assets/mediconLekarny/images/metro.svg'} alt="metro"/>
             )}
-            {transport && <p>{transport}</p>}
+            <p>{transport}</p>
           </div>
         </div>
         <div className={'pharmacie-info__bottom-divider'} />

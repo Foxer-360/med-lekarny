@@ -2,6 +2,7 @@
 interface MiniBox {
     title: string;
     gradientColor: string;
+    titleColor: string;
     image: LooseObject;
     url: LooseObject;
 }

@@ -1,10 +1,15 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
-import Media from '@source/partials/Media';
+
 import List from '../List';
+import Link from '@source/partials/Link';
+import Media from '@source/partials/Media';
 
 interface Pharmacie {
   image: LooseObject;
+  address: string;
+  addressUrl: LooseObject;
+  title: string;
   text: string;
 }
 
@@ -39,7 +44,11 @@ const Pharmacies = (props: PharmaciesProps) => {
               {data && data.map((pharmacie, i) => (
                 <div key={i} className={'pharmacies__list__item'}>
                   {pharmacie.image && <Media type={'image'} data={pharmacie.image} />}
-                  {pharmacie.text && <ReactMarkdown source={pharmacie.text} />}
+                    {pharmacie.title && <ReactMarkdown source={pharmacie.title} />}
+                    <Link urlNewWindow={true} url={pharmacie.addressUrl && pharmacie.addressUrl.url}>
+                      {pharmacie.address && pharmacie.address}
+                    </Link>
+                    {pharmacie.text && <ReactMarkdown source={pharmacie.text} />}
                 </div>
               ))}
             </div>

@@ -16,13 +16,17 @@ import List from '../List';
 import Link from '@source/partials/Link';
 import Media from '@source/partials/Media';
 import Dots from './components/Dots';
-import Slide from './components/Slide';
 import LeftArrow from './components/LeftArrow';
 import RightArrow from './components/RightArrow';
 var Carousel = /** @class */ (function (_super) {
     __extends(Carousel, _super);
     function Carousel(props) {
         var _this = _super.call(this, props) || this;
+        _this.componentWillReceiveProps = function (nextProps) {
+            if (_this.state.slides !== nextProps.data.slides) {
+                _this.setState({ slides: nextProps.data.slides });
+            }
+        };
         _this.componentWillUnmount = function () {
             if (!_this.state.pause && _this.state.autoplay) {
                 clearInterval(_this.state.interval);
@@ -40,13 +44,16 @@ var Carousel = /** @class */ (function (_super) {
                     interval: setInterval(_this.goToNextSlide, _this.state.delay)
                 });
             }
-            _this.setState(function (prevState) { return ({
-                currentIndex: prevState.currentIndex + 1,
-                translateValue: prevState.translateValue + -(_this.slideWidth()),
+            _this.setState({
+                currentIndex: _this.state.currentIndex + 1,
+                translateValue: _this.state.translateValue + -(_this.slideWidth()),
                 interval: setInterval(_this.goToNextSlide, _this.state.delay)
-            }); });
+            });
         };
         _this.goToPrevSlide = function () {
+            if (_this.state.pause) {
+                return;
+            }
             clearInterval(_this.state.interval);
             if (_this.state.currentIndex === 0) {
                 return _this.setState({
@@ -86,7 +93,9 @@ var Carousel = /** @class */ (function (_super) {
                 return document.querySelector('.slider__slide').clientWidth;
             }
             else {
-                return 0; // fix for backoffice
+                var iFrameWidth = document.querySelector('iframe').clientWidth;
+                // fix for desktop backoffice: 75% width because '.slider__slide' 75% too (Not whole Carousel)
+                return (iFrameWidth / 100) * 75;
             }
         };
         _this.state = {
@@ -98,12 +107,11 @@ var Carousel = /** @class */ (function (_super) {
             translateValue: 0,
             showArrows: false,
             pause: false,
-            slides: _this.galleryItems(),
+            slides: _this.props.data.slides
         };
         return _this;
     }
     Carousel.prototype.componentDidMount = function () {
-        this.setState({ slides: this.state.slides });
         if (this.state.autoplay && !this.state.pause) {
             var interval = setInterval(this.goToNextSlide, this.state.delay);
             this.setState({ interval: interval });
@@ -112,6 +120,7 @@ var Carousel = /** @class */ (function (_super) {
     Carousel.prototype.pause = function (e) {
         e.preventDefault();
         if (this.state.autoplay && !this.state.pause) {
+            clearInterval(this.state.interval);
             var interval = setInterval(this.goToNextSlide, 1000000);
             this.setState({ interval: interval, pause: true });
         }
@@ -119,41 +128,45 @@ var Carousel = /** @class */ (function (_super) {
     Carousel.prototype.run = function (e) {
         e.preventDefault();
         if (this.state.autoplay && this.state.pause) {
+            clearInterval(this.state.interval);
             var interval = setInterval(this.goToNextSlide, this.state.delay);
             this.setState({ interval: interval, pause: false });
         }
     };
-    Carousel.prototype.galleryItems = function () {
-        var slides = this.props.data.slides;
-        var images = [];
-        if (slides) {
-            slides.map(function (slide, i) {
+    Carousel.prototype.renderSlides = function (data) {
+        var result = [];
+        if (data) {
+            data.map(function (slide, i) {
                 if (slide.image) {
-                    images.push(React.createElement(Link, { url: slide.url && slide.url.url },
-                        React.createElement(Media, { key: i, type: 'image', data: slide.image })));
+                    result.push(React.createElement("div", { key: i, className: "slider__slide", id: 'slider__slide' },
+                        React.createElement(Link, { url: slide.url && slide.url.url },
+                            React.createElement(Media, { type: 'image', data: slide.image }))));
                 }
             });
         }
-        return images;
+        return result;
     };
-    Carousel.prototype.render = function () {
+    Carousel.prototype.renderSlider = function (data) {
         var _this = this;
-        var _a = this.props.data, slides = _a.slides, displayOnTop = _a.displayOnTop;
-        var Slider = (React.createElement("div", { className: "slider", onMouseEnter: function (e) { return _this.pause(e); }, onMouseLeave: function (e) { return _this.run(e); } },
+        return (React.createElement("div", { className: "slider", onMouseEnter: function (e) { return _this.pause(e); }, onMouseLeave: function (e) { return _this.run(e); } },
             React.createElement("div", { className: "slider__wrapper", style: {
                     transform: "translateX(" + this.state.translateValue + "px)",
                     transition: 'transform ease-out 0.25s'
-                } }, this.state.slides.map(function (slide, i) { return (React.createElement(Slide, { key: i, slide: slide })); })),
+                } }, this.renderSlides(data)),
             this.state.showArrows ? (React.createElement(React.Fragment, null,
                 React.createElement(LeftArrow, { goToPrevSlide: this.goToPrevSlide }),
                 React.createElement(RightArrow, { goToNextSlide: this.goToNextSlide }))) : '',
-            this.state.showDots ?
+            this.state.showDots && this.state.slides.length > 0 ?
                 React.createElement(Dots, { goTo: this.goTo, len: this.state.slides.length, currentIndex: this.state.currentIndex }) : ''));
-        return (React.createElement(List, { data: slides }, function (_a) {
+    };
+    Carousel.prototype.render = function () {
+        var _this = this;
+        var displayOnTop = this.props.data.displayOnTop;
+        return (React.createElement(List, { data: this.state.slides }, function (_a) {
             var data = _a.data;
             return (React.createElement("div", { className: 'carousel' },
                 displayOnTop ? React.createElement("div", { className: 'carousel__divider' }) : '',
-                React.createElement("div", { className: 'carousel__images', style: displayOnTop ? {} : { gridRow: 'auto' } }, Slider),
+                React.createElement("div", { className: 'carousel__images', style: displayOnTop ? {} : { gridRow: 'auto' } }, _this.renderSlider(data)),
                 React.createElement("div", { className: 'carousel__titles', style: displayOnTop ? {} : { gridRow: 'auto' } },
                     React.createElement("ul", { className: 'carousel__titles__list' }, data && data.map(function (slide, i) { return (React.createElement("li", { key: i, onClick: function () { return _this.goTo(i); }, className: 'carousel__titles__list__item', style: i === _this.state.currentIndex ? {
                             color: '#3eac49',

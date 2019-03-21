@@ -26,7 +26,7 @@ export interface CarouselState {
   // tslint:disable-next-line:no-any
   interval: any;
   // tslint:disable-next-line:no-any
-  slides: Array<any>;
+  slides: any;
   currentIndex: number;
   delay: number;
   translateValue: number;
@@ -49,16 +49,20 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
       translateValue: 0,
       showArrows: false,
       pause: false,
-      slides: this.galleryItems(),
+      slides: this.props.data.slides
     };
   }
   
   componentDidMount () {
-    this.setState({slides: this.state.slides});
-
     if (this.state.autoplay && !this.state.pause) {
       let interval = setInterval(this.goToNextSlide, this.state.delay);
       this.setState({ interval });
+    }
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    if (this.state.slides !== nextProps.data.slides) {
+      this.setState({ slides: nextProps.data.slides });
     }
   }
 
@@ -71,36 +75,19 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
   pause(e: any) {
     e.preventDefault();
     if (this.state.autoplay && !this.state.pause) {
+      clearInterval(this.state.interval);
       let interval = setInterval(this.goToNextSlide, 1000000);
-      this.setState({ interval: interval, pause: true });
+      this.setState({ interval, pause: true });
     }
   }
 
   run(e: any) {
     e.preventDefault();
     if (this.state.autoplay && this.state.pause) {
+      clearInterval(this.state.interval);
       let interval = setInterval(this.goToNextSlide, this.state.delay);
-      this.setState({ interval: interval, pause: false });
+      this.setState({ interval, pause: false });
     }
-  }
-
-  galleryItems() {  
-    const { slides } = this.props.data;
-    let images = [];
-
-    if (slides) {
-      slides.map((slide, i) => {
-        if (slide.image) {
-          images.push
-          (
-            <Link url={slide.url && slide.url.url}>
-              <Media key={i} type={'image'} data={slide.image} />
-            </Link>
-          );
-        }
-      });
-    }
-    return images;
   }
 
   goToNextSlide = () => {
@@ -114,15 +101,16 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
         interval: setInterval(this.goToNextSlide, this.state.delay)
       });
     }
-    
-    this.setState(prevState => ({
-      currentIndex: prevState.currentIndex + 1,
-      translateValue: prevState.translateValue + -(this.slideWidth()),
+
+    this.setState({
+      currentIndex: this.state.currentIndex + 1,
+      translateValue: this.state.translateValue + -(this.slideWidth()),
       interval: setInterval(this.goToNextSlide, this.state.delay)
-    }));
+    });
   }
 
   goToPrevSlide = () => {
+    if (this.state.pause) { return; }
     clearInterval(this.state.interval);
 
     if (this.state.currentIndex === 0) { 
@@ -142,7 +130,6 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
 
   goTo = (index) => {
     if (index === this.state.currentIndex) { return; }
-
     clearInterval(this.state.interval);
 
     if (index > this.state.currentIndex) {
@@ -164,14 +151,34 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     if (document.querySelector('.slider__slide')) {
       return document.querySelector('.slider__slide').clientWidth;
     } else {
-      return 0; // fix for backoffice
+      var iFrameWidth = document.querySelector('iframe').clientWidth;
+      // fix for desktop backoffice: 75% width because '.slider__slide' 75% too (Not whole Carousel)
+      return (iFrameWidth / 100) * 75;
     }
   }
   
-  render() {
-    const { slides, displayOnTop } = this.props.data;
+  renderSlides(data: any) {  
+    let result = [];
 
-    const Slider = (
+    if (data) {
+      data.map((slide, i) => {
+        if (slide.image) {
+          result.push
+          (
+            <div key={i} className="slider__slide" id={'slider__slide'}>
+              <Link url={slide.url && slide.url.url}>
+                <Media type={'image'} data={slide.image} />
+              </Link>
+            </div>
+          );
+        }
+      });
+    }
+    return result;
+  }
+
+  renderSlider(data: any) {
+    return (
       <div className="slider" onMouseEnter={e => this.pause(e)} onMouseLeave={e => this.run(e)}>
         <div 
           className="slider__wrapper"
@@ -179,11 +186,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
             transform: `translateX(${this.state.translateValue}px)`, 
             transition: 'transform ease-out 0.25s'}}
         >  
-            {
-              this.state.slides.map((slide, i) => (
-                <Slide key={i} slide={slide} />
-              ))
-            } 
+          {this.renderSlides(data)}
         </div>
   
         {this.state.showArrows ? (
@@ -193,25 +196,28 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
           </>
         ) : ''}
         
-        {this.state.showDots ? 
+        {this.state.showDots && this.state.slides.length > 0 ?
           <Dots 
             goTo={this.goTo} 
             len={this.state.slides.length} 
             currentIndex={this.state.currentIndex}
           /> : ''
         }
-        
       </div>
     );
+  }
+
+  render() {
+    const { displayOnTop } = this.props.data;
  
     return (
-      <List data={slides}>
+      <List data={this.state.slides}>
         {({ data }) => (
           <div className={'carousel'}>
             {displayOnTop ? <div className={'carousel__divider'} /> : ''}
     
             <div className={'carousel__images'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
-              {Slider}
+              {this.renderSlider(data)}
             </div>
             
             <div className={'carousel__titles'} style={displayOnTop ? {} : { gridRow: 'auto' }}>

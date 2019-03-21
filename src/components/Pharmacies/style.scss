@@ -60,6 +60,15 @@
       max-width: 220px;
       position: relative;
 
+      a {
+        font-weight: 600;
+        padding-left: 45px;
+        &:hover {
+          color: $green;
+          text-decoration: underline;
+        }
+      }
+      
       .mediaRatio {
         padding: 0 !important;
         height: 28px;

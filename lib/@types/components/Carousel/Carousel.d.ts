@@ -13,7 +13,7 @@ export interface CarouselProps {
 }
 export interface CarouselState {
     interval: any;
-    slides: Array<any>;
+    slides: any;
     currentIndex: number;
     delay: number;
     translateValue: number;
@@ -25,14 +25,16 @@ export interface CarouselState {
 declare class Carousel extends React.Component<CarouselProps, CarouselState> {
     constructor(props: CarouselProps);
     componentDidMount(): void;
+    componentWillReceiveProps: (nextProps: any) => void;
     componentWillUnmount: () => void;
     pause(e: any): void;
     run(e: any): void;
-    galleryItems(): any[];
     goToNextSlide: () => void;
     goToPrevSlide: () => void;
     goTo: (index: any) => void;
     slideWidth: () => number;
+    renderSlides(data: any): any[];
+    renderSlider(data: any): JSX.Element;
     render(): JSX.Element;
 }
 export default Carousel;

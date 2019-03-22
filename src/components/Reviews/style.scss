@@ -20,11 +20,11 @@
     grid-template-columns: repeat(3, 1fr);
 
     &__element {
-      height: 100%;
       width: 100%;
+      display: grid;
+      max-height: 130px;
       background-color: #f4f5f7;
       background-repeat: no-repeat;
-      display: grid;
       grid-template-columns: 110px 1fr;
 
       .mediaRatio {

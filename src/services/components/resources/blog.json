@@ -103,7 +103,7 @@
               },
               "color": {
                 "type": "enum",
-                "title": "Color",
+                "title": "Background color",
                 "options": {
                   "#2473ba": "Blue",
                   "#3eac49": "Green",
@@ -111,6 +111,19 @@
                   "#f6ac59": "Orange",
                   "black": "Black",
                   "white": "White"
+                }
+              },
+              "textColor": {
+                "type": "enum",
+                "title": "Text color",
+                "options": {
+                  "#00aad0": "Light Blue",
+                  "#00adcc": "Blue",
+                  "#ef404c": "Red",
+                  "#faa74a": "Orange",
+                  "#3eac49": "Green",
+                  "white": "White",
+                  "black": "Black"
                 }
               },
               "special": {

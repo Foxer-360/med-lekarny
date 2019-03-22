@@ -6,26 +6,27 @@ export interface BlogCardProps {
   title: string;
   text: string;
   color: string;
+  textColor: string;
   img: LooseObject;
   special?: boolean;
 }
 
 export function BlogCard(props: BlogCardProps) {
-  const { title, text, color, img, special } = props;
+  const { title, text, color, textColor, img, special } = props;
 
   if (special) {
     return (
       <Link className={'blogCard blogCard--special'}>
-        {title && <h3>{title}</h3>}
-        {text && <p>{text}</p>}
+        <h3>{title}</h3>
+        <p>{text}</p>
       </Link>
     );
   }
 
   return (
     <Link className={'blogCard'}>
-      {title && <h3>{title}</h3>}
-      {text && <p>{text}</p>}
+      <h3 style={textColor ? {color: `${textColor}`} : {}}>{title}</h3>
+      <p style={textColor ? {color: `${textColor}`} : {}}>{text}</p>
 
       {img && <Media type={'image'} data={img} />}
       <div

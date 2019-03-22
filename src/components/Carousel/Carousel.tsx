@@ -115,8 +115,8 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
 
     if (this.state.currentIndex === 0) { 
       return this.setState({
-        currentIndex: this.state.slides.length,
-        translateValue: this.state.slides.length * -(this.slideWidth()),
+        currentIndex: this.state.slides.length - 1,
+        translateValue: (this.state.slides.length - 1) * -(this.slideWidth()),
         interval: setInterval(this.goToNextSlide, this.state.delay)
       });
     }

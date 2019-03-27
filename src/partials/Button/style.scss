@@ -111,6 +111,7 @@
     background-color: transparent;
 
     &:hover {
+      
       @include md {
         color: $green;
         background-color: white;
@@ -135,6 +136,7 @@
     }
 
     &:hover {
+      color: $green;
       border: 2px solid $green;
     }
   }

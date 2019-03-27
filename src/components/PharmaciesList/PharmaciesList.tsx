@@ -9,16 +9,17 @@ import Button from '@source//partials/Button';
 
 interface Pharmacie {
   name: string;
-  image: LooseObject;
+  image?: LooseObject;
   description: string;
   address: string;
-  addressUrl: LooseObject;
+  addressUrl?: LooseObject;
   district: string;
   phone: string;
   transport: string;
-  transportImage: LooseObject;
+  transportImage?: LooseObject;
   station: string;
   services: string;
+  url?: LooseObject;
 }
 
 export interface PharmaciesListProps {
@@ -112,7 +113,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                         }
     
                         <div className={'pcitem__info__btnHolder'}>
-                          <Button classes="btn btn--greenBorder">vice info</Button>
+                          <Button url={pharmacie.url} classes="btn btn--greenBorder">vice info</Button>
                         </div>
                       </div>
                     </div>

@@ -1,8 +1,9 @@
 /// <reference types="react" />
 interface Pharmacie {
-    image: LooseObject;
+    image?: LooseObject;
+    pharmacieUrl?: LooseObject;
     address: string;
-    addressUrl: LooseObject;
+    addressUrl?: LooseObject;
     title: string;
     text: string;
 }

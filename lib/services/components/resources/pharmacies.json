@@ -12,7 +12,8 @@
         "title": "**Poliklinika Budějovická,**",
         "text": "Praha 4, 140 00",
         "address": "A. Staška 1670/80,",
-        "addredssUrl": ""
+        "addredssUrl": "",
+        "pharmacieUrl": ""
       },
       {
         "image": {
@@ -24,7 +25,8 @@
         "title": "**Poliklinika Holešovice,**",
         "text": "Praha 7, 170 00",
         "address": "Plynární 1617/10,",
-        "addredssUrl": ""
+        "addredssUrl": "",
+        "pharmacieUrl": ""
       },
       {
         "image": {
@@ -36,7 +38,8 @@
         "title": "**Poliklinika Vysočany,**",
         "text": "Praha 9, 190 61, Praha 4, 140 00",
         "address": "Sokolovská 810/304,",
-        "addredssUrl": ""
+        "addredssUrl": "",
+        "pharmacieUrl": ""
       },
       {
         "image": {
@@ -48,7 +51,8 @@
         "title": "**OD DBK,**",
         "text": "Praha 4, 140 00",
         "address": "Budějovická 1667/64,",
-        "addredssUrl": ""
+        "addredssUrl": "",
+        "pharmacieUrl": ""
       }
     ]
   },
@@ -79,6 +83,10 @@
               "addressUrl": {
                 "type": "urlAutocomplete",
                 "title": "Address URL"
+              },
+              "pharmacieUrl": {
+                "type": "urlAutocomplete",
+                "title": "Pharmacie URL"
               }
             }
           }

@@ -23,7 +23,8 @@
             "width": "370",
             "height": "370"
           }
-        }
+        },
+        "url": ""
       }
     ]
   },
@@ -78,6 +79,10 @@
 
               "image": {
                 "type": "image"
+              },
+              "url": {
+                "type": "urlAutocomplete",
+                "title": "URL"
               }
             }
           }

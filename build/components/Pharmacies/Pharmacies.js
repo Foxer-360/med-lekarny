@@ -18,7 +18,9 @@ var Pharmacies = function (props) {
                         React.createElement("img", { src: '/assets/mediconLekarny/images/pharmacies-divider-ad.png' })),
                     React.createElement("br", { style: { clear: 'both' } })),
                 React.createElement("div", { className: 'pharmacies__list grid' }, data && data.map(function (pharmacie, i) { return (React.createElement("div", { key: i, className: 'pharmacies__list__item' },
-                    pharmacie.image && React.createElement(Media, { type: 'image', data: pharmacie.image }),
+                    pharmacie.image &&
+                        React.createElement(Link, { url: pharmacie.pharmacieUrl && pharmacie.pharmacieUrl.url },
+                            React.createElement(Media, { type: 'image', data: pharmacie.image })),
                     pharmacie.title && React.createElement(ReactMarkdown, { source: pharmacie.title }),
                     React.createElement(Link, { urlNewWindow: true, url: pharmacie.addressUrl && pharmacie.addressUrl.url }, pharmacie.address && pharmacie.address),
                     pharmacie.text && React.createElement(ReactMarkdown, { source: pharmacie.text }))); })))));

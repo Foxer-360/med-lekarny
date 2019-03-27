@@ -57,8 +57,8 @@ var Carousel = /** @class */ (function (_super) {
             clearInterval(_this.state.interval);
             if (_this.state.currentIndex === 0) {
                 return _this.setState({
-                    currentIndex: _this.state.slides.length,
-                    translateValue: _this.state.slides.length * -(_this.slideWidth()),
+                    currentIndex: _this.state.slides.length - 1,
+                    translateValue: (_this.state.slides.length - 1) * -(_this.slideWidth()),
                     interval: setInterval(_this.goToNextSlide, _this.state.delay)
                 });
             }

@@ -1,16 +1,17 @@
 /// <reference types="react" />
 interface Pharmacie {
     name: string;
-    image: LooseObject;
+    image?: LooseObject;
     description: string;
     address: string;
-    addressUrl: LooseObject;
+    addressUrl?: LooseObject;
     district: string;
     phone: string;
     transport: string;
-    transportImage: LooseObject;
+    transportImage?: LooseObject;
     station: string;
     services: string;
+    url?: LooseObject;
 }
 export interface PharmaciesListProps {
     data: {

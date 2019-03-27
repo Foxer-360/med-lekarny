@@ -6,9 +6,10 @@ import Link from '@source/partials/Link';
 import Media from '@source/partials/Media';
 
 interface Pharmacie {
-  image: LooseObject;
+  image?: LooseObject;
+  pharmacieUrl?: LooseObject;
   address: string;
-  addressUrl: LooseObject;
+  addressUrl?: LooseObject;
   title: string;
   text: string;
 }
@@ -43,7 +44,10 @@ const Pharmacies = (props: PharmaciesProps) => {
             <div className={'pharmacies__list grid'}>
               {data && data.map((pharmacie, i) => (
                 <div key={i} className={'pharmacies__list__item'}>
-                  {pharmacie.image && <Media type={'image'} data={pharmacie.image} />}
+                    {pharmacie.image && 
+                      <Link url={pharmacie.pharmacieUrl && pharmacie.pharmacieUrl.url}>
+                        <Media type={'image'} data={pharmacie.image} />
+                      </Link>}
                     {pharmacie.title && <ReactMarkdown source={pharmacie.title} />}
                     <Link urlNewWindow={true} url={pharmacie.addressUrl && pharmacie.addressUrl.url}>
                       {pharmacie.address && pharmacie.address}

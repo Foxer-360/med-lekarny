@@ -23,9 +23,7 @@ export interface BlogProps {
 }
 
 export interface BlogState {
-  showMore: boolean;
-  blogItems: any;
-  sixBlogItems: any;
+  numberOfPage: number;
 }
 
 export default class Blog extends React.Component<BlogProps, BlogState> {
@@ -33,47 +31,17 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
     super(props);
 
     this.state = {
-      showMore: false,
-      blogItems: this.props.data.blogItems,
-      sixBlogItems: []
+      numberOfPage: 1
     };
   }
 
-  renderSixItems(data: any) {
-    let result = [];
-
-    data.map((item, index) => (
-      result.push(
-        <BlogCard
-          title={item.title}
-          text={item.text}
-          key={index}
-          color={item.color}
-          textColor={item.textColor}
-          img={item.img}
-          special={item.special && item.special}
-        />)));
-    
-    if (data.length <= 6) {
-      return result.slice(0, data.length);
-    } else {
-      return result.slice(0, 6);
-    }
-  }
-
-  componentWillReceiveProps = (nextProps) => {
-    if (this.state.blogItems !== nextProps.data.blogItems) {
-      this.setState({ blogItems: nextProps.data.blogItems });
-    }
-  }
-
   public render() {
-    const { title, displaySearch } = this.props.data;
-    const { showMore } = this.state;
+    const { title, displaySearch, blogItems } = this.props.data;
 
     return (
-      <List data={this.state.blogItems}>
-        {({ data }) => {
+      <List data={blogItems}>
+        {({ getPage }) => {
+          const { items, lastPage } = getPage(this.state.numberOfPage, 'infinite', 6);
 
           return (
             <section className={'blog'}>
@@ -87,32 +55,30 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
                   className="my-masonry-grid"
                   columnClassName="my-masonry-grid_column"
                 >
-                  {data && !showMore ? this.renderSixItems(data) :
-                    data.map((item, i) => (
-                      <BlogCard
-                        key={i}
-                        img={item.img}
-                        title={item.title}
-                        text={item.text}
-                        color={item.color}
-                        textColor={item.textColor}
-                        special={item.special && item.special}
-                      />
+                  {items && items.map((item, i) => (
+                    <BlogCard
+                      key={i}
+                      img={item.img}
+                      title={item.title}
+                      text={item.text}
+                      color={item.color}
+                      textColor={item.textColor}
+                      special={item.special && item.special}
+                    />
                   ))}
                 </Masonry>
       
                 <div className={'blog__blur'}>
                   <div />
                 </div>
-      
-                {this.state.blogItems && this.state.blogItems.length > 6 && 
+
+                {this.state.numberOfPage < lastPage &&
                   <div className="blog__btnHolder">
                     <button 
-                      className={`btn btn--greenBkg btn--fullWidth btn--${
-                        showMore && data.length > 6 ? 'up' : 'down'}`} 
-                      onClick={() => this.setState({ showMore: !this.state.showMore })}
+                      className={`btn btn--greenBkg btn--fullWidth`} 
+                      onClick={() => this.setState({ numberOfPage: this.state.numberOfPage + 1 })}
                     >
-                      Načíst další<span className="arrow" />
+                      Načíst další
                     </button>
                   </div>
                 }

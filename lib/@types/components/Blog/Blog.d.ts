@@ -15,14 +15,10 @@ export interface BlogProps {
     };
 }
 export interface BlogState {
-    showMore: boolean;
-    blogItems: any;
-    sixBlogItems: any;
+    numberOfPage: number;
 }
 export default class Blog extends React.Component<BlogProps, BlogState> {
     constructor(props: BlogProps);
-    renderSixItems(data: any): any[];
-    componentWillReceiveProps: (nextProps: any) => void;
     render(): JSX.Element;
 }
 export {};

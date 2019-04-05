@@ -81,11 +81,11 @@
                 "title": "Address"
               },
               "addressUrl": {
-                "type": "urlAutocomplete",
+                "type": "urlautocomplete",
                 "title": "Address URL"
               },
               "pharmacieUrl": {
-                "type": "urlAutocomplete",
+                "type": "urlautocomplete",
                 "title": "Pharmacie URL"
               }
             }

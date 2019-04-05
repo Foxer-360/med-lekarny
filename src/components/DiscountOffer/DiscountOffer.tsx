@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Media from '@source/partials/Media';
 import Link from '@source/partials/Link';
 import ReactMarkdown from 'react-markdown';
@@ -47,7 +48,7 @@ const DiscountOffer = (props: DiscountOfferProps) => {
             {promotionText && <ReactMarkdown source={promotionText} />}
             {promotionImage && <Media type={'image'} data={promotionImage} />}
           </div>
-          <Link url={productUrl && productUrl.url}>
+          <Link {...productUrl}>
             <div className={'discount-offer__list__item grid'}>
               <span>{productText && productText}</span>
               {productImage && <Media type={'image'} data={productImage} />}

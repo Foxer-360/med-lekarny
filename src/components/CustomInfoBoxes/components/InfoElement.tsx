@@ -1,7 +1,8 @@
 import * as React from 'react';
+
+import Link from '@source/partials/Link';
 import Button from '@source/partials/Button';
 import getImageUrl from '@source/helpers/getImageUrl';
-import Link from '@source/partials/Link';
 
 export interface InfoElementProps {
   title: string;
@@ -18,7 +19,7 @@ export default function InfoElement(props: InfoElementProps) {
 
   return (
     <Link
-      url={link && link.url}
+      {...link}
       className={'custom-info-boxes__list__element'}
       style={{ backgroundImage: image && `url(${getImageUrl(image)})` }}
     >

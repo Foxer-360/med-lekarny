@@ -35,12 +35,11 @@ const InfoRectangles = (props: InfoRectanglesProps) => {
                 
                 return (
                   <Link 
-                    key={i} 
-                    url={rectangle.url && rectangle.url.url}
+                    key={i}
                     className={'info-rectangles__list__item'}
                     style={{ backgroundImage: rectangle.image && `url(${getImageUrl(rectangle.image)})` }}
+                    {...rectangle.url}
                   >
-                    
                     <div className={'info-rectangles__list__item__content'}>
                       {rectangle.icon && <Media type={'image'} data={rectangle.icon} />}
                       {rectangle.title && 
@@ -48,7 +47,7 @@ const InfoRectangles = (props: InfoRectanglesProps) => {
                           {rectangle.title}
                         </p>}
                     </div>
-      {console.log(rectangle)}
+
                     {rectangle.gradientColor && (
                       <div
                         className={'info-rectangles__list__item--colorGradient'}

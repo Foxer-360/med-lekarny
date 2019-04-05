@@ -42,19 +42,33 @@ const Pharmacies = (props: PharmaciesProps) => {
             </div>
             
             <div className={'pharmacies__list grid'}>
-              {data && data.map((pharmacie, i) => (
-                <div key={i} className={'pharmacies__list__item'}>
-                    {pharmacie.image && 
-                      <Link url={pharmacie.pharmacieUrl && pharmacie.pharmacieUrl.url}>
-                        <Media type={'image'} data={pharmacie.image} />
+              {data && data.map((pharmacie, i) => {
+                const {
+                  text,
+                  image,
+                  title,
+                  address,
+                  addressUrl,
+                  pharmacieUrl,
+                } = pharmacie;
+                
+                return (                  
+                  <div key={i} className={'pharmacies__list__item'}>
+                    {image && 
+                      <Link {...pharmacieUrl}>
+                        <Media type={'image'} data={image} />
                       </Link>}
-                    {pharmacie.title && <ReactMarkdown source={pharmacie.title} />}
-                    <Link urlNewWindow={true} url={pharmacie.addressUrl && pharmacie.addressUrl.url}>
-                      {pharmacie.address && pharmacie.address}
+
+                    {title && <ReactMarkdown source={title} />}
+
+                    <Link {...addressUrl}>
+                      {address}
                     </Link>
-                    {pharmacie.text && <ReactMarkdown source={pharmacie.text} />}
-                </div>
-              ))}
+
+                    {text && <ReactMarkdown source={text} />}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

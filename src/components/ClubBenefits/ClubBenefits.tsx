@@ -1,8 +1,9 @@
 import * as React from 'react';
-import Button from '@source/partials/Button';
+
+import List from '../List';
 import Link from '@source/partials/Link';
 import ReactMarkdown from 'react-markdown';
-import List from '../List';
+import Button from '@source/partials/Button';
 
 interface Benefit {
   title: string;
@@ -42,10 +43,7 @@ const ClubBenefits = (props: ClubBenefitsProps) => {
               </div>}
             
             {conditionsUrl && 
-              <Link 
-                className={'club-benefits__conditions'} 
-                url={conditionsUrl && conditionsUrl.url}
-              >
+              <Link {...conditionsUrl} className={'club-benefits__conditions'}>
                 Všeobecné obchodní podmínky
               </Link>}
           </div>

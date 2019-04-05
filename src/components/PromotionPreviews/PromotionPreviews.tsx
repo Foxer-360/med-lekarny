@@ -45,7 +45,7 @@ const PromotionPreviews = (props: PromotionPreviewsProps) => {
                 {slide.description}
               </p>
               <Link 
-                url={slide.url && slide.url.url}
+                {...slide.url}
                 className={'promotion-previews__list__item__right__url'}
               >
                 {slide.titleUrl}

@@ -30,7 +30,10 @@ const Partners = (props: PartnersProps) => {
             <div className={'partners__list grid'}>
               {data && data.map((partner, i) => {
                 return (
-                  <Link key={i} url={partner.url && partner.url.url}>
+                  <Link 
+                    key={i} 
+                    {...partner.url}
+                  >
                     {partner.image && <Media type={'image'} data={partner.image} />}
                   </Link>
                 );

@@ -23,7 +23,7 @@ var PromotionsAndDiscounts = function (props) {
     return (React.createElement(List, { data: props.data.items || [] }, function (_a) {
         var items = _a.data;
         var arrayOfSlides = (items && items.map(function (slide, i) { return (React.createElement("div", { key: i, className: 'prom-and-disc__list__item' },
-            React.createElement(Link, { url: slide.url && slide.url.url }, slide.image && React.createElement(Media, { type: 'image', data: slide.image })))); })) || [];
+            React.createElement(Link, __assign({}, slide.url), slide.image && React.createElement(Media, { type: 'image', data: slide.image })))); })) || [];
         var arrayOfDesktopSlides = [];
         var arrayOfTabletSlides = [];
         var arrayOfMobiletSlides = [];

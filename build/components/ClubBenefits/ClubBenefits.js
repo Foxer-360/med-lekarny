@@ -1,8 +1,19 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 import * as React from 'react';
-import Button from '@source/partials/Button';
+import List from '../List';
 import Link from '@source/partials/Link';
 import ReactMarkdown from 'react-markdown';
-import List from '../List';
+import Button from '@source/partials/Button';
 var ClubBenefits = function (props) {
     var _a = props.data, buttonTitle = _a.buttonTitle, buttonUrl = _a.buttonUrl, conditionsUrl = _a.conditionsUrl, benefits = _a.benefits;
     return (React.createElement(List, { data: benefits }, function (_a) {
@@ -16,7 +27,7 @@ var ClubBenefits = function (props) {
                     React.createElement("div", { className: 'club-benefits__btn-holder' },
                         React.createElement(Button, { url: buttonUrl, classes: 'btn--greenBkg hCenterBlock' }, buttonTitle)),
                 conditionsUrl &&
-                    React.createElement(Link, { className: 'club-benefits__conditions', url: conditionsUrl && conditionsUrl.url }, "V\u0161eobecn\u00E9 obchodn\u00ED podm\u00EDnky"))));
+                    React.createElement(Link, __assign({}, conditionsUrl, { className: 'club-benefits__conditions' }), "V\u0161eobecn\u00E9 obchodn\u00ED podm\u00EDnky"))));
     }));
 };
 export default ClubBenefits;

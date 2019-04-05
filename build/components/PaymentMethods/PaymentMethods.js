@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Media from '@source/partials/Media';
 import List from '../List';
+import Media from '@source/partials/Media';
 var PaymentMethods = function (props) {
     var _a = props.data, title = _a.title, methods = _a.methods;
     return (React.createElement(List, { data: methods }, function (_a) {

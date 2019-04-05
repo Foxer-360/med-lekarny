@@ -27,7 +27,7 @@ var PromotionPreviews = function (props) {
             React.createElement("div", { className: 'promotion-previews__list__item__right' },
                 React.createElement("p", { className: 'promotion-previews__list__item__right__title' }, slide.title),
                 React.createElement("p", { className: 'promotion-previews__list__item__right__description' }, slide.description),
-                React.createElement(Link, { url: slide.url && slide.url.url, className: 'promotion-previews__list__item__right__url' }, slide.titleUrl)))); })) || [];
+                React.createElement(Link, __assign({}, slide.url, { className: 'promotion-previews__list__item__right__url' }), slide.titleUrl)))); })) || [];
         var arrayOfDesktopSlides = [];
         var arrayOfTabletSlides = [];
         var arrayOfMobiletSlides = [];

@@ -11,6 +11,17 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 import * as React from 'react';
 import List from '../List';
 import Link from '@source/partials/Link';
@@ -139,7 +150,7 @@ var Carousel = /** @class */ (function (_super) {
             data.map(function (slide, i) {
                 if (slide.image) {
                     result.push(React.createElement("div", { key: i, className: "slider__slide", id: 'slider__slide' },
-                        React.createElement(Link, { url: slide.url && slide.url.url },
+                        React.createElement(Link, __assign({}, slide.url),
                             React.createElement(Media, { type: 'image', data: slide.image }))));
                 }
             });

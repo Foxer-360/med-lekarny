@@ -93,14 +93,12 @@
   grid-template-rows: auto;
   grid-template-columns: 75% 25%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-
   @include max-md { grid-template-columns: 100%; }
 
   &__divider {
     grid-row: 1/2;
     height: 125px;
-
-     @include max-md { height: 100px; }
+    @include max-md { height: 100px; }
   }
 
   ul {
@@ -121,10 +119,14 @@
 
   &__images {
     max-height: 490px;
+    min-height: 490px;
     overflow: hidden;
     grid-row: 2/3;
 
-    @media (max-width: 720px) { max-height: 260px; }
+    @media (max-width: 720px) {
+      max-height: 260px;
+      min-height: 260px;
+    }
   }
 
   &__titles {

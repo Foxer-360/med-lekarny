@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import List from '../List';
@@ -17,13 +28,16 @@ var Pharmacies = function (props) {
                     React.createElement("div", null,
                         React.createElement("img", { src: '/assets/mediconLekarny/images/pharmacies-divider-ad.png' })),
                     React.createElement("br", { style: { clear: 'both' } })),
-                React.createElement("div", { className: 'pharmacies__list grid' }, data && data.map(function (pharmacie, i) { return (React.createElement("div", { key: i, className: 'pharmacies__list__item' },
-                    pharmacie.image &&
-                        React.createElement(Link, { url: pharmacie.pharmacieUrl && pharmacie.pharmacieUrl.url },
-                            React.createElement(Media, { type: 'image', data: pharmacie.image })),
-                    pharmacie.title && React.createElement(ReactMarkdown, { source: pharmacie.title }),
-                    React.createElement(Link, { urlNewWindow: true, url: pharmacie.addressUrl && pharmacie.addressUrl.url }, pharmacie.address && pharmacie.address),
-                    pharmacie.text && React.createElement(ReactMarkdown, { source: pharmacie.text }))); })))));
+                React.createElement("div", { className: 'pharmacies__list grid' }, data && data.map(function (pharmacie, i) {
+                    var text = pharmacie.text, image = pharmacie.image, title = pharmacie.title, address = pharmacie.address, addressUrl = pharmacie.addressUrl, pharmacieUrl = pharmacie.pharmacieUrl;
+                    return (React.createElement("div", { key: i, className: 'pharmacies__list__item' },
+                        image &&
+                            React.createElement(Link, __assign({}, pharmacieUrl),
+                                React.createElement(Media, { type: 'image', data: image })),
+                        title && React.createElement(ReactMarkdown, { source: title }),
+                        React.createElement(Link, __assign({}, addressUrl), address),
+                        text && React.createElement(ReactMarkdown, { source: text })));
+                })))));
     }));
 };
 export default Pharmacies;

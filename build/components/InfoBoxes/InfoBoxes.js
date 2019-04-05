@@ -1,6 +1,6 @@
 import * as React from 'react';
-import InfoElement from './components/InfoElement';
 import List from '../List';
+import InfoElement from './components/InfoElement';
 var InfoBoxes = function (props) {
     var _a = props.data, title = _a.title, dividerOnTop = _a.dividerOnTop, indentAtBottom = _a.indentAtBottom, boxes = _a.boxes;
     return (React.createElement(List, { data: boxes }, function (_a) {

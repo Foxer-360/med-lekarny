@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Media from '@source/partials/Media';
 import ReactMarkdown from 'react-markdown';
 import List from '../List';
+import Media from '@source/partials/Media';
 var BenefitBlocks = function (props) {
     var _a = props.data, title = _a.title, benefits = _a.benefits;
     return (React.createElement(List, { data: benefits }, function (_a) {

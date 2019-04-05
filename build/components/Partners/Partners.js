@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 import * as React from 'react';
 import Media from '@source/partials/Media';
 import Link from '@source/partials/Link';
@@ -11,7 +22,7 @@ var Partners = function (props) {
                 React.createElement("div", { className: 'partners__divider' }),
                 title && React.createElement("h3", null, title),
                 React.createElement("div", { className: 'partners__list grid' }, data && data.map(function (partner, i) {
-                    return (React.createElement(Link, { key: i, url: partner.url && partner.url.url }, partner.image && React.createElement(Media, { type: 'image', data: partner.image })));
+                    return (React.createElement(Link, __assign({ key: i }, partner.url), partner.image && React.createElement(Media, { type: 'image', data: partner.image })));
                 })))));
     }));
 };

@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Media from '@source/partials/Media';
 
-export interface TextBlockWithImageProps {
+export interface BlogArticleProps {
   data: {
     title: string;
     image: LooseObject;
@@ -10,7 +10,7 @@ export interface TextBlockWithImageProps {
   };
 }
 
-const TextBlockWithImage = (props: TextBlockWithImageProps) => {
+const BlogArticle = (props: BlogArticleProps) => {
   const { title, image, text } = props.data;
 
   return (
@@ -26,4 +26,4 @@ const TextBlockWithImage = (props: TextBlockWithImageProps) => {
   );
 };
 
-export default TextBlockWithImage;
+export default BlogArticle;

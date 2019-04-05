@@ -1,18 +1,19 @@
 import * as React from 'react';
+
 import Link from '@source/partials/Link';
 import Media from '@source/partials/Media';
 
 export interface BlogCardProps {
+  id: string;
   title: string;
   text: string;
   color: string;
-  textColor: string;
-  img: LooseObject;
+  img?: LooseObject;
   special?: boolean;
 }
 
 export function BlogCard(props: BlogCardProps) {
-  const { title, text, color, textColor, img, special } = props;
+  const { id, title, text, color, img, special } = props;
 
   if (special) {
     return (
@@ -24,9 +25,9 @@ export function BlogCard(props: BlogCardProps) {
   }
 
   return (
-    <Link className={'blogCard'}>
-      <h3 style={textColor ? {color: `${textColor}`} : {}}>{title}</h3>
-      <p style={textColor ? {color: `${textColor}`} : {}}>{text}</p>
+    <Link className={'blogCard'} pageId={id}>
+      <h3>{title}</h3>
+      <p>{text}</p>
 
       {img && <Media type={'image'} data={img} />}
       <div

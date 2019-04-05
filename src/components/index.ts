@@ -25,7 +25,7 @@ import ClubBenefits from './ClubBenefits';
 import DividerLine from './DividerLine';
 import BenefitBlocks from './BenefitBlocks';
 import RegistrationBlock from './RegistrationBlock';
-import TextBlockWithImage from './TextBlockWithImage';
+import BlogArticle from './BlogArticle';
 import MiniBoxes from './MiniBoxes';
 
 export {
@@ -56,6 +56,6 @@ export {
   DividerLine,
   BenefitBlocks,
   RegistrationBlock,
-  TextBlockWithImage,
+  BlogArticle,
   MiniBoxes,
 };

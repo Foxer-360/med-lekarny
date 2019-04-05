@@ -166,7 +166,11 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
           result.push
           (
             <div key={i} className="slider__slide" id={'slider__slide'}>
-              <Link url={slide.url && slide.url.url}>
+              <Link 
+                url={slide.url && slide.url.url}
+                pageId={slide.url && slide.url.pageId}
+                urlNewWindow={slide.url && slide.url.urlNewWindow}
+              >
                 <Media type={'image'} data={slide.image} />
               </Link>
             </div>

@@ -31,7 +31,7 @@ const PromotionsAndDiscounts = (props: PromotionsAndDiscountsProps) => {
       
         const arrayOfSlides = (items && items.map((slide, i) => (
           <div key={i} className={'prom-and-disc__list__item'}>
-            <Link url={slide.url && slide.url.url}>
+            <Link {...slide.url}>
               {slide.image && <Media type={'image'} data={slide.image} />}
             </Link>
           </div>

@@ -55,21 +55,13 @@ const Pharmacies = (props: PharmaciesProps) => {
                 return (                  
                   <div key={i} className={'pharmacies__list__item'}>
                     {image && 
-                      <Link 
-                        url={pharmacieUrl && pharmacieUrl.url}
-                        pageId={pharmacieUrl && pharmacieUrl.pageId}
-                        urlNewWindow={pharmacieUrl && pharmacieUrl.urlNewWindow}
-                      >
+                      <Link {...pharmacieUrl}>
                         <Media type={'image'} data={image} />
                       </Link>}
 
                     {title && <ReactMarkdown source={title} />}
 
-                    <Link 
-                      url={addressUrl && addressUrl.url}
-                      pageId={addressUrl && addressUrl.pageId}
-                      urlNewWindow={addressUrl && addressUrl.urlNewWindow}
-                    >
+                    <Link {...addressUrl}>
                       {address}
                     </Link>
 

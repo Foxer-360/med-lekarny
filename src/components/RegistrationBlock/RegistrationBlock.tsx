@@ -30,10 +30,7 @@ const RegistrationBlock = (props: RegistrationBlockProps) => {
           </div>}
 
         {conditionsUrl && 
-          <Link 
-            className={'registration-block__conditions'} 
-            url={conditionsUrl && conditionsUrl.url}
-          >
+          <Link {...conditionsUrl} className={'registration-block__conditions'}>
             Všeobecné obchodní podmínky
           </Link>}
       </div>

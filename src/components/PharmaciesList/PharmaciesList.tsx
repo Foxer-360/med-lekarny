@@ -56,7 +56,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                             />
     
                             <p>
-                              <Link urlNewWindow={true} url={pharmacie.addressUrl && pharmacie.addressUrl.url}>
+                              <Link {...pharmacie.addressUrl}>
                                 {pharmacie.address && pharmacie.address}
                               </Link> <br />
                               {pharmacie.district}

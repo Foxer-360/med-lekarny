@@ -1,8 +1,9 @@
 import * as React from 'react';
+
+import List from '../List';
 import Link from '@source/partials/Link';
 import Media from '@source/partials/Media';
 import getImageUrl from '@source/helpers/getImageUrl';
-import List from '../List';
 
 interface MenuBlock {
   title: string;
@@ -30,7 +31,7 @@ const MenuBlocks = (props: MenuBlocksProps) => {
               return (
                 <Link 
                   key={i}
-                  url={block.url && block.url.url}
+                  {...block.url}
                   className={'menu-blocks__item'}
                   style={{ backgroundImage: block.image && `url(${getImageUrl(block.image)})` }}
                 >

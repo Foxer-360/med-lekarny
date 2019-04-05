@@ -128,9 +128,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
                 <div className="container">
                   <div className="bottom__copyrights">
                     <p>{copyrights}</p>
-                    <Link url={gdprUrl && gdprUrl.url} >
-                      {gdprText}
-                    </Link>
+                    <Link {...gdprUrl}>{gdprText}</Link>
                   </div>
                 </div>
               </div>

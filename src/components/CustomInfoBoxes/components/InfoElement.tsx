@@ -19,9 +19,7 @@ export default function InfoElement(props: InfoElementProps) {
 
   return (
     <Link
-      url={link && link.url}
-      pageId={link && link.pageId}
-      urlNewWindow={link && link.urlNewWindow}
+      {...link}
       className={'custom-info-boxes__list__element'}
       style={{ backgroundImage: image && `url(${getImageUrl(image)})` }}
     >

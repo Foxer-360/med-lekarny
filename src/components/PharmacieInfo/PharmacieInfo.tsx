@@ -28,7 +28,7 @@ const PharmacieInfo = (props: PharmacieInfoProps) => {
           </div>
           <div className={'pharmacie-info__content__item'}>
             <img src={'/assets/mediconLekarny/images/geoIcon.svg'} alt="address"/>
-            <Link urlNewWindow={true} url={geoUrl && geoUrl.url}>{geo}</Link>
+            <Link {...geoUrl}>{geo}</Link>
           </div>
           <div className={'pharmacie-info__content__item'}>
             <img src={'/assets/mediconLekarny/images/officeHours.svg'} alt="office hours"/>

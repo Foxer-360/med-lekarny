@@ -1,7 +1,8 @@
 import * as React from 'react';
+
+import List from '../List';
 import Link from '@source/partials/Link';
 import getImageUrl from '@source/helpers/getImageUrl';
-import List from '../List';
 
 interface MiniBox {
   title: string;
@@ -35,7 +36,7 @@ const MiniBoxes = (props: MiniBoxesProps) => {
                 return (
                   <Link 
                     key={i} 
-                    url={box.url && box.url.url} 
+                    {...box.url} 
                     className={'mini-boxes__list__item'}
                     style={{ backgroundImage: box.image && `url(${getImageUrl(box.image)})` }}
                   >

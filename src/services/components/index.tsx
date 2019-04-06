@@ -29,7 +29,7 @@ import {
   CustomInfoBoxes,
   RegistrationBlock,
   PromotionPreviews,
-  TextBlockWithImage,
+  BlogArticle,
   PromotionsAndDiscounts,
 } from '../../components';
 import * as resources from './resources';
@@ -72,7 +72,7 @@ class ComponentsService {
     DIVIDERLINE: 'DividerLine',
     BENEFITBLOCKS: 'BenefitBlocks',
     REGISTRATIONBLOCK: 'RegistrationBlock',
-    TEXTBLOCKWITHIMAGE: 'TextBlockWithImage',
+    BLOGARTICLE: 'BlogArticle',
     MINIBOXES: 'MiniBoxes',
   };
 
@@ -140,8 +140,8 @@ class ComponentsService {
         return BenefitBlocks;
       case this.Types.REGISTRATIONBLOCK:
         return RegistrationBlock;
-      case this.Types.TEXTBLOCKWITHIMAGE:
-        return TextBlockWithImage;
+      case this.Types.BLOGARTICLE:
+        return BlogArticle;
       case this.Types.MINIBOXES:
         return MiniBoxes;
       case this.Types.PHARMACIESLIST:

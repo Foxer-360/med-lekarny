@@ -1,5 +1,5 @@
 {
-  "name": "TextBlockWithImage",
+  "name": "BlogArticle",
   "data": {
     "title": "Lorem ipsum",
     "image": {

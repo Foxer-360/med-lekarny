@@ -4,6 +4,8 @@ import SvgIcon from '@source/partials/SvgIcon';
 export interface SearchBarProps {
   placeholder: string;
   barColor: string;
+  onChange?: any;
+  value?: string;
 }
 
 export interface SearchBarState {
@@ -27,7 +29,7 @@ class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
   }
 
   public render() {
-    const { placeholder, barColor } = this.props;
+    const { placeholder, barColor, value, onChange } = this.props;
 
     return (
       <div
@@ -37,6 +39,8 @@ class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
         <div className={'searchBar__input'}>
           <input
             type="text"
+            value={value}
+            onChange={(e) => onChange(e)}
             placeholder={placeholder}
             onFocus={() => this.handleFocus()}
             onBlur={() => this.handleFocus()}

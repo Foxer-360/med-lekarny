@@ -25,7 +25,7 @@ import * as clubbenefits from './clubbenefits.json';
 import * as dividerline from './dividerline.json';
 import * as benefitblocks from './benefitblocks.json';
 import * as registrationblock from './registrationblock.json';
-import * as textblockwithimage from './textblockwithimage.json';
+import * as blogarticle from './blogarticle.json';
 import * as miniboxes from './miniboxes.json';
 
 export {
@@ -56,6 +56,6 @@ export {
   dividerline,
   benefitblocks,
   registrationblock,
-  textblockwithimage,
+  blogarticle,
   miniboxes,
 };

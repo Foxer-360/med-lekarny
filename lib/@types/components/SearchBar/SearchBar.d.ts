@@ -2,6 +2,8 @@ import * as React from 'react';
 export interface SearchBarProps {
     placeholder: string;
     barColor: string;
+    onChange?: any;
+    value?: string;
 }
 export interface SearchBarState {
     focused: boolean;

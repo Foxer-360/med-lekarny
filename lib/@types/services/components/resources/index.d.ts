@@ -25,6 +25,6 @@ import * as clubbenefits from './clubbenefits.json';
 import * as dividerline from './dividerline.json';
 import * as benefitblocks from './benefitblocks.json';
 import * as registrationblock from './registrationblock.json';
-import * as textblockwithimage from './textblockwithimage.json';
+import * as blogarticle from './blogarticle.json';
 import * as miniboxes from './miniboxes.json';
-export { def as default, footer, header, hero, infoboxes, pharmacieslist, reviews, textblock, inforectangles, pharmacieinfo, blog, descriptionlist, pharmacies, menublocks, promotionpreviews, carousel, headline, custominfoboxes, gallery, discountoffer, promotionsanddiscounts, partners, paymentmethods, clubbenefits, dividerline, benefitblocks, registrationblock, textblockwithimage, miniboxes, };
+export { def as default, footer, header, hero, infoboxes, pharmacieslist, reviews, textblock, inforectangles, pharmacieinfo, blog, descriptionlist, pharmacies, menublocks, promotionpreviews, carousel, headline, custominfoboxes, gallery, discountoffer, promotionsanddiscounts, partners, paymentmethods, clubbenefits, dividerline, benefitblocks, registrationblock, blogarticle, miniboxes, };

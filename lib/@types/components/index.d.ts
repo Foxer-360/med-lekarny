@@ -25,6 +25,6 @@ import ClubBenefits from './ClubBenefits';
 import DividerLine from './DividerLine';
 import BenefitBlocks from './BenefitBlocks';
 import RegistrationBlock from './RegistrationBlock';
-import TextBlockWithImage from './TextBlockWithImage';
+import BlogArticle from './BlogArticle';
 import MiniBoxes from './MiniBoxes';
-export { AlertNotFound, Footer, Header, Hero, InfoBoxes, Reviews, TextBlock, PharmaciesList, InfoRectangles, PharmacieInfo, Blog, DescriptionList, Pharmacies, MenuBlocks, PromotionPreviews, Carousel, Headline, CustomInfoBoxes, Gallery, DiscountOffer, PromotionsAndDiscounts, Partners, PaymentMethods, ClubBenefits, DividerLine, BenefitBlocks, RegistrationBlock, TextBlockWithImage, MiniBoxes, };
+export { AlertNotFound, Footer, Header, Hero, InfoBoxes, Reviews, TextBlock, PharmaciesList, InfoRectangles, PharmacieInfo, Blog, DescriptionList, Pharmacies, MenuBlocks, PromotionPreviews, Carousel, Headline, CustomInfoBoxes, Gallery, DiscountOffer, PromotionsAndDiscounts, Partners, PaymentMethods, ClubBenefits, DividerLine, BenefitBlocks, RegistrationBlock, BlogArticle, MiniBoxes, };

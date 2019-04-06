@@ -1,10 +1,10 @@
 /// <reference types="react" />
 export interface BlogCardProps {
+    id: string;
     title: string;
     text: string;
     color: string;
-    textColor: string;
-    img: LooseObject;
+    img?: LooseObject;
     special?: boolean;
 }
 export declare function BlogCard(props: BlogCardProps): JSX.Element;

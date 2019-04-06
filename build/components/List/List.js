@@ -101,7 +101,7 @@ var List = /** @class */ (function (_super) {
     __extends(List, _super);
     function List() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.getPaginatingFunction = function (items) {
+        _this.getPaginatingFunction = function (items, searchedFragments) {
             var getPage = function (numberOfPage, paginationType, pageSize) {
                 if (paginationType === void 0) { paginationType = 'pagination'; }
                 if (pageSize === void 0) { pageSize = 10; }
@@ -111,6 +111,11 @@ var List = /** @class */ (function (_super) {
                     (numberOfPage) * pageSize : numberOfItems;
                 var cutFrom = (numberOfPage) * pageSize < numberOfItems ?
                     cutTo - pageSize : (((numberOfPage - 1) && ((numberOfPage - 1) * pageSize)) || 0);
+                if (searchedFragments && searchedFragments.length > 0) {
+                    items = searchedFragments.reduce(function (filteredPages, fragment) {
+                        return filteredPages.filter(function (page) { return JSON.stringify(page).toLowerCase().includes(fragment.toLowerCase()); });
+                    }, items);
+                }
                 return { items: items.slice(paginationType === 'pagination' ? cutFrom : 0, cutTo),
                     lastPage: lastPage
                 };
@@ -249,7 +254,7 @@ var List = /** @class */ (function (_super) {
         }
         var searchedFragments = searchedText && searchedText.trim().split(' ').map(function (fragment) { return fragment.trim(); });
         if (Array.isArray(data)) {
-            return this.props.children({ data: data, getPage: this.getPaginatingFunction(data) });
+            return this.props.children({ data: data, getPage: this.getPaginatingFunction(data, searchedFragments) });
         }
         // In case that data isn't array and contain datasourceId try to fetch datasource with his items
         if (data && data.datasourceId) {

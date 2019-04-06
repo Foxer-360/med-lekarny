@@ -107,7 +107,8 @@ export interface GetPage {
 
 export interface GetPaginatingFunction {
   (
-    items: Array<LooseObject>
+    items: Array<LooseObject>,
+    searchedFragments?: any
   ): GetPage;
 }
 
@@ -226,7 +227,7 @@ const AllPagesComposedQuery = adopt({
   },
 });
 class List extends React.Component<Properties, {}> {
-  getPaginatingFunction: GetPaginatingFunction = (items) => {
+  getPaginatingFunction: GetPaginatingFunction = (items, searchedFragments) => {
     
     const getPage: GetPage = function (
       numberOfPage: number, 
@@ -243,6 +244,13 @@ class List extends React.Component<Properties, {}> {
           (numberOfPage) * pageSize < numberOfItems ? 
             cutTo - pageSize : (((numberOfPage - 1) && ((numberOfPage - 1) * pageSize)) || 0);
 
+        if (searchedFragments && searchedFragments.length > 0) {
+          items = searchedFragments.reduce(
+            (filteredPages, fragment) => {
+              return filteredPages.filter(page => JSON.stringify(page).toLowerCase().includes(fragment.toLowerCase())); 
+            }, 
+            items);
+        }
         return { items: items.slice(
           paginationType === 'pagination' ? cutFrom : 0, 
           cutTo),
@@ -284,8 +292,9 @@ class List extends React.Component<Properties, {}> {
     }  
 
     const searchedFragments = searchedText && searchedText.trim().split(' ').map(fragment => fragment.trim());
+
     if (Array.isArray(data)) {
-      return this.props.children({ data, getPage: this.getPaginatingFunction(data) });
+      return this.props.children({ data, getPage: this.getPaginatingFunction(data, searchedFragments) });
     }
     // In case that data isn't array and contain datasourceId try to fetch datasource with his items
     if (data && data.datasourceId) {
@@ -467,7 +476,7 @@ class List extends React.Component<Properties, {}> {
         const { data: dataShape, error, loading } = data;
 
         let datasourceItems = ((queryData.data.datasource && queryData.data.datasource.datasourceItems) || []);
-
+        
         if (searchedFragments && searchedFragments.length > 0) {
           datasourceItems = searchedFragments.reduce(
           (filteredItems, fragment) => {

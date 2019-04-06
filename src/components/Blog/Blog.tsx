@@ -92,6 +92,7 @@ export interface BlogProps {
 
 export interface BlogState {
   numberOfPage: number;
+  searchQuery: string;
 }
 
 export default class Blog extends React.Component<BlogProps, BlogState> {
@@ -99,8 +100,13 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
     super(props);
 
     this.state = {
-      numberOfPage: 1
+      numberOfPage: 1,
+      searchQuery: ''
     };
+  }
+
+  onSearchChange = (e: any) => {
+    this.setState({ searchQuery: e.target.value });
   }
 
   public render() {
@@ -111,7 +117,13 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
         <div className="container">
           {title && <h1 style={displaySearch ? {paddingBottom: 0} : {}}>{title}</h1>}
 
-          {displaySearch && <SearchBar placeholder={'Search'} barColor={'gray'} />}
+          {displaySearch && 
+            <SearchBar 
+              value={this.state.searchQuery}
+              onChange={this.onSearchChange}
+              placeholder={'Search'} 
+              barColor={'gray'} 
+            />}
 
           <ComposedQuery>
             {({
@@ -160,10 +172,10 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
                 });
               
               return (
-                <List data={articles}>
+                <List data={articles} searchedText={this.state.searchQuery}>
                   {({ getPage }) => {
-                    const { items, lastPage } = getPage(this.state.numberOfPage, 'infinite', 2);
-
+                    const { items, lastPage } = getPage(this.state.numberOfPage, 'infinite', 6);
+                    
                     return (
                       <>
                         <Masonry
@@ -171,10 +183,9 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
                           className="my-masonry-grid"
                           columnClassName="my-masonry-grid_column"
                         >
-                          {items.map((article, i) => this.mapArticleToContent(article, languageData.code, i))}
+                          {items.map((article, i) => 
+                            this.mapArticleToContent(article, languageData.code, i))}
                         </Masonry>
-
-                        <div className={'blog__blur'}><div /></div>
 
                         {this.state.numberOfPage < lastPage &&
                           <button 
@@ -205,11 +216,19 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
 
     if (blogArticleComponentData) {
       const {
-        data: { perex, image, title: name },
+        data: { text, image, title: name },
       } = findFirst(content.content, 'content', { name: 'BlogArticle' });
 
       return (
-        <BlogCard id={article.id} title={name} text={perex} key={index} color={'#386fa2'} img={image} special={false} />
+        <BlogCard 
+          id={article.id} 
+          title={name} 
+          text={`${text.slice(0, 35)} ..`} 
+          key={index} 
+          color={index % 2 === 0 ? '#3eac49' : '#2473ba'} 
+          img={image} 
+          special={false} 
+        />
       );
     }
     return <div />;

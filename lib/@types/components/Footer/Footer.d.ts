@@ -1,14 +1,14 @@
 import * as React from 'react';
 interface Icon {
     title: string;
-    url: LooseObject;
+    url?: LooseObject;
 }
 export interface FooterProps {
     data: {
         icons: Icon[];
         copyrights: string;
         gdprText: string;
-        gdprUrl: LooseObject;
+        gdprFile?: LooseObject;
     };
 }
 export interface FooterState {

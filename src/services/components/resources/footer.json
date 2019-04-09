@@ -31,11 +31,11 @@
         },
         "gdprText": {
           "type": "text",
-          "title": "gdprText"
+          "title": "GDPR text"
         },
-        "gdprUrl": {
-          "type": "urlAutocomplete",
-          "title": "gdprUrl"
+        "gdprFile": {
+          "type": "file",
+          "title": "GDPR file"
         }
       }
     }

@@ -7,6 +7,7 @@ import Link from '../../partials/Link';
 import Social from './components/Social';
 import Loader from '@source/partials/Loader';
 import HelpPopup from './components/HelpPopup';
+import getFileUrl from '@source/helpers/getImageUrl';
 
 const GET_CONTEXT = gql`
   {
@@ -48,7 +49,7 @@ const ComposedQuery = adopt({
 
 interface Icon {
   title: string;
-  url: LooseObject;
+  url?: LooseObject;
 }
 
 export interface FooterProps {
@@ -56,7 +57,7 @@ export interface FooterProps {
     icons: Icon[];
     copyrights: string;
     gdprText: string;
-    gdprUrl: LooseObject;
+    gdprFile?: LooseObject;
   };
 }
 
@@ -72,7 +73,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
       icons, 
       copyrights,
       gdprText,
-      gdprUrl
+      gdprFile
     } = this.props.data;
 
     return (
@@ -128,7 +129,9 @@ class Footer extends React.Component<FooterProps, FooterState> {
                 <div className="container">
                   <div className="bottom__copyrights">
                     <p>{copyrights}</p>
-                    <Link {...gdprUrl}>{gdprText}</Link>
+                    <a href={getFileUrl(gdprFile)} download={true} target={'_blank'}>
+                      {gdprText}
+                    </a>
                   </div>
                 </div>
               </div>

@@ -34,6 +34,7 @@ import Link from '../../partials/Link';
 import Social from './components/Social';
 import Loader from '@source/partials/Loader';
 import HelpPopup from './components/HelpPopup';
+import getFileUrl from '@source/helpers/getImageUrl';
 var GET_CONTEXT = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client\n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client\n  }\n"])));
 var GET_PAGES_URLS = gql(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!) {\n    pagesUrls(where: { language: $language }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
 var ComposedQuery = adopt({
@@ -61,7 +62,7 @@ var Footer = /** @class */ (function (_super) {
     }
     Footer.prototype.render = function () {
         var _this = this;
-        var _a = this.props.data, icons = _a.icons, copyrights = _a.copyrights, gdprText = _a.gdprText, gdprUrl = _a.gdprUrl;
+        var _a = this.props.data, icons = _a.icons, copyrights = _a.copyrights, gdprText = _a.gdprText, gdprFile = _a.gdprFile;
         return (React.createElement(ComposedQuery, null, function (_a) {
             var _b = _a.getPagesUrls, loading = _b.loading, error = _b.error, data = _b.data, context = _a.context;
             if (!context.navigationsData ||
@@ -92,7 +93,7 @@ var Footer = /** @class */ (function (_super) {
                     React.createElement("div", { className: "container" },
                         React.createElement("div", { className: "bottom__copyrights" },
                             React.createElement("p", null, copyrights),
-                            React.createElement(Link, __assign({}, gdprUrl), gdprText))))));
+                            React.createElement("a", { href: getFileUrl(gdprFile), download: true, target: '_blank' }, gdprText))))));
         }));
     };
     Footer.prototype.transformNavigationsIntoTree = function (navigation, urls) {

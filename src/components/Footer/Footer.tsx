@@ -15,13 +15,13 @@ const GET_CONTEXT = gql`
     pageData @client
     websiteData @client
     languagesData @client
-    navigationsData @client
+    navigationsData @client 
   }
 `;
 
 const GET_PAGES_URLS = gql`
-  query pagesUrls($language: ID!) {
-    pagesUrls(where: { language: $language }) {
+  query pagesUrls($language: ID!, $websiteId: ID!) {
+    pagesUrls(where: { language: $language, websiteId: $websiteId }) {
       id
       page
       url
@@ -33,12 +33,12 @@ const GET_PAGES_URLS = gql`
 
 const ComposedQuery = adopt({
   context: ({ render }) => <Query query={GET_CONTEXT}>{({ data }) => render(data)}</Query>,
-  getPagesUrls: ({ render, context: { languageData } }) => {
-    if (!languageData) {
+  getPagesUrls: ({ render, context: { languageData, websiteData } }) => {
+    if (!(languageData && websiteData)) {
       return render({});
     }
     return (
-      <Query query={GET_PAGES_URLS} variables={{ language: languageData.id }}>
+      <Query query={GET_PAGES_URLS} variables={{ language: languageData.id, websiteId: websiteData.id }}>
         {data => {
           return render(data);
         }}
@@ -53,6 +53,9 @@ interface Icon {
 }
 
 export interface FooterProps {
+  navigations?: LooseObject;
+  languages?: LooseObject;
+  languageCode?: string;
   data: {
     icons: Icon[];
     copyrights: string;
@@ -152,8 +155,10 @@ class Footer extends React.Component<FooterProps, FooterState> {
     });
     return tree;
   }
+
   private buildNavTree(nav: LooseObject[], parent: string | null, urls: LooseObject[]): LooseObject[] {
     const res = [] as LooseObject[];
+
     nav.forEach((node: LooseObject) => {
       if (node.parent === parent) {
         const url = urls.find((u: LooseObject) => u.page === node.page);
@@ -170,9 +175,16 @@ class Footer extends React.Component<FooterProps, FooterState> {
         if (node.title && node.link) {
           item.url = node.link;
         }
+
+        item.url = {
+          url: item.url,
+          pageId: item.id,
+        };
+
         res.push(item);
       }
     });
+
     res.sort((a: LooseObject, b: LooseObject) => a.order - b.order);
     return res;
   }

@@ -16,15 +16,14 @@ class Media extends React.Component<MediaProps, MediaState> {
     super(props);
   }
 
-  setDimensions = (recommendedSizes: any) => {
+  setDimensions = () => {
+    if (!(this.props.width || this.props.height)) { return; }
+    
     let result = null;
-
-    if (recommendedSizes === null) {
-      result = {
-        width: this.props.width,
-        height: this.props.height
-      };
-    }
+    result = {
+      width: this.props.width && this.props.width,
+      height: this.props.height && this.props.height
+    };
 
     return result;
   }
@@ -36,7 +35,7 @@ class Media extends React.Component<MediaProps, MediaState> {
       let recommendedSizes = (data && data.recommendedSizes) || null;
       let originalUrl = baseUrl + data.category + data.hash + '_' + data.filename;
 
-      recommendedSizes = this.setDimensions(recommendedSizes);
+      recommendedSizes = this.setDimensions();
       
       return (
         <ImgWithFallback

@@ -62,7 +62,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     this.state = { menuActive: false };
   }
 
-
   closeMenu = () => {
     this.setState({
       menuActive: false,

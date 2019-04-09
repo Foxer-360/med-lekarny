@@ -88,7 +88,6 @@ const PromotionPreviews = (props: PromotionPreviewsProps) => {
                 delay={7000}
                 showDots={false}
                 showArrows={false}
-
                 slides={arrayOfMobiletSlides}
                 autoplay={arrayOfSlides.length > 1 ? true : false}
               />

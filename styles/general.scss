@@ -13,6 +13,14 @@ body {
   overflow: hidden;
 }
 
+a {
+  transition: $customEase;
+  color: $green;
+  &:hover {
+    color: hsl(126, 50%, 55%);
+  }
+}
+
 .container {
   display: block;
   margin: 0 auto;

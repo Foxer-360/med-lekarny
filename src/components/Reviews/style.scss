@@ -22,10 +22,10 @@
     &__element {
       width: 100%;
       display: grid;
-      max-height: 130px;
       background-color: #f4f5f7;
       background-repeat: no-repeat;
       grid-template-columns: 110px 1fr;
+      align-items: center;
 
       .mediaRatio {
         padding-top: 0 !important;

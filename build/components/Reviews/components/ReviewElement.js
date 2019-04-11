@@ -10,8 +10,8 @@ export default function ReviewElement(props) {
     if (starCount < 5) {
         rows.slice(-(5 - starCount), starCount);
     }
-    return (React.createElement("div", { className: 'reviews__list__element' },
-        image && React.createElement(Media, { type: 'image', data: image }),
+    return (React.createElement("div", { className: 'reviews__list__element grid' },
+        React.createElement("div", null, image && React.createElement(Media, { type: 'image', data: image })),
         React.createElement("div", { className: 'reviews__list__element__content' },
             cite && React.createElement("cite", null, cite),
             rows && React.createElement("div", { className: 'stars' }, rows))));

@@ -4,7 +4,7 @@ import Media from '@source/partials/Media';
 
 export interface ReviewElementProps {
   cite: string;
-  image: LooseObject;
+  image?: LooseObject;
   starCount: number;  
 }
 
@@ -21,8 +21,10 @@ export default function ReviewElement(props: ReviewElementProps) {
   }
 
   return (
-    <div className={'reviews__list__element'}>
-      {image && <Media type={'image'} data={image}/>}
+    <div className={'reviews__list__element grid'}>
+      <div>
+        {image && <Media type={'image'} data={image}/>}
+      </div>
 
       <div className={'reviews__list__element__content'}>
         {cite && <cite>{cite}</cite>}

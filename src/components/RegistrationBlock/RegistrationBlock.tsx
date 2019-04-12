@@ -1,20 +1,21 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
+
 import Button from '@source/partials/Button';
-import Link from '@source/partials/Link';
+import getFileUrl from '@source/helpers/getImageUrl';
 
 export interface RegistrationBlockProps {
   data: {
     title: string;
     text: string;
     btnTitle: string;
-    btnUrl: LooseObject;
-    conditionsUrl: LooseObject;
+    btnUrl?: LooseObject;
+    conditionsFile?: LooseObject;
   };
 }
 
 const RegistrationBlock = (props: RegistrationBlockProps) => {
-  const { title, text, btnTitle, btnUrl, conditionsUrl } = props.data;
+  const { title, text, btnTitle, btnUrl, conditionsFile } = props.data;
 
   return (
     <div className={'registration-block'}>
@@ -29,10 +30,15 @@ const RegistrationBlock = (props: RegistrationBlockProps) => {
             </Button>
           </div>}
 
-        {conditionsUrl && 
-          <Link {...conditionsUrl} className={'registration-block__conditions'}>
+        {conditionsFile &&
+          <a 
+            download={true} 
+            target={'_blank'} 
+            href={getFileUrl(conditionsFile)}
+            className={'registration-block__conditions'}
+          >
             Všeobecné obchodní podmínky
-          </Link>}
+          </a>}
       </div>
     </div>
   );

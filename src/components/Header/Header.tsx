@@ -76,7 +76,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
   public render() {
     this.state.menuActive ? (document.body.style.position = 'fixed') : (document.body.style.position = 'static');
-
+    
     return (
       <ComposedQuery>
         {({ getPagesUrls: { loading, error, data }, context }) => {
@@ -123,7 +123,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               <div className="container">
                 <div className={'header__wrapper'}>
                   <div className={'header__logo'}>
-                    
                     <Link 
                       url={`${context.websiteData.urlMask === '/' ? 
                               '' : context.websiteData.urlMask}/${context.languageData.code}`}
@@ -135,7 +134,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                     <ul>
                       {mainNavItems &&
                         mainNavItems.map((navItem, i) => (
-                          <li key={i}>
+                          <li key={i} className={context.pageData.name === navItem.name ? 'activePage' : ''}>
                             <Link {...navItem.url}>
                               {navItem.name || navItem.title}
                             </Link>

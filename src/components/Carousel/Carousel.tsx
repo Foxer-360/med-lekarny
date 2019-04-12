@@ -229,13 +229,12 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
                     className={'carousel__titles__list__item'}
                     style={i === this.state.currentIndex ? { 
                       color: '#3eac49', 
-                      fontWeight: 700,
                       backgroundColor: 'white',
                       boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
                       borderBottom: 'none !important'
                     } : {}}
                   >
-                    <span>{slide.title && slide.title}</span>
+                    <i>{slide.title}</i>
                   </li>
                 ))}
               </ul>

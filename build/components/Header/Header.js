@@ -104,7 +104,7 @@ var Header = /** @class */ (function (_super) {
                                 React.createElement("img", { src: "/assets/mediconLekarny/images/mediconLekarnyLogo.png", alt: "Medicon Lekarny Logo" }))),
                         React.createElement("nav", null,
                             React.createElement("ul", null, mainNavItems &&
-                                mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
+                                mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i, className: context.pageData.name === navItem.name ? 'activePage' : '' },
                                     React.createElement(Link, __assign({}, navItem.url), navItem.name || navItem.title))); })),
                             React.createElement(Hamburger, { active: _this.state.menuActive, onClick: _this.toggleMenu })))),
                 React.createElement("div", { className: 'header__iso' },

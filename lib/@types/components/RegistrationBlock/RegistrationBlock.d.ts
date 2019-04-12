@@ -4,8 +4,8 @@ export interface RegistrationBlockProps {
         title: string;
         text: string;
         btnTitle: string;
-        btnUrl: LooseObject;
-        conditionsUrl: LooseObject;
+        btnUrl?: LooseObject;
+        conditionsFile?: LooseObject;
     };
 }
 declare const RegistrationBlock: (props: RegistrationBlockProps) => JSX.Element;

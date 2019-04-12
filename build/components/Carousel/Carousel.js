@@ -181,12 +181,11 @@ var Carousel = /** @class */ (function (_super) {
                 React.createElement("div", { className: 'carousel__titles', style: displayOnTop ? {} : { gridRow: 'auto' } },
                     React.createElement("ul", { className: 'carousel__titles__list' }, data && data.map(function (slide, i) { return (React.createElement("li", { key: i, onClick: function () { return _this.goTo(i); }, className: 'carousel__titles__list__item', style: i === _this.state.currentIndex ? {
                             color: '#3eac49',
-                            fontWeight: 700,
                             backgroundColor: 'white',
                             boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
                             borderBottom: 'none !important'
                         } : {} },
-                        React.createElement("span", null, slide.title && slide.title))); })))));
+                        React.createElement("i", null, slide.title))); })))));
         }));
     };
     return Carousel;

@@ -15,7 +15,7 @@
     height: 100%;
     clip-path: polygon(0 0%, 0% 100%, 100% 100%);
     -webkit-clip-path: polygon(0 0%, 0% 100%, 100% 100%);;
-    background-image: linear-gradient(to right, $lightBlue 0%, $green 100%);
+    background-image: linear-gradient(to left, $lightBlue 0%, $green 100%);
   }
 
   &__right {
@@ -27,7 +27,7 @@
     z-index: -1;
     clip-path: polygon(0 100%, 100% 100%, 100% 0%);
     -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 0%);    
-    background-image: linear-gradient(to left, $green 0%, $lightBlue 100%);
+    background-image: linear-gradient(to right, $green 0%, $lightBlue 100%);
   }
 
   @include max-sm {

@@ -154,7 +154,7 @@
         line-height: initial;
         word-wrap: none;
         align-items: center;
-        text-transform: none;
+        text-transform: lowercase;
 
         &:not(:last-of-type) { border-bottom: 2px solid #dddedf; }
       }

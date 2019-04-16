@@ -107,9 +107,9 @@ var Header = /** @class */ (function (_super) {
                                 mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i, className: context.pageData.name === navItem.name ? 'activePage' : '' },
                                     React.createElement(Link, __assign({}, navItem.url), navItem.name || navItem.title))); })),
                             React.createElement(Hamburger, { active: _this.state.menuActive, onClick: _this.toggleMenu })))),
-                React.createElement("div", { className: 'header__iso' },
+                _this.props.data.showTriangle && React.createElement("div", { className: 'header__iso' },
                     React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 100 100", preserveAspectRatio: "none" },
-                        React.createElement("polygon", { fill: "white", points: "0,0 0,20 15,70 100,0" }))),
+                        React.createElement("polygon", { fill: "white", points: "0,0 0,5 15,30 80,0" }))),
                 React.createElement("div", { className: "hiddenMenu " + (_this.state.menuActive ? 'hiddenMenu--active' : '') },
                     React.createElement("div", { className: 'hiddenMenu__wrapper' },
                         React.createElement("ul", null, mainNavItems &&

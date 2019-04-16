@@ -49,6 +49,9 @@ export interface HeaderProps {
   navigations?: LooseObject;
   languages?: LooseObject;
   languageCode?: string;
+  data: {
+    showTriangle: boolean;
+  };
 }
 
 export interface HeaderState {
@@ -145,11 +148,11 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   </nav>
                 </div>
               </div>
-              <div className={'header__iso'}>
+              {this.props.data.showTriangle && <div className={'header__iso'}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <polygon fill="white" points={`0,0 0,20 15,70 100,0`} />
+                  <polygon fill="white" points={`0,0 0,5 15,30 80,0`} />
                 </svg>
-              </div>
+              </div>}
 
               <div className={`hiddenMenu ${this.state.menuActive ? 'hiddenMenu--active' : ''}`}>
                 <div className={'hiddenMenu__wrapper'}>

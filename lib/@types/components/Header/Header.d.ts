@@ -3,6 +3,9 @@ export interface HeaderProps {
     navigations?: LooseObject;
     languages?: LooseObject;
     languageCode?: string;
+    data: {
+        showTriangle: boolean;
+    };
 }
 export interface HeaderState {
     menuActive: boolean;

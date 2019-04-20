@@ -1,3 +1,7 @@
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -12,6 +16,19 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import * as React from 'react';
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+import { adopt } from 'react-adopt';
+var GET_CONTEXT = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n  }\n"], ["\n  {\n    languageData @client\n  }\n"])));
+var ComposedQuery = adopt({
+    getContext: function (_a) {
+        var render = _a.render;
+        return React.createElement(Query, { query: GET_CONTEXT }, function (_a) {
+            var data = _a.data;
+            return render(data);
+        });
+    },
+});
 var HelpPopup = /** @class */ (function (_super) {
     __extends(HelpPopup, _super);
     function HelpPopup(props) {
@@ -28,24 +45,28 @@ var HelpPopup = /** @class */ (function (_super) {
     }
     HelpPopup.prototype.render = function () {
         var _this = this;
-        return (React.createElement("div", { className: "helpPopup " + (this.state.active ? 'helpPopup--active' : '') + " " },
-            React.createElement("div", { className: 'helpPopup__main', style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' }, onClick: function () { return _this.toggleList(); } },
-                React.createElement("h4", null, "Pot\u0159ebujete poradit?")),
-            React.createElement("ul", { className: 'helpPopup__list' },
-                React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
-                    React.createElement("p", null, "Pharmacentrum Bud\u011Bjovick\u00E1"),
-                    React.createElement("a", { href: "tel:+420261006330" }, "+420 261 006 330")),
-                React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
-                    React.createElement("p", null, "Pharmacentrum DBK"),
-                    React.createElement("a", { href: "tel:+420296825318" }, "+420 296\u00A0825\u00A0318")),
-                React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
-                    React.createElement("p", null, "Pharmacentrum Vyso\u010Dany"),
-                    React.createElement("a", { href: "tel:+420266006324" }, "+420 266\u00A0006\u00A0324")),
-                React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
-                    React.createElement("p", null, "Pharmacentrum Hole\u0161ovice"),
-                    React.createElement("a", { href: "tel:+420227777699" }, "+420 227 777 699")))));
+        return (React.createElement(ComposedQuery, null, function (_a) {
+            var languageData = _a.getContext.languageData;
+            return (React.createElement("div", { className: "helpPopup " + (_this.state.active ? 'helpPopup--active' : '') + " " },
+                React.createElement("div", { className: 'helpPopup__main', style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' }, onClick: function () { return _this.toggleList(); } },
+                    React.createElement("h4", null, languageData.code === 'cs' ? 'Potřebujete poradit?' : 'Треба вам помоћ?')),
+                React.createElement("ul", { className: 'helpPopup__list' },
+                    React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
+                        React.createElement("p", null, "Pharmacentrum Bud\u011Bjovick\u00E1"),
+                        React.createElement("a", { href: "tel:+420261006330" }, "+420 261 006 330")),
+                    React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
+                        React.createElement("p", null, "Pharmacentrum DBK"),
+                        React.createElement("a", { href: "tel:+420296825318" }, "+420 296\u00A0825\u00A0318")),
+                    React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
+                        React.createElement("p", null, "Pharmacentrum Vyso\u010Dany"),
+                        React.createElement("a", { href: "tel:+420266006324" }, "+420 266\u00A0006\u00A0324")),
+                    React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
+                        React.createElement("p", null, "Pharmacentrum Hole\u0161ovice"),
+                        React.createElement("a", { href: "tel:+420227777699" }, "+420 227 777 699")))));
+        }));
     };
     return HelpPopup;
 }(React.Component));
 export default HelpPopup;
+var templateObject_1;
 //# sourceMappingURL=HelpPopup.js.map

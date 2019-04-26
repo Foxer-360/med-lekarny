@@ -115,22 +115,18 @@ class ImgWithFallback extends React.Component<ImgWithFallbackProps, ImgWithFallb
   public render() {  
     const { alt } = this.props;
 
-    if (this.state.loading) {
-      return <div className={'mediaImageLoader'} />;
-    } else {
-      return (
-        <div
-          className={'mediaRatio'}
-          style={{
-            paddingTop: `${(parseInt(this.props.recommendedSizes ? this.props.recommendedSizes.height : 1, 10) /
-              parseInt(this.props.recommendedSizes ? this.props.recommendedSizes.width : 1, 10)) *
-              100}%`,
-          }}
-        >
-          <img className={'mediaImage inner'} alt={alt} src={this.state.src} />
-        </div>
-      );
-    }
+    return (
+      <div
+        className={'mediaRatio'}
+        style={{
+          paddingTop: `${(parseInt(this.props.recommendedSizes ? this.props.recommendedSizes.height : 1, 10) /
+            parseInt(this.props.recommendedSizes ? this.props.recommendedSizes.width : 1, 10)) *
+            100}%`,
+        }}
+      >
+        <img className={'mediaImage inner'} alt={alt} src={this.state.src} />
+      </div>
+    );
   }
 }
 

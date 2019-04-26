@@ -117,7 +117,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
                     <ul className={'footer__list'}>
                       {bottomNavItems && bottomNavItems.map((navItem, i) => (
                         <li key={i}>
-                          <Link to={navItem.url ? navItem.url : ''}>{navItem.name || navItem.title}</Link>
+                          <Link {...navItem.url}>{navItem.name || navItem.title}</Link>
                         </li>
                       ))}
                     </ul>

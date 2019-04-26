@@ -68,7 +68,7 @@ const ComposerLink = props => {
         if (isExternalLink(url) || args.forceHtml || urlNewWindow) {
           return (
             <a
-              href={(isExternalLink(url) && url) || (pageUrlObj && pageUrlObj.url) || '/404'}
+              href={(isExternalLink(url) && url) || (pageUrlObj && pageUrlObj.url) || '#'}
               {...args}
               target={urlNewWindow ? '_blank' : ''}
             >
@@ -77,7 +77,7 @@ const ComposerLink = props => {
           );
         } else {
           return (
-            <Link to={(dynamic && url) || (pageUrlObj ? pageUrlObj.url : '/404')} {...args}>
+            <Link to={(dynamic && url) || (pageUrlObj ? pageUrlObj.url : '#')} {...args}>
               {children}
             </Link>
           );

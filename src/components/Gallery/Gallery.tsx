@@ -40,6 +40,7 @@ const Gallery = (props: GalleryProps) => {
         arrayOfTabletSlides = splitArray(arrayOfSlides, 2, 'gallery__list');
         arrayOfMobiletSlides = splitArray(arrayOfSlides, 1, 'gallery__list');
 
+        console.log(arrayOfDesktopSlides);
         return (
           <div className={'gallery'}>
             <div className={'container'}>

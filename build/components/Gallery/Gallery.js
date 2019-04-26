@@ -28,7 +28,6 @@ var Gallery = function (props) {
         arrayOfDesktopSlides = splitArray(arrayOfSlides, 4, 'gallery__list');
         arrayOfTabletSlides = splitArray(arrayOfSlides, 2, 'gallery__list');
         arrayOfMobiletSlides = splitArray(arrayOfSlides, 1, 'gallery__list');
-        console.log(arrayOfDesktopSlides);
         return (React.createElement("div", { className: 'gallery' },
             React.createElement("div", { className: 'container' },
                 React.createElement(Default, null,

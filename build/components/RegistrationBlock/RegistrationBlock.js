@@ -11,7 +11,7 @@ var RegistrationBlock = function (props) {
             btnTitle &&
                 React.createElement("div", { className: 'registration-block__btn-holder' },
                     React.createElement(Button, { url: btnUrl, classes: 'btn--greenBkg hCenterBlock' }, btnTitle)),
-            conditionsFile &&
+            conditionsFile && conditionsFile.filename &&
                 React.createElement("a", { download: true, target: '_blank', href: getFileUrl(conditionsFile), className: 'registration-block__conditions' }, "V\u0161eobecn\u00E9 obchodn\u00ED podm\u00EDnky"))));
 };
 export default RegistrationBlock;

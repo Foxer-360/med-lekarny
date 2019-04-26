@@ -131,10 +131,23 @@ class Footer extends React.Component<FooterProps, FooterState> {
               <div className="bottom">
                 <div className="container">
                   <div className="bottom__copyrights">
-                    <p>{copyrights}</p>
-                    <a href={getFileUrl(gdprFile)} download={true} target={'_blank'}>
-                      {gdprText}
-                    </a>
+                    <div>
+                      <p>{copyrights}</p>
+                      <a href={getFileUrl(gdprFile)} download={true} target={'_blank'}>
+                        {gdprText}
+                      </a>
+                    </div>
+                    {context.languageData.code === 'sr' && <div>
+                      <a 
+                        href="https://goo.gl/maps/XnV44iAtzgoUwv4P6" 
+                        target={'_blank'}
+                      >
+                        Jovana Dućića 68 78 000 Banja Luka
+                      </a>
+                      <a href="tel:+38751491710">+387 51 491 710</a>
+                      <a href="http://pharmaventrum.ba" target={'_blank'}>pharmaventrum.ba</a>
+                      <a href="mailto:banjaluka@pharmacentrum.ba">banjaluka@pharmacentrum.ba</a>
+                    </div>}
                   </div>
                 </div>
               </div>

@@ -92,8 +92,14 @@ var Footer = /** @class */ (function (_super) {
                 React.createElement("div", { className: "bottom" },
                     React.createElement("div", { className: "container" },
                         React.createElement("div", { className: "bottom__copyrights" },
-                            React.createElement("p", null, copyrights),
-                            React.createElement("a", { href: getFileUrl(gdprFile), download: true, target: '_blank' }, gdprText))))));
+                            React.createElement("div", null,
+                                React.createElement("p", null, copyrights),
+                                React.createElement("a", { href: getFileUrl(gdprFile), download: true, target: '_blank' }, gdprText)),
+                            context.languageData.code === 'sr' && React.createElement("div", null,
+                                React.createElement("a", { href: "https://goo.gl/maps/XnV44iAtzgoUwv4P6", target: '_blank' }, "Jovana Du\u0107i\u0107a 68 78 000 Banja Luka"),
+                                React.createElement("a", { href: "tel:+38751491710" }, "+387 51 491 710"),
+                                React.createElement("a", { href: "http://pharmaventrum.ba", target: '_blank' }, "pharmaventrum.ba"),
+                                React.createElement("a", { href: "mailto:banjaluka@pharmacentrum.ba" }, "banjaluka@pharmacentrum.ba")))))));
         }));
     };
     Footer.prototype.transformNavigationsIntoTree = function (navigation, urls) {

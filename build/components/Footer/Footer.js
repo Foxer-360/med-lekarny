@@ -85,7 +85,7 @@ var Footer = /** @class */ (function (_super) {
                     React.createElement("div", { className: 'container' },
                         React.createElement("div", null,
                             React.createElement("ul", { className: 'footer__list' }, bottomNavItems && bottomNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
-                                React.createElement(Link, { to: navItem.url ? navItem.url : '' }, navItem.name || navItem.title))); })),
+                                React.createElement(Link, __assign({}, navItem.url), navItem.name || navItem.title))); })),
                             React.createElement(Social, { icons: icons }))),
                     React.createElement("div", { className: 'footer__left' }),
                     React.createElement("div", { className: 'footer__right' })),

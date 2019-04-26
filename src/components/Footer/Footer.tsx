@@ -133,9 +133,12 @@ class Footer extends React.Component<FooterProps, FooterState> {
                   <div className="bottom__copyrights">
                     <div>
                       <p>{copyrights}</p>
-                      <a href={getFileUrl(gdprFile)} download={true} target={'_blank'}>
-                        {gdprText}
-                      </a>
+                      
+                      {gdprFile && gdprFile.filename && 
+                        <a href={getFileUrl(gdprFile)} download={true} target={'_blank'}>
+                          {gdprText}
+                        </a>
+                      }
                     </div>
                     {context.languageData.code === 'sr' && <div>
                       <a 

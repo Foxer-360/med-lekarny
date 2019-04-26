@@ -30,7 +30,7 @@ const RegistrationBlock = (props: RegistrationBlockProps) => {
             </Button>
           </div>}
 
-        {conditionsFile &&
+        {conditionsFile && conditionsFile.filename &&
           <a 
             download={true} 
             target={'_blank'} 

@@ -28,6 +28,7 @@
       li {
         display: inline !important;
 
+        &:first-of-type { padding-left: 0; }
         &:last-of-type {
           margin-right: 0;
           padding-right: 0;
@@ -37,9 +38,11 @@
 
     a {
       color: white !important;
-      font-size: 15px;
+      font-size: 1.5rem;
       letter-spacing: 0.7px;
       text-transform: uppercase;
+      @include max-md { letter-spacing: inherit; }
+      @include max-sm { font-size: 1.3rem; }
     }
   }
 
@@ -169,15 +172,8 @@
 }
 
 .menuActive {
-  padding-right: 8px;
-
-  svg {
-    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.12));
-  }
-
-  .header__iso {
-    display: none;
-  }
+  .header__iso { display: none; }
+  svg { filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.12)); }
 }
 
 .hiddenMenu {

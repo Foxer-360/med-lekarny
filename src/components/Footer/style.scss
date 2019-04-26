@@ -40,14 +40,12 @@
     z-index: 1;
     position: absolute;
     bottom: 35px;
-
     @include max-xs { bottom: 25px; }
 
     li {
       padding: 0;
       display: inline;
-      margin-right: 35px;
-      
+      margin-right: 35px;      
       @include max-sm { margin-right: 15px; }
 
       &:before {
@@ -63,7 +61,6 @@
     float: right;
     bottom: -70px;
     z-index: 1;
-
     @include max-sm { bottom: -80px; }
 
     .svgIcon {
@@ -79,20 +76,30 @@
   width: 100%;
   padding: 12px 0;
   background-color: #fff;
-  
   @include max-md { padding-bottom: 70px; }
 
   &__copyrights {
-    @include max-md { text-align: center; }
+    display: table;
+    width: 100%;
+
+    div {
+      display: table-cell;
+      vertical-align: middle;
+      &:nth-of-type(2) {
+        padding-left: 2rem;
+        text-align: right;
+      }
+
+      @include max-md {
+        display: block;
+        text-align: center !important;
+        line-height: 3rem;
+      }
+    }
 
     a {
       color: $green;
-      text-align: right;
-      
-      p {
-        display: block;
-        font-weight: 600;
-      }
+      display: block;
     }
   }
 }

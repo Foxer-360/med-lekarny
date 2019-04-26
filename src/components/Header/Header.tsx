@@ -130,7 +130,14 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                       url={`${context.websiteData.urlMask === '/' ? 
                               '' : context.websiteData.urlMask}/${context.languageData.code}`}
                     >
-                      <img src="/assets/mediconLekarny/images/mediconLekarnyLogo.png" alt="Medicon Lekarny Logo" />
+                      <img
+                        src={
+                          context.languageData.code === 'cs' 
+                          ? '/assets/mediconLekarny/images/mediconLekarnyLogo.png' 
+                          : '/assets/mediconLekarny/images/logo-sr.svg'
+                        } 
+                        alt="Medicon Lekarny Logo"
+                      />
                     </Link>
                   </div>
                   <nav>

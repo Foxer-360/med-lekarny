@@ -101,7 +101,9 @@ var Header = /** @class */ (function (_super) {
                         React.createElement("div", { className: 'header__logo' },
                             React.createElement(Link, { url: (context.websiteData.urlMask === '/' ?
                                     '' : context.websiteData.urlMask) + "/" + context.languageData.code },
-                                React.createElement("img", { src: "/assets/mediconLekarny/images/mediconLekarnyLogo.png", alt: "Medicon Lekarny Logo" }))),
+                                React.createElement("img", { src: context.languageData.code === 'cs'
+                                        ? '/assets/mediconLekarny/images/mediconLekarnyLogo.png'
+                                        : '/assets/mediconLekarny/images/logo-sr.svg', alt: "Medicon Lekarny Logo" }))),
                         React.createElement("nav", null,
                             React.createElement("ul", null, mainNavItems &&
                                 mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i, className: context.pageData.name === navItem.name ? 'activePage' : '' },

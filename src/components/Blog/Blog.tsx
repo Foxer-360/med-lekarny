@@ -65,7 +65,11 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
                         key={i}
                         url={article.url}
                         title={article.title}
-                        text={`${article.text.slice(0, 35)} ..`}
+                        text={`${
+                          article.text && article.text.length > 35 
+                          ? article.text.slice(0, 35) 
+                          : article.text} ..
+                        `}
                         color={i % 2 === 0 ? '#3eac49' : '#2473ba'}
                         img={article.image}
                         special={false}

@@ -41,7 +41,7 @@ var Blog = /** @class */ (function (_super) {
                     var getPage = _a.getPage;
                     var _b = getPage(_this.state.numberOfPage, 'infinite', 6), items = _b.items, lastPage = _b.lastPage;
                     return (React.createElement(React.Fragment, null,
-                        React.createElement(Masonry, { breakpointCols: { default: 3, 4000: 3, 800: 2, 500: 1 }, className: "my-masonry-grid", columnClassName: "my-masonry-grid_column" }, items.map(function (article, i) { return (React.createElement(BlogCard, { key: i, url: article.url, title: article.name, text: article.text.slice(0, 35) + " ..", color: i % 2 === 0 ? '#3eac49' : '#2473ba', img: article.image, special: false })); })),
+                        React.createElement(Masonry, { breakpointCols: { default: 3, 4000: 3, 800: 2, 500: 1 }, className: "my-masonry-grid", columnClassName: "my-masonry-grid_column" }, items.map(function (article, i) { return (React.createElement(BlogCard, { key: i, url: article.url, title: article.title, text: article.text.slice(0, 35) + " ..", color: i % 2 === 0 ? '#3eac49' : '#2473ba', img: article.image, special: false })); })),
                         _this.state.numberOfPage < lastPage &&
                             React.createElement("button", { style: { margin: '0 auto' }, className: 'btn btn--greenBkg btn--fullWidth', onClick: function () { return _this.setState({ numberOfPage: _this.state.numberOfPage + 1 }); } }, "Na\u010D\u00EDst dal\u0161\u00ED")));
                 }))));

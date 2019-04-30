@@ -64,7 +64,7 @@ export default class Blog extends React.Component<BlogProps, BlogState> {
                       <BlogCard
                         key={i}
                         url={article.url}
-                        title={article.name}
+                        title={article.title}
                         text={`${article.text.slice(0, 35)} ..`}
                         color={i % 2 === 0 ? '#3eac49' : '#2473ba'}
                         img={article.image}

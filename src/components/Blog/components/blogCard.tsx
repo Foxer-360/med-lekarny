@@ -4,7 +4,7 @@ import Link from '@source/partials/Link';
 import Media from '@source/partials/Media';
 
 export interface BlogCardProps {
-  id: string;
+  url?: LooseObject;
   title: string;
   text: string;
   color: string;
@@ -13,7 +13,7 @@ export interface BlogCardProps {
 }
 
 export function BlogCard(props: BlogCardProps) {
-  const { id, title, text, color, img, special } = props;
+  const { url, title, text, color, img, special } = props;
 
   if (special) {
     return (
@@ -25,7 +25,7 @@ export function BlogCard(props: BlogCardProps) {
   }
 
   return (
-    <Link className={'blogCard'} pageId={id}>
+    <Link className={'blogCard'} {...url}>
       <h3>{title}</h3>
       <p>{text}</p>
 

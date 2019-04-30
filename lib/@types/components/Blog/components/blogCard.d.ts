@@ -1,6 +1,6 @@
 /// <reference types="react" />
 export interface BlogCardProps {
-    id: string;
+    url?: LooseObject;
     title: string;
     text: string;
     color: string;

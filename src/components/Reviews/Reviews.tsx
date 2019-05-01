@@ -11,20 +11,21 @@ interface Reviews {
 
 export interface ReviewsProps {
   data: {
+    divider: boolean;
     title: string;
     reviews: Reviews[];
   };
 }
 
 const Reviews = (props: ReviewsProps) => {
-  const { title, reviews } = props.data;
+  const { title, reviews, divider } = props.data;
 
   return (
     <List data={reviews}>
       {({ data }) => (
         <section className={'reviews'}>
           <div className={'container'}>
-            <div className={'reviews__divider'} />
+            {divider && <div className={'reviews__divider'} />}
             {title && <h3>{title}</h3>}
             <div className={'reviews__list grid'}>
               {data && data.map((review, i) => (

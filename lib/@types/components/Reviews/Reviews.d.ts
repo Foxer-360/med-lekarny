@@ -6,6 +6,7 @@ interface Reviews {
 }
 export interface ReviewsProps {
     data: {
+        divider: boolean;
         title: string;
         reviews: Reviews[];
     };

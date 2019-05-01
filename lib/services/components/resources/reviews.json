@@ -2,6 +2,7 @@
   "name": "Reviews",
   "data": {
     "title": "řekli o nás",
+    "divider": true,
     "reviews": [
       {
         "cite": "„Rychlá, milá a ochotná obsluha“",
@@ -42,6 +43,10 @@
         "title": {
           "type": "text",
           "title": "Title"
+        },
+        "divider": {
+          "type": "boolean",
+          "title": "Add indent at the top?"
         },
         "reviews": {
           "type": "array",

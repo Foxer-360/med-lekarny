@@ -17,23 +17,18 @@
   }
 
   &__content {
-    @extend .flexRow;
-    justify-content: center;
-    align-items: center;
-    align-content: space-around;
+    display: grid;
     padding: 60px 10px;
-    @include max-md { justify-content: left; }
+    grid-template-columns: repeat(4, 1fr);
+    @include max-lg { grid-template-columns: repeat(2, 1fr); }
+    @include max-md { grid-template-columns: repeat(1, 1fr); }
 
     &__item {
-      height: 100%;
       display: table;
       margin: 10px;
 
       img { max-width: inherit; }
       a {
-        font-size: 18px;
-        display: table-cell;
-
         &:hover {
           color: $green;
           text-decoration: underline;
@@ -48,13 +43,15 @@
         vertical-align: middle;
       }
   
-      p {
+      a, p {
+        max-width: 80%;
         display: table-cell;
         line-height: 20px;
         padding-left: 20px;
         font-size: 1.8rem;
-        max-width: 80%;
         vertical-align: middle;
+        @include max-md { display: inline-block; }
+        @include max-sm { max-width: 70%; }
       }
     }
   }

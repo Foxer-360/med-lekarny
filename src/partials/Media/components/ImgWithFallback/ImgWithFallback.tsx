@@ -115,7 +115,6 @@ class ImgWithFallback extends React.Component<ImgWithFallbackProps, ImgWithFallb
 
   public render() {  
     const { alt } = this.props;
-    console.log('HERE!!!!');
 
     return (
       <div

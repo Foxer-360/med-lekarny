@@ -41,6 +41,7 @@
 
   &__holder {
     padding-top: 10%;
+    @include max-sm { padding-top: 35%; }
   }
 
   &__title {
@@ -58,18 +59,19 @@
 
   &__text {
     max-width: 440px;
-
     font-family: $mons;
     text-align: center;
     margin: 0 auto 40px auto;
     font-size: 18px;
     line-height: 28px;
+    word-break: break-word;
 
     @include md {
       margin: 0 auto 50px auto;
       font-size: 2.4rem;
       line-height: 34.36px;
     }
+    @include max-sm { margin: 0 auto; }
 
     &--gray {
       color: $darkGray;

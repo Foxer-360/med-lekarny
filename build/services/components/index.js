@@ -11,15 +11,8 @@ var __assign = (this && this.__assign) || function () {
 };
 import * as React from 'react';
 import { isObjectLike } from 'lodash';
-import WebFont from 'webfontloader';
 import { AlertNotFound, Hero, Blog, Header, Footer, Reviews, Gallery, Carousel, Partners, Headline, MiniBoxes, InfoBoxes, TextBlock, Pharmacies, MenuBlocks, DividerLine, ClubBenefits, BenefitBlocks, PharmacieInfo, DiscountOffer, PaymentMethods, PharmaciesList, InfoRectangles, DescriptionList, CustomInfoBoxes, RegistrationBlock, PromotionPreviews, BlogArticle, PromotionsAndDiscounts, } from '../../components';
 import * as resources from './resources';
-// WEB FONTS
-WebFont.load({
-    google: {
-        families: ['Montserrat:400,500,600,700:latin-ext'],
-    },
-});
 /**
  *
  */

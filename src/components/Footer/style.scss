@@ -71,21 +71,7 @@
 
   a {
     color: white;
-    position: relative;
-    transition: $customEase;
-    &:after {
-      display: block;
-      content: '';
-      width: 100%;
-      height: 1px;
-      position: absolute;
-      background-color: white;
-      opacity: 0;
-    }
-
-    &:hover {
-      &:after { opacity: 1; }
-    }
+    &:hover { text-decoration: underline !important; }
   }
 }
 

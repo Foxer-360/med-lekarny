@@ -43,6 +43,7 @@
       text-transform: uppercase;
       @include max-md { letter-spacing: inherit; }
       @include max-sm { font-size: 1.3rem; }
+      &:hover { text-decoration: underline; }
     }
   }
 

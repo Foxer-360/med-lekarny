@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import * as React from 'react';
-import getImageUrl from '../../helpers/getImageUrl';
+import getImageUrl from '@source/helpers/getImageUrl';
 var Hero = /** @class */ (function (_super) {
     __extends(Hero, _super);
     function Hero() {
@@ -26,10 +26,13 @@ var Hero = /** @class */ (function (_super) {
                     React.createElement("div", { style: opacity ? { opacity: opacity } : {}, className: 'hero__blackOverlay' }),
                 displayWhiteOverlay &&
                     React.createElement("div", { style: opacity ? { opacity: opacity } : {}, className: 'hero__whiteOverlay' }),
-                React.createElement("div", { className: 'container' },
-                    React.createElement("div", { className: 'hero__holder' },
-                        title && React.createElement("h1", { className: "hero__title hero__title--" + titleColor }, title),
-                        text && React.createElement("div", { className: "hero__text hero__text--" + textColor + " " }, text))))));
+                React.createElement("div", { className: 'hero__holder' },
+                    React.createElement("div", { className: 'container' },
+                        title &&
+                            React.createElement("h1", { className: "hero__title hero__title--" + titleColor }, title),
+                        text &&
+                            React.createElement("div", { className: "hero__text hero__text--" + textColor + " " },
+                                React.createElement("p", null, text)))))));
     };
     return Hero;
 }(React.Component));

@@ -3,7 +3,7 @@ export interface HeroProps {
     data: {
         title: string;
         text: string;
-        image: LooseObject;
+        image?: LooseObject;
         displayBlackOverlay: boolean;
         displayWhiteOverlay: boolean;
         titleColor: string;

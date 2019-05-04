@@ -1,16 +1,13 @@
 .hero {
   @extend .flexColumn;
-  @include background-image(cover, center);
-  height: 395px;
   width: 100%;
-  justify-content: center;
-  align-items: center;
-  background-repeat: no-repeat;
+  height: 395px;
   position: relative;
-
-  @include md {
-    height: 650px;
-  }
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  @include background-image(cover, center);
+  @include md { height: 650px; }
 
   &__blackOverlay {
     background: black;
@@ -40,45 +37,38 @@
   }
 
   &__holder {
-    padding-top: 10%;
-    @include max-sm { padding-top: 35%; }
+    display: table;
+    height: 100%;
+
+    h1 {
+      @include max-sm { padding-bottom: 2rem; }
+    }
+
+    .container {
+      display: table-cell;
+      vertical-align: middle;
+      @include max-sm { padding-top: 6rem; }
+    }
   }
 
   &__title {
-    &--blue {
-      @include webkitGradientText;
-    }
-    &--white {
-      color: #fff;
-    }
-  }
-
-  h1 {
-    padding-bottom: 36px;
+    &--blue { @include webkitGradientText; }
+    &--white { color: #fff; }
   }
 
   &__text {
-    max-width: 440px;
     font-family: $mons;
-    text-align: center;
-    margin: 0 auto 40px auto;
-    font-size: 18px;
-    line-height: 28px;
-    word-break: break-word;
-
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    
     @include md {
-      margin: 0 auto 50px auto;
       font-size: 2.4rem;
-      line-height: 34.36px;
-    }
-    @include max-sm { margin: 0 auto; }
-
-    &--gray {
-      color: $darkGray;
+      line-height: 3.4rem;
+      padding: 0 3rem;
     }
 
-    &--white {
-      color: #fff;
-    }
+    p { text-align: center; }
+    &--gray { color: $darkGray; }
+    &--white { color: #fff; }
   }
 }

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import getImageUrl from '../../helpers/getImageUrl';
+import getImageUrl from '@source/helpers/getImageUrl';
 
 export interface HeroProps {
   data: {
     title: string;
     text: string;
-    image: LooseObject;  
+    image?: LooseObject;  
     displayBlackOverlay: boolean;
     displayWhiteOverlay: boolean;
     titleColor: string;
@@ -40,11 +40,17 @@ class Hero extends React.Component<HeroProps, HeroState> {
           {displayWhiteOverlay && 
             <div style={opacity ? { opacity: opacity} : {}} className={'hero__whiteOverlay'} />}
 
-          <div className={'container'}>
-            <div className={'hero__holder'}>
-              {title && <h1 className={`hero__title hero__title--${titleColor}`}>{title}</h1>}
+          <div className={'hero__holder'}>
+            <div className={'container'}>
+              {title && 
+                <h1 className={`hero__title hero__title--${titleColor}`}>
+                  {title}
+                </h1>}
 
-              {text && <div className={`hero__text hero__text--${textColor} `}>{text}</div>}
+              {text && 
+                <div className={`hero__text hero__text--${textColor} `}>
+                  <p>{text}</p>
+                </div>}
             </div>
           </div>
         </section>

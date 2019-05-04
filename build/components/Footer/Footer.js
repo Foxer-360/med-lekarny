@@ -34,6 +34,7 @@ import Link from '../../partials/Link';
 import Social from './components/Social';
 import Loader from '@source/partials/Loader';
 import HelpPopup from './components/HelpPopup';
+import CookiePopup from './components/CookiePopup';
 import getFileUrl from '@source/helpers/getImageUrl';
 var GET_CONTEXT = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"])));
 var GET_PAGES_URLS = gql(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!, $websiteId: ID!) {\n    pagesUrls(where: { language: $language, websiteId: $websiteId }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!, $websiteId: ID!) {\n    pagesUrls(where: { language: $language, websiteId: $websiteId }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
@@ -81,6 +82,7 @@ var Footer = /** @class */ (function (_super) {
             var bottomNavItems = transformedNavigations && transformedNavigations[bottomNav] ? transformedNavigations[bottomNav] : [];
             return (React.createElement("footer", { style: { position: 'relative', width: '100%', bottom: '0' } },
                 React.createElement(HelpPopup, null),
+                React.createElement(CookiePopup, null),
                 React.createElement("div", { className: 'footer' },
                     React.createElement("div", { className: 'container' },
                         React.createElement("div", null,

@@ -112,7 +112,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
           return (
             <footer style={{ position: 'relative', width: '100%', bottom: '0' }}>
               <HelpPopup />
-              <CookiePopup />
+              <CookiePopup lang={context.languageData.code} />
               
               <div className={'footer'}>
                 <div className={'container'}>

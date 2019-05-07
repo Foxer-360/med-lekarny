@@ -1,7 +1,7 @@
 .hero {
   @extend .flexColumn;
   width: 100%;
-  height: 395px;
+  height: 420px;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -34,6 +34,7 @@
   .container {
     z-index: 3;
     position: relative;
+    @include max-md { padding-top: 2rem; }
   }
 
   &__holder {
@@ -41,13 +42,14 @@
     height: 100%;
 
     h1 {
+      padding-bottom: 3.5rem;
       @include max-sm { padding-bottom: 2rem; }
     }
 
     .container {
       display: table-cell;
       vertical-align: middle;
-      @include max-sm { padding-top: 6rem; }
+      @include max-sm { padding-top: 10rem; }
     }
   }
 
@@ -60,7 +62,8 @@
     font-family: $mons;
     font-size: 1.8rem;
     line-height: 2.8rem;
-    
+    padding: 0 1.5rem;
+
     @include md {
       font-size: 2.4rem;
       line-height: 3.4rem;

@@ -82,7 +82,7 @@ var Footer = /** @class */ (function (_super) {
             var bottomNavItems = transformedNavigations && transformedNavigations[bottomNav] ? transformedNavigations[bottomNav] : [];
             return (React.createElement("footer", { style: { position: 'relative', width: '100%', bottom: '0' } },
                 React.createElement(HelpPopup, null),
-                React.createElement(CookiePopup, null),
+                React.createElement(CookiePopup, { lang: context.languageData.code }),
                 React.createElement("div", { className: 'footer' },
                     React.createElement("div", { className: 'container' },
                         React.createElement("div", null,

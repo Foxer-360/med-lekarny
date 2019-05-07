@@ -14,16 +14,15 @@
   }
   
   &__top {
-    height: 45px;
     background-image: linear-gradient(to right, #3eac49 0%, #00aad0 100%);
 
     &__list {
       @include reset-list;
       width: auto;
       display: block;
-      position: absolute;
-      top: 10px;
-      right: 0;
+      text-align: right;
+      padding: 1rem 0;
+      @include max-sm { text-align: center; }
 
       li {
         display: inline !important;

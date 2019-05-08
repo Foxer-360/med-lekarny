@@ -38,18 +38,20 @@ const PromotionPreviews = (props: PromotionPreviewsProps) => {
               </p>
             </div>
             <div className={'promotion-previews__list__item__right'}>
-              <p className={'promotion-previews__list__item__right__title'}>
-                {slide.title}
-              </p>
-              <p className={'promotion-previews__list__item__right__description'}>
-                {slide.description}
-              </p>
-              <Link 
-                {...slide.url}
-                className={'promotion-previews__list__item__right__url'}
-              >
-                {slide.titleUrl}
-              </Link>
+              <div className={'promotion-previews__list__item__right__wrapper'}>
+                <p className={'promotion-previews__list__item__right__title'}>
+                  {slide.title}
+                </p>
+                <p className={'promotion-previews__list__item__right__description'}>
+                  {slide.description}
+                </p>
+                <Link 
+                  {...slide.url}
+                  className={'promotion-previews__list__item__right__url'}
+                >
+                  {slide.titleUrl}
+                </Link>
+              </div>
             </div>
           </div>
         ))) || [];

@@ -12,11 +12,17 @@
     border-image: linear-gradient(to bottom, $lightBlue 0%, $green 100%);
     border-image-slice: 1;
     margin: 0 auto;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
 
     @include md {
       width: 80%;
       padding-left: 70px;
       border-left: 7px solid;
+      border-top: 0;
+      border-bottom: 0;
+      border-right: 0;
     }
   }
 

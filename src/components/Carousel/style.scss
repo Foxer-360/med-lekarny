@@ -97,8 +97,8 @@
 
   &__divider {
     grid-row: 1/2;
-    height: 125px;
-    @include max-md { height: 100px; }
+    height: 136px;
+    @include max-md { height: 116px; }
   }
 
   ul {

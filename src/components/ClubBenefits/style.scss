@@ -1,5 +1,6 @@
 .club-benefits {
   padding-top: 60px;
+  @include max-md { padding-top: 30px; }
   
   &__btn-holder {
     max-width: 35%;

@@ -6,7 +6,10 @@
 
   .container {
     height: 200px;
-    align-self: center;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+      align-self: center;
 
     @include max-lg {
       height: initial;
@@ -22,7 +25,10 @@
     height: 170px;
     display: block;
     margin: 0 auto;
-    align-self: center;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+      align-self: center;
 
     .inner {
       height: auto;
@@ -71,6 +77,9 @@
         top: -10px;
         padding: 0 15px;
         padding-top: 14%;
+        background-image: -webkit-gradient(linear, left top, right top, from(#3eac49), to(#00aad0));
+        background-image: -webkit-linear-gradient(left, #3eac49 0%, #00aad0 100%);
+        background-image: -o-linear-gradient(left, #3eac49 0%, #00aad0 100%);
         background-image: linear-gradient(to right, #3eac49 0%, #00aad0 100%);
       }
 

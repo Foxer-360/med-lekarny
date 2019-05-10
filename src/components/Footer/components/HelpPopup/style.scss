@@ -1,10 +1,13 @@
 .helpPopup {
   bottom: 0px;
   position: fixed;
-  box-shadow: 0 0 13px rgba(0, 52, 97, 0.18);
+  -webkit-box-shadow: 0 0 13px rgba(0, 52, 97, 0.18);
+        box-shadow: 0 0 13px rgba(0, 52, 97, 0.18);
   z-index: 998;
   width: 100%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
   left: 50%;
 
   @include md {
@@ -12,14 +15,18 @@
     left: auto;
     width: auto;
     bottom: 0;
-    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+        transform: translateX(0%);
   }
 
   &--active {
     .helpPopup__main {
       h4 {
         &:after {
-          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+              transform: rotate(45deg);
         }
       }
     }
@@ -39,8 +46,8 @@
     background-size: 31px;
 
     h4 {
-      font-size: 1.6rem;
       padding: 0;
+      font-size: 1.6rem;
       line-height: 1.4;
       @include webkitGradientText;
 
@@ -51,7 +58,9 @@
         right: 25px;
         border-right: 2px solid $blue;
         border-bottom: 2px solid $blue;
-        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+            transform: rotate(-135deg);
         top: 20px;
       }
     }
@@ -64,6 +73,8 @@
     background-color: white;
     @include reset-list;
     max-height: 0;
+    -webkit-transition: 400ms max-height ease-in-out;
+    -o-transition: 400ms max-height ease-in-out;
     transition: 400ms max-height ease-in-out;
     overflow: hidden;
     margin-bottom: 0px;

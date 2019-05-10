@@ -7,6 +7,7 @@
 
   .promotion-previews {
     height: 100%;
+    -ms-grid-columns: (1fr)[3];
     grid-template-columns: repeat(3, 1fr);
     
     .mediaRatio {
@@ -56,20 +57,25 @@
     }
   
     &__list {
+      padding: 3rem 0;
+      display: -ms-grid;
       display: grid;
       grid-gap: 20px;
-      padding: 3rem 0;
+      -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
       grid-template-columns: repeat(3, 1fr);
   
       @include max-xl {
+        -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
       }
   
       @include max-md {
+        -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
       }
 
       &__item {
+        -ms-grid-columns: 100px 10px 1fr;
         grid-template-columns: 100px 1fr;
         grid-gap: 10px;
     

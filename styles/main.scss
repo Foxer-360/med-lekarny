@@ -1,11 +1,18 @@
+// FIX SLICK CAROUSEL VARIABLES
+@import 'fix-slick';
+
 //INITAL STYLES
 @import '../node_modules/bootstrap/scss/bootstrap-reboot';
+@import "../node_modules/slick-carousel/slick/slick.scss";
+@import "../node_modules/slick-carousel/slick/slick-theme.scss";
 @import 'reset';
 @import 'mediaQueries';
 @import 'mixins';
 @import 'variables';
 @import 'text';
 @import 'forms';
+
+
 
 //COMPONENTS STYLES
 @import 'general';
@@ -40,7 +47,6 @@
 @import '../src/components/MiniBoxes/style.scss';
 
 // PARTIALS
-
 @import '../src/partials/Button/style.scss';
 @import '../src/partials/SvgIcon/style.scss';
 @import '../src/partials/Media/style.scss';

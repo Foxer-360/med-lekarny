@@ -6,18 +6,21 @@
 
 @mixin vertical-center() {
   top: 50%;
-  transform: translate3d(0, -50%, 0);
+  -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
 }
 
 @mixin horizontal-center() {
   left: 50%;
-  transform: translate3d(-50%, 0, 0);
+  -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
 }
 
 @mixin vertical-horizontal-center() {
   left: 50%;
   top: 50%;
-  transform: translate3d(-50%, 0, 0);
+  -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
 }
 
 @mixin pseudo($display: block, $pos: absolute, $content: '') {
@@ -86,7 +89,9 @@
 
   &:hover {
     @include md {
-      transform: translateY(-3px);
+      -webkit-transform: translateY(-3px);
+      -ms-transform: translateY(-3px);
+          transform: translateY(-3px);
 
       &:after {
         width: 100%;

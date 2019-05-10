@@ -17,11 +17,19 @@
   }
 
   &__content {
+    display: -ms-grid;
     display: grid;
     padding: 60px 10px;
+    -ms-grid-columns: (1fr)[4];
     grid-template-columns: repeat(4, 1fr);
-    @include max-lg { grid-template-columns: repeat(2, 1fr); }
-    @include max-md { grid-template-columns: repeat(1, 1fr); }
+    @include max-lg {
+      -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include max-md {
+      -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+    }
 
     &__item {
       display: table;

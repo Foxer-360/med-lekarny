@@ -9,7 +9,11 @@
     box-sizing: border-box;
     padding-left: 16px;
     border-left: 4px solid;
-    border-image: linear-gradient(to bottom, $lightBlue 0%, $green 100%);
+    -webkit-border-image: -webkit-gradient(linear, left top, left bottom, from($lightBlue), to($green));
+    -webkit-border-image: -webkit-linear-gradient(top, $lightBlue 0%, $green 100%);
+      -o-border-image: -o-linear-gradient(top, $lightBlue 0%, $green 100%);
+        border-image: -webkit-gradient(linear, left top, left bottom, from($lightBlue), to($green));
+        border-image: linear-gradient(to bottom, $lightBlue 0%, $green 100%);
     border-image-slice: 1;
     margin: 0 auto;
     border-top: 0;

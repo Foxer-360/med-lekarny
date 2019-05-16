@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -9,10 +10,11 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import * as React from 'react';
-import { isObjectLike } from 'lodash';
-import { AlertNotFound, Hero, Blog, Header, Footer, Reviews, Gallery, Carousel, Partners, Headline, MiniBoxes, InfoBoxes, TextBlock, Pharmacies, MenuBlocks, DividerLine, ClubBenefits, BenefitBlocks, PharmacieInfo, DiscountOffer, PaymentMethods, PharmaciesList, InfoRectangles, DescriptionList, CustomInfoBoxes, RegistrationBlock, PromotionPreviews, BlogArticle, PromotionsAndDiscounts, } from '../../components';
-import * as resources from './resources';
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = require("react");
+var lodash_1 = require("lodash");
+var components_1 = require("../../components");
+var resources = require("./resources");
 /**
  *
  */
@@ -61,72 +63,72 @@ var ComponentsService = /** @class */ (function () {
     ComponentsService.prototype.getComponent = function (type) {
         switch (type) {
             case this.Types.HEADER:
-                return Header;
+                return components_1.Header;
             case this.Types.HERO:
-                return Hero;
+                return components_1.Hero;
             case this.Types.FOOTER:
-                return Footer;
+                return components_1.Footer;
             case this.Types.REVIEWS:
-                return Reviews;
+                return components_1.Reviews;
             case this.Types.TEXTBLOCK:
-                return TextBlock;
+                return components_1.TextBlock;
             case this.Types.MAP:
                 return Map;
             case this.Types.INFOBOXES:
-                return InfoBoxes;
+                return components_1.InfoBoxes;
             case this.Types.INFORECTANGLES:
-                return InfoRectangles;
+                return components_1.InfoRectangles;
             case this.Types.BLOG:
-                return Blog;
+                return components_1.Blog;
             case this.Types.DESCRIPTIONLIST:
-                return DescriptionList;
+                return components_1.DescriptionList;
             case this.Types.PHARMACIES:
-                return Pharmacies;
+                return components_1.Pharmacies;
             case this.Types.MENUBLOCKS:
-                return MenuBlocks;
+                return components_1.MenuBlocks;
             case this.Types.PROMOTIONPREVIEWS:
-                return PromotionPreviews;
+                return components_1.PromotionPreviews;
             case this.Types.CAROUSEL:
-                return Carousel;
+                return components_1.Carousel;
             case this.Types.HEADLINE:
-                return Headline;
+                return components_1.Headline;
             case this.Types.CUSTOMINFOBOXES:
-                return CustomInfoBoxes;
+                return components_1.CustomInfoBoxes;
             case this.Types.PHARMACIEINFO:
-                return PharmacieInfo;
+                return components_1.PharmacieInfo;
             case this.Types.GALLERY:
-                return Gallery;
+                return components_1.Gallery;
             case this.Types.DISCOUNTOFFER:
-                return DiscountOffer;
+                return components_1.DiscountOffer;
             case this.Types.PROMOTIONSANDDISCOUNTS:
-                return PromotionsAndDiscounts;
+                return components_1.PromotionsAndDiscounts;
             case this.Types.PARTNERS:
-                return Partners;
+                return components_1.Partners;
             case this.Types.PAYMENTMETHODS:
-                return PaymentMethods;
+                return components_1.PaymentMethods;
             case this.Types.CLUBBENEFITS:
-                return ClubBenefits;
+                return components_1.ClubBenefits;
             case this.Types.DIVIDERLINE:
-                return DividerLine;
+                return components_1.DividerLine;
             case this.Types.BENEFITBLOCKS:
-                return BenefitBlocks;
+                return components_1.BenefitBlocks;
             case this.Types.REGISTRATIONBLOCK:
-                return RegistrationBlock;
+                return components_1.RegistrationBlock;
             case this.Types.BLOGARTICLE:
-                return BlogArticle;
+                return components_1.BlogArticle;
             case this.Types.MINIBOXES:
-                return MiniBoxes;
+                return components_1.MiniBoxes;
             case this.Types.PHARMACIESLIST:
-                return PharmaciesList;
+                return components_1.PharmaciesList;
             default:
-                return function () { return React.createElement(AlertNotFound, { type: "component" }); };
+                return function () { return React.createElement(components_1.AlertNotFound, { type: "component" }); };
         }
     };
     /***/
     ComponentsService.prototype.getComponentResource = function (type) {
         var res = resources.default;
         var typedRes = resources[type.toLowerCase()];
-        if (isObjectLike(typedRes)) {
+        if (lodash_1.isObjectLike(typedRes)) {
             res = __assign({}, res, typedRes);
         }
         return res;
@@ -134,10 +136,10 @@ var ComponentsService = /** @class */ (function () {
     ComponentsService.prototype.getForm = function (type) {
         switch (type) {
             default:
-                return function () { return React.createElement(AlertNotFound, { type: "form" }); };
+                return function () { return React.createElement(components_1.AlertNotFound, { type: "form" }); };
         }
     };
     return ComponentsService;
 }());
-export default ComponentsService;
+exports.default = ComponentsService;
 //# sourceMappingURL=index.js.map

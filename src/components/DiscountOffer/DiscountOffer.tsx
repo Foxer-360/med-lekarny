@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import Media from '@source/partials/Media';
 import Link from '@source/partials/Link';
-import ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown';
 
 export interface DiscountOfferProps {
   data: {
@@ -19,8 +19,8 @@ export interface DiscountOfferProps {
 }
 
 const DiscountOffer = (props: DiscountOfferProps) => {
-  const 
-  { 
+  const
+  {
     discountText,
     discountImage,
     couponText,

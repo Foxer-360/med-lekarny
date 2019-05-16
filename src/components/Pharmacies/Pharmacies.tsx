@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown';
 
 import List from '../List';
 import Link from '@source/partials/Link';
@@ -31,7 +31,7 @@ const Pharmacies = (props: PharmaciesProps) => {
             <div className={'pharmacies__divider'}>
               <div>
                 <img src={'/assets/mediconLekarny/images/pharmacies-divider-ad.png'} />
-              </div>          
+              </div>
               <div>
                 <img src={'/assets/mediconLekarny/images/pharmacies-divider.png'} />
               </div>
@@ -40,7 +40,7 @@ const Pharmacies = (props: PharmaciesProps) => {
               </div>
               <br style={{ clear: 'both'}} />
             </div>
-            
+
             <div className={'pharmacies__list grid'}>
               {data && data.map((pharmacie, i) => {
                 const {
@@ -51,10 +51,10 @@ const Pharmacies = (props: PharmaciesProps) => {
                   addressUrl,
                   pharmacieUrl,
                 } = pharmacie;
-                
-                return (                  
+
+                return (
                   <div key={i} className={'pharmacies__list__item'}>
-                    {image && 
+                    {image &&
                       <Link {...pharmacieUrl}>
                         <Media type={'image'} data={image} />
                       </Link>}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown';
 
 import List from '../List';
 import Media from '@source/partials/Media';
@@ -23,7 +23,7 @@ export interface BenefitBlocksProps {
 
 const BenefitBlocks = (props: BenefitBlocksProps) => {
   const { title, benefits } = props.data;
-  
+
   return (
     <List data={benefits}>
       {({ data }) => (
@@ -39,19 +39,19 @@ const BenefitBlocks = (props: BenefitBlocksProps) => {
                     <div className={'benefit-blocks__list__item__top'}>
                       {benefit.icon && <Media type={'image'} data={benefit.icon}/>}
                       {benefit.title && <h5>{benefit.title}</h5>}
-                      {benefit.subtitle && 
+                      {benefit.subtitle &&
                         <p className={'benefit-blocks__list__item__top__subtitle'}>
                           {benefit.subtitle}
                         </p>}
-                      {benefit.text && 
-                        <ReactMarkdown 
-                          source={benefit.text} 
-                          className={'benefit-blocks__list__item__top__text'} 
+                      {benefit.text &&
+                        <ReactMarkdown
+                          source={benefit.text}
+                          className={'benefit-blocks__list__item__top__text'}
                         />}
-                      {benefit.gradientText && 
-                        <ReactMarkdown 
+                      {benefit.gradientText &&
+                        <ReactMarkdown
                           source={benefit.gradientText}
-                          className={'benefit-blocks__list__item__top__gradient-text'} 
+                          className={'benefit-blocks__list__item__top__gradient-text'}
                         />}
                       {benefit.logo && <Media type={'image'} data={benefit.logo}/>}
                     </div>

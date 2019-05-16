@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -9,20 +10,21 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import * as React from 'react';
-import List from '../List';
-import Link from '@source/partials/Link';
-import getImageUrl from '@source/helpers/getImageUrl';
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = require("react");
+var List_1 = require("../List");
+var Link_1 = require("@source/partials/Link");
+var getImageUrl_1 = require("@source/helpers/getImageUrl");
 var MiniBoxes = function (props) {
     var _a = props.data, title = _a.title, dividerOnTop = _a.dividerOnTop, miniBoxes = _a.miniBoxes;
-    return (React.createElement(List, { data: miniBoxes }, function (_a) {
+    return (React.createElement(List_1.default, { data: miniBoxes }, function (_a) {
         var data = _a.data;
         return (React.createElement("div", { className: 'mini-boxes' },
             React.createElement("div", { className: "container" },
                 dividerOnTop ? React.createElement("div", { className: 'mini-boxes__divider' }) : '',
                 title && React.createElement("h3", null, title),
                 React.createElement("div", { className: 'mini-boxes__list grid' }, data && data.map(function (box, i) {
-                    return (React.createElement(Link, __assign({ key: i }, box.url, { className: 'mini-boxes__list__item', style: { backgroundImage: box.image && "url(" + getImageUrl(box.image) + ")" } }),
+                    return (React.createElement(Link_1.default, __assign({ key: i }, box.url, { className: 'mini-boxes__list__item', style: { backgroundImage: box.image && "url(" + getImageUrl_1.default(box.image) + ")" } }),
                         box.title &&
                             React.createElement("p", { style: box.titleColor ?
                                     { color: "" + box.titleColor } :
@@ -33,5 +35,5 @@ var MiniBoxes = function (props) {
                 })))));
     }));
 };
-export default MiniBoxes;
+exports.default = MiniBoxes;
 //# sourceMappingURL=MiniBoxes.js.map

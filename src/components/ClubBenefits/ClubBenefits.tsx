@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import List from '../List';
 import Link from '@source/partials/Link';
-import ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown';
 import Button from '@source/partials/Button';
 
 interface Benefit {
@@ -34,15 +34,15 @@ const ClubBenefits = (props: ClubBenefitsProps) => {
                 );
               })}
             </div>
-    
-            {buttonTitle && 
+
+            {buttonTitle &&
               <div className={'club-benefits__btn-holder'}>
                 <Button url={buttonUrl} classes={'btn--greenBkg hCenterBlock'}>
                   {buttonTitle}
                 </Button>
               </div>}
-            
-            {conditionsUrl && 
+
+            {conditionsUrl &&
               <Link {...conditionsUrl} className={'club-benefits__conditions'}>
                 Všeobecné obchodní podmínky
               </Link>}

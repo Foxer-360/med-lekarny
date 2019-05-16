@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown';
 
 import Button from '@source/partials/Button';
 import getFileUrl from '@source/helpers/getImageUrl';
@@ -22,8 +22,8 @@ const RegistrationBlock = (props: RegistrationBlockProps) => {
       <div className="container">
         {title && <h3>{title}</h3>}
         {text && <ReactMarkdown source={text} />}
-        
-        {btnTitle && 
+
+        {btnTitle &&
           <div className={'registration-block__btn-holder'}>
             <Button url={btnUrl} classes={'btn--greenBkg hCenterBlock'}>
               {btnTitle}
@@ -31,9 +31,9 @@ const RegistrationBlock = (props: RegistrationBlockProps) => {
           </div>}
 
         {conditionsFile && conditionsFile.filename &&
-          <a 
-            download={true} 
-            target={'_blank'} 
+          <a
+            download={true}
+            target={'_blank'}
             href={getFileUrl(conditionsFile)}
             className={'registration-block__conditions'}
           >

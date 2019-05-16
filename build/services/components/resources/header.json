@@ -1,0 +1,17 @@
+{
+    "name": "Header",
+    "data": {
+        "showTriangle": true
+    },
+    "form": {
+        "schema": {
+            "type": "object",
+            "properties": {
+                "showTriangle": {
+                    "type": "boolean",
+                    "title": "Show top triangle?"
+                }
+            }
+        }
+    }
+}

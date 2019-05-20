@@ -7,11 +7,11 @@ var InfoBoxes = function (props) {
     var _a = props.data, title = _a.title, dividerOnTop = _a.dividerOnTop, indentAtBottom = _a.indentAtBottom, boxes = _a.boxes;
     return (React.createElement(List_1.default, { data: boxes }, function (_a) {
         var data = _a.data;
-        return (React.createElement("section", { className: 'info-boxes', style: indentAtBottom ? { paddingBottom: 55 } : {} },
+        return (React.createElement("section", { className: "info-boxes " + (indentAtBottom ? 'info-boxes--paddingBottom' : '') },
             React.createElement("div", { className: 'container' },
                 dividerOnTop ? React.createElement("div", { className: 'info-boxes__divider' }) : '',
                 title && React.createElement("h3", null, title),
-                React.createElement("div", { className: 'grid info-boxes__list' }, data && data.map(function (box, i) { return (React.createElement(InfoElement_1.default, { title: box.title, image: box.image, url: box.url, key: i })); })))));
+                React.createElement("div", { className: 'info-boxes__list row' }, data && data.map(function (box, i) { return (React.createElement(InfoElement_1.default, { key: i, url: box.url, title: box.title, image: box.image })); })))));
     }));
 };
 exports.default = InfoBoxes;

@@ -12,7 +12,7 @@ const TextBlock = (props: TextBlockProps) => {
   const { title, text } = props.data;
 
   return (  
-    <section className={'textBlock'}>
+    <section className={`textBlock ${title ? '' : 'textBlock--notTitled'}`}>
       <div className="container">   
         <div className={'textBlock__container'}>
           {title && <h3 className={'gradientHeading'}>{title}</h3>}

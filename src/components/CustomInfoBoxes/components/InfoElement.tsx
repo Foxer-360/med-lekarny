@@ -20,7 +20,7 @@ export default function InfoElement(props: InfoElementProps) {
   return (
     <Link
       {...link}
-      className={'custom-info-boxes__list__element'}
+      className={'custom-info-boxes__list__element col-sm-12 col-md-6 col-xl-4'}
       style={{ backgroundImage: image && `url(${getImageUrl(image)})` }}
     >
       <div className={'fullWidthContainer custom-info-boxes__list__element__content'}>

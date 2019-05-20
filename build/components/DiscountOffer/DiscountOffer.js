@@ -17,7 +17,7 @@ var Link_1 = require("@source/partials/Link");
 var ReactMarkdown = require("react-markdown");
 var DiscountOffer = function (props) {
     var _a = props.data, discountText = _a.discountText, discountImage = _a.discountImage, couponText = _a.couponText, couponImage = _a.couponImage, promotionText = _a.promotionText, promotionImage = _a.promotionImage, productText = _a.productText, productImage = _a.productImage, productUrl = _a.productUrl;
-    return (React.createElement("div", { className: 'discount-offer grid' },
+    return (React.createElement("div", { className: 'discount-offer' },
         React.createElement("div", { className: "container" },
             React.createElement("div", { className: 'discount-offer__list grid' },
                 React.createElement("div", { className: 'discount-offer__list__item grid' },

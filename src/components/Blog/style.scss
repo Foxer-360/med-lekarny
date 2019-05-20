@@ -11,15 +11,15 @@
 }
 
 .blog {
-  padding: 0;
+  padding: 5rem 0 4rem 0;
+  
+  @include max-md {
+    padding: 2.5rem 0 2rem 0;
+  }
 
   .searchBar {
     margin-bottom: 55px;
     margin-top: 55px;
-  }
-
-  @include md {
-    padding: 0;
   }
 
   h1 {

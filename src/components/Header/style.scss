@@ -211,7 +211,6 @@
     padding: 100px 30px 50px 30px;
     overflow-y: scroll;
     max-height: 100%;
-    display: -ms-grid;
     display: grid;
     height: 100%;
 
@@ -235,10 +234,7 @@
 
     ul {
       @include reset-list;
-      -webkit-align-self: center;
-      -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-        align-self: center;
+      align-self: center;
 
       li {
         text-align: center;

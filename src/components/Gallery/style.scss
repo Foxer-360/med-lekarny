@@ -46,20 +46,19 @@
   }
 
   &__list {
-    display: -ms-grid;
     display: grid;
     grid-gap: 20px; 
-    -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr; 
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
 
     @include max-lg {
-      -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
     }
 
     @include max-sm {
-      -ms-grid-columns: (1fr)[1];
       grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: auto;
     }
   }
 

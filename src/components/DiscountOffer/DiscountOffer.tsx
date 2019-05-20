@@ -33,7 +33,7 @@ const DiscountOffer = (props: DiscountOfferProps) => {
   } = props.data;
 
   return (
-    <div className={'discount-offer grid'}>
+    <div className={'discount-offer'}>
       <div className="container">
         <div className={'discount-offer__list grid'}>
           <div className={'discount-offer__list__item grid'}>

@@ -57,13 +57,13 @@ h6 {
   text-transform: uppercase;
   color: $green;
   text-align: center;
-  line-height: 1;
-  padding-bottom: 45px;
-  margin-bottom: 0;
+  line-height: 1.2;
+  padding: 2.5rem;
+  margin: 0;
 
 
   @include md {
-    padding: 45px;
+    padding: 5rem;
   }
 }
 

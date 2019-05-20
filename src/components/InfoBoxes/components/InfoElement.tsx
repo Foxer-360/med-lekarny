@@ -13,7 +13,10 @@ export default function InfoElement(props: InfoElementProps) {
   const { title, image, url } = props;
 
   return (
-    <a className={'info-boxes__list__element'} style={{ backgroundImage: image && `url(${getImageUrl(image)})` }}>
+    <a 
+      className={'info-boxes__list__element col-sm-12 col-md-6 col-xl-4'} 
+      style={{ backgroundImage: image && `url(${getImageUrl(image)})` }}
+    >
       <div className={'fullWidthContainer info-boxes__list__element__content'}>
         {title && <h5>{title}</h5>}
 

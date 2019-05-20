@@ -25,10 +25,10 @@ const ClubBenefits = (props: ClubBenefitsProps) => {
       {({ data }) => (
         <div className={'club-benefits'}>
           <div className={'container'}>
-            <div className={'club-benefits__list grid'}>
+            <div className={'club-benefits__list row'}>
               {data && data.map((benefit, i) => {
                 return (
-                  <div key={i} className={'club-benefits__list__item'}>
+                  <div key={i} className={'club-benefits__list__item col-12 col-md-6 col-lg-3'}>
                     {benefit.title && <ReactMarkdown source={benefit.title} />}
                   </div>
                 );

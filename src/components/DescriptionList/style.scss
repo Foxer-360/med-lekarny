@@ -1,7 +1,6 @@
 .description-list {
   h3 {
     @include webkitGradientText();
-    padding: 45px 0;
   }
 
   &__content {
@@ -31,7 +30,7 @@
   }
 
   p {
-    margin-bottom: 25px;
+    margin-bottom: 2.5rem;
 
     &:last-of-type() {
       margin-bottom: 0;

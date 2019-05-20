@@ -10,7 +10,7 @@ var PaymentMethods = function (props) {
         return (React.createElement("div", { className: 'payment-methods' },
             React.createElement("div", { className: 'container' },
                 title && React.createElement("h3", null, title),
-                React.createElement("div", { className: 'payment-methods__list grid' }, data && data.map(function (method, i) { return (React.createElement("div", { key: i, className: 'payment-methods__list__item' }, method.image && React.createElement(Media_1.default, { key: i, type: 'image', data: method.image }))); })))));
+                React.createElement("div", { className: 'payment-methods__list row' }, data && data.map(function (method, i) { return (React.createElement("div", { key: i, className: 'payment-methods__list__item col-xs' }, method.image && React.createElement(Media_1.default, { key: i, type: 'image', data: method.image }))); })))));
     }));
 };
 exports.default = PaymentMethods;

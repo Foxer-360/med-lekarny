@@ -4,7 +4,7 @@ var React = require("react");
 var ReactMarkdown = require("react-markdown");
 var TextBlock = function (props) {
     var _a = props.data, title = _a.title, text = _a.text;
-    return (React.createElement("section", { className: 'textBlock' },
+    return (React.createElement("section", { className: "textBlock " + (title ? '' : 'textBlock--notTitled') },
         React.createElement("div", { className: "container" },
             React.createElement("div", { className: 'textBlock__container' },
                 title && React.createElement("h3", { className: 'gradientHeading' }, title),

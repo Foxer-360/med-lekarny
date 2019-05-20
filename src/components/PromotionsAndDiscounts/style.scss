@@ -1,5 +1,8 @@
 .prom-and-disc {
-  padding: 55px 0;
+  padding: 5rem 0;
+  @include max-md {
+    padding: 2.5rem 0;
+  }
 
   h3 { 
     @include webkitGradientText();

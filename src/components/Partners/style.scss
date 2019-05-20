@@ -2,7 +2,7 @@
   
   h3 {
     @include webkitGradientText();
-    padding: 45px !important;
+    padding: 4.5rem !important;
   }
 
   &__divider {
@@ -13,15 +13,31 @@
   }
 
   &__list {
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    -ms-grid-rows: auto;
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
-    justify-items: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-      -ms-flex-align: center;
-        align-items: center;
-    grid-gap: 40px 20px;
+    grid-gap: 4rem 2rem;
+
+    @include max-xl {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+    }
+    @include max-lg {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+    }
+    @include max-md {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
+    @include max-sm {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: auto;
+    }
+
+    & > * {
+      justify-self: center;
+      align-self: center;
+    }
 
     .mediaRatio {
       padding: 0 !important;

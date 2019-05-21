@@ -1,5 +1,5 @@
 .pharmacie-info {
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
 
   &__top-divider {
     display: block;
@@ -17,25 +17,35 @@
   }
 
   &__content {
-    display: -ms-grid;
-    display: grid;
-    padding: 60px 10px;
-    -ms-grid-columns: (1fr)[4];
-    grid-template-columns: repeat(4, 1fr);
-    @include max-lg {
-      -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
+    padding: 5rem 0;
+
+    @media (max-width: 991px) {
+      padding-bottom: 3rem;
     }
+
     @include max-md {
-      -ms-grid-columns: (1fr)[1];
-      grid-template-columns: repeat(1, 1fr);
+      padding: 2.5rem 0;
     }
 
     &__item {
       display: table;
-      margin: 10px;
 
-      img { max-width: inherit; }
+      @media (max-width: 991px) {
+        margin-bottom: 2rem;
+      }
+
+      @include max-md {
+        margin: 0;
+
+        &:not(:last-of-type) {
+          margin-bottom: 2rem;
+        }
+      }
+
+      img {
+        max-width: initial;
+      }
+
       a {
         &:hover {
           color: $green;
@@ -53,13 +63,15 @@
   
       a, p {
         max-width: 80%;
-        display: table-cell;
-        line-height: 20px;
-        padding-left: 20px;
         font-size: 1.8rem;
+        line-height: 2rem;
+        padding-left: 2rem;
+        display: table-cell;
         vertical-align: middle;
-        @include max-md { display: inline-block; }
-        @include max-sm { max-width: 70%; }
+
+        @include max-md {
+          display: inline-block;
+        }
       }
     }
   }

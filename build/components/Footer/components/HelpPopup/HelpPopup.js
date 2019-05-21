@@ -1,3 +1,4 @@
+"use strict";
 var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
     if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
     return cooked;
@@ -15,15 +16,16 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import * as React from 'react';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
-import { adopt } from 'react-adopt';
-var GET_CONTEXT = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n  }\n"], ["\n  {\n    languageData @client\n  }\n"])));
-var ComposedQuery = adopt({
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = require("react");
+var graphql_tag_1 = require("graphql-tag");
+var react_apollo_1 = require("react-apollo");
+var react_adopt_1 = require("react-adopt");
+var GET_CONTEXT = graphql_tag_1.default(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n  }\n"], ["\n  {\n    languageData @client\n  }\n"])));
+var ComposedQuery = react_adopt_1.adopt({
     getContext: function (_a) {
         var render = _a.render;
-        return React.createElement(Query, { query: GET_CONTEXT }, function (_a) {
+        return React.createElement(react_apollo_1.Query, { query: GET_CONTEXT }, function (_a) {
             var data = _a.data;
             return render(data);
         });
@@ -67,6 +69,6 @@ var HelpPopup = /** @class */ (function (_super) {
     };
     return HelpPopup;
 }(React.Component));
-export default HelpPopup;
+exports.default = HelpPopup;
 var templateObject_1;
 //# sourceMappingURL=HelpPopup.js.map

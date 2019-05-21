@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import List from '../List';
-import Link from '@source/partials/Link';
-import Media from '@source/partials/Media';
-import getImageUrl from '@source/helpers/getImageUrl';
+import Link from '../../partials/Link';
+import Media from '../../partials/Media';
+import getImgUrl from '../../helpers/getImgUrl';
 
 interface MenuBlock {
   title: string;
@@ -26,17 +26,17 @@ const MenuBlocks = (props: MenuBlocksProps) => {
     <List data={menuBlocks}>
       {({ data }) => (
         <div className="container">
-          <div className={'menu-blocks grid'}>
+          <div className={'menu-blocks row'}>
             {data && data.map((block, i) => {
               return (
                 <Link 
                   key={i}
                   {...block.url}
-                  className={'menu-blocks__item'}
-                  style={{ backgroundImage: block.image && `url(${getImageUrl(block.image)})` }}
+                  className={`menu-blocks__item ${i <= 1 ? 'col-12 col-md-6 ' : 'col-12 col-md-4 col-xl-3'}`}
+                  style={{ backgroundImage: block.image && `url(${getImgUrl(block.image)})` }}
                 >
                   {block.icon && <Media type={'image'} data={block.icon} />}
-                  <p>{block.title && block.title}</p>
+                  {block.title && <p>{block.title}</p>}
                   <div
                     className={'menu-blocks__item__colorGradient'}
                     style={{ 

@@ -5,10 +5,10 @@ import { adopt } from 'react-adopt';
 
 import Link from '../../partials/Link';
 import Social from './components/Social';
-import Loader from '@source/partials/Loader';
+import Loader from '../../partials/Loader';
 import HelpPopup from './components/HelpPopup';
 import CookiePopup from './components/CookiePopup';
-import getFileUrl from '@source/helpers/getImageUrl';
+import getFileUrl from '../../helpers/getImgUrl';
 
 const GET_CONTEXT = gql`
   {
@@ -145,13 +145,12 @@ class Footer extends React.Component<FooterProps, FooterState> {
                     </div>
                     {context.languageData.code === 'sr' && <div>
                       <a 
-                        href="https://goo.gl/maps/XnV44iAtzgoUwv4P6" 
                         target={'_blank'}
+                        href="https://goo.gl/maps/XnV44iAtzgoUwv4P6" 
                       >
                         Jovana Dućića 68 78 000 Banja Luka
                       </a>
                       <a href="tel:+38751491710">+387 51 491 710</a>
-                      <a href="http://pharmaventrum.ba" target={'_blank'}>pharmaventrum.ba</a>
                       <a href="mailto:banjaluka@pharmacentrum.ba">banjaluka@pharmacentrum.ba</a>
                     </div>}
                   </div>

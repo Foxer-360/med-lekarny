@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -9,34 +10,35 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import * as React from 'react';
-import Responsive from 'react-responsive';
-import List from '../List';
-import Media from '@source/partials/Media';
-import Slider from '@source/partials/Slider';
-import splitArray from '@source/helpers/splitArray';
-var Mobile = function (props) { return React.createElement(Responsive, __assign({}, props, { maxWidth: 576 })); };
-var Tablet = function (props) { return React.createElement(Responsive, __assign({}, props, { minWidth: 577, maxWidth: 991 })); };
-var Default = function (props) { return React.createElement(Responsive, __assign({}, props, { minWidth: 992 })); };
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = require("react");
+var react_responsive_1 = require("react-responsive");
+var List_1 = require("../List");
+var Media_1 = require("../../partials/Media");
+var Slider_1 = require("../../partials/Slider");
+var splitArray_1 = require("../../helpers/splitArray");
+var Mobile = function (props) { return React.createElement(react_responsive_1.default, __assign({}, props, { maxWidth: 576 })); };
+var Tablet = function (props) { return React.createElement(react_responsive_1.default, __assign({}, props, { minWidth: 577, maxWidth: 991 })); };
+var Default = function (props) { return React.createElement(react_responsive_1.default, __assign({}, props, { minWidth: 992 })); };
 var Gallery = function (props) {
-    return (React.createElement(List, { data: props.data.slides || [] }, function (_a) {
+    return (React.createElement(List_1.default, { data: props.data.slides || [] }, function (_a) {
         var slides = _a.data;
-        var arrayOfSlides = (slides && slides.map(function (slide, i) { return (React.createElement("div", { className: 'gallery__list__item', key: i }, slide.image && React.createElement(Media, { type: 'image', data: slide.image }))); })) || [];
+        var arrayOfSlides = (slides && slides.map(function (slide, i) { return (React.createElement("div", { className: 'gallery__list__item', key: i }, slide.image && React.createElement(Media_1.default, { type: 'image', data: slide.image }))); })) || [];
         var arrayOfDesktopSlides = [];
         var arrayOfTabletSlides = [];
         var arrayOfMobiletSlides = [];
-        arrayOfDesktopSlides = splitArray(arrayOfSlides, 4, 'gallery__list');
-        arrayOfTabletSlides = splitArray(arrayOfSlides, 2, 'gallery__list');
-        arrayOfMobiletSlides = splitArray(arrayOfSlides, 1, 'gallery__list');
+        arrayOfDesktopSlides = splitArray_1.default(arrayOfSlides, 4, 'gallery__list');
+        arrayOfTabletSlides = splitArray_1.default(arrayOfSlides, 2, 'gallery__list');
+        arrayOfMobiletSlides = splitArray_1.default(arrayOfSlides, 1, 'gallery__list');
         return (React.createElement("div", { className: 'gallery' },
             React.createElement("div", { className: 'container' },
                 React.createElement(Default, null,
-                    React.createElement(Slider, { delay: 7000, showDots: false, slides: arrayOfDesktopSlides, autoplay: arrayOfSlides.length > 4 ? true : false, showArrows: arrayOfSlides.length > 4 ? true : false })),
+                    React.createElement(Slider_1.default, { delay: 7000, showDots: false, slides: arrayOfDesktopSlides, autoplay: arrayOfSlides.length > 4 ? true : false, showArrows: arrayOfSlides.length > 4 ? true : false })),
                 React.createElement(Tablet, null,
-                    React.createElement(Slider, { delay: 7000, showDots: false, slides: arrayOfTabletSlides, autoplay: arrayOfSlides.length > 2 ? true : false, showArrows: arrayOfSlides.length > 2 ? true : false })),
+                    React.createElement(Slider_1.default, { delay: 7000, showDots: false, slides: arrayOfTabletSlides, autoplay: arrayOfSlides.length > 2 ? true : false, showArrows: arrayOfSlides.length > 2 ? true : false })),
                 React.createElement(Mobile, null,
-                    React.createElement(Slider, { delay: 7000, showDots: false, slides: arrayOfMobiletSlides, autoplay: arrayOfSlides.length > 1 ? true : false, showArrows: arrayOfSlides.length > 1 ? true : false })))));
+                    React.createElement(Slider_1.default, { delay: 7000, showDots: false, slides: arrayOfMobiletSlides, autoplay: arrayOfSlides.length > 1 ? true : false, showArrows: arrayOfSlides.length > 1 ? true : false })))));
     }));
 };
-export default Gallery;
+exports.default = Gallery;
 //# sourceMappingURL=Gallery.js.map

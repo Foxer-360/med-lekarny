@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import List from '../List';
-import Media from '@source/partials/Media';
+import Media from '../../partials/Media';
 
 interface Methods {
   image: LooseObject;
@@ -23,9 +23,9 @@ const PaymentMethods = (props: PaymentMethodsProps) => {
         <div className={'payment-methods'}>
           <div className={'container'}>
             {title && <h3>{title}</h3>}
-            <div className={'payment-methods__list grid'}>
+            <div className={'payment-methods__list row'}>
               {data && data.map((method, i) => (
-                <div key={i} className={'payment-methods__list__item'}>
+                <div key={i} className={'payment-methods__list__item col-xs'}>
                   {method.image && <Media key={i} type={'image'} data={method.image} />}
                 </div>
               ))}

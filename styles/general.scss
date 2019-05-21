@@ -4,12 +4,12 @@ html {
 }
 
 body {
+  padding: 0;
   color: $darkGray;
   line-height: 24px;
   font-family: $mons;
   font-size: 1.6rem;
   line-height: 24px;
-  padding: 0;
   overflow: hidden;
 }
 
@@ -18,16 +18,6 @@ a {
   color: $green;
   &:hover {
     color: hsl(126, 50%, 55%);
-  }
-}
-
-.container {
-  display: block;
-  margin: 0 auto;
-  width: 90%;
-
-  @include xl {
-    max-width: $layoutMinWidth;
   }
 }
 
@@ -57,81 +47,9 @@ a {
   flex-flow: column wrap;
 }
 
-.flexAlign {
-  &--start {
-    justify-content: start;
-  }
-  &--end {
-    justify-content: end;
-  }
-  &--space-between {
-    justify-content: space-between;
-  }
-  &--space-around {
-    justify-content: space-around;
-  }
-  &--center {
-    justify-content: center;
-  }
-}
-
 .grid {
-  display: -ms-grid;
   display: grid;
-  grid-gap: 20px;
-
-  &--vCenterBlock {
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-      -ms-flex-align: center;
-        align-items: center;
-  }
-}
-
-.grid-container {
-  max-width: 1240px;
-  margin: 0 auto;
-  display: -ms-grid;
-  display: grid;
-  grid-gap: 20px;
-  box-sizing: border-box;
-  -ms-grid-columns: (1fr)[4];
-  grid-template-columns: repeat(4, 1fr);
-  -ms-grid-rows: (1fr)[2];
-  grid-template-rows: repeat(2, 1fr);
-
-  & > *:nth-child(1) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-  }
-  & > *:nth-child(2) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-  }
-  & > *:nth-child(3) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 3;
-  }
-  & > *:nth-child(4) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 4;
-  }
-  & > *:nth-child(5) {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
-  }
-  & > *:nth-child(6) {
-    -ms-grid-row: 2;
-    -ms-grid-column: 2;
-  }
-  & > *:nth-child(7) {
-    -ms-grid-row: 2;
-    -ms-grid-column: 3;
-  }
-  & > *:nth-child(8) {
-    -ms-grid-row: 2;
-    -ms-grid-column: 4;
-  }
+  // grid-gap: 20px;
 }
 
 //LIST STYLES
@@ -154,9 +72,7 @@ ul {
       border-radius: 50%;
       left: 0;
       top: 50%;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+      transform: translateY(-50%);
     }
   }
 }
@@ -199,8 +115,7 @@ cite {
 
   &:hover + label:before {
     @include md {
-      -webkit-box-shadow: 0 0 0 2px rgba($green, 0.5);
-        box-shadow: 0 0 0 2px rgba($green, 0.5);
+      box-shadow: 0 0 0 2px rgba($green, 0.5);
     }
   }
 
@@ -224,8 +139,6 @@ cite {
     width: 14px;
     border-left: 2px solid $green;
     border-bottom: 2px solid $green;
-    -webkit-transform: rotate(-55deg);
-    -ms-transform: rotate(-55deg);
-      transform: rotate(-55deg);
+    transform: rotate(-55deg);
   }
 }

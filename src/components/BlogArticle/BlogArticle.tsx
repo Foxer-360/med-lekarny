@@ -1,6 +1,7 @@
 import * as React from 'react';
-import ReactMarkdown from 'react-markdown';
-import Media from '@source/partials/Media';
+import * as ReactMarkdown from 'react-markdown';
+
+import Media from '../../partials/Media';
 
 export interface BlogArticleProps {
   data: {

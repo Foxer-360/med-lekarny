@@ -1,4 +1,6 @@
-import React from 'react';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = require("react");
 var splitArray = function (array, size, classes) {
     var result = [];
     for (var i = 0; i < Math.ceil(array.length / size); i++) {
@@ -6,5 +8,5 @@ var splitArray = function (array, size, classes) {
     }
     return result;
 };
-export default splitArray;
+exports.default = splitArray;
 //# sourceMappingURL=splitArray.js.map

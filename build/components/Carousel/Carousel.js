@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -22,13 +23,14 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import * as React from 'react';
-import List from '../List';
-import Link from '@source/partials/Link';
-import Media from '@source/partials/Media';
-import Dots from './components/Dots';
-import LeftArrow from './components/LeftArrow';
-import RightArrow from './components/RightArrow';
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = require("react");
+var List_1 = require("../List");
+var Link_1 = require("../../partials/Link");
+var Media_1 = require("../../partials/Media");
+var Dots_1 = require("./components/Dots");
+var LeftArrow_1 = require("./components/LeftArrow");
+var RightArrow_1 = require("./components/RightArrow");
 var Carousel = /** @class */ (function (_super) {
     __extends(Carousel, _super);
     function Carousel(props) {
@@ -150,8 +152,8 @@ var Carousel = /** @class */ (function (_super) {
             data.map(function (slide, i) {
                 if (slide.image) {
                     result.push(React.createElement("div", { key: i, className: "slider__slide", id: 'slider__slide' },
-                        React.createElement(Link, __assign({}, slide.url),
-                            React.createElement(Media, { type: 'image', data: slide.image }))));
+                        React.createElement(Link_1.default, __assign({}, slide.url),
+                            React.createElement(Media_1.default, { type: 'image', data: slide.image }))));
                 }
             });
         }
@@ -165,30 +167,31 @@ var Carousel = /** @class */ (function (_super) {
                     transition: 'transform ease-out 0.25s'
                 } }, this.renderSlides(data)),
             this.state.showArrows ? (React.createElement(React.Fragment, null,
-                React.createElement(LeftArrow, { goToPrevSlide: this.goToPrevSlide }),
-                React.createElement(RightArrow, { goToNextSlide: this.goToNextSlide }))) : '',
+                React.createElement(LeftArrow_1.default, { goToPrevSlide: this.goToPrevSlide }),
+                React.createElement(RightArrow_1.default, { goToNextSlide: this.goToNextSlide }))) : '',
             this.state.showDots && this.state.slides.length > 0 ?
-                React.createElement(Dots, { goTo: this.goTo, len: this.state.slides.length, currentIndex: this.state.currentIndex }) : ''));
+                React.createElement(Dots_1.default, { goTo: this.goTo, len: this.state.slides.length, currentIndex: this.state.currentIndex }) : ''));
     };
     Carousel.prototype.render = function () {
         var _this = this;
         var displayOnTop = this.props.data.displayOnTop;
-        return (React.createElement(List, { data: this.state.slides }, function (_a) {
+        return (React.createElement(List_1.default, { data: this.state.slides }, function (_a) {
             var data = _a.data;
-            return (React.createElement("div", { className: 'carousel' },
+            return (React.createElement("div", null,
                 displayOnTop ? React.createElement("div", { className: 'carousel__divider' }) : '',
-                React.createElement("div", { className: 'carousel__images', style: displayOnTop ? {} : { gridRow: 'auto' } }, _this.renderSlider(data)),
-                React.createElement("div", { className: 'carousel__titles', style: displayOnTop ? {} : { gridRow: 'auto' } },
-                    React.createElement("ul", { className: 'carousel__titles__list' }, data && data.map(function (slide, i) { return (React.createElement("li", { key: i, onClick: function () { return _this.goTo(i); }, className: 'carousel__titles__list__item', style: i === _this.state.currentIndex ? {
-                            color: '#3eac49',
-                            backgroundColor: 'white',
-                            boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
-                            borderBottom: 'none !important'
-                        } : {} },
-                        React.createElement("i", null, slide.title))); })))));
+                React.createElement("div", { className: 'carousel' },
+                    React.createElement("div", { className: 'carousel__images' }, _this.renderSlider(data)),
+                    React.createElement("div", { className: 'carousel__titles' },
+                        React.createElement("ul", { className: 'carousel__titles__list' }, data && data.map(function (slide, i) { return (React.createElement("li", { key: i, onClick: function () { return _this.goTo(i); }, className: 'carousel__titles__list__item', style: i === _this.state.currentIndex ? {
+                                color: '#3eac49',
+                                backgroundColor: 'white',
+                                boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
+                                borderBottom: 'none !important'
+                            } : {} },
+                            React.createElement("i", null, slide.title))); }))))));
         }));
     };
     return Carousel;
 }(React.Component));
-export default Carousel;
+exports.default = Carousel;
 //# sourceMappingURL=Carousel.js.map

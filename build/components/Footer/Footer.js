@@ -1,3 +1,4 @@
+"use strict";
 var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
     if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
     return cooked;
@@ -26,22 +27,23 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import * as React from 'react';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
-import { adopt } from 'react-adopt';
-import Link from '../../partials/Link';
-import Social from './components/Social';
-import Loader from '@source/partials/Loader';
-import HelpPopup from './components/HelpPopup';
-import CookiePopup from './components/CookiePopup';
-import getFileUrl from '@source/helpers/getImageUrl';
-var GET_CONTEXT = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"])));
-var GET_PAGES_URLS = gql(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!, $websiteId: ID!) {\n    pagesUrls(where: { language: $language, websiteId: $websiteId }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!, $websiteId: ID!) {\n    pagesUrls(where: { language: $language, websiteId: $websiteId }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
-var ComposedQuery = adopt({
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = require("react");
+var graphql_tag_1 = require("graphql-tag");
+var react_apollo_1 = require("react-apollo");
+var react_adopt_1 = require("react-adopt");
+var Link_1 = require("../../partials/Link");
+var Social_1 = require("./components/Social");
+var Loader_1 = require("../../partials/Loader");
+var HelpPopup_1 = require("./components/HelpPopup");
+var CookiePopup_1 = require("./components/CookiePopup");
+var getImgUrl_1 = require("../../helpers/getImgUrl");
+var GET_CONTEXT = graphql_tag_1.default(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"])));
+var GET_PAGES_URLS = graphql_tag_1.default(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!, $websiteId: ID!) {\n    pagesUrls(where: { language: $language, websiteId: $websiteId }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!, $websiteId: ID!) {\n    pagesUrls(where: { language: $language, websiteId: $websiteId }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
+var ComposedQuery = react_adopt_1.adopt({
     context: function (_a) {
         var render = _a.render;
-        return React.createElement(Query, { query: GET_CONTEXT }, function (_a) {
+        return React.createElement(react_apollo_1.Query, { query: GET_CONTEXT }, function (_a) {
             var data = _a.data;
             return render(data);
         });
@@ -51,7 +53,7 @@ var ComposedQuery = adopt({
         if (!(languageData && websiteData)) {
             return render({});
         }
-        return (React.createElement(Query, { query: GET_PAGES_URLS, variables: { language: languageData.id, websiteId: websiteData.id } }, function (data) {
+        return (React.createElement(react_apollo_1.Query, { query: GET_PAGES_URLS, variables: { language: languageData.id, websiteId: websiteData.id } }, function (data) {
             return render(data);
         }));
     },
@@ -71,7 +73,7 @@ var Footer = /** @class */ (function (_super) {
                 !context.languagesData ||
                 !data ||
                 !data.pagesUrls) {
-                return React.createElement(Loader, null);
+                return React.createElement(Loader_1.default, null);
             }
             if (error) {
                 return "Error..." + error;
@@ -81,14 +83,14 @@ var Footer = /** @class */ (function (_super) {
             var bottomNav = 'bottom';
             var bottomNavItems = transformedNavigations && transformedNavigations[bottomNav] ? transformedNavigations[bottomNav] : [];
             return (React.createElement("footer", { style: { position: 'relative', width: '100%', bottom: '0' } },
-                React.createElement(HelpPopup, null),
-                React.createElement(CookiePopup, { lang: context.languageData.code }),
+                React.createElement(HelpPopup_1.default, null),
+                React.createElement(CookiePopup_1.default, { lang: context.languageData.code }),
                 React.createElement("div", { className: 'footer' },
                     React.createElement("div", { className: 'container' },
                         React.createElement("div", null,
                             React.createElement("ul", { className: 'footer__list' }, bottomNavItems && bottomNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
-                                React.createElement(Link, __assign({}, navItem.url), navItem.name || navItem.title))); })),
-                            React.createElement(Social, { icons: icons }))),
+                                React.createElement(Link_1.default, __assign({}, navItem.url), navItem.name || navItem.title))); })),
+                            React.createElement(Social_1.default, { icons: icons }))),
                     React.createElement("div", { className: 'footer__left' }),
                     React.createElement("div", { className: 'footer__right' })),
                 React.createElement("div", { className: "bottom" },
@@ -97,11 +99,10 @@ var Footer = /** @class */ (function (_super) {
                             React.createElement("div", null,
                                 React.createElement("p", null, copyrights),
                                 gdprFile && gdprFile.filename &&
-                                    React.createElement("a", { href: getFileUrl(gdprFile), download: true, target: '_blank' }, gdprText)),
-                            context.languageData.code === 'sr' && React.createElement("div", null,
-                                React.createElement("a", { href: "https://goo.gl/maps/XnV44iAtzgoUwv4P6", target: '_blank' }, "Jovana Du\u0107i\u0107a 68 78 000 Banja Luka"),
+                                    React.createElement("a", { href: getImgUrl_1.default(gdprFile), download: true, target: '_blank' }, gdprText)),
+                            context.languageData.code === 'en' && React.createElement("div", null,
+                                React.createElement("a", { target: '_blank', href: "https://goo.gl/maps/XnV44iAtzgoUwv4P6" }, "Jovana Du\u0107i\u0107a 68 78 000 Banja Luka"),
                                 React.createElement("a", { href: "tel:+38751491710" }, "+387 51 491 710"),
-                                React.createElement("a", { href: "http://pharmaventrum.ba", target: '_blank' }, "pharmaventrum.ba"),
                                 React.createElement("a", { href: "mailto:banjaluka@pharmacentrum.ba" }, "banjaluka@pharmacentrum.ba")))))));
         }));
     };
@@ -144,6 +145,6 @@ var Footer = /** @class */ (function (_super) {
     };
     return Footer;
 }(React.Component));
-export default Footer;
+exports.default = Footer;
 var templateObject_1, templateObject_2;
 //# sourceMappingURL=Footer.js.map

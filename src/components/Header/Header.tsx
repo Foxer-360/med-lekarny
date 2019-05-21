@@ -3,8 +3,8 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 
-import Link from '@source/partials/Link';
-import Loader from '@source/partials/Loader';
+import Link from '../../partials/Link';
+import Loader from '../../partials/Loader';
 import Hamburger from './components/Hamburger';
 
 const GET_CONTEXT = gql`
@@ -77,6 +77,33 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     });
   }
 
+  isActivePage = (url: string) => {    
+    if (window) {
+      const PARENT_PAGE = url.split('/');
+      const LOCATION_PARENT_PAGE = location.pathname.split('/');
+      
+      if (!PARENT_PAGE || !LOCATION_PARENT_PAGE) {
+        return false;
+      }
+
+      const PARENT_PAGE_SIZE = PARENT_PAGE.length;
+      const LOCATION_PARENT_PAGE_SIZE = LOCATION_PARENT_PAGE.length;
+
+      for (let i = PARENT_PAGE_SIZE - 1; i > 1; i--) {
+        for (let j = LOCATION_PARENT_PAGE_SIZE - 1; j > 1; j--) {
+          if (PARENT_PAGE_SIZE > j && LOCATION_PARENT_PAGE_SIZE > j) {
+            return PARENT_PAGE[j] === LOCATION_PARENT_PAGE[j] && true;
+          }
+        }
+      }
+
+      // HOME PAGE
+      if (PARENT_PAGE.length === 2 && LOCATION_PARENT_PAGE.length === 2) {
+        return PARENT_PAGE[1] === LOCATION_PARENT_PAGE[1] ? true : false;
+      } else { return false; }
+    }
+  }
+  
   public render() {
     this.state.menuActive ? (document.body.style.position = 'fixed') : (document.body.style.position = 'static');
     
@@ -144,7 +171,13 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                     <ul>
                       {mainNavItems &&
                         mainNavItems.map((navItem, i) => (
-                          <li key={i} className={context.pageData.name === navItem.name ? 'activePage' : ''}>
+                          <li 
+                            key={i} 
+                            className={
+                              navItem && navItem.url && navItem.url.url &&
+                              this.isActivePage(navItem.url.url) ? 'activePage' : ''
+                            }
+                          >
                             <Link {...navItem.url}>
                               {navItem.name || navItem.title}
                             </Link>

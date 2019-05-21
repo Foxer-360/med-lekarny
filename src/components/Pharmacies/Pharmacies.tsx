@@ -1,17 +1,17 @@
 import * as React from 'react';
-import ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown';
 
 import List from '../List';
-import Link from '@source/partials/Link';
-import Media from '@source/partials/Media';
+import Link from '../../partials/Link';
+import Media from '../../partials/Media';
 
 interface Pharmacie {
-  image?: LooseObject;
-  pharmacieUrl?: LooseObject;
-  address: string;
-  addressUrl?: LooseObject;
-  title: string;
   text: string;
+  title: string;
+  address: string;
+  image?: LooseObject;
+  addressUrl?: LooseObject;
+  pharmacieUrl?: LooseObject;
 }
 
 export interface PharmaciesProps {
@@ -30,18 +30,27 @@ const Pharmacies = (props: PharmaciesProps) => {
           <div className={'container'}>
             <div className={'pharmacies__divider'}>
               <div>
-                <img src={'/assets/mediconLekarny/images/pharmacies-divider-ad.png'} />
-              </div>          
-              <div>
-                <img src={'/assets/mediconLekarny/images/pharmacies-divider.png'} />
+                <img 
+                  alt={'divider image'}
+                  src={'/assets/mediconLekarny/images/pharmacies-divider-ad.png'} 
+                />
               </div>
               <div>
-                <img src={'/assets/mediconLekarny/images/pharmacies-divider-ad.png'} />
+                <img 
+                  alt={'divider image'}
+                  src={'/assets/mediconLekarny/images/pharmacies-divider.png'} 
+                />
+              </div>
+              <div>
+                <img 
+                  alt={'divider image'}
+                  src={'/assets/mediconLekarny/images/pharmacies-divider-ad.png'} 
+                />
               </div>
               <br style={{ clear: 'both'}} />
             </div>
-            
-            <div className={'pharmacies__list grid'}>
+
+            <div className={'pharmacies__list row'}>
               {data && data.map((pharmacie, i) => {
                 const {
                   text,
@@ -51,10 +60,10 @@ const Pharmacies = (props: PharmaciesProps) => {
                   addressUrl,
                   pharmacieUrl,
                 } = pharmacie;
-                
-                return (                  
-                  <div key={i} className={'pharmacies__list__item'}>
-                    {image && 
+
+                return (
+                  <div key={i} className={'pharmacies__list__item col-12 col-md-6 col-xl-3'}>
+                    {image &&
                       <Link {...pharmacieUrl}>
                         <Media type={'image'} data={image} />
                       </Link>}

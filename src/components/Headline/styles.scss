@@ -1,6 +1,9 @@
 .headline {
+  &--paddingTop {
+    padding-top: 15rem;
+  }
+
   h3 { 
     @include webkitGradientText;
-    @include max-md { padding-bottom: 30px; }
   }
 }

@@ -27,7 +27,8 @@ const Reviews = (props: ReviewsProps) => {
           <div className={'container'}>
             {divider && <div className={'reviews__divider'} />}
             {title && <h3>{title}</h3>}
-            <div className={'reviews__list grid'}>
+
+            <div className={'reviews__list row'}>
               {data && data.map((review, i) => (
                 <ReviewElement 
                   key={i} 

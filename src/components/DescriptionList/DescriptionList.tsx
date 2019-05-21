@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown';
 
 export interface DescriptionListProps {
   data: {
@@ -14,7 +14,7 @@ const DescriptionList = (props: DescriptionListProps) => {
   return (
     <section className={'description-list'}>
       <div className={'container'}>
-        
+
         {title && <h3>{title}</h3>}
         <div className={'description-list__content'}>
           {text && <ReactMarkdown source={text} />}

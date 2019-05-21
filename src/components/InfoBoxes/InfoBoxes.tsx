@@ -24,17 +24,17 @@ const InfoBoxes = (props: InfoBoxesProps) => {
   return (
     <List data={boxes}>
       {({ data }) => (
-        <section className={'info-boxes'} style={indentAtBottom ? {paddingBottom: 55} : {}}>
+        <section className={`info-boxes ${indentAtBottom ? 'info-boxes--paddingBottom' : ''}`}>
           <div className={'container'}>
             {dividerOnTop ? <div className={'info-boxes__divider'} /> : ''}
             {title && <h3>{title}</h3>}
-            <div className={'grid info-boxes__list'}>
+            <div className={'info-boxes__list row'}>
               {data && data.map((box, i) => (
                 <InfoElement
+                  key={i}
+                  url={box.url}
                   title={box.title}
                   image={box.image}
-                  url={box.url}
-                  key={i}
                 />
               ))}
             </div>

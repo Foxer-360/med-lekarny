@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import SvgIcon from '@source/partials/SvgIcon';
-import Link from '@source/partials/Link';
+import SvgIcon from '../../../../partials/SvgIcon';
+import Link from '../../../../partials/Link';
 
 export interface SocialProps {
   // tslint:disable-next-line:no-any

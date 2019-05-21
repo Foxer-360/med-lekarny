@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -9,16 +10,17 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import * as React from 'react';
-import Slider from 'react-slick';
-import List from '../List';
-import Link from '@source/partials/Link';
-import Media from '@source/partials/Media';
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = require("react");
+var react_slick_1 = require("react-slick");
+var List_1 = require("../List");
+var Link_1 = require("../../partials/Link");
+var Media_1 = require("../../partials/Media");
 var PromotionsAndDiscounts = function (props) {
-    return (React.createElement(List, { data: props.data.items || [] }, function (_a) {
+    return (React.createElement(List_1.default, { data: props.data.items || [] }, function (_a) {
         var items = _a.data;
         var arrayOfSlides = (items && items.map(function (slide, i) { return (React.createElement("div", { key: i },
-            React.createElement(Link, __assign({}, slide.url), slide.image && React.createElement(Media, { type: 'image', data: slide.image })))); })) || [];
+            React.createElement(Link_1.default, __assign({}, slide.url), slide.image && React.createElement(Media_1.default, { type: 'image', data: slide.image })))); })) || [];
         var settings = {
             infinite: true,
             speed: 1000,
@@ -42,8 +44,8 @@ var PromotionsAndDiscounts = function (props) {
         return (React.createElement("div", { className: 'prom-and-disc' },
             React.createElement("div", { className: "container" },
                 props.data.title && React.createElement("h3", null, props.data.title) || React.createElement("div", { style: { height: 50 } }),
-                React.createElement(Slider, __assign({}, settings), arrayOfSlides))));
+                React.createElement(react_slick_1.default, __assign({}, settings), arrayOfSlides))));
     }));
 };
-export default PromotionsAndDiscounts;
+exports.default = PromotionsAndDiscounts;
 //# sourceMappingURL=PromotionsAndDiscounts.js.map

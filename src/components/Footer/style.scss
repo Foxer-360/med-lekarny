@@ -15,7 +15,7 @@
     width: 80%;
     height: 100%;
     -webkit-clip-path: polygon(0 0%, 0% 100%, 100% 100%);
-        clip-path: polygon(0 0%, 0% 100%, 100% 100%);
+    clip-path: polygon(0 0%, 0% 100%, 100% 100%);
     background-image: -webkit-gradient(linear, right top, left top, from($lightBlue), to($green));
     background-image: -webkit-linear-gradient(right, $lightBlue 0%, $green 100%);
     background-image: -o-linear-gradient(right, $lightBlue 0%, $green 100%);
@@ -52,8 +52,11 @@
     li {
       padding: 0;
       display: inline;
-      margin-right: 35px;      
-      @include max-sm { margin-right: 15px; }
+      margin-right: 3.5rem;      
+      
+      @include max-sm {
+        margin-right: 1.5rem;
+      }
 
       &:before {
         content: none;
@@ -78,15 +81,17 @@
 
   a {
     color: white;
-    &:hover { text-decoration: underline !important; }
+
+    &:hover {
+      text-decoration: underline !important;
+    }
   }
 }
 
 .bottom {
   width: 100%;
-  padding: 12px 0;
+  padding: 2rem 0;
   background-color: #fff;
-  @include max-md { padding-bottom: 70px; }
 
   &__copyrights {
     display: table;
@@ -95,6 +100,7 @@
     div {
       display: table-cell;
       vertical-align: middle;
+
       &:nth-of-type(2) {
         padding-left: 2rem;
         text-align: right;

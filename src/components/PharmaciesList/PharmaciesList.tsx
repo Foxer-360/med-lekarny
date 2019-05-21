@@ -1,11 +1,11 @@
 import * as React from 'react';
-import ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown';
 
 import List from '../List';
-import Link from '@source/partials/Link';
+import Link from '../../partials/Link';
 import PcTitle from './components/title';
-import Media from '@source//partials/Media';
-import Button from '@source//partials/Button';
+import Media from '../../partials/Media';
+import Button from '../../partials/Button';
 
 interface Pharmacie {
   name: string;
@@ -44,17 +44,17 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                       <div className={'pcitem__img'}>
                         {pharmacie.image && <Media data={pharmacie.image} type="image" />}
                       </div>
-    
+
                       <div className={'pcitem__info'}>
                         <PcTitle name={pharmacie.name && pharmacie.name} />
-    
+
                         <div className="pcitem__info__details">
                           <div className="pcitem__info__details__item">
-                            <img 
-                              src="../../../assets/mediconLekarny/images/geoIcon.svg" 
-                              alt="Medicon GeoLocation Icon" 
+                            <img
+                              src="../../../assets/mediconLekarny/images/geoIcon.svg"
+                              alt="Medicon GeoLocation Icon"
                             />
-    
+
                             <p>
                               <Link {...pharmacie.addressUrl}>
                                 {pharmacie.address && pharmacie.address}
@@ -62,22 +62,22 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                               {pharmacie.district}
                             </p>
                           </div>
-    
+
                           <div className="pcitem__info__details__item">
-                            <img 
-                              src="../../../assets/mediconLekarny/images/phoneIcon.svg" 
-                              alt="Medicon Phone Icon" 
+                            <img
+                              src="../../../assets/mediconLekarny/images/phoneIcon.svg"
+                              alt="Medicon Phone Icon"
                             />
                             {pharmacie.phone && <a href={`tel:${pharmacie.phone}`}>{pharmacie.phone}</a>}
                           </div>
-    
+
                           <div className="pcitem__info__details__item">
                             {pharmacie.transportImage && <Media data={pharmacie.transportImage} type="image" />}
-    
-                            {!pharmacie.transportImage && 
+
+                            {!pharmacie.transportImage &&
                               <img src="../../../assets/mediconLekarny/images/metro.svg" alt="" />
                             }
-    
+
                             <p>
                               {pharmacie.transport}
                               <br />
@@ -85,8 +85,8 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                             </p>
                           </div>
                         </div>
-    
-                        {pharmacie.services && 
+
+                        {pharmacie.services &&
                           <div className={'pcitem__info__list'}>
                             <ReactMarkdown
                               source={pharmacie.services}
@@ -97,8 +97,8 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                             />
                           </div>
                         }
-    
-                        {pharmacie.description && 
+
+                        {pharmacie.description &&
                           <div className={'pcitem__info__desc'}>
                             <div className={'pcitem__info__desc__txt'}>
                               <ReactMarkdown
@@ -111,7 +111,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                             </div>
                           </div>
                         }
-    
+
                         <div className={'pcitem__info__btnHolder'}>
                           <Button url={pharmacie.url} classes="btn btn--greenBorder">vice info</Button>
                         </div>

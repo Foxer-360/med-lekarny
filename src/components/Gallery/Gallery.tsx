@@ -2,9 +2,9 @@ import * as React from 'react';
 import Responsive from 'react-responsive';
 
 import List from '../List';
-import Media from '@source/partials/Media';
-import Slider from '@source/partials/Slider';
-import splitArray from '@source/helpers/splitArray';
+import Media from '../../partials/Media';
+import Slider from '../../partials/Slider';
+import splitArray from '../../helpers/splitArray';
 
 interface Slide {
   image: LooseObject;

@@ -30,16 +30,16 @@ const CustomInfoBoxes = (props: CustomInfoBoxesProps) => {
           {title && title.length > 1 && <h3>{title}</h3>}
     
           <div className={'container'}>
-            <div className={'custom-info-boxes__list grid'}>
+            <div className={'custom-info-boxes__list row'}>
               {data && data.map((box, i) => (
                 <InfoElement
+                  key={i}
                   link={box.link}
-                  gradientColor={box.gradientColor}
                   title={box.title}
                   image={box.image}
                   button={box.button}
                   titleColor={box.titleColor}
-                  key={i}
+                  gradientColor={box.gradientColor}
                 />
               ))}
             </div>

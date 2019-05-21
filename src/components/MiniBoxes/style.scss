@@ -1,40 +1,63 @@
 .mini-boxes {
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
+  
+  @include max-md {
+    margin-bottom: 2.5rem;
+  }
 
   h3 { 
     @include webkitGradientText();
-    padding: 45px 0;
   }
 
   &__divider {
     display: block;
     width: 100%;
     height: 2px;
-    margin-top: 50px;
+    margin-top: 5rem;
     background-color: #7fd4e7;
+    
+    @include max-md {
+      margin-top: 2.5rem;
+    }
   }
 
   &__list {
-    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
-    -ms-grid-rows: auto;
-    grid-template-rows: auto;
-    position: relative;
-    justify-items: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-      -ms-flex-align: center;
-        align-items: center;
+    justify-content: space-between;
 
     &__item {
+      display: table;
       width: 100%;
-      height: 226px;
+      height: 100%;
+      min-height: 226px;
+      max-width: 265px;
       overflow: hidden;
       position: relative;
       background-size: cover;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+
       &:hover {
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+      }
+      
+      @media (max-width: 1200px) {
+        max-width: 308px;
+      }
+
+      @media (max-width: 991px) {
+        max-width: 228px;
+      }
+
+      @include max-md {
+        max-width: 260px;
+      }
+
+      @include max-sm {
+        max-width: 92%;
+        margin: 0 auto;
       }
 
       p {
@@ -43,10 +66,13 @@
         color: white;
         font-weight: 500;
         font-size: 1.8rem;
-        padding-left: 30px;
         position: relative;
         line-height: initial;
         text-transform: uppercase;
+        height: 100%;
+        display: table-cell;
+        vertical-align: bottom;
+        padding: 0 0 3rem 1.5rem;
       }
 
       &--colorGradient {

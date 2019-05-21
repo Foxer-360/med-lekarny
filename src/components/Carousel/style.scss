@@ -33,7 +33,8 @@
     cursor: pointer;
     transition: transform ease-in .1s;
 
-    .fa-arrow-right:before, .fa-arrow-left:before {
+    .fa-arrow-right:before, 
+    .fa-arrow-left:before {
       color: #222
     }
   }
@@ -88,31 +89,22 @@
 }
 
 .carousel {
-  display: -ms-grid;
-  display: grid;
+  height: 490px;
   background-color: #f4f5f6;
-  -ms-grid-rows: auto;
-  grid-template-rows: auto;
-  -ms-grid-columns: 75% 25%;
-  grid-template-columns: 75% 25%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-  @include max-md { grid-template-columns: 100%; }
-
-  & > *:nth-child(1) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-   }
-  & > *:nth-child(2) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-   }
+  
+  @media (max-width: 720px) {
+    height: 260px;
+  }
 
   &__divider {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    grid-row: 1/2;
+    display: block;
+    width: 100%;
     height: 136px;
-    @include max-md { height: 116px; }
+    
+    @include max-md {
+      height: 116px;
+    }
   }
 
   ul {
@@ -121,66 +113,58 @@
   }
 
   .mediaRatio  {
-    height: 490px;
+    height: 100%;
     padding-top: 0!important;
-
-    @media (max-width: 720px) { height: 260px; }
-  }
-
-  .slider {
-    @media (max-width: 720px) { height: 260px; }
   }
 
   &__images {
-    max-height: 490px;
-    min-height: 490px;
+    width: 75%;
+    height: 100%;
     overflow: hidden;
-    -ms-grid-row: 2;
-    -ms-grid-row-span: 1;
-    grid-row: 2/3;
+    display: inline-block;
 
-    @media (max-width: 720px) {
-      max-height: 260px;
-      min-height: 260px;
+    @include max-md {
+      width: 100%;
     }
   }
 
   &__titles {
+    width: 25%;
     height: 100%;
-    -ms-grid-row: 2;
-    -ms-grid-row-span: 1;
-    grid-row: 2/3;
     font-size: 1.8rem;
     overflow-y: hidden;
+    display: inline-block;
     text-transform: uppercase;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
 
-    @include max-md { display: none; }
+    @include max-md {
+      width: 0;
+      display: none;
+    }
     @media (max-width: 955px) { font-size: 1.6rem; }
     @media (max-width: 900px) { font-size: 1.4rem; }
     @media (max-width: 720px) { font-size: 1.2rem; }
 
     &__list {
-      display: -ms-grid;
-      display: grid;
       height: 100%;
-      -ms-grid-rows: (1fr)[5];
-      grid-template-rows: repeat(5, 1fr);
 
       &__item {
-        text-align: center;
+        width: 100%;
+        height: 20%;
+        display: table;
         cursor: pointer;
-        display: -ms-grid;
-        display: grid;
+        text-align: center;
         line-height: initial;
-        word-wrap: none;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-            -ms-flex-align: center;
-                align-items: center;
         text-transform: lowercase;
 
-        &:not(:last-of-type) { border-bottom: 2px solid #dddedf; }
+        &:not(:last-of-type) {
+          border-bottom: 2px solid #dddedf;
+        }
+
+        & > * {
+          display: table-cell;
+          vertical-align: middle;
+        }
       }
     }
   }

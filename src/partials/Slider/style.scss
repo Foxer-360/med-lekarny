@@ -42,18 +42,14 @@
   }
 
   &__nextArrow {
-    
-
     right: 30px;
     transform: translate3d(0,-50%,0) rotate(45deg);
-    
     @include max-md { right: 10px; }
   }
 
   &__backArrow {
     left: 30px;
     transform: translate3d(0,-50%,0) rotate(-135deg);
-
     @include max-md { left: 10px; }
   }
 

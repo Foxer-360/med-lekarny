@@ -1,5 +1,9 @@
 .payment-methods {
-  padding: 55px 0;
+  padding: 5rem 0 3rem 0;
+  
+  @include max-md {
+    padding-bottom: 2rem;
+  }
   
   h3 {
     @include webkitGradientText();
@@ -7,17 +11,11 @@
   }
   
   &__list {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    -ms-grid-rows: auto;
-    grid-template-rows: auto;
-    justify-items: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    grid-gap: 40px 20px;
+    justify-content: space-around;
 
     &__item {
+      padding: 1rem 0;
+      
       .mediaRatio {
         padding: 0 !important;
         width: 90px;

@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import List from '../List';
-import Link from '@source/partials/Link';
-import Media from '@source/partials/Media';
+import Link from '../../partials/Link';
+import Media from '../../partials/Media';
 
 import Dots from './components/Dots';
 import Slide from './components/Slide';
@@ -213,33 +213,35 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     return (
       <List data={this.state.slides}>
         {({ data }) => (
-          <div className={'carousel'}>
+          <div>
             {displayOnTop ? <div className={'carousel__divider'} /> : ''}
-    
-            <div className={'carousel__images'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
-              {this.renderSlider(data)}
+
+            <div className={'carousel'}>      
+              <div className={'carousel__images'}>
+                {this.renderSlider(data)}
+              </div>
+              
+              <div className={'carousel__titles'}>
+                <ul className={'carousel__titles__list'}>
+                  {data && data.map((slide, i) => (
+                    <li 
+                      key={i} 
+                      onClick={() => this.goTo(i)}
+                      className={'carousel__titles__list__item'}
+                      style={i === this.state.currentIndex ? { 
+                        color: '#3eac49', 
+                        backgroundColor: 'white',
+                        boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
+                        borderBottom: 'none !important'
+                      } : {}}
+                    >
+                      <i>{slide.title}</i>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            
-            <div className={'carousel__titles'} style={displayOnTop ? {} : { gridRow: 'auto' }}>
-              <ul className={'carousel__titles__list'}>
-                {data && data.map((slide, i) => (
-                  <li 
-                    key={i} 
-                    onClick={() => this.goTo(i)}
-                    className={'carousel__titles__list__item'}
-                    style={i === this.state.currentIndex ? { 
-                      color: '#3eac49', 
-                      backgroundColor: 'white',
-                      boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
-                      borderBottom: 'none !important'
-                    } : {}}
-                  >
-                    <i>{slide.title}</i>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>    
+          </div>
         )}
       </List>
     );

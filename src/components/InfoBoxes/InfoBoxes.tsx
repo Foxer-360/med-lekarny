@@ -5,8 +5,8 @@ import InfoElement from './components/InfoElement';
 
 interface Box {
   title: string;
-  image: LooseObject;
-  url: LooseObject;
+  image?: LooseObject;
+  url?: LooseObject;
 }
 
 export interface InfoBoxesProps {

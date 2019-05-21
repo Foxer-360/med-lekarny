@@ -8,7 +8,7 @@ interface Box {
   gradientColor: string;
   button: string;
   titleColor: string;
-  image: LooseObject;
+  image?: LooseObject;
   link?: LooseObject;
 }
 

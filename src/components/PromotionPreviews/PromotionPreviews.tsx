@@ -1,17 +1,15 @@
 import * as React from 'react';
-import Responsive from 'react-responsive';
+import Slider from 'react-slick';
 
 import List from '../List';
 import Link from '../../partials/Link';
-import Slider from '../../partials/Slider';
-import splitArray from '../../helpers/splitArray';
 
 interface PromotionPreview {
-  title: string;
-  description: string;
   date: string;
+  title: string;
   titleUrl: string;
-  url: LooseObject;
+  description: string;
+  url?: LooseObject;
 }
 
 export interface PromotionPreviewsProps {
@@ -20,10 +18,6 @@ export interface PromotionPreviewsProps {
   };
 }
 
-const Mobile = props => <Responsive {...props} minWidth={0} maxWidth={768} />;
-const Tablet = props => <Responsive {...props} minWidth={769} maxWidth={1249} />;
-const Default = props => <Responsive {...props} minWidth={1250} />;
-
 const PromotionPreviews = (props: PromotionPreviewsProps) => {
 
   return (
@@ -31,69 +25,63 @@ const PromotionPreviews = (props: PromotionPreviewsProps) => {
       {({ data: promotionPreviews }) => {
 
         const arrayOfSlides = (promotionPreviews && promotionPreviews.map((slide, i) => (
-          <div key={i} className={'promotion-previews__list__item grid'}>
-            <div className={'promotion-previews__list__item__left'}>
-              <p className={'promotion-previews__list__item__left__date'}>
-                {slide.date}
-              </p>
-            </div>
-            <div className={'promotion-previews__list__item__right'}>
-              <div className={'promotion-previews__list__item__right__wrapper'}>
-                <p className={'promotion-previews__list__item__right__title'}>
-                  {slide.title}
+          <div key={i}>
+            <div className={'promotion-previews__list__item row'}>
+              
+              <div className={'promotion-previews__list__item__left col-4 col-sm-3 col-md-4 col-lg-3 col-xl-4'}>
+                <p className={'promotion-previews__list__item__left__date'}>
+                  {slide.date}
                 </p>
-                <p className={'promotion-previews__list__item__right__description'}>
-                  {slide.description}
-                </p>
-                <Link 
-                  {...slide.url}
-                  className={'promotion-previews__list__item__right__url'}
-                >
-                  {slide.titleUrl}
-                </Link>
               </div>
+
+              <div className={'promotion-previews__list__item__right col-8 col-sm-9 col-md-8 col-lg-9 col-xl-8'}>
+                <div className={'promotion-previews__list__item__right__wrapper'}>
+                  <p className={'promotion-previews__list__item__right__title'}>
+                    {slide.title}
+                  </p>
+                  <p className={'promotion-previews__list__item__right__description'}>
+                    {slide.description}
+                  </p>
+                  <Link 
+                    {...slide.url}
+                    className={'promotion-previews__list__item__right__url'}
+                  >
+                    {slide.titleUrl}
+                  </Link>
+                </div>
+              </div>
+
             </div>
           </div>
         ))) || [];
-
-        let arrayOfDesktopSlides = [];
-        let arrayOfTabletSlides = [];
-        let arrayOfMobiletSlides = [];
-
-        arrayOfDesktopSlides = splitArray(arrayOfSlides, 3, 'promotion-previews__list');
-        arrayOfTabletSlides = splitArray(arrayOfSlides, 2, 'promotion-previews__list');
-        arrayOfMobiletSlides = splitArray(arrayOfSlides, 1, 'promotion-previews__list');
+      
+        var settings = {
+          speed: 3000,
+          dots: false,
+          arrows: false,
+          autoplay: true,
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          pauseOnHover: true,
+          responsive: [
+            {
+              breakpoint: 1200,
+              settings: { slidesToShow: 2 }
+            },
+            {
+              breakpoint: 768,
+              settings: { slidesToShow: 1 }
+            }
+          ]
+        };
 
         return (
           <div className={'promotions'}>
             <div className={'container'}>
-            <Default>
-              <Slider 
-                delay={7000}
-                showDots={false}
-                showArrows={false}
-                slides={arrayOfDesktopSlides}
-                autoplay={arrayOfSlides.length > 3 ? true : false}
-              />
-            </Default>
-            <Tablet>
-              <Slider 
-                showArrows={false}
-                delay={7000}
-                showDots={false}
-                slides={arrayOfTabletSlides}
-                autoplay={arrayOfSlides.length > 2 ? true : false}
-              />
-            </Tablet>
-            <Mobile>
-              <Slider 
-                delay={7000}
-                showDots={false}
-                showArrows={false}
-                slides={arrayOfMobiletSlides}
-                autoplay={arrayOfSlides.length > 1 ? true : false}
-              />
-            </Mobile>
+              <Slider {...settings}>
+                {arrayOfSlides}
+              </Slider>
             </div>
           </div>
         ); 

@@ -1,14 +1,15 @@
 .promotions {
   z-index: 5;
-  max-height: 100%;
+  padding: 5rem 0;
   overflow: hidden;
   background-color: white;
-  box-shadow: 0 0 40px rgba(0, 64, 79, 0.12);
+  box-shadow: 0 0 4rem rgba(0, 64, 79, 0.12);
 
+  @include max-md {
+    padding: 2.5rem 0;
+  }
+  
   .promotion-previews {
-    height: 100%;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
     
     .mediaRatio {
       padding: 0 !important;
@@ -16,98 +17,34 @@
       height: 100%;
     }
   
-    .slider {
-      &__arrow {
-        top: 33%;
-        width: 50px;
-        height: 100px;
-        display: block;
-        background-color: rgba(255, 255, 255, 0.8);
-  
-        &:after {
-          position: relative;
-          left: 40%;
-          top: 50%;
-          content: '';
-          width: 14px;
-          height: 14px;
-          display: block;
-          border-top: 3px solid $green;
-          border-right: 3px solid $green;
-        }
-      }
-  
-      &__backArrow {
-        left: -10px;
-        border-radius: 0 100% 100% 0 / 0 50% 50% 0;
-  
-        &:after {
-          transform: translate3d(0,-50%,0) rotate(-135deg);
-        }
-      }
-  
-      &__nextArrow {
-        right: -10px;
-        border-radius: 100% 0 0 100% / 50% 0 0 50%;
-  
-        &:after {
-          transform: translate3d(0,-50%,0) rotate(45deg);
-        }
-      }
-    }
-  
     &__list {
       padding: 3rem 0;
-      display: grid;
-      grid-gap: 20px;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto;
-  
-      @include max-xl {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-      }
-  
-      @include max-md {
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: auto;
-      }
 
       &__item {
-        grid-template-columns: 100px 1fr;
-        grid-template-rows: auto;
-        grid-gap: 10px;
     
         &__left {
-          height: 100%;
-          display: table;
+          display: flex;
 
           &__date {
+            line-height: 1;
             color: #37ac5c;
             font-size: 4.8rem;
-            display: table-cell;
-            vertical-align: middle;
+            align-self: center;
             @include webkitGradientText();
           }
         }
         
         &__right {
           white-space: normal;
-          height: 100%;
-          display: table;
-
-          &__wrapper {
-            display: table-cell;
-            vertical-align: middle;
-          }
 
           &__title {
-            font-size: 1.6rem;
             font-weight: 700;
+            font-size: 1.6rem;
+            line-height: inherit;
             letter-spacing: 0.75px;
             text-transform: uppercase;
-            line-height: inherit;
           }
+
           &__description {
             font-size: 1.4rem;
             line-height: 2rem;
@@ -121,8 +58,13 @@
             letter-spacing: 0.75px;
             transition: $customEase;
 
-            @media (max-width: 380px) { font-size: 1.4rem; }
-            &:hover { text-decoration: underline; }
+            @media (max-width: 380px) {
+              font-size: 1.4rem;
+            }
+
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
       }

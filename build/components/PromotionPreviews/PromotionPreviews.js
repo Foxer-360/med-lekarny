@@ -12,39 +12,44 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var react_responsive_1 = require("react-responsive");
+var react_slick_1 = require("react-slick");
 var List_1 = require("../List");
 var Link_1 = require("../../partials/Link");
-var Slider_1 = require("../../partials/Slider");
-var splitArray_1 = require("../../helpers/splitArray");
-var Mobile = function (props) { return React.createElement(react_responsive_1.default, __assign({}, props, { minWidth: 0, maxWidth: 768 })); };
-var Tablet = function (props) { return React.createElement(react_responsive_1.default, __assign({}, props, { minWidth: 769, maxWidth: 1249 })); };
-var Default = function (props) { return React.createElement(react_responsive_1.default, __assign({}, props, { minWidth: 1250 })); };
 var PromotionPreviews = function (props) {
     return (React.createElement(List_1.default, { data: props.data.promotionPreviews || [] }, function (_a) {
         var promotionPreviews = _a.data;
-        var arrayOfSlides = (promotionPreviews && promotionPreviews.map(function (slide, i) { return (React.createElement("div", { key: i, className: 'promotion-previews__list__item grid' },
-            React.createElement("div", { className: 'promotion-previews__list__item__left' },
-                React.createElement("p", { className: 'promotion-previews__list__item__left__date' }, slide.date)),
-            React.createElement("div", { className: 'promotion-previews__list__item__right' },
-                React.createElement("div", { className: 'promotion-previews__list__item__right__wrapper' },
-                    React.createElement("p", { className: 'promotion-previews__list__item__right__title' }, slide.title),
-                    React.createElement("p", { className: 'promotion-previews__list__item__right__description' }, slide.description),
-                    React.createElement(Link_1.default, __assign({}, slide.url, { className: 'promotion-previews__list__item__right__url' }), slide.titleUrl))))); })) || [];
-        var arrayOfDesktopSlides = [];
-        var arrayOfTabletSlides = [];
-        var arrayOfMobiletSlides = [];
-        arrayOfDesktopSlides = splitArray_1.default(arrayOfSlides, 3, 'promotion-previews__list');
-        arrayOfTabletSlides = splitArray_1.default(arrayOfSlides, 2, 'promotion-previews__list');
-        arrayOfMobiletSlides = splitArray_1.default(arrayOfSlides, 1, 'promotion-previews__list');
+        var arrayOfSlides = (promotionPreviews && promotionPreviews.map(function (slide, i) { return (React.createElement("div", { key: i },
+            React.createElement("div", { className: 'promotion-previews__list__item row' },
+                React.createElement("div", { className: 'promotion-previews__list__item__left col-4 col-sm-3 col-md-4 col-lg-3 col-xl-4' },
+                    React.createElement("p", { className: 'promotion-previews__list__item__left__date' }, slide.date)),
+                React.createElement("div", { className: 'promotion-previews__list__item__right col-8 col-sm-9 col-md-8 col-lg-9 col-xl-8' },
+                    React.createElement("div", { className: 'promotion-previews__list__item__right__wrapper' },
+                        React.createElement("p", { className: 'promotion-previews__list__item__right__title' }, slide.title),
+                        React.createElement("p", { className: 'promotion-previews__list__item__right__description' }, slide.description),
+                        React.createElement(Link_1.default, __assign({}, slide.url, { className: 'promotion-previews__list__item__right__url' }), slide.titleUrl)))))); })) || [];
+        var settings = {
+            speed: 3000,
+            dots: false,
+            arrows: false,
+            autoplay: true,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            pauseOnHover: true,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: { slidesToShow: 2 }
+                },
+                {
+                    breakpoint: 768,
+                    settings: { slidesToShow: 1 }
+                }
+            ]
+        };
         return (React.createElement("div", { className: 'promotions' },
             React.createElement("div", { className: 'container' },
-                React.createElement(Default, null,
-                    React.createElement(Slider_1.default, { delay: 7000, showDots: false, showArrows: false, slides: arrayOfDesktopSlides, autoplay: arrayOfSlides.length > 3 ? true : false })),
-                React.createElement(Tablet, null,
-                    React.createElement(Slider_1.default, { showArrows: false, delay: 7000, showDots: false, slides: arrayOfTabletSlides, autoplay: arrayOfSlides.length > 2 ? true : false })),
-                React.createElement(Mobile, null,
-                    React.createElement(Slider_1.default, { delay: 7000, showDots: false, showArrows: false, slides: arrayOfMobiletSlides, autoplay: arrayOfSlides.length > 1 ? true : false })))));
+                React.createElement(react_slick_1.default, __assign({}, settings), arrayOfSlides))));
     }));
 };
 exports.default = PromotionPreviews;

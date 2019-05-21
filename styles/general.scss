@@ -142,3 +142,10 @@ cite {
     transform: rotate(-55deg);
   }
 }
+
+
+.slick-arrow {
+  &::before {
+    color: black !important;
+  }
+}

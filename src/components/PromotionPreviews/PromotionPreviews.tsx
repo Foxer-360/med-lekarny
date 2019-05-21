@@ -56,7 +56,7 @@ const PromotionPreviews = (props: PromotionPreviewsProps) => {
         ))) || [];
       
         var settings = {
-          speed: 3000,
+          speed: 1000,
           dots: false,
           arrows: false,
           autoplay: true,

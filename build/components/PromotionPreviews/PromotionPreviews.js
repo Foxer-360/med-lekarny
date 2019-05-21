@@ -28,7 +28,7 @@ var PromotionPreviews = function (props) {
                         React.createElement("p", { className: 'promotion-previews__list__item__right__description' }, slide.description),
                         React.createElement(Link_1.default, __assign({}, slide.url, { className: 'promotion-previews__list__item__right__url' }), slide.titleUrl)))))); })) || [];
         var settings = {
-            speed: 3000,
+            speed: 1000,
             dots: false,
             arrows: false,
             autoplay: true,

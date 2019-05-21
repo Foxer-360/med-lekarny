@@ -1,10 +1,8 @@
 import * as React from 'react';
-import Responsive from 'react-responsive';
+import Slider from 'react-slick';
 
 import List from '../List';
 import Media from '../../partials/Media';
-import Slider from '../../partials/Slider';
-import splitArray from '../../helpers/splitArray';
 
 interface Slide {
   image: LooseObject;
@@ -16,60 +14,52 @@ export interface GalleryProps {
   };
 }
 
-const Mobile = props => <Responsive {...props} maxWidth={576} />;
-const Tablet = props => <Responsive {...props} minWidth={577} maxWidth={991} />;
-const Default = props => <Responsive {...props} minWidth={992} />;
-
 const Gallery = (props: GalleryProps) => {
 
   return (
     <List data={props.data.slides || []}>
       {({ data: slides }) => {
       
-        let arrayOfSlides = (slides && slides.map((slide, i) => (
-          <div className={'gallery__list__item'} key={i}>
-            {slide.image && <Media type={'image'} data={slide.image} />}
+        const arrayOfSlides = (slides && slides.map((slide, i) => (
+          <div key={i}>
+            <div className={'gallery__item'}>
+              {slide.image && <Media type={'image'} data={slide.image} />}
+            </div>
           </div>
         ))) || [];
       
-        let arrayOfDesktopSlides = [];
-        let arrayOfTabletSlides = [];
-        let arrayOfMobiletSlides = [];
-      
-        arrayOfDesktopSlides = splitArray(arrayOfSlides, 4, 'gallery__list');
-        arrayOfTabletSlides = splitArray(arrayOfSlides, 2, 'gallery__list');
-        arrayOfMobiletSlides = splitArray(arrayOfSlides, 1, 'gallery__list');
+        var settings = {
+          speed: 1000,
+          dots: false,
+          arrows: true,
+          autoplay: true,
+          infinite: true,         
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          pauseOnHover: true,
+          responsive: [
+            {
+              breakpoint: 1200,
+              settings: { slidesToShow: 3 }
+            },
+            {
+              breakpoint: 992,
+              settings: { slidesToShow: 2 }
+            },
+            {
+              breakpoint: 768,
+              settings: { slidesToShow: 1 }
+            }
+
+          ]
+        };
 
         return (
           <div className={'gallery'}>
             <div className={'container'}>
-              <Default>
-                <Slider 
-                  delay={7000}
-                  showDots={false}
-                  slides={arrayOfDesktopSlides}
-                  autoplay={arrayOfSlides.length > 4 ? true : false}
-                  showArrows={arrayOfSlides.length > 4 ? true : false}
-                />
-              </Default>
-              <Tablet>
-                <Slider 
-                  delay={7000}
-                  showDots={false}
-                  slides={arrayOfTabletSlides}
-                  autoplay={arrayOfSlides.length > 2 ? true : false}
-                  showArrows={arrayOfSlides.length > 2 ? true : false}
-                />
-              </Tablet>
-              <Mobile>
-                <Slider 
-                  delay={7000}
-                  showDots={false}
-                  slides={arrayOfMobiletSlides}
-                  autoplay={arrayOfSlides.length > 1 ? true : false}
-                  showArrows={arrayOfSlides.length > 1 ? true : false}
-                />
-              </Mobile>
+              <Slider {...settings}>
+                {arrayOfSlides}
+              </Slider>
             </div>
           </div>
         );

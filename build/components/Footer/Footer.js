@@ -100,10 +100,9 @@ var Footer = /** @class */ (function (_super) {
                                 React.createElement("p", null, copyrights),
                                 gdprFile && gdprFile.filename &&
                                     React.createElement("a", { href: getImgUrl_1.default(gdprFile), download: true, target: '_blank' }, gdprText)),
-                            context.languageData.code === 'sr' && React.createElement("div", null,
-                                React.createElement("a", { href: "https://goo.gl/maps/XnV44iAtzgoUwv4P6", target: '_blank' }, "Jovana Du\u0107i\u0107a 68 78 000 Banja Luka"),
+                            context.languageData.code === 'en' && React.createElement("div", null,
+                                React.createElement("a", { target: '_blank', href: "https://goo.gl/maps/XnV44iAtzgoUwv4P6" }, "Jovana Du\u0107i\u0107a 68 78 000 Banja Luka"),
                                 React.createElement("a", { href: "tel:+38751491710" }, "+387 51 491 710"),
-                                React.createElement("a", { href: "http://pharmaventrum.ba", target: '_blank' }, "pharmaventrum.ba"),
                                 React.createElement("a", { href: "mailto:banjaluka@pharmacentrum.ba" }, "banjaluka@pharmacentrum.ba")))))));
         }));
     };

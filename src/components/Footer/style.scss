@@ -52,8 +52,11 @@
     li {
       padding: 0;
       display: inline;
-      margin-right: 35px;      
-      @include max-sm { margin-right: 15px; }
+      margin-right: 3.5rem;      
+      
+      @include max-sm {
+        margin-right: 1.5rem;
+      }
 
       &:before {
         content: none;
@@ -87,12 +90,8 @@
 
 .bottom {
   width: 100%;
-  padding: 12px 0;
+  padding: 2rem 0;
   background-color: #fff;
-  
-  @include max-md {
-    padding-bottom: 70px;
-  }
 
   &__copyrights {
     display: table;
@@ -101,6 +100,7 @@
     div {
       display: table-cell;
       vertical-align: middle;
+
       &:nth-of-type(2) {
         padding-left: 2rem;
         text-align: right;

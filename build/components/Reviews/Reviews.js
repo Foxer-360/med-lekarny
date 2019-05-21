@@ -11,7 +11,7 @@ var Reviews = function (props) {
             React.createElement("div", { className: 'container' },
                 divider && React.createElement("div", { className: 'reviews__divider' }),
                 title && React.createElement("h3", null, title),
-                React.createElement("div", { className: 'reviews__list grid' }, data && data.map(function (review, i) { return (React.createElement(ReviewElement_1.default, { key: i, image: review.image, cite: review.cite, starCount: review.starCount })); })))));
+                React.createElement("div", { className: 'reviews__list row' }, data && data.map(function (review, i) { return (React.createElement(ReviewElement_1.default, { key: i, image: review.image, cite: review.cite, starCount: review.starCount })); })))));
     }));
 };
 exports.default = Reviews;

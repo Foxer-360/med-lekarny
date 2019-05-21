@@ -1,61 +1,63 @@
 .mini-boxes {
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
+  
+  @include max-md {
+    margin-bottom: 2.5rem;
+  }
 
   h3 { 
     @include webkitGradientText();
-    padding: 45px 0;
   }
 
   &__divider {
     display: block;
     width: 100%;
     height: 2px;
-    margin-top: 50px;
+    margin-top: 5rem;
     background-color: #7fd4e7;
+    
+    @include max-md {
+      margin-top: 2.5rem;
+    }
   }
 
   &__list {
-    grid-gap: 2rem;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
-    
-    @include max-lg {
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto;
-    }
-
-    @include max-md {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
-    }
-
-    @include max-sm {
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: auto;
-    }
-
-    & > * {
-      justify-self: center;
-      align-self: center;
-    }
+    justify-content: space-between;
 
     &__item {
+      display: table;
       width: 100%;
       height: 100%;
       min-height: 226px;
       max-width: 265px;
-      margin: 1rem 0;
       overflow: hidden;
       position: relative;
       background-size: cover;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 
-      @include max-sm {
-        max-width: 100%;
+      &:not(:last-child) {
+        margin-bottom: 2rem;
       }
 
       &:hover {
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+      }
+      
+      @media (max-width: 1200px) {
+        max-width: 308px;
+      }
+
+      @media (max-width: 991px) {
+        max-width: 228px;
+      }
+
+      @include max-md {
+        max-width: 260px;
+      }
+
+      @include max-sm {
+        max-width: 92%;
+        margin: 0 auto;
       }
 
       p {
@@ -64,10 +66,13 @@
         color: white;
         font-weight: 500;
         font-size: 1.8rem;
-        padding-left: 30px;
         position: relative;
         line-height: initial;
         text-transform: uppercase;
+        height: 100%;
+        display: table-cell;
+        vertical-align: bottom;
+        padding: 0 0 3rem 1.5rem;
       }
 
       &--colorGradient {

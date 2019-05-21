@@ -5,6 +5,5 @@
 
   h3 { 
     @include webkitGradientText;
-    @include max-md { padding-bottom: 30px; }
   }
 }

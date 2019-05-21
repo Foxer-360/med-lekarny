@@ -1,14 +1,14 @@
 .helpPopup {
-  bottom: 0px;
-  position: fixed;
-  -webkit-box-shadow: 0 0 13px rgba(0, 52, 97, 0.18);
-        box-shadow: 0 0 13px rgba(0, 52, 97, 0.18);
   z-index: 998;
   width: 100%;
-  -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-        transform: translateX(-50%);
+  bottom: 0px;
   left: 50%;
+  position: fixed;
+  -webkit-box-shadow: 0 0 13px rgba(0, 52, 97, 0.18);
+  box-shadow: 0 0 13px rgba(0, 52, 97, 0.18);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
 
   @include md {
     right: 0;
@@ -17,7 +17,7 @@
     bottom: 0;
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
-        transform: translateX(0%);
+    transform: translateX(0%);
   }
 
   &--active {
@@ -26,7 +26,7 @@
         &:after {
           -webkit-transform: rotate(45deg);
           -ms-transform: rotate(45deg);
-              transform: rotate(45deg);
+          transform: rotate(45deg);
         }
       }
     }
@@ -60,12 +60,9 @@
         border-bottom: 2px solid $blue;
         -webkit-transform: rotate(-135deg);
         -ms-transform: rotate(-135deg);
-            transform: rotate(-135deg);
+        transform: rotate(-135deg);
         top: 20px;
       }
-    }
-
-    p {
     }
   }
 

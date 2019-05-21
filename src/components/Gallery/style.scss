@@ -25,7 +25,7 @@
     &__backArrow {
       left: -10px;
       -webkit-border-radius: 0 100% 100% 0 / 0 50% 50% 0;
-        border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+      border-radius: 0 100% 100% 0 / 0 50% 50% 0;
 
       &:after {
         -webkit-transform: translate3d(0,-50%,0) rotate(-135deg);
@@ -36,7 +36,7 @@
     &__nextArrow {
       right: -10px;
       -webkit-border-radius: 100% 0 0 100% / 50% 0 0 50%;
-        border-radius: 100% 0 0 100% / 50% 0 0 50%;
+      border-radius: 100% 0 0 100% / 50% 0 0 50%;
 
       &:after {
         -webkit-transform: translate3d(0,-50%,0) rotate(45deg);

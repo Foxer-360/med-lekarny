@@ -26,17 +26,17 @@ const MenuBlocks = (props: MenuBlocksProps) => {
     <List data={menuBlocks}>
       {({ data }) => (
         <div className="container">
-          <div className={'menu-blocks grid'}>
+          <div className={'menu-blocks row'}>
             {data && data.map((block, i) => {
               return (
                 <Link 
                   key={i}
                   {...block.url}
-                  className={'menu-blocks__item'}
+                  className={`menu-blocks__item ${i <= 1 ? 'col-12 col-md-6 ' : 'col-12 col-md-4 col-xl-3'}`}
                   style={{ backgroundImage: block.image && `url(${getImageUrl(block.image)})` }}
                 >
                   {block.icon && <Media type={'image'} data={block.icon} />}
-                  <p>{block.title && block.title}</p>
+                  {block.title && <p>{block.title}</p>}
                   <div
                     className={'menu-blocks__item__colorGradient'}
                     style={{ 

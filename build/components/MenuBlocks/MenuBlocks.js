@@ -21,10 +21,10 @@ var MenuBlocks = function (props) {
     return (React.createElement(List_1.default, { data: menuBlocks }, function (_a) {
         var data = _a.data;
         return (React.createElement("div", { className: "container" },
-            React.createElement("div", { className: 'menu-blocks grid' }, data && data.map(function (block, i) {
-                return (React.createElement(Link_1.default, __assign({ key: i }, block.url, { className: 'menu-blocks__item', style: { backgroundImage: block.image && "url(" + getImageUrl_1.default(block.image) + ")" } }),
+            React.createElement("div", { className: 'menu-blocks row' }, data && data.map(function (block, i) {
+                return (React.createElement(Link_1.default, __assign({ key: i }, block.url, { className: "menu-blocks__item " + (i <= 1 ? 'col-12 col-md-6 ' : 'col-12 col-md-4 col-xl-3'), style: { backgroundImage: block.image && "url(" + getImageUrl_1.default(block.image) + ")" } }),
                     block.icon && React.createElement(Media_1.default, { type: 'image', data: block.icon }),
-                    React.createElement("p", null, block.title && block.title),
+                    block.title && React.createElement("p", null, block.title),
                     React.createElement("div", { className: 'menu-blocks__item__colorGradient', style: {
                             background: "linear-gradient(40deg, " + (block.color && block.color || '#3eac49') + " 0%, \n                        transparent 100%)"
                         } })));

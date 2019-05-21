@@ -15,7 +15,7 @@
     width: 80%;
     height: 100%;
     -webkit-clip-path: polygon(0 0%, 0% 100%, 100% 100%);
-        clip-path: polygon(0 0%, 0% 100%, 100% 100%);
+    clip-path: polygon(0 0%, 0% 100%, 100% 100%);
     background-image: -webkit-gradient(linear, right top, left top, from($lightBlue), to($green));
     background-image: -webkit-linear-gradient(right, $lightBlue 0%, $green 100%);
     background-image: -o-linear-gradient(right, $lightBlue 0%, $green 100%);
@@ -78,7 +78,10 @@
 
   a {
     color: white;
-    &:hover { text-decoration: underline !important; }
+
+    &:hover {
+      text-decoration: underline !important;
+    }
   }
 }
 
@@ -86,7 +89,10 @@
   width: 100%;
   padding: 12px 0;
   background-color: #fff;
-  @include max-md { padding-bottom: 70px; }
+  
+  @include max-md {
+    padding-bottom: 70px;
+  }
 
   &__copyrights {
     display: table;

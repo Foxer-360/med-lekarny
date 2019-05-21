@@ -24,15 +24,15 @@ var Pharmacies = function (props) {
             React.createElement("div", { className: 'container' },
                 React.createElement("div", { className: 'pharmacies__divider' },
                     React.createElement("div", null,
-                        React.createElement("img", { src: '/assets/mediconLekarny/images/pharmacies-divider-ad.png' })),
+                        React.createElement("img", { alt: 'divider image', src: '/assets/mediconLekarny/images/pharmacies-divider-ad.png' })),
                     React.createElement("div", null,
-                        React.createElement("img", { src: '/assets/mediconLekarny/images/pharmacies-divider.png' })),
+                        React.createElement("img", { alt: 'divider image', src: '/assets/mediconLekarny/images/pharmacies-divider.png' })),
                     React.createElement("div", null,
-                        React.createElement("img", { src: '/assets/mediconLekarny/images/pharmacies-divider-ad.png' })),
+                        React.createElement("img", { alt: 'divider image', src: '/assets/mediconLekarny/images/pharmacies-divider-ad.png' })),
                     React.createElement("br", { style: { clear: 'both' } })),
-                React.createElement("div", { className: 'pharmacies__list grid' }, data && data.map(function (pharmacie, i) {
+                React.createElement("div", { className: 'pharmacies__list row' }, data && data.map(function (pharmacie, i) {
                     var text = pharmacie.text, image = pharmacie.image, title = pharmacie.title, address = pharmacie.address, addressUrl = pharmacie.addressUrl, pharmacieUrl = pharmacie.pharmacieUrl;
-                    return (React.createElement("div", { key: i, className: 'pharmacies__list__item' },
+                    return (React.createElement("div", { key: i, className: 'pharmacies__list__item col-12 col-md-6 col-xl-3' },
                         image &&
                             React.createElement(Link_1.default, __assign({}, pharmacieUrl),
                                 React.createElement(Media_1.default, { type: 'image', data: image })),

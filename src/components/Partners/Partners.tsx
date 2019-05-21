@@ -1,7 +1,8 @@
 import * as React from 'react';
-import Media from '@source/partials/Media';
-import Link from '@source/partials/Link';
+
 import List from '../List';
+import Link from '@source/partials/Link';
+import Media from '@source/partials/Media';
 
 interface Partner {
   image: LooseObject;
@@ -27,14 +28,16 @@ const Partners = (props: PartnersProps) => {
             
             {title && <h3>{title}</h3>}
     
-            <div className={'partners__list grid'}>
+            <div className={'partners__list row'}>
               {data && data.map((partner, i) => {
                 return (
                   <Link 
-                    key={i} 
+                    key={i}
+                    className={'col-xs'}
                     {...partner.url}
                   >
-                    {partner.image && <Media type={'image'} data={partner.image} />}
+                    {partner.image && 
+                      <Media type={'image'} data={partner.image} />}
                   </Link>
                 );
               })}

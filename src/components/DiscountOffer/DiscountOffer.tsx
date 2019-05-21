@@ -1,8 +1,8 @@
 import * as React from 'react';
+import * as ReactMarkdown from 'react-markdown';
 
 import Media from '@source/partials/Media';
 import Link from '@source/partials/Link';
-import * as ReactMarkdown from 'react-markdown';
 
 export interface DiscountOfferProps {
   data: {
@@ -35,25 +35,27 @@ const DiscountOffer = (props: DiscountOfferProps) => {
   return (
     <div className={'discount-offer'}>
       <div className="container">
-        <div className={'discount-offer__list grid'}>
-          <div className={'discount-offer__list__item grid'}>
+        <div className={'discount-offer__list row'}>
+          
+          <div className={'discount-offer__list__item col-12 col-xl-6'}>
             {discountText && <ReactMarkdown source={discountText} />}
             {discountImage && <Media type={'image'} data={discountImage} />}
           </div>
-          <div className={'discount-offer__list__item grid'}>
+          <div className={'discount-offer__list__item col-12 col-xl-6'}>
             {couponText && <ReactMarkdown source={couponText} />}
             {couponImage && <Media type={'image'} data={couponImage} />}
           </div>
-          <div className={'discount-offer__list__item grid'}>
+          <div className={'discount-offer__list__item col-12 col-xl-6'}>
             {promotionText && <ReactMarkdown source={promotionText} />}
             {promotionImage && <Media type={'image'} data={promotionImage} />}
           </div>
-          <Link {...productUrl}>
-            <div className={'discount-offer__list__item grid'}>
+          <div className={'discount-offer__list__item col-12 col-xl-6'}>
+            <Link {...productUrl}>
               <span>{productText && productText}</span>
               {productImage && <Media type={'image'} data={productImage} />}
-            </div>
-          </Link>
+            </Link>
+          </div>
+
         </div>
       </div>
     </div>

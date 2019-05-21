@@ -2,7 +2,7 @@
   
   h3 {
     @include webkitGradientText();
-    padding: 4.5rem !important;
+    word-break: break-word;
   }
 
   &__divider {
@@ -13,30 +13,16 @@
   }
 
   &__list {
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    grid-gap: 4rem 2rem;
-
-    @include max-xl {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto;
-    }
-    @include max-lg {
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto;
-    }
-    @include max-md {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
-    }
+    justify-content: space-between;
+    
     @include max-sm {
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: auto;
+      justify-content: space-around;
     }
 
-    & > * {
-      justify-self: center;
-      align-self: center;
+    a {
+      &:not(:last-of-type) {
+        margin-bottom: 2rem;
+      }
     }
 
     .mediaRatio {

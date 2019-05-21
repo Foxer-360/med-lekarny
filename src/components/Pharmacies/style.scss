@@ -22,7 +22,7 @@
       }
 
       &:nth-of-type(2){
-        padding: 0 20px;
+        padding: 0 2rem;
 
         img {
           display: block;
@@ -60,18 +60,10 @@
   }
 
   &__list {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
-    grid-gap: 20px;
+    justify-content: space-between;
 
-    @include max-lg {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
-    }
     @include max-sm {
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: auto;
-      grid-gap: 40px;
+      justify-content: space-around;
     }
 
     &__item {
@@ -79,10 +71,21 @@
       max-width: 220px;
       min-width: 210px;
       position: relative;
-      justify-self: center;
+
+      @media (max-width: 991px) {
+        margin-bottom: 2rem;
+      }
+
+      @include max-xs {
+        margin: 0;
+        
+        &:not(:last-of-type) {
+          margin-bottom: 2rem;
+        }
+      }
 
       p {
-        line-height: 24px;
+        line-height: 2.4rem;
         strong { display: block; }
       }
       a {
@@ -97,14 +100,14 @@
         padding: 0 !important;
         height: 44px;
         width: 208px;
-        margin-bottom: 20px;
+        margin-bottom: 2rem;
       }
 
       @include xl {
         &:not(:last-of-type) {
           &:after {
             position: absolute;
-            content: " ";
+            content: "";
             display: block;
             width: 1px;
             top: 0;

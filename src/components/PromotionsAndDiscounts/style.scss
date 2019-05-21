@@ -18,44 +18,4 @@
       color: black !important;
     }
   }
-
-  // .slider {
-  //   &__arrow {
-  //     top: 33%;
-  //     width: 50px;
-  //     height: 100px;
-  //     display: block;
-  //     background-color: rgba(255, 255, 255, 0.8);
-
-  //     &:after {
-  //       position: relative;
-  //       left: 40%;
-  //       top: 50%;
-  //       content: '';
-  //       width: 14px;
-  //       height: 14px;
-  //       display: block;
-  //       border-top: 3px solid $green;
-  //       border-right: 3px solid $green;
-  //     }
-  //   }
-
-  //   &__backArrow {
-  //     left: -10px;
-  //     border-radius: 0 100% 100% 0 / 0 50% 50% 0;
-
-  //     &:after {
-  //       transform: translate3d(0,-50%,0) rotate(-135deg);
-  //     }
-  //   }
-
-  //   &__nextArrow {
-  //     right: -10px;
-  //     border-radius: 100% 0 0 100% / 50% 0 0 50%;
-
-  //     &:after {
-  //       transform: translate3d(0,-50%,0) rotate(45deg);
-  //     }
-  //   }
-  // }
 }

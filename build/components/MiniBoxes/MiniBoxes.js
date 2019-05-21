@@ -23,8 +23,8 @@ var MiniBoxes = function (props) {
             React.createElement("div", { className: "container" },
                 dividerOnTop ? React.createElement("div", { className: 'mini-boxes__divider' }) : '',
                 title && React.createElement("h3", null, title),
-                React.createElement("div", { className: 'mini-boxes__list grid' }, data && data.map(function (box, i) {
-                    return (React.createElement(Link_1.default, __assign({ key: i }, box.url, { className: 'mini-boxes__list__item', style: { backgroundImage: box.image && "url(" + getImageUrl_1.default(box.image) + ")" } }),
+                React.createElement("div", { className: 'mini-boxes__list row' }, data && data.map(function (box, i) {
+                    return (React.createElement(Link_1.default, __assign({ key: i }, box.url, { className: 'mini-boxes__list__item col-12 col-sm-6 col-md-4 col-xl-3', style: { backgroundImage: box.image && "url(" + getImageUrl_1.default(box.image) + ")" } }),
                         box.title &&
                             React.createElement("p", { style: box.titleColor ?
                                     { color: "" + box.titleColor } :

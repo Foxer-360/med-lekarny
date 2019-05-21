@@ -31,13 +31,13 @@ const MiniBoxes = (props: MiniBoxesProps) => {
             {dividerOnTop ? <div className={'mini-boxes__divider'} /> : ''}
             {title && <h3>{title}</h3>}
     
-            <div className={'mini-boxes__list grid'}>
+            <div className={'mini-boxes__list row'}>
               {data && data.map((box, i) => {
                 return (
                   <Link 
                     key={i} 
                     {...box.url} 
-                    className={'mini-boxes__list__item'}
+                    className={'mini-boxes__list__item col-12 col-sm-6 col-md-4 col-xl-3'}
                     style={{ backgroundImage: box.image && `url(${getImageUrl(box.image)})` }}
                   >
                     {box.title && 

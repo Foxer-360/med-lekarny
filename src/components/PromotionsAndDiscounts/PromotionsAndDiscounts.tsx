@@ -4,7 +4,6 @@ import Slider from 'react-slick';
 import List from '../List';
 import Link from '@source/partials/Link';
 import Media from '@source/partials/Media';
-import getImageUrl from '@source/helpers/getImageUrl';
 
 interface Item {
   image: LooseObject;

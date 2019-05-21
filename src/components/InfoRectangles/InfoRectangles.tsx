@@ -30,23 +30,21 @@ const InfoRectangles = (props: InfoRectanglesProps) => {
         <section className={'info-rectangles'}>
           <div className="container">
             <div className={'info-rectangles__divider'} />
-            <div className={'info-rectangles__list grid'}>
+            <div className={'info-rectangles__list row'}>
               {data && data.map((rectangle, i) => {
-                
                 return (
-                  <Link 
+                  <div 
                     key={i}
-                    className={'info-rectangles__list__item'}
+                    className={'info-rectangles__list__item col-12 col-md-6'}
                     style={{ backgroundImage: rectangle.image && `url(${getImgUrl(rectangle.image)})` }}
-                    {...rectangle.url}
                   >
-                    <div className={'info-rectangles__list__item__content'}>
+                    <Link className={'info-rectangles__list__item__content'}>
                       {rectangle.icon && <Media type={'image'} data={rectangle.icon} />}
                       {rectangle.title && 
                         <p style={rectangle.titleColor && { color: `${rectangle.titleColor}` } || {}}>
                           {rectangle.title}
                         </p>}
-                    </div>
+                    </Link>
 
                     {rectangle.gradientColor && (
                       <div
@@ -58,7 +56,7 @@ const InfoRectangles = (props: InfoRectanglesProps) => {
                         }}
                       />
                     )}
-                  </Link>
+                  </div>
                 );
               })}
             </div>

@@ -12,10 +12,10 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var List_1 = require("../List");
-var Link_1 = require("@source/partials/Link");
 var ReactMarkdown = require("react-markdown");
-var Button_1 = require("@source/partials/Button");
+var List_1 = require("../List");
+var Link_1 = require("../../partials/Link");
+var Button_1 = require("../../partials/Button");
 var ClubBenefits = function (props) {
     var _a = props.data, buttonTitle = _a.buttonTitle, buttonUrl = _a.buttonUrl, conditionsUrl = _a.conditionsUrl, benefits = _a.benefits;
     return (React.createElement(List_1.default, { data: benefits }, function (_a) {

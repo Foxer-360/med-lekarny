@@ -13,16 +13,16 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var List_1 = require("../List");
-var Link_1 = require("@source/partials/Link");
-var Media_1 = require("@source/partials/Media");
-var getImageUrl_1 = require("@source/helpers/getImageUrl");
+var Link_1 = require("../../partials/Link");
+var Media_1 = require("../../partials/Media");
+var getImgUrl_1 = require("../../helpers/getImgUrl");
 var MenuBlocks = function (props) {
     var menuBlocks = props.data.menuBlocks;
     return (React.createElement(List_1.default, { data: menuBlocks }, function (_a) {
         var data = _a.data;
         return (React.createElement("div", { className: "container" },
             React.createElement("div", { className: 'menu-blocks row' }, data && data.map(function (block, i) {
-                return (React.createElement(Link_1.default, __assign({ key: i }, block.url, { className: "menu-blocks__item " + (i <= 1 ? 'col-12 col-md-6 ' : 'col-12 col-md-4 col-xl-3'), style: { backgroundImage: block.image && "url(" + getImageUrl_1.default(block.image) + ")" } }),
+                return (React.createElement(Link_1.default, __assign({ key: i }, block.url, { className: "menu-blocks__item " + (i <= 1 ? 'col-12 col-md-6 ' : 'col-12 col-md-4 col-xl-3'), style: { backgroundImage: block.image && "url(" + getImgUrl_1.default(block.image) + ")" } }),
                     block.icon && React.createElement(Media_1.default, { type: 'image', data: block.icon }),
                     block.title && React.createElement("p", null, block.title),
                     React.createElement("div", { className: 'menu-blocks__item__colorGradient', style: {

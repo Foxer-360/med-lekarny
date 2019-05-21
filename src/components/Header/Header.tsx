@@ -3,8 +3,8 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { adopt } from 'react-adopt';
 
-import Link from '@source/partials/Link';
-import Loader from '@source/partials/Loader';
+import Link from '../../partials/Link';
+import Loader from '../../partials/Loader';
 import Hamburger from './components/Hamburger';
 
 const GET_CONTEXT = gql`

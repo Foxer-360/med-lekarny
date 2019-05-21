@@ -1,9 +1,9 @@
 import * as React from 'react';
+import * as ReactMarkdown from 'react-markdown';
 
 import List from '../List';
-import Link from '@source/partials/Link';
-import * as ReactMarkdown from 'react-markdown';
-import Button from '@source/partials/Button';
+import Link from '../../partials/Link';
+import Button from '../../partials/Button';
 
 interface Benefit {
   title: string;

@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var getImageUrl_1 = require("@source/helpers/getImageUrl");
+var getImgUrl_1 = require("../../helpers/getImgUrl");
 var Hero = /** @class */ (function (_super) {
     __extends(Hero, _super);
     function Hero() {
@@ -23,7 +23,7 @@ var Hero = /** @class */ (function (_super) {
     Hero.prototype.render = function () {
         var _a = this.props.data, title = _a.title, text = _a.text, image = _a.image, displayBlackOverlay = _a.displayBlackOverlay, displayWhiteOverlay = _a.displayWhiteOverlay, titleColor = _a.titleColor, textColor = _a.textColor, opacity = _a.opacity;
         return (React.createElement("div", { className: "fullWidthContainer" },
-            React.createElement("section", { className: 'hero', style: { backgroundImage: image && "url(" + getImageUrl_1.default(image) + ")" } },
+            React.createElement("section", { className: 'hero', style: { backgroundImage: image && "url(" + getImgUrl_1.default(image) + ")" } },
                 displayBlackOverlay &&
                     React.createElement("div", { style: opacity ? { opacity: opacity } : {}, className: 'hero__blackOverlay' }),
                 displayWhiteOverlay &&

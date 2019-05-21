@@ -26,8 +26,8 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var List_1 = require("../List");
-var Link_1 = require("@source/partials/Link");
-var Media_1 = require("@source/partials/Media");
+var Link_1 = require("../../partials/Link");
+var Media_1 = require("../../partials/Media");
 var Dots_1 = require("./components/Dots");
 var LeftArrow_1 = require("./components/LeftArrow");
 var RightArrow_1 = require("./components/RightArrow");

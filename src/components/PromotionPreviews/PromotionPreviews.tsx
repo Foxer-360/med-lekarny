@@ -2,9 +2,9 @@ import * as React from 'react';
 import Responsive from 'react-responsive';
 
 import List from '../List';
-import Link from '@source/partials/Link';
-import Slider from '@source/partials/Slider';
-import splitArray from '@source/helpers/splitArray';
+import Link from '../../partials/Link';
+import Slider from '../../partials/Slider';
+import splitArray from '../../helpers/splitArray';
 
 interface PromotionPreview {
   title: string;

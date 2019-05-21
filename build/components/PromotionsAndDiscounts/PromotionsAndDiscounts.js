@@ -14,8 +14,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_slick_1 = require("react-slick");
 var List_1 = require("../List");
-var Link_1 = require("@source/partials/Link");
-var Media_1 = require("@source/partials/Media");
+var Link_1 = require("../../partials/Link");
+var Media_1 = require("../../partials/Media");
 var PromotionsAndDiscounts = function (props) {
     return (React.createElement(List_1.default, { data: props.data.items || [] }, function (_a) {
         var items = _a.data;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SvgIcon from '@source/partials/SvgIcon';
+import SvgIcon from '../../partials/SvgIcon';
 
 export interface SearchBarProps {
   placeholder: string;

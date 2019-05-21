@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactMarkdown from 'react-markdown';
 
 import List from '../List';
-import Media from '@source/partials/Media';
+import Media from '../../partials/Media';
 
 interface Benefit {
   title: string;

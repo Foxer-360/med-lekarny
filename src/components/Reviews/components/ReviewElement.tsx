@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Media from '@source/partials/Media';
-import SvgIcon from '@source/partials/SvgIcon';
+import Media from '../../../partials/Media';
+import SvgIcon from '../../../partials/SvgIcon';
 
 export interface ReviewElementProps {
   cite: string;

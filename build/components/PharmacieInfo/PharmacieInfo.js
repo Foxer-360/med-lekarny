@@ -12,8 +12,8 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var Link_1 = require("@source/partials/Link");
-var Media_1 = require("@source/partials/Media");
+var Link_1 = require("../../partials/Link");
+var Media_1 = require("../../partials/Media");
 var PharmacieInfo = function (props) {
     var _a = props.data, geo = _a.geo, geoUrl = _a.geoUrl, phone = _a.phone, transport = _a.transport, transportImage = _a.transportImage, officeHours = _a.officeHours;
     return (React.createElement("div", { className: 'pharmacie-info' },

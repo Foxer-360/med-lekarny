@@ -14,10 +14,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var ReactMarkdown = require("react-markdown");
 var List_1 = require("../List");
-var Link_1 = require("@source/partials/Link");
+var Link_1 = require("../../partials/Link");
 var title_1 = require("./components/title");
-var Media_1 = require("@source//partials/Media");
-var Button_1 = require("@source//partials/Button");
+var Media_1 = require("../../partials/Media");
+var Button_1 = require("../../partials/Button");
 var PharmaciesList = function (props) {
     var pharmacies = props.data.pharmacies;
     return (React.createElement(List_1.default, { data: pharmacies }, function (_a) {

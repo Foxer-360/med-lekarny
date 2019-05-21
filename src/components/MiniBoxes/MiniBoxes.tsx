@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import List from '../List';
-import Link from '@source/partials/Link';
-import getImageUrl from '@source/helpers/getImageUrl';
+import Link from '../../partials/Link';
+import getImgUrl from '../../helpers/getImgUrl';
 
 interface MiniBox {
   title: string;
@@ -38,7 +38,7 @@ const MiniBoxes = (props: MiniBoxesProps) => {
                     key={i} 
                     {...box.url} 
                     className={'mini-boxes__list__item col-12 col-sm-6 col-md-4 col-xl-3'}
-                    style={{ backgroundImage: box.image && `url(${getImageUrl(box.image)})` }}
+                    style={{ backgroundImage: box.image && `url(${getImgUrl(box.image)})` }}
                   >
                     {box.title && 
                       <p 

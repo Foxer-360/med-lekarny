@@ -12,8 +12,8 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var SvgIcon_1 = require("@source/partials/SvgIcon");
-var Link_1 = require("@source/partials/Link");
+var SvgIcon_1 = require("../../../../partials/SvgIcon");
+var Link_1 = require("../../../../partials/Link");
 var Social = function (props) {
     var icons = props.icons;
     return (React.createElement("div", { className: 'social' }, icons && icons.map(function (icon, i) { return (React.createElement(Link_1.default, __assign({ key: i }, icon.url),

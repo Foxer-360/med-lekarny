@@ -12,12 +12,12 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var Link_1 = require("@source/partials/Link");
-var Button_1 = require("@source/partials/Button");
-var getImageUrl_1 = require("@source/helpers/getImageUrl");
+var Link_1 = require("../../../partials/Link");
+var Button_1 = require("../../../partials/Button");
+var getImgUrl_1 = require("../../../helpers/getImgUrl");
 function InfoElement(props) {
     var title = props.title, gradientColor = props.gradientColor, image = props.image, button = props.button, titleColor = props.titleColor, link = props.link;
-    return (React.createElement(Link_1.default, __assign({}, link, { className: 'custom-info-boxes__list__element col-sm-12 col-md-6 col-xl-4', style: { backgroundImage: image && "url(" + getImageUrl_1.default(image) + ")" } }),
+    return (React.createElement(Link_1.default, __assign({}, link, { className: 'custom-info-boxes__list__element col-sm-12 col-md-6 col-xl-4', style: { backgroundImage: image && "url(" + getImgUrl_1.default(image) + ")" } }),
         React.createElement("div", { className: 'fullWidthContainer custom-info-boxes__list__element__content' },
             titleColor && title && React.createElement("h5", { style: { color: "" + titleColor } }, title),
             button && React.createElement(Button_1.default, { classes: 'btn--fullWidth ' + button }, "vice info")),

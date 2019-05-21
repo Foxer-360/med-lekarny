@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import List from '../List';
-import Link from '@source/partials/Link';
-import Media from '@source/partials/Media';
-import getImageUrl from '@source/helpers/getImageUrl';
+import Link from '../../partials/Link';
+import Media from '../../partials/Media';
+import getImgUrl from '../../helpers/getImgUrl';
 
 interface InfoRectangles {
   opacity: number;
@@ -37,7 +37,7 @@ const InfoRectangles = (props: InfoRectanglesProps) => {
                   <Link 
                     key={i}
                     className={'info-rectangles__list__item'}
-                    style={{ backgroundImage: rectangle.image && `url(${getImageUrl(rectangle.image)})` }}
+                    style={{ backgroundImage: rectangle.image && `url(${getImgUrl(rectangle.image)})` }}
                     {...rectangle.url}
                   >
                     <div className={'info-rectangles__list__item__content'}>

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var List_1 = require("../List");
-var Media_1 = require("@source/partials/Media");
+var Media_1 = require("../../partials/Media");
 var PaymentMethods = function (props) {
     var _a = props.data, title = _a.title, methods = _a.methods;
     return (React.createElement(List_1.default, { data: methods }, function (_a) {

@@ -34,7 +34,7 @@ var react_apollo_1 = require("react-apollo");
 var R = require("ramda");
 var react_adopt_1 = require("react-adopt");
 var react_router_1 = require("react-router");
-var Loader_1 = require("@source/partials/Loader");
+var Loader_1 = require("../../partials/Loader");
 var escape = function (str) {
     // TODO: escape %x75 4HEXDIG ?? chars
     return str

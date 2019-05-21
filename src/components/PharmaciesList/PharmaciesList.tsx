@@ -2,10 +2,10 @@ import * as React from 'react';
 import * as ReactMarkdown from 'react-markdown';
 
 import List from '../List';
-import Link from '@source/partials/Link';
+import Link from '../../partials/Link';
 import PcTitle from './components/title';
-import Media from '@source//partials/Media';
-import Button from '@source//partials/Button';
+import Media from '../../partials/Media';
+import Button from '../../partials/Button';
 
 interface Pharmacie {
   name: string;

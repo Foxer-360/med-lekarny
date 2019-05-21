@@ -14,8 +14,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var ReactMarkdown = require("react-markdown");
 var List_1 = require("../List");
-var Link_1 = require("@source/partials/Link");
-var Media_1 = require("@source/partials/Media");
+var Link_1 = require("../../partials/Link");
+var Media_1 = require("../../partials/Media");
 var Pharmacies = function (props) {
     var pharmacies = props.data.pharmacies;
     return (React.createElement(List_1.default, { data: pharmacies }, function (_a) {

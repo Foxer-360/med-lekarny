@@ -1,5 +1,6 @@
 import * as React from 'react';
-import getImageUrl from '@source/helpers/getImageUrl';
+
+import getImgUrl from '../../helpers/getImgUrl';
 
 export interface HeroProps {
   data: {
@@ -33,7 +34,7 @@ class Hero extends React.Component<HeroProps, HeroState> {
       <div className="fullWidthContainer">
         <section 
           className={'hero'} 
-          style={{ backgroundImage: image && `url(${getImageUrl(image)})` }}
+          style={{ backgroundImage: image && `url(${getImgUrl(image)})` }}
         >
           {displayBlackOverlay && 
             <div style={opacity ? { opacity: opacity} : {}} className={'hero__blackOverlay'} />}

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactMarkdown from 'react-markdown';
 
-import Media from '@source/partials/Media';
-import Link from '@source/partials/Link';
+import Media from '../../partials/Media';
+import Link from '../../partials/Link';
 
 export interface DiscountOfferProps {
   data: {

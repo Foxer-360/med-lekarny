@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var getImageUrl_1 = require("@source/helpers/getImageUrl");
+var getImgUrl_1 = require("../../../../helpers/getImgUrl");
 var ImgWithFallback = /** @class */ (function (_super) {
     __extends(ImgWithFallback, _super);
     function ImgWithFallback(props) {
@@ -108,7 +108,7 @@ var ImgWithFallback = /** @class */ (function (_super) {
                     parseInt(this.props.recommendedSizes ? this.props.recommendedSizes.width : 1, 10)) *
                     100 + "%",
             } },
-            React.createElement("img", { alt: alt, className: 'mediaImage inner', src: this.state.src ? this.state.src : getImageUrl_1.default(this.props.originalData) })));
+            React.createElement("img", { alt: alt, className: 'mediaImage inner', src: this.state.src ? this.state.src : getImgUrl_1.default(this.props.originalData) })));
     };
     return ImgWithFallback;
 }(React.Component));

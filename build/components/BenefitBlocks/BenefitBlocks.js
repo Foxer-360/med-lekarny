@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var ReactMarkdown = require("react-markdown");
 var List_1 = require("../List");
-var Media_1 = require("@source/partials/Media");
+var Media_1 = require("../../partials/Media");
 var BenefitBlocks = function (props) {
     var _a = props.data, title = _a.title, benefits = _a.benefits;
     return (React.createElement(List_1.default, { data: benefits }, function (_a) {

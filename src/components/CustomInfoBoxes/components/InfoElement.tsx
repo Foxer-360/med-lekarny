@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import Link from '@source/partials/Link';
-import Button from '@source/partials/Button';
-import getImageUrl from '@source/helpers/getImageUrl';
+import Link from '../../../partials/Link';
+import Button from '../../../partials/Button';
+import getImgUrl from '../../../helpers/getImgUrl';
 
 export interface InfoElementProps {
   title: string;
@@ -21,7 +21,7 @@ export default function InfoElement(props: InfoElementProps) {
     <Link
       {...link}
       className={'custom-info-boxes__list__element col-sm-12 col-md-6 col-xl-4'}
-      style={{ backgroundImage: image && `url(${getImageUrl(image)})` }}
+      style={{ backgroundImage: image && `url(${getImgUrl(image)})` }}
     >
       <div className={'fullWidthContainer custom-info-boxes__list__element__content'}>
         {titleColor && title && <h5 style={{ color: `${titleColor}` }}>{title}</h5>}

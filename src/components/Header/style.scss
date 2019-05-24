@@ -184,6 +184,7 @@
 }
 
 .hiddenMenu {
+  display: none;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   background-color: white;
@@ -203,6 +204,7 @@
   }
 
   &--active {
+    display: block!important;
     -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
   }

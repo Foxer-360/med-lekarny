@@ -3808,6 +3808,7 @@ cite {
   filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.12)); }
 
 .hiddenMenu {
+  display: none;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   background-color: white;
@@ -3824,6 +3825,7 @@ cite {
     .hiddenMenu {
       width: 100%; } }
   .hiddenMenu--active {
+    display: block !important;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
   .hiddenMenu__wrapper {

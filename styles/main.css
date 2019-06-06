@@ -3377,6 +3377,10 @@ body {
   line-height: 24px;
   overflow: hidden; }
 
+@media (min-width: 1250px) {
+  .container {
+    max-width: 1250px; } }
+
 a {
   transition: cubic-bezier(0.215, 0.61, 0.355, 1);
   color: #3eac49; }

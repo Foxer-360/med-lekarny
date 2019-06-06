@@ -18,11 +18,11 @@ export interface PromotionsAndDiscountsProps {
 }
 
 const PromotionsAndDiscounts = (props: PromotionsAndDiscountsProps) => {
-  
+
   return (
     <List data={props.data.items || []}>
       {({ data: items }) => {
-      
+
         const arrayOfSlides = (items && items.map((slide, i) => (
           <div key={i}>
             <Link {...slide.url}>
@@ -30,7 +30,7 @@ const PromotionsAndDiscounts = (props: PromotionsAndDiscountsProps) => {
             </Link>
           </div>
         ))) || [];
-      
+
         var settings = {
           infinite: true,
           speed: 1000,
@@ -55,7 +55,7 @@ const PromotionsAndDiscounts = (props: PromotionsAndDiscountsProps) => {
         return (
           <div className={'prom-and-disc'}>
             <div className="container">
-              {props.data.title && <h3>{props.data.title}</h3> || <div style={{ height: 50 }}/>}
+              {props.data.title && <h3>{props.data.title}</h3> || <div style={{ height: 50 }} />}
               <Slider {...settings}>
                 {arrayOfSlides}
               </Slider>

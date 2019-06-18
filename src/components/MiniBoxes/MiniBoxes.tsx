@@ -34,27 +34,40 @@ const MiniBoxes = (props: MiniBoxesProps) => {
             <div className={'mini-boxes__list row'}>
               {data && data.map((box, i) => {
                 return (
-                  <Link 
-                    key={i} 
-                    {...box.url} 
-                    className={'mini-boxes__list__item col-12 col-sm-6 col-md-4 col-xl-3'}
-                    style={{ backgroundImage: box.image && `url(${getImgUrl(box.image)})` }}
-                  >
-                    {box.title && 
-                      <p 
-                        style={
-                          box.titleColor ? 
-                          { color: `${box.titleColor}` } : 
-                          {}}
-                      >{box.title}
-                      </p>}
-                    <div
-                      className={'mini-boxes__list__item--colorGradient'}
-                      style={{ 
-                        background: `linear-gradient(to bottom, rgba(125, 185, 232, 0) 0%, 
-                        ${box.gradientColor} 100%)` }}
-                    />
-                  </Link>
+                  <div key={i} className={'col-12 col-sm-6 col-md-4 col-xl-3'}>
+                    <div 
+                      className={'mini-boxes__list__item'}
+                      style={{ backgroundImage: box.image && `url(${getImgUrl(box.image)})` }}
+                    >
+                      {box.title && 
+                        <p 
+                          style={
+                            box.titleColor ? 
+                            { color: `${box.titleColor}` } : 
+                            {}}
+                        >{box.title}
+                        </p>}
+
+                      <Link
+                        {...box.url}
+                        style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          zIndex: 1000
+                        }}
+                      />
+
+                      <div
+                        className={'mini-boxes__list__item--colorGradient'}
+                        style={{ 
+                          background: `linear-gradient(to bottom, rgba(125, 185, 232, 0) 0%, 
+                          ${box.gradientColor} 100%)` }}
+                      />
+                    </div>
+                  </div>
                 );
               })}
             </div>

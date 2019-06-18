@@ -4158,44 +4158,31 @@ cite {
     .reviews__list__element {
       width: 100%;
       padding: 0;
-      max-width: 370px;
       margin-bottom: 2rem;
       background-color: #f4f5f7;
       background-repeat: no-repeat; }
-      @media (max-width: 1199px) {
-        .reviews__list__element {
-          max-width: 310px; } }
-      @media (max-width: 991px) {
-        .reviews__list__element {
-          max-width: 350px; } }
-      @media (max-width: 768px) {
-        .reviews__list__element {
-          max-width: 92%;
-          margin: 0 auto; }
-          .reviews__list__element:not(:last-of-type) {
-            margin-bottom: 2rem; } }
       .reviews__list__element .mediaRatio {
         padding-top: 0 !important;
         width: 105px;
         height: 130px; }
-      .reviews__list__element__image {
-        -ms-grid-row-align: center;
-            align-self: center; }
       .reviews__list__element__content {
-        padding: 1.5rem;
-        -ms-grid-row-align: center;
-            align-self: center; }
-        @media (max-width: 768px) {
-          .reviews__list__element__content {
-            padding-left: 2.5rem; } }
+        width: 100%;
+        height: 100%;
+        display: table;
+        padding-right: 1.5rem; }
         @media (max-width: 576px) {
           .reviews__list__element__content {
-            padding-left: 5rem; } }
+            padding-left: 2.5rem;
+            padding-right: 0; } }
+        @media (max-width: 425px) {
+          .reviews__list__element__content {
+            padding-left: 3.5rem;
+            padding-right: 0; } }
         .reviews__list__element__content cite {
           line-height: initial; }
         .reviews__list__element__content .stars {
           padding-top: 5px;
-          max-height: 40px;
+          height: 40px;
           overflow: hidden; }
           .reviews__list__element__content .stars svg {
             width: 13px;
@@ -4237,10 +4224,10 @@ cite {
       letter-spacing: 0.8px; } }
 
 .info-boxes--paddingBottom {
-  padding-bottom: 5rem; }
+  padding-bottom: 3rem; }
   @media (max-width: 768px) {
     .info-boxes--paddingBottom {
-      padding-bottom: 2.5rem; } }
+      padding-bottom: 1rem; } }
 
 .info-boxes h3 {
   background: -webkit-linear-gradient(left, #3eac49, #00aad0);
@@ -4276,35 +4263,19 @@ cite {
 
 .info-boxes__list {
   justify-content: space-between; }
+  .info-boxes__list .col-sm-12, .info-boxes__list .col-md-6, .info-boxes__list .col-xl-4 {
+    margin-bottom: 2rem; }
   .info-boxes__list__element {
     width: 100%;
-    height: 100%;
     display: table;
-    max-width: 370px;
-    min-height: 400px;
+    height: 400px;
     position: relative;
     background-size: cover;
     box-shadow: 0 0 25px rgba(0, 52, 97, 0.18);
     -webkit-box-shadow: 0 0 25px rgba(0, 52, 97, 0.18); }
-    @media (max-width: 1199px) {
-      .info-boxes__list__element {
-        max-width: 470px; }
-        .info-boxes__list__element:last-of-type {
-          margin-top: 2rem; } }
-    @media (max-width: 991px) {
-      .info-boxes__list__element {
-        max-width: 350px; } }
     @media (max-width: 768px) {
-      .info-boxes__list__element {
-        max-width: 100%; }
-        .info-boxes__list__element:last-of-type {
-          margin-top: 0; }
-        .info-boxes__list__element:not(:last-of-type) {
-          margin-bottom: 2rem; } }
-    @media (max-width: 576px) {
-      .info-boxes__list__element {
-        max-width: 92%;
-        margin: 0 auto; } }
+      .info-boxes__list__element:last-of-type {
+        margin-top: 0; } }
     .info-boxes__list__element__content {
       width: 90%;
       display: table-cell;
@@ -4321,16 +4292,12 @@ cite {
 
 @media (max-width: 992px) {
   .info-boxes__list__element {
-    min-height: 300px; } }
+    height: 300px; } }
 
 @media (max-width: 900px) {
   .info-boxes h5 {
     font-size: 1.8rem;
     padding-bottom: 2rem; }
-  .info-boxes button {
-    width: 100%;
-    font-size: 1.4rem;
-    padding: 7px 35px; }
   .info-boxes__list__element__content {
     padding: 2rem; } }
 
@@ -4338,8 +4305,7 @@ cite {
   .info-boxes h3 {
     padding-top: 3rem; }
   .info-boxes__list__element {
-    height: 100%;
-    min-height: 280px;
+    height: 280px;
     background-size: cover; }
     .info-boxes__list__element__content {
       padding-left: 2.5rem; } }

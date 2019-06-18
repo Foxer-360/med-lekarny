@@ -5534,34 +5534,20 @@ cite {
 .benefit-blocks__divider {
   width: 100%;
   height: 2px;
-  margin: 5rem 0;
+  margin: 3rem 0 5rem 0;
   background-color: #c5e3a8; }
 
 .benefit-blocks__list {
   justify-content: space-between; }
+  .benefit-blocks__list .col-sm-12, .benefit-blocks__list .col-md-6, .benefit-blocks__list .col-xl-4 {
+    margin-bottom: 2rem; }
   .benefit-blocks__list__item {
     width: 100%;
-    max-width: 360px;
     min-height: 340px;
+    height: 100%;
+    position: relative;
     background-color: white;
-    box-shadow: 0 0 25px rgba(0, 64, 79, 0.15);
-    position: relative; }
-    @media (max-width: 1200px) {
-      .benefit-blocks__list__item {
-        max-width: 470px; }
-        .benefit-blocks__list__item:last-of-type {
-          margin-top: 2rem; } }
-    @media (max-width: 991px) {
-      .benefit-blocks__list__item {
-        max-width: 350px; } }
-    @media (max-width: 767px) {
-      .benefit-blocks__list__item {
-        max-width: 92%;
-        margin: 0 auto; }
-        .benefit-blocks__list__item:last-of-type {
-          margin-top: 0rem; }
-        .benefit-blocks__list__item:not(:last-of-type) {
-          margin-bottom: 2rem; } }
+    box-shadow: 0 0 25px rgba(0, 64, 79, 0.15); }
     .benefit-blocks__list__item:before {
       content: '';
       display: block;
@@ -5571,10 +5557,13 @@ cite {
       width: 100%;
       position: absolute;
       background-image: linear-gradient(to right, #3eac49 0%, #00aad0 100%); }
+    .benefit-blocks__list__item--divider {
+      height: 1px;
+      width: 100%;
+      background-color: #dcdde0; }
     .benefit-blocks__list__item__top {
       position: relative;
-      border-bottom: 1px solid #dcdde0;
-      padding: 40px 25px 25px 25px; }
+      padding: 40px 25px 25px 40px; }
       .benefit-blocks__list__item__top .mediaRatio {
         position: absolute;
         z-index: 1;

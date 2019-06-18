@@ -37,34 +37,37 @@ const BenefitBlocks = (props: BenefitBlocksProps) => {
               <div className={'benefit-blocks__list row'}>
                 {data && data.map((benefit, i) => {
                   return (
-                    <div key={i} className={'benefit-blocks__list__item col-sm-12 col-md-6 col-xl-4'}>
-                    
-                      <div className="row">
-                        <div className={'benefit-blocks__list__item__top'}>
-                          {benefit.icon && <Media type={'image'} data={benefit.icon}/>}
-                          {benefit.title && <h5>{benefit.title}</h5>}
-                          {benefit.subtitle &&
-                            <p className={'benefit-blocks__list__item__top__subtitle'}>
-                              {benefit.subtitle}
-                            </p>}
-                          {benefit.text &&
-                            <ReactMarkdown
-                              source={benefit.text}
-                              className={'benefit-blocks__list__item__top__text'}
-                            />}
-                          {benefit.gradientText &&
-                            <ReactMarkdown
-                              source={benefit.gradientText}
-                              className={'benefit-blocks__list__item__top__gradient-text'}
-                            />}
-                          {benefit.logo && <Media type={'image'} data={benefit.logo}/>}
+                    <div key={i} className={'col-sm-12 col-md-6 col-xl-4'}>
+                      <div className={'benefit-blocks__list__item'}>
+                        <div className="row">
+                          <div className={'benefit-blocks__list__item__top'}>
+                            {benefit.icon && <Media type={'image'} data={benefit.icon}/>}
+                            {benefit.title && <h5>{benefit.title}</h5>}
+                            {benefit.subtitle &&
+                              <p className={'benefit-blocks__list__item__top__subtitle'}>
+                                {benefit.subtitle}
+                              </p>}
+                            {benefit.text &&
+                              <ReactMarkdown
+                                source={benefit.text}
+                                className={'benefit-blocks__list__item__top__text'}
+                              />}
+                            {benefit.gradientText &&
+                              <ReactMarkdown
+                                source={benefit.gradientText}
+                                className={'benefit-blocks__list__item__top__gradient-text'}
+                              />}
+                            {benefit.logo && <Media type={'image'} data={benefit.logo}/>}
+                          </div>
                         </div>
-                      </div>
 
-                      <div className="row">
-                        <div className={'benefit-blocks__list__item__bottom'}>
-                          <div>
-                            {benefit.bottomText && <ReactMarkdown source={benefit.bottomText} />}
+                        <div className={'benefit-blocks__list__item--divider'} />
+
+                        <div className="row">
+                          <div className={'benefit-blocks__list__item__bottom'}>
+                            <div>
+                              {benefit.bottomText && <ReactMarkdown source={benefit.bottomText} />}
+                            </div>
                           </div>
                         </div>
                       </div>

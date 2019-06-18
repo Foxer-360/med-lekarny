@@ -29,23 +29,36 @@ const MenuBlocks = (props: MenuBlocksProps) => {
           <div className={'menu-blocks row'}>
             {data && data.map((block, i) => {
               return (
-                <Link 
-                  key={i}
-                  {...block.url}
-                  className={`menu-blocks__item ${i <= 1 ? 'col-12 col-md-6 ' : 'col-12 col-md-4 col-xl-3'}`}
-                  style={{ backgroundImage: block.image && `url(${getImgUrl(block.image)})` }}
-                >
-                  {block.icon && <Media type={'image'} data={block.icon} />}
-                  {block.title && <p>{block.title}</p>}
+                <div key={i} className={`${i <= 1 ? 'col-12 col-md-6 ' : 'col-12 col-md-4 col-xl-3'}`}>
                   <div
-                    className={'menu-blocks__item__colorGradient'}
-                    style={{ 
-                      background: 
-                        `linear-gradient(40deg, ${block.color && block.color || '#3eac49'} 0%, 
-                        transparent 100%)` 
-                    }}
-                  />
-                </Link>
+                    className={`menu-blocks__item ${i <= 1 ? 'bigMenuBlock' : ''}`}
+                    style={{ backgroundImage: block.image && `url(${getImgUrl(block.image)})` }}
+                  >
+                    <Link
+                      {...block.url}
+                      style={{ 
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        zIndex: 1000
+                      }}
+                    />
+                    
+                    {block.icon && <Media type={'image'} data={block.icon} />}
+                    {block.title && <p>{block.title}</p>}
+
+                    <div
+                      className={'menu-blocks__item__colorGradient'}
+                      style={{ 
+                        background: 
+                          `linear-gradient(40deg, ${block.color && block.color || '#3eac49'} 0%, 
+                          transparent 100%)` 
+                      }}
+                    />
+                  </div>
+                </div>
               );
             })}
           </div>

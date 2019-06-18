@@ -22,12 +22,21 @@ var MenuBlocks = function (props) {
         var data = _a.data;
         return (React.createElement("div", { className: "container" },
             React.createElement("div", { className: 'menu-blocks row' }, data && data.map(function (block, i) {
-                return (React.createElement(Link_1.default, __assign({ key: i }, block.url, { className: "menu-blocks__item " + (i <= 1 ? 'col-12 col-md-6 ' : 'col-12 col-md-4 col-xl-3'), style: { backgroundImage: block.image && "url(" + getImgUrl_1.default(block.image) + ")" } }),
-                    block.icon && React.createElement(Media_1.default, { type: 'image', data: block.icon }),
-                    block.title && React.createElement("p", null, block.title),
-                    React.createElement("div", { className: 'menu-blocks__item__colorGradient', style: {
-                            background: "linear-gradient(40deg, " + (block.color && block.color || '#3eac49') + " 0%, \n                        transparent 100%)"
-                        } })));
+                return (React.createElement("div", { key: i, className: "" + (i <= 1 ? 'col-12 col-md-6 ' : 'col-12 col-md-4 col-xl-3') },
+                    React.createElement("div", { className: "menu-blocks__item " + (i <= 1 ? 'bigMenuBlock' : ''), style: { backgroundImage: block.image && "url(" + getImgUrl_1.default(block.image) + ")" } },
+                        React.createElement(Link_1.default, __assign({}, block.url, { style: {
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                zIndex: 1000
+                            } })),
+                        block.icon && React.createElement(Media_1.default, { type: 'image', data: block.icon }),
+                        block.title && React.createElement("p", null, block.title),
+                        React.createElement("div", { className: 'menu-blocks__item__colorGradient', style: {
+                                background: "linear-gradient(40deg, " + (block.color && block.color || '#3eac49') + " 0%, \n                          transparent 100%)"
+                            } }))));
             }))));
     }));
 };

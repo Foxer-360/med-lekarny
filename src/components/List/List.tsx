@@ -309,10 +309,8 @@ class List extends React.Component<Properties, {}> {
               getFrontend: { frontend },
               getContext: { pageData }
             }) => {
-              const pageId = (pageData && pageData.id) ||
-                (frontend && frontend.page && frontend.page.id);
+              const pageId = (pageData && pageData.id) || (frontend && frontend.page && frontend.page.id);
               
-              console.log(pageId);
               if (allPagesLoading || !allPagesData) {
                 return <Loader />;
               }

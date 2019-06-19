@@ -14,21 +14,23 @@ var BenefitBlocks = function (props) {
                 title && React.createElement("h3", null, title)),
             React.createElement("div", { className: "container" },
                 React.createElement("div", { className: 'benefit-blocks__list row' }, data && data.map(function (benefit, i) {
-                    return (React.createElement("div", { key: i, className: 'benefit-blocks__list__item col-sm-12 col-md-6 col-xl-4' },
-                        React.createElement("div", { className: "row" },
-                            React.createElement("div", { className: 'benefit-blocks__list__item__top' },
-                                benefit.icon && React.createElement(Media_1.default, { type: 'image', data: benefit.icon }),
-                                benefit.title && React.createElement("h5", null, benefit.title),
-                                benefit.subtitle &&
-                                    React.createElement("p", { className: 'benefit-blocks__list__item__top__subtitle' }, benefit.subtitle),
-                                benefit.text &&
-                                    React.createElement(ReactMarkdown, { source: benefit.text, className: 'benefit-blocks__list__item__top__text' }),
-                                benefit.gradientText &&
-                                    React.createElement(ReactMarkdown, { source: benefit.gradientText, className: 'benefit-blocks__list__item__top__gradient-text' }),
-                                benefit.logo && React.createElement(Media_1.default, { type: 'image', data: benefit.logo }))),
-                        React.createElement("div", { className: "row" },
-                            React.createElement("div", { className: 'benefit-blocks__list__item__bottom' },
-                                React.createElement("div", null, benefit.bottomText && React.createElement(ReactMarkdown, { source: benefit.bottomText }))))));
+                    return (React.createElement("div", { key: i, className: 'col-sm-12 col-md-6 col-xl-4' },
+                        React.createElement("div", { className: 'benefit-blocks__list__item' },
+                            React.createElement("div", { className: "row" },
+                                React.createElement("div", { className: 'benefit-blocks__list__item__top' },
+                                    benefit.icon && React.createElement(Media_1.default, { type: 'image', data: benefit.icon }),
+                                    benefit.title && React.createElement("h5", null, benefit.title),
+                                    benefit.subtitle &&
+                                        React.createElement("p", { className: 'benefit-blocks__list__item__top__subtitle' }, benefit.subtitle),
+                                    benefit.text &&
+                                        React.createElement(ReactMarkdown, { source: benefit.text, className: 'benefit-blocks__list__item__top__text' }),
+                                    benefit.gradientText &&
+                                        React.createElement(ReactMarkdown, { source: benefit.gradientText, className: 'benefit-blocks__list__item__top__gradient-text' }),
+                                    benefit.logo && React.createElement(Media_1.default, { type: 'image', data: benefit.logo }))),
+                            React.createElement("div", { className: 'benefit-blocks__list__item--divider' }),
+                            React.createElement("div", { className: "row" },
+                                React.createElement("div", { className: 'benefit-blocks__list__item__bottom' },
+                                    React.createElement("div", null, benefit.bottomText && React.createElement(ReactMarkdown, { source: benefit.bottomText })))))));
                 }))),
             React.createElement("div", { className: "container" },
                 React.createElement("div", { className: 'benefit-blocks__divider' }))));

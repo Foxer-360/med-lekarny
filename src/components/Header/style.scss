@@ -112,17 +112,15 @@
       }
 
       .activePage {
-        a {
-          &::after {
-            @include pseudo;
-            height: 1px;
-            bottom: -3px;
-            background-color: #3c3c3b;
-            opacity: 1;
-            width: 100%;
-            right: auto;
-            left: 0;
-          }
+        &::after {
+          @include pseudo;
+          height: 1px;
+          bottom: -3px;
+          background-color: #3c3c3b;
+          opacity: 1;
+          width: 100%;
+          right: auto;
+          left: 0;
         }
       }
 

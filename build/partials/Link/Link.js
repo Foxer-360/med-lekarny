@@ -73,7 +73,7 @@ var ComposerLink = function (props) {
             return (React.createElement("a", __assign({ href: (isExternalLink(url) && url) || (pageUrlObj && pageUrlObj.url) || '#' }, args, { target: urlNewWindow ? '_blank' : '' }), children));
         }
         else {
-            return (React.createElement(react_router_dom_1.Link, __assign({ to: (dynamic && url) || (pageUrlObj ? pageUrlObj.url : '#') }, args), children));
+            return (React.createElement(react_router_dom_1.NavLink, __assign({ activeClassName: 'activePage', to: (dynamic && url) || (pageUrlObj ? pageUrlObj.url : '#') }, args), children));
         }
     }));
 };

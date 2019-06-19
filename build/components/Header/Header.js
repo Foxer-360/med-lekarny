@@ -69,31 +69,6 @@ var Header = /** @class */ (function (_super) {
                 menuActive: !_this.state.menuActive,
             });
         };
-        _this.isActivePage = function (url) {
-            if (window) {
-                var PARENT_PAGE = url.split('/');
-                var LOCATION_PARENT_PAGE = location.pathname.split('/');
-                if (!PARENT_PAGE || !LOCATION_PARENT_PAGE) {
-                    return false;
-                }
-                var PARENT_PAGE_SIZE = PARENT_PAGE.length;
-                var LOCATION_PARENT_PAGE_SIZE = LOCATION_PARENT_PAGE.length;
-                for (var i = PARENT_PAGE_SIZE - 1; i > 1; i--) {
-                    for (var j = LOCATION_PARENT_PAGE_SIZE - 1; j > 1; j--) {
-                        if (PARENT_PAGE_SIZE > j && LOCATION_PARENT_PAGE_SIZE > j) {
-                            return PARENT_PAGE[j] === LOCATION_PARENT_PAGE[j] && true;
-                        }
-                    }
-                }
-                // HOME PAGE
-                if (PARENT_PAGE.length === 2 && LOCATION_PARENT_PAGE.length === 2) {
-                    return PARENT_PAGE[1] === LOCATION_PARENT_PAGE[1] ? true : false;
-                }
-                else {
-                    return false;
-                }
-            }
-        };
         _this.state = { menuActive: false };
         return _this;
     }
@@ -133,8 +108,7 @@ var Header = /** @class */ (function (_super) {
                                         : '/assets/mediconLekarny/images/logo-sr.svg', alt: "Medicon Lekarny Logo" }))),
                         React.createElement("nav", null,
                             React.createElement("ul", null, mainNavItems &&
-                                mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i, className: navItem && navItem.url && navItem.url.url &&
-                                        _this.isActivePage(navItem.url.url) ? 'activePage' : '' },
+                                mainNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
                                     React.createElement(Link_1.default, __assign({}, navItem.url), navItem.name || navItem.title))); })),
                             React.createElement(Hamburger_1.default, { active: _this.state.menuActive, onClick: _this.toggleMenu })))),
                 _this.props.data.showTriangle && React.createElement("div", { className: 'header__iso' },

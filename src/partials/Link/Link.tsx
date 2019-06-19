@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink as Link } from 'react-router-dom';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import Loader from '../Loader';
@@ -77,7 +77,11 @@ const ComposerLink = props => {
           );
         } else {
           return (
-            <Link to={(dynamic && url) || (pageUrlObj ? pageUrlObj.url : '#')} {...args}>
+            <Link 
+              activeClassName={'activePage'}
+              to={(dynamic && url) || (pageUrlObj ? pageUrlObj.url : '#')}
+              {...args}
+            >
               {children}
             </Link>
           );

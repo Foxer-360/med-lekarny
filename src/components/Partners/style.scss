@@ -13,11 +13,7 @@
   }
 
   &__list {
-    justify-content: space-between;
-    
-    @include max-sm {
-      justify-content: space-around;
-    }
+    justify-content: space-around;
 
     a {
       &:not(:last-of-type) {

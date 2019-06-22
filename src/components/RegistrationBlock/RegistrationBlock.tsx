@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactMarkdown from 'react-markdown';
 
 import Button from '../../partials/Button';
-import getFileUrl from '../../helpers/getImgUrl';
+import getFileUrl from '../../helpers/getUrl';
 
 export interface RegistrationBlockProps {
   data: {

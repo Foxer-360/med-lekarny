@@ -15,7 +15,7 @@ var React = require("react");
 var List_1 = require("../List");
 var Link_1 = require("../../partials/Link");
 var Media_1 = require("../../partials/Media");
-var getImgUrl_1 = require("../../helpers/getImgUrl");
+var getUrl_1 = require("../../helpers/getUrl");
 var MenuBlocks = function (props) {
     var menuBlocks = props.data.menuBlocks;
     return (React.createElement(List_1.default, { data: menuBlocks }, function (_a) {
@@ -23,7 +23,7 @@ var MenuBlocks = function (props) {
         return (React.createElement("div", { className: "container" },
             React.createElement("div", { className: 'menu-blocks row' }, data && data.map(function (block, i) {
                 return (React.createElement("div", { key: i, className: "" + (i <= 1 ? 'col-12 col-md-6 ' : 'col-12 col-md-4 col-xl-3') },
-                    React.createElement("div", { className: "menu-blocks__item " + (i <= 1 ? 'bigMenuBlock' : ''), style: { backgroundImage: block.image && "url(" + getImgUrl_1.default(block.image) + ")" } },
+                    React.createElement("div", { className: "menu-blocks__item " + (i <= 1 ? 'bigMenuBlock' : ''), style: { backgroundImage: block.image && "url(" + getUrl_1.default(block.image) + ")" } },
                         React.createElement(Link_1.default, __assign({}, block.url, { style: {
                                 position: 'absolute',
                                 top: 0,

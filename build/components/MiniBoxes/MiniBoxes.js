@@ -14,7 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var List_1 = require("../List");
 var Link_1 = require("../../partials/Link");
-var getImgUrl_1 = require("../../helpers/getImgUrl");
+var getUrl_1 = require("../../helpers/getUrl");
 var MiniBoxes = function (props) {
     var _a = props.data, title = _a.title, dividerOnTop = _a.dividerOnTop, miniBoxes = _a.miniBoxes;
     return (React.createElement(List_1.default, { data: miniBoxes }, function (_a) {
@@ -25,7 +25,7 @@ var MiniBoxes = function (props) {
                 title && React.createElement("h3", null, title),
                 React.createElement("div", { className: 'mini-boxes__list row' }, data && data.map(function (box, i) {
                     return (React.createElement("div", { key: i, className: 'col-12 col-sm-6 col-md-4 col-xl-3' },
-                        React.createElement("div", { className: 'mini-boxes__list__item', style: { backgroundImage: box.image && "url(" + getImgUrl_1.default(box.image) + ")" } },
+                        React.createElement("div", { className: 'mini-boxes__list__item', style: { backgroundImage: box.image && "url(" + getUrl_1.default(box.image) + ")" } },
                             box.title &&
                                 React.createElement("p", { style: box.titleColor ?
                                         { color: "" + box.titleColor } :

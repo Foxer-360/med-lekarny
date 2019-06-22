@@ -25,11 +25,11 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var react_router_dom_1 = require("react-router-dom");
-var react_apollo_1 = require("react-apollo");
 var graphql_tag_1 = require("graphql-tag");
-var Loader_1 = require("../Loader");
 var react_adopt_1 = require("react-adopt");
+var react_apollo_1 = require("react-apollo");
+var react_router_dom_1 = require("react-router-dom");
+var Loader_1 = require("../Loader");
 var isExternalLink = function (url) {
     var pattern = /^https?|^www|^mailto:|^tel:|^sms:|^call:/gi;
     return pattern.test(url);

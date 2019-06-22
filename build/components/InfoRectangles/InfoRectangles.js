@@ -15,7 +15,7 @@ var React = require("react");
 var List_1 = require("../List");
 var Link_1 = require("../../partials/Link");
 var Media_1 = require("../../partials/Media");
-var getImgUrl_1 = require("../../helpers/getImgUrl");
+var getUrl_1 = require("../../helpers/getUrl");
 var InfoRectangles = function (props) {
     var infoRectangles = props.data.infoRectangles;
     return (React.createElement(List_1.default, { data: infoRectangles }, function (_a) {
@@ -25,7 +25,7 @@ var InfoRectangles = function (props) {
                 React.createElement("div", { className: 'info-rectangles__divider' }),
                 React.createElement("div", { className: 'info-rectangles__list row' }, data && data.map(function (rectangle, i) {
                     return (React.createElement("div", { key: i, className: 'col-12 col-md-6' },
-                        React.createElement("div", { className: 'info-rectangles__list__item', style: { backgroundImage: rectangle.image && "url(" + getImgUrl_1.default(rectangle.image) + ")" } },
+                        React.createElement("div", { className: 'info-rectangles__list__item', style: { backgroundImage: rectangle.image && "url(" + getUrl_1.default(rectangle.image) + ")" } },
                             React.createElement("div", { className: 'info-rectangles__list__item__content' },
                                 rectangle.icon && React.createElement(Media_1.default, { type: 'image', data: rectangle.icon }),
                                 React.createElement(Link_1.default, __assign({}, rectangle.url, { style: {

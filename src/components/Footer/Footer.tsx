@@ -8,7 +8,7 @@ import Social from './components/Social';
 import Loader from '../../partials/Loader';
 import HelpPopup from './components/HelpPopup';
 import CookiePopup from './components/CookiePopup';
-import getFileUrl from '../../helpers/getImgUrl';
+import getFileUrl from '../../helpers/getUrl';
 
 const GET_CONTEXT = gql`
   {

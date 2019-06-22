@@ -50,6 +50,7 @@
     "node_module",
     "config",
     "scripts",
-    "styles"
+    "styles",
+    "src/__tests__"
   ]
 }

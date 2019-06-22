@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { NavLink as Link } from 'react-router-dom';
-import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import Loader from '../Loader';
 import { adopt } from 'react-adopt';
+import { Query } from 'react-apollo';
+import { NavLink as Link } from 'react-router-dom';
+
+import Loader from '../Loader';
 
 const isExternalLink = url => {
   const pattern = /^https?|^www|^mailto:|^tel:|^sms:|^call:/gi;

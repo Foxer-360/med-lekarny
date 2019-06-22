@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import Button from '../../../partials/Button';
-import getImgUrl from '../../../helpers/getImgUrl';
+import getImgUrl from '../../../helpers/getUrl';
 
 export interface InfoElementProps {
   title: string;

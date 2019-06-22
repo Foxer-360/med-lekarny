@@ -37,7 +37,7 @@ var Social_1 = require("./components/Social");
 var Loader_1 = require("../../partials/Loader");
 var HelpPopup_1 = require("./components/HelpPopup");
 var CookiePopup_1 = require("./components/CookiePopup");
-var getImgUrl_1 = require("../../helpers/getImgUrl");
+var getUrl_1 = require("../../helpers/getUrl");
 var GET_CONTEXT = graphql_tag_1.default(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"])));
 var GET_PAGES_URLS = graphql_tag_1.default(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!, $websiteId: ID!) {\n    pagesUrls(where: { language: $language, websiteId: $websiteId }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!, $websiteId: ID!) {\n    pagesUrls(where: { language: $language, websiteId: $websiteId }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
 var ComposedQuery = react_adopt_1.adopt({
@@ -99,7 +99,7 @@ var Footer = /** @class */ (function (_super) {
                             React.createElement("div", null,
                                 React.createElement("p", null, copyrights),
                                 gdprFile && gdprFile.filename &&
-                                    React.createElement("a", { href: getImgUrl_1.default(gdprFile), download: true, target: '_blank' }, gdprText)),
+                                    React.createElement("a", { href: getUrl_1.default(gdprFile), download: true, target: '_blank' }, gdprText)),
                             context.languageData.code === 'sr' && React.createElement("div", null,
                                 React.createElement("a", { target: '_blank', href: "https://goo.gl/maps/XnV44iAtzgoUwv4P6" }, "Jovana Du\u0107i\u0107a 68 78 000 Banja Luka"),
                                 React.createElement("a", { href: "tel:+38751491710" }, "+387 51 491 710"),

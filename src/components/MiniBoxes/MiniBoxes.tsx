@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import List from '../List';
 import Link from '../../partials/Link';
-import getImgUrl from '../../helpers/getImgUrl';
+import getImgUrl from '../../helpers/getUrl';
 
 interface MiniBox {
   title: string;

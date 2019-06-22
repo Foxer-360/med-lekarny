@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import getImgUrl from '../../../../helpers/getImgUrl';
+import getImgUrl from '../../../../helpers/getUrl';
 
 export interface ImgWithFallbackProps {
   alt?: string;

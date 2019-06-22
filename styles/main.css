@@ -4997,6 +4997,7 @@ cite {
       transition: cubic-bezier(0.215, 0.61, 0.355, 1); }
 
 .promotions {
+  width: 100%;
   z-index: 5;
   padding: 5rem 0;
   overflow: hidden;
@@ -5046,141 +5047,105 @@ cite {
         .promotions .promotion-previews__list__item__right__url:hover {
           text-decoration: underline; }
 
-.slider {
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  height: 100%;
-  overflow: hidden;
-  white-space: nowrap; }
-  .slider p, .slider span, .slider h1, .slider h2, .slider h3, .slider h4, .slider h5, .slider h6 {
-    white-space: normal; }
-  .slider__wrapper {
-    position: relative;
-    height: 100%;
-    width: 100%; }
-  .slider__slide {
+.carousel .slick-slider {
+  width: 75%;
+  float: left; }
+  @media (max-width: 768px) {
+    .carousel .slick-slider {
+      width: 100%; } }
+
+.carousel__slide, .carousel .slick-slide {
+  height: 490px; }
+  @media (max-width: 768px) {
+    .carousel__slide, .carousel .slick-slide {
+      height: 260px; } }
+
+.carousel__slide {
+  background-color: #f4f5f6;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px; }
+  .carousel__slide__item {
     display: inline-block;
     height: 100%;
     width: 100%; }
-  .slider__arrow {
-    height: 50px;
-    width: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f9f9f9;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: -webkit-transform ease-in .1s;
-    transition: transform ease-in .1s;
-    transition: transform ease-in .1s, -webkit-transform ease-in .1s; }
-    .slider__arrow .fa-arrow-right:before,
-    .slider__arrow .fa-arrow-left:before {
-      color: #222; }
-  .slider__nextArrow {
-    position: absolute;
-    top: 50%;
-    right: 25px;
-    z-index: 999;
-    color: #fff; }
-  .slider__backArrow {
-    position: absolute;
-    top: 50%;
-    left: 25px;
-    z-index: 999;
-    color: #fff; }
-  .slider__dots {
-    bottom: 35px;
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center; }
-    .slider__dots__dot {
-      display: block;
-      width: 14px;
-      height: 14px;
-      cursor: pointer;
-      border-radius: 50px;
-      background-color: white;
-      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1); }
-      .slider__dots__dot--active {
-        background-color: #3eac49;
-        box-shadow: none; }
-      .slider__dots__dot:not(:last-child) {
-        margin-right: 15px; }
+  .carousel__slide .mediaRatio {
+    height: 100%;
+    padding-top: 0 !important; }
 
-.carousel {
-  height: 490px;
-  background-color: #f4f5f6;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px; }
+.carousel__titles {
+  width: 25%;
+  float: right;
+  height: 100%;
+  font-size: 1.8rem;
+  overflow-y: hidden;
+  text-transform: uppercase;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.08); }
+  @media (max-width: 768px) {
+    .carousel__titles {
+      width: 0;
+      display: none; } }
+  @media (max-width: 955px) {
+    .carousel__titles {
+      font-size: 1.6rem; } }
+  @media (max-width: 900px) {
+    .carousel__titles {
+      font-size: 1.4rem; } }
   @media (max-width: 720px) {
-    .carousel {
-      height: 260px; } }
-  .carousel__divider {
-    display: block;
-    width: 100%;
-    height: 136px; }
-    @media (max-width: 768px) {
-      .carousel__divider {
-        height: 116px; } }
-  .carousel ul {
+    .carousel__titles {
+      font-size: 1.2rem; } }
+  .carousel__titles__list {
+    height: 100%;
     padding: 0;
     margin: 0;
     list-style: none; }
-    .carousel ul li::before {
+    .carousel__titles__list li::before {
       display: none; }
-    .carousel ul li + li {
+    .carousel__titles__list li + li {
       margin-top: 0; }
-    .carousel ul li {
-      padding: 0; }
-  .carousel .mediaRatio {
-    height: 100%;
-    padding-top: 0 !important; }
-  .carousel__images {
-    width: 75%;
-    height: 100%;
-    overflow: hidden;
-    display: inline-block; }
-    @media (max-width: 768px) {
-      .carousel__images {
-        width: 100%; } }
-  .carousel__titles {
-    width: 25%;
-    height: 100%;
-    font-size: 1.8rem;
-    overflow-y: hidden;
-    display: inline-block;
-    text-transform: uppercase;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.08); }
-    @media (max-width: 768px) {
-      .carousel__titles {
-        width: 0;
-        display: none; } }
-    @media (max-width: 955px) {
-      .carousel__titles {
-        font-size: 1.6rem; } }
-    @media (max-width: 900px) {
-      .carousel__titles {
-        font-size: 1.4rem; } }
-    @media (max-width: 720px) {
-      .carousel__titles {
-        font-size: 1.2rem; } }
-    .carousel__titles__list {
+    .carousel__titles__list__item {
+      width: 100%;
+      height: 98px;
+      display: table;
+      cursor: pointer;
+      text-align: center;
+      line-height: initial;
+      text-transform: lowercase; }
+      .carousel__titles__list__item:not(:last-of-type) {
+        border-bottom: 2px solid #dddedf; }
+      .carousel__titles__list__item > * {
+        display: table-cell;
+        vertical-align: middle; }
+
+.carousel .slick-dots {
+  bottom: 3.5rem; }
+  @media (max-width: 768px) {
+    .carousel .slick-dots {
+      bottom: 2rem; } }
+  .carousel .slick-dots li {
+    width: 1.4rem;
+    height: 1.4rem;
+    cursor: pointer;
+    border-radius: 50px;
+    background-color: white;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1); }
+    .carousel .slick-dots li::before {
+      display: none; }
+    .carousel .slick-dots li button {
+      width: 100%;
       height: 100%; }
-      .carousel__titles__list__item {
-        width: 100%;
-        height: 20%;
-        display: table;
-        cursor: pointer;
-        text-align: center;
-        line-height: initial;
-        text-transform: lowercase; }
-        .carousel__titles__list__item:not(:last-of-type) {
-          border-bottom: 2px solid #dddedf; }
-        .carousel__titles__list__item > * {
-          display: table-cell;
-          vertical-align: middle; }
+      .carousel .slick-dots li button::before {
+        display: none; }
+  .carousel .slick-dots .slick-active {
+    background-color: #3eac49;
+    box-shadow: none; }
+
+.sliderAtTop {
+  padding-top: 136px; }
+  @media (max-width: 768px) {
+    .sliderAtTop {
+      padding-top: 116px; } }
+  @media (max-width: 385px) {
+    .sliderAtTop {
+      padding-top: 140px; } }
 
 .headline--paddingTop {
   padding-top: 15rem; }

@@ -150,6 +150,33 @@
     }
   }
 
+  &--orangeBorder {
+    color: #EE4A37;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-image: linear-gradient(to right, #EE4A37 0%, #CB3F00 100%);
+    border-image-slice: 1;
+    transition: auto;
+
+    .arrow {
+      border-color: #EE4A37;
+    }
+
+    &:hover {
+      color: #EE4A37;
+      border: 2px solid #EE4A37;
+    }
+  }
+
+  &--greyBkg {
+    background-color: #f4f5f7;
+    text-transform: none;
+
+    .arrow {
+      border-color: #EE4A37;
+    }
+  }
+
   &--fullWidth {
     @include max-sm {
       width: 100%;

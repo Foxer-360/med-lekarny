@@ -173,6 +173,37 @@
   }
 }
 
+.header__top .top_res_recipe {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  text-align: center;
+  font-weight: 600;
+  background-image: linear-gradient(to right, #EE4A37 50%, #CB3F00 100%);
+  padding: 0.8rem 2rem 0.8rem 1rem;
+  font-size: 1.2rem;
+  &:hover {
+    text-decoration: none;
+    .arrow {
+      left: 10px;
+    }
+  }
+
+  .arrow {
+    padding: 2px;
+    border: solid white;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    border-width: 0 2px 2px 0;
+    transform: rotate(-45deg);
+    margin-bottom: 1px;
+    transition: ease 230ms;
+    left: 5px;
+  } 
+  
+}
+
 .menuActive {
   .header__iso { display: none; }
   svg { 

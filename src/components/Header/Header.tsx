@@ -120,6 +120,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                         </Link>
                       </li>
                     ))}
+                    <li><Link className="top_res_recipe">rezervace e-receptů<span className="arrow" /></Link></li>
                   </ul>
                 </div>
               </div>

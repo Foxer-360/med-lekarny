@@ -3826,6 +3826,16 @@ cite {
     transition: ease 230ms;
     left: 5px; }
 
+@media screen and (max-width: 485px) {
+  .header__top .top_res_recipe {
+    letter-spacing: 0.5px;
+    padding: 0rem 1.5rem 0rem 0.2rem;
+    font-size: 0.7rem; }
+  .container .header__top__list li {
+    padding: 0px 0px 0px 6px; }
+    .container .header__top__list li a:not(.top_res_recipe) {
+      font-size: 1rem; } }
+
 .menuActive .header__iso {
   display: none; }
 
@@ -4055,20 +4065,20 @@ cite {
         font-weight: 600;
         font-size: 1.8rem; }
 
-.cookiePopup p {
-  display: inline;
-  padding-left: 10px; }
-
-.cookiePopup img {
-  display: inline;
-  max-height: 19px;
-  max-width: 19px; }
-
-.cookiePopup a {
-  color: #3eac49 !important;
-  text-decoration: underline; }
-  .cookiePopup a:hover {
-    text-decoration: none; }
+.cookiePopup {
+  z-index: 6000; }
+  .cookiePopup p {
+    display: inline;
+    padding-left: 10px; }
+  .cookiePopup img {
+    display: inline;
+    max-height: 19px;
+    max-width: 19px; }
+  .cookiePopup a {
+    color: #3eac49 !important;
+    text-decoration: underline; }
+    .cookiePopup a:hover {
+      text-decoration: none; }
 
 .footer {
   width: 100%;

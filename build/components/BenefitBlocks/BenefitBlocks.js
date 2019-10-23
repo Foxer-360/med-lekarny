@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var ReactMarkdown = require("react-markdown");
+var ReactMarkdown = require("react-markdown/with-html");
 var List_1 = require("../List");
 var Media_1 = require("../../partials/Media");
 var BenefitBlocks = function (props) {

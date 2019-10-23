@@ -3176,6 +3176,15 @@ p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
+.textCenter {
+  text-align: center !important; }
+
+.textLeft {
+  text-align: left !important; }
+
+.textRight {
+  text-align: right !important; }
+
 .form {
   padding: 55px 0;
   box-shadow: 0 0 13px rgba(0, 52, 97, 0.18); }
@@ -4258,8 +4267,6 @@ cite {
       font-weight: 400;
       text-align: center;
       letter-spacing: 0.8px; } }
-  .textBlock__container__text li {
-    text-align: left; }
 
 .info-boxes--paddingBottom {
   padding-bottom: 3rem; }

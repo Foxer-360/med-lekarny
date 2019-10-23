@@ -29,7 +29,7 @@ var PharmaciesList = function (props) {
                         React.createElement("div", { className: "pcitem__wrapper" },
                             React.createElement("div", { className: 'pcitem__img' }, pharmacie.image && React.createElement(Media_1.default, { data: pharmacie.image, type: "image" })),
                             React.createElement("div", { className: 'pcitem__info' },
-                                React.createElement(title_1.default, { name: pharmacie.name && pharmacie.name }),
+                                React.createElement(title_1.default, { name: pharmacie.name && pharmacie.name, buttonText: pharmacie.buttonText && pharmacie.buttonText, buttonUrl: pharmacie.buttonUrl && pharmacie.buttonUrl }),
                                 React.createElement("div", { className: "pcitem__info__details" },
                                     React.createElement("div", { className: "pcitem__info__details__item" },
                                         React.createElement("img", { src: "../../../assets/mediconLekarny/images/geoIcon.svg", alt: "Medicon GeoLocation Icon" }),

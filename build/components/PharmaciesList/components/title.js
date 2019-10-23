@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var Button_1 = require("../../../partials/Button");
@@ -19,7 +30,7 @@ var Title = function (props) {
                             React.createElement("div", null),
                             React.createElement("div", null))))),
             React.createElement("div", { className: "col-md-6" },
-                React.createElement(Button_1.default, { classes: 'btn--orangeBorder res_recipe' }, "rezervace e-\u2060recept\u016F")))));
+                React.createElement(Button_1.default, __assign({ classes: 'btn--orangeBorder res_recipe' }, props.buttonUrl), ('' + props.buttonText).replace('-', '-\u2060'))))));
 };
 exports.default = Title;
 //# sourceMappingURL=title.js.map

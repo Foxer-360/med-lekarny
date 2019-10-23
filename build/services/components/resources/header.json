@@ -1,7 +1,9 @@
 {
     "name": "Header",
     "data": {
-        "showTriangle": true
+        "showTriangle": true,
+        "buttonText": "Rezervace e-receptů",
+        "url": ""
     },
     "form": {
         "schema": {
@@ -10,6 +12,14 @@
                 "showTriangle": {
                     "type": "boolean",
                     "title": "Show top triangle?"
+                },
+                "buttonText": {
+                    "type": "text",
+                    "title": "Button text"
+                },
+                "buttonUrl": {
+                    "type": "urlAutocomplete",
+                    "title": "Button URL"
                 }
             }
         }

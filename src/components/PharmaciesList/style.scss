@@ -243,7 +243,7 @@
   }
 }
 
-@media screen and (max-width: 765px) {
+@media screen and (max-width: 768px) {
   .pcTitle {
     flex-wrap: wrap;
     flex-direction: column;
@@ -254,6 +254,7 @@
     .btn--orangeBorder.res_recipe {
       display: block;
       margin: 16px auto;
+      max-width: 100%;
     }
     .pcTitle__title h3 {
       font-size: 3.2rem;

@@ -26,18 +26,12 @@
       text-align: right;
       padding: 1rem 0;
       @include max-sm { text-align: center; }
-
+      
       li {
-        display: none;
-
         &:first-of-type { padding-left: 0; }
         &:last-of-type {
           margin-right: 0;
           padding-right: 0;
-          display: inline;
-        }
-        @include md {
-          display: inline;
         }
         .top_res_recipe {
           text-transform: uppercase;
@@ -110,6 +104,19 @@
         height: 70px;
       }
     }
+  }
+
+  .header__top__list.button li {
+    display: none;
+    &:last-of-type {
+      display: inline;
+    }
+    @include md {
+      display: inline;
+    }
+  }
+  .header__top__list.normal li {
+    display: inline;
   }
 
   &__wrapper {

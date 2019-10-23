@@ -114,7 +114,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             <header className={`header ${this.state.menuActive ? 'menuActive' : ''}`}>
               <div className={'header__top'}>
                 <div style={{ position: 'relative' }} className={'container'}>
-                  <ul className={'header__top__list'}>
+                  <ul className={`header__top__list ${this.props.data.buttonText && this.props.data.buttonUrl.url ? 'button' : 'normal'}`}>
                     {topNavItems && topNavItems.map((navItem, i) => (
                       <li key={i}>
                         <Link {...navItem.url}>
@@ -122,7 +122,10 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                         </Link>
                       </li>
                     ))}
-                    <li><Link className="top_res_recipe" {...this.props.data.buttonUrl}>{this.props.data.buttonText}<span className="arrow" /></Link></li>
+                    {(this.props.data.buttonUrl.url && this.props.data.buttonText) && 
+                    <li><Link className="top_res_recipe" {...this.props.data.buttonUrl}>
+                    {this.props.data.buttonText}
+                    <span className="arrow" /></Link></li>}
                   </ul>
                 </div>
               </div>

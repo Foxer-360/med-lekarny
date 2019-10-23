@@ -6,9 +6,12 @@ import Link from '../../partials/Link';
 import PcTitle from './components/title';
 import Media from '../../partials/Media';
 import Button from '../../partials/Button';
+import { Url } from 'url';
 
 interface Pharmacie {
   name: string;
+  buttonText: string;
+  buttonUrl?: LooseObject;
   image?: LooseObject;
   description: string;
   address: string;
@@ -46,7 +49,10 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                       </div>
 
                       <div className={'pcitem__info'}>
-                        <PcTitle name={pharmacie.name && pharmacie.name} />
+                        <PcTitle
+                        name={pharmacie.name && pharmacie.name} 
+                        buttonText={pharmacie.buttonText && pharmacie.buttonText}
+                        buttonUrl={pharmacie.buttonUrl && pharmacie.buttonUrl} />
 
                         <div className="pcitem__info__details">
                           <div className="pcitem__info__details__item">

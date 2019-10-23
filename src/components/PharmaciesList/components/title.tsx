@@ -1,9 +1,13 @@
 import * as React from 'react';
 import Button from '../../../partials/Button';
+import DotsProps from '@source/components/Carousel/components/Dots';
 
 export interface TitleProps {
   name: string;
+  buttonText: string;
+  buttonUrl?: LooseObject;
 }
+
 
 const Title = (props: TitleProps) => {
   return (
@@ -27,7 +31,7 @@ const Title = (props: TitleProps) => {
           </div>
         </div>
         <div className="col-md-6">
-          <Button classes='btn--orangeBorder res_recipe'>rezervace e-&#8288;receptů</Button>
+          <Button classes='btn--orangeBorder res_recipe' {...props.buttonUrl} >{(''+props.buttonText).replace('-','-\u2060')}</Button>
         </div>
       </div>
     </div>

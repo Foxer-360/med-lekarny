@@ -51,6 +51,8 @@ export interface HeaderProps {
   languageCode?: string;
   data: {
     showTriangle: boolean;
+    buttonText: string;
+    buttonUrl?: LooseObject;
   };
 }
 
@@ -120,7 +122,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                         </Link>
                       </li>
                     ))}
-                    <li><Link className="top_res_recipe">rezervace e-receptů<span className="arrow" /></Link></li>
+                    <li><Link className="top_res_recipe" {...this.props.data.buttonUrl}>{this.props.data.buttonText}<span className="arrow" /></Link></li>
                   </ul>
                 </div>
               </div>

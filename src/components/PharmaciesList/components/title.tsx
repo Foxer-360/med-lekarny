@@ -30,9 +30,10 @@ const Title = (props: TitleProps) => {
             </div>
           </div>
         </div>
+        {props.buttonUrl && props.buttonText &&
         <div className="col-md-6">
           <Button classes='btn--orangeBorder res_recipe' {...props.buttonUrl} >{(''+props.buttonText).replace('-','-\u2060')}</Button>
-        </div>
+        </div>}
       </div>
     </div>
   );

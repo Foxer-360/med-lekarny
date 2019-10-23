@@ -29,7 +29,7 @@ var Title = function (props) {
                             React.createElement("div", null),
                             React.createElement("div", null),
                             React.createElement("div", null))))),
-            props.buttonUrl && props.buttonText &&
+            props.buttonUrl.url && props.buttonText &&
                 React.createElement("div", { className: "col-md-6" },
                     React.createElement(Button_1.default, __assign({ classes: 'btn--orangeBorder res_recipe' }, props.buttonUrl), ('' + props.buttonText).replace('-', '-\u2060'))))));
 };

@@ -3692,41 +3692,35 @@ cite {
       @media (max-width: 576px) {
         .header__top__list {
           text-align: center; } }
-      .header__top__list li {
-        display: none; }
-        .header__top__list li:first-of-type {
-          padding-left: 0; }
-        .header__top__list li:last-of-type {
-          margin-right: 0;
-          padding-right: 0;
-          display: inline; }
-        @media (min-width: 768px) {
-          .header__top__list li {
-            display: inline; } }
-        .header__top__list li .top_res_recipe {
-          text-transform: uppercase;
-          letter-spacing: 1.8px;
-          text-align: center;
-          font-weight: 600;
-          background-image: linear-gradient(to right, #EE4A37 50%, #CB3F00 100%);
-          padding: 0.8rem 2rem 0.8rem 1rem;
-          font-size: 1.2rem; }
-          .header__top__list li .top_res_recipe:hover {
-            text-decoration: none; }
-            .header__top__list li .top_res_recipe:hover .arrow {
-              left: 10px; }
-          .header__top__list li .top_res_recipe .arrow {
-            padding: 2px;
-            border: solid white;
-            display: inline-block;
-            position: relative;
-            vertical-align: middle;
-            border-width: 0 2px 2px 0;
-            -webkit-transform: rotate(-45deg);
-                    transform: rotate(-45deg);
-            margin-bottom: 1px;
-            transition: ease 230ms;
-            left: 5px; }
+      .header__top__list li:first-of-type {
+        padding-left: 0; }
+      .header__top__list li:last-of-type {
+        margin-right: 0;
+        padding-right: 0; }
+      .header__top__list li .top_res_recipe {
+        text-transform: uppercase;
+        letter-spacing: 1.8px;
+        text-align: center;
+        font-weight: 600;
+        background-image: linear-gradient(to right, #EE4A37 50%, #CB3F00 100%);
+        padding: 0.8rem 2rem 0.8rem 1rem;
+        font-size: 1.2rem; }
+        .header__top__list li .top_res_recipe:hover {
+          text-decoration: none; }
+          .header__top__list li .top_res_recipe:hover .arrow {
+            left: 10px; }
+        .header__top__list li .top_res_recipe .arrow {
+          padding: 2px;
+          border: solid white;
+          display: inline-block;
+          position: relative;
+          vertical-align: middle;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(-45deg);
+                  transform: rotate(-45deg);
+          margin-bottom: 1px;
+          transition: ease 230ms;
+          left: 5px; }
     .header__top a {
       color: white !important;
       font-size: 1.5rem;
@@ -3764,6 +3758,15 @@ cite {
       @media (min-width: 768px) {
         .header__iso svg {
           height: 70px; } }
+  .header .header__top__list.button li {
+    display: none; }
+    .header .header__top__list.button li:last-of-type {
+      display: inline; }
+    @media (min-width: 768px) {
+      .header .header__top__list.button li {
+        display: inline; } }
+  .header .header__top__list.normal li {
+    display: inline; }
   .header__wrapper {
     justify-content: space-between;
     align-items: center;

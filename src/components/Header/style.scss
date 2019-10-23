@@ -204,6 +204,20 @@
   
 }
 
+@media screen and (max-width: 485px) {
+  .header__top .top_res_recipe {
+    letter-spacing: 0.5px;
+    padding: 0rem 1.5rem 0rem 0.2rem;
+    font-size: 0.7rem;
+  }
+  .container .header__top__list li {
+    padding: 0px 0px 0px 6px;
+    a:not(.top_res_recipe) {
+      font-size: 1rem;
+    }
+  }
+}
+
 .menuActive {
   .header__iso { display: none; }
   svg { 

@@ -4258,6 +4258,8 @@ cite {
       font-weight: 400;
       text-align: center;
       letter-spacing: 0.8px; } }
+  .textBlock__container__text li {
+    text-align: left; }
 
 .info-boxes--paddingBottom {
   padding-bottom: 3rem; }

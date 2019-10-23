@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown/with-html';
 
 import Button from '../../partials/Button';
 import getFileUrl from '../../helpers/getImgUrl';

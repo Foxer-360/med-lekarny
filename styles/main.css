@@ -4547,7 +4547,7 @@ cite {
     left: auto;
     right: 15px; }
 
-@media screen and (max-width: 765px) {
+@media screen and (max-width: 768px) {
   .pcTitle {
     flex-wrap: wrap;
     flex-direction: column; }
@@ -4556,7 +4556,8 @@ cite {
       width: 33px; }
     .pcTitle .btn--orangeBorder.res_recipe {
       display: block;
-      margin: 16px auto; }
+      margin: 16px auto;
+      max-width: 100%; }
     .pcTitle .pcTitle__title h3 {
       font-size: 3.2rem; }
     .pcTitle .align-content-center {

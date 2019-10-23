@@ -29,8 +29,9 @@ var Title = function (props) {
                             React.createElement("div", null),
                             React.createElement("div", null),
                             React.createElement("div", null))))),
-            React.createElement("div", { className: "col-md-6" },
-                React.createElement(Button_1.default, __assign({ classes: 'btn--orangeBorder res_recipe' }, props.buttonUrl), ('' + props.buttonText).replace('-', '-\u2060'))))));
+            props.buttonUrl && props.buttonText &&
+                React.createElement("div", { className: "col-md-6" },
+                    React.createElement(Button_1.default, __assign({ classes: 'btn--orangeBorder res_recipe' }, props.buttonUrl), ('' + props.buttonText).replace('-', '-\u2060'))))));
 };
 exports.default = Title;
 //# sourceMappingURL=title.js.map

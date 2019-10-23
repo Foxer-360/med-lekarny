@@ -3671,7 +3671,7 @@ cite {
   background-color: #fff;
   width: 100%;
   position: fixed;
-  z-index: 4000;
+  z-index: 400;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.05); }
   .header__logo img {
     max-width: 190px; }
@@ -3999,7 +3999,7 @@ cite {
     background-color: #c5c8ca; }
 
 .helpPopup {
-  z-index: 4998;
+  z-index: 500;
   width: 100%;
   bottom: 0px;
   left: 50%;
@@ -4076,20 +4076,20 @@ cite {
         font-weight: 600;
         font-size: 1.8rem; }
 
-.cookiePopup {
-  z-index: 6000; }
-  .cookiePopup p {
-    display: inline;
-    padding-left: 10px; }
-  .cookiePopup img {
-    display: inline;
-    max-height: 19px;
-    max-width: 19px; }
-  .cookiePopup a {
-    color: #3eac49 !important;
-    text-decoration: underline; }
-    .cookiePopup a:hover {
-      text-decoration: none; }
+.cookiePopup p {
+  display: inline;
+  padding-left: 10px; }
+
+.cookiePopup img {
+  display: inline;
+  max-height: 19px;
+  max-width: 19px; }
+
+.cookiePopup a {
+  color: #3eac49 !important;
+  text-decoration: underline; }
+  .cookiePopup a:hover {
+    text-decoration: none; }
 
 .footer {
   width: 100%;

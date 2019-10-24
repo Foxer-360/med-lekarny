@@ -13,7 +13,7 @@ const GET_CONTEXT = gql`
     pageData @client
     websiteData @client
     languagesData @client
-    navigationsData @client 
+    navigationsData @client
   }
 `;
 
@@ -78,17 +78,17 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       menuActive: !this.state.menuActive,
     });
   }
-  
+
   public render() {
     this.state.menuActive ? (document.body.style.position = 'fixed') : (document.body.style.position = 'static');
-    
+
     return (
       <ComposedQuery>
         {({ getPagesUrls: { loading, error, data }, context }) => {
-          if (!context.navigationsData || 
-              !context.languageData || 
-              !context.languagesData || 
-              !data || 
+          if (!context.navigationsData ||
+              !context.languageData ||
+              !context.languagesData ||
+              !data ||
               !data.pagesUrls
             ) { return <Loader />; }
 
@@ -106,15 +106,15 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
           const mainNavItems =
             transformedNavigations && transformedNavigations[mainNav] ? transformedNavigations[mainNav] : [];
-          
+
           const topNavItems =
             transformedNavigations && transformedNavigations[topNav] ? transformedNavigations[topNav] : [];
-          
+
           return (
             <header className={`header ${this.state.menuActive ? 'menuActive' : ''}`}>
               <div className={'header__top'}>
                 <div style={{ position: 'relative' }} className={'container'}>
-                  <ul className={`header__top__list ${this.props.data.buttonText && this.props.data.buttonUrl.url ? 'button' : 'normal'}`}>
+                  <ul className={`header__top__list ${this.props.data.buttonText && this.props.data.buttonUrl && this.props.data.buttonUrl.url ? 'button' : 'normal'}`}>
                     {topNavItems && topNavItems.map((navItem, i) => (
                       <li key={i}>
                         <Link {...navItem.url}>
@@ -122,7 +122,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                         </Link>
                       </li>
                     ))}
-                    {(this.props.data.buttonUrl.url && this.props.data.buttonText) && 
+                    {(this.props.data.buttonUrl.url && this.props.data.buttonText) &&
                     <li><Link className="top_res_recipe" {...this.props.data.buttonUrl}>
                     {this.props.data.buttonText}
                     <span className="arrow" /></Link></li>}
@@ -132,16 +132,16 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               <div className="container">
                 <div className={'header__wrapper'}>
                   <div className={'header__logo'}>
-                    <Link 
-                      url={`${context.websiteData.urlMask === '/' ? 
+                    <Link
+                      url={`${context.websiteData.urlMask === '/' ?
                               '' : context.websiteData.urlMask}/${context.languageData.code}`}
                     >
                       <img
                         src={
-                          context.languageData.code === 'cs' 
-                          ? '/assets/mediconLekarny/images/mediconLekarnyLogo.png' 
+                          context.languageData.code === 'cs'
+                          ? '/assets/mediconLekarny/images/mediconLekarnyLogo.png'
                           : '/assets/mediconLekarny/images/logo-sr.svg'
-                        } 
+                        }
                         alt="Medicon Lekarny Logo"
                       />
                     </Link>

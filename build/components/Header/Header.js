@@ -99,7 +99,7 @@ var Header = /** @class */ (function (_super) {
                         React.createElement("ul", { className: "header__top__list " + (_this.props.data.buttonText && _this.props.data.buttonUrl && _this.props.data.buttonUrl.url ? 'button' : 'normal') },
                             topNavItems && topNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
                                 React.createElement(Link_1.default, __assign({}, navItem.url), navItem.name || navItem.title))); }),
-                            (_this.props.data.buttonUrl.url && _this.props.data.buttonText) &&
+                            (_this.props.data.buttonUrl && _this.props.data.buttonUrl.url && _this.props.data.buttonText) &&
                                 React.createElement("li", null,
                                     React.createElement(Link_1.default, __assign({ className: "top_res_recipe" }, _this.props.data.buttonUrl),
                                         _this.props.data.buttonText,

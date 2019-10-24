@@ -122,7 +122,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                         </Link>
                       </li>
                     ))}
-                    {(this.props.data.buttonUrl.url && this.props.data.buttonText) &&
+                    {(this.props.data.buttonUrl && this.props.data.buttonUrl.url && this.props.data.buttonText) &&
                     <li><Link className="top_res_recipe" {...this.props.data.buttonUrl}>
                     {this.props.data.buttonText}
                     <span className="arrow" /></Link></li>}

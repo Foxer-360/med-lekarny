@@ -50,9 +50,10 @@ const PharmaciesList = (props: PharmaciesListProps) => {
 
                       <div className={'pcitem__info'}>
                         <PcTitle
-                        name={pharmacie.name && pharmacie.name} 
-                        buttonText={pharmacie.buttonText && pharmacie.buttonText}
-                        buttonUrl={pharmacie.buttonUrl && pharmacie.buttonUrl} />
+                          name={pharmacie.name && pharmacie.name} 
+                          buttonText={pharmacie.buttonText}
+                          buttonUrl={pharmacie.buttonUrl}
+                        />
 
                         <div className="pcitem__info__details">
                           <div className="pcitem__info__details__item">
@@ -95,6 +96,8 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                         {pharmacie.services &&
                           <div className={'pcitem__info__list'}>
                             <ReactMarkdown
+                              skipHtml={false}
+                              escapeHtml={false}
                               source={pharmacie.services}
                               renderers={{
                                 // tslint:disable-next-line:no-any
@@ -108,6 +111,8 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                           <div className={'pcitem__info__desc'}>
                             <div className={'pcitem__info__desc__txt'}>
                               <ReactMarkdown
+                                skipHtml={false}
+                                escapeHtml={false}
                                 source={pharmacie.description}
                                 renderers={{
                                   // tslint:disable-next-line:no-any

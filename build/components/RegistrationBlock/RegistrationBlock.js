@@ -9,7 +9,7 @@ var RegistrationBlock = function (props) {
     return (React.createElement("div", { className: 'registration-block' },
         React.createElement("div", { className: "container" },
             title && React.createElement("h3", null, title),
-            text && React.createElement(ReactMarkdown, { source: text }),
+            text && React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: text }),
             btnTitle &&
                 React.createElement("div", { className: 'registration-block__btn-holder' },
                     React.createElement(Button_1.default, { url: btnUrl, classes: 'btn--greenBkg hCenterBlock' }, btnTitle)),

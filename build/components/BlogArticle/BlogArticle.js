@@ -10,7 +10,7 @@ var BlogArticle = function (props) {
             title && React.createElement("h3", null, title),
             React.createElement("div", { className: 'hCenterBlock', style: { maxWidth: 820 } },
                 image && React.createElement(Media_1.default, { type: 'image', data: image }),
-                text && React.createElement(ReactMarkdown, { source: text })))));
+                text && React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: text })))));
 };
 exports.default = BlogArticle;
 //# sourceMappingURL=BlogArticle.js.map

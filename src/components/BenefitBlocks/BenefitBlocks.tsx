@@ -49,11 +49,15 @@ const BenefitBlocks = (props: BenefitBlocksProps) => {
                               </p>}
                             {benefit.text &&
                               <ReactMarkdown
+                                skipHtml={false}
+                                escapeHtml={false}                    
                                 source={benefit.text}
                                 className={'benefit-blocks__list__item__top__text'}
                               />}
                             {benefit.gradientText &&
                               <ReactMarkdown
+                                skipHtml={false}
+                                escapeHtml={false}                    
                                 source={benefit.gradientText}
                                 className={'benefit-blocks__list__item__top__gradient-text'}
                               />}
@@ -66,7 +70,11 @@ const BenefitBlocks = (props: BenefitBlocksProps) => {
                         <div className="row">
                           <div className={'benefit-blocks__list__item__bottom'}>
                             <div>
-                              {benefit.bottomText && <ReactMarkdown source={benefit.bottomText} />}
+                              {benefit.bottomText && <ReactMarkdown
+                                skipHtml={false}
+                                escapeHtml={false}                              
+                                source={benefit.bottomText}
+                              />}
                             </div>
                           </div>
                         </div>

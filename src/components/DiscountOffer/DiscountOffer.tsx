@@ -38,15 +38,27 @@ const DiscountOffer = (props: DiscountOfferProps) => {
         <div className={'discount-offer__list row'}>
           
           <div className={'discount-offer__list__item col-12 col-xl-6'}>
-            {discountText && <ReactMarkdown source={discountText} />}
+            {discountText && <ReactMarkdown
+              skipHtml={false}
+              escapeHtml={false}
+              source={discountText}
+            />}
             {discountImage && <Media type={'image'} data={discountImage} />}
           </div>
           <div className={'discount-offer__list__item col-12 col-xl-6'}>
-            {couponText && <ReactMarkdown source={couponText} />}
+            {couponText && <ReactMarkdown
+              skipHtml={false}
+              escapeHtml={false}
+              source={couponText}
+            />}
             {couponImage && <Media type={'image'} data={couponImage} />}
           </div>
           <div className={'discount-offer__list__item col-12 col-xl-6'}>
-            {promotionText && <ReactMarkdown source={promotionText} />}
+            {promotionText && <ReactMarkdown
+              skipHtml={false}
+              escapeHtml={false}
+              source={promotionText}
+            />}
             {promotionImage && <Media type={'image'} data={promotionImage} />}
           </div>
           <div className={'discount-offer__list__item col-12 col-xl-6'}>

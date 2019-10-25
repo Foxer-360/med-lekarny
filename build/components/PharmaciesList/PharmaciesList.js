@@ -29,7 +29,7 @@ var PharmaciesList = function (props) {
                         React.createElement("div", { className: "pcitem__wrapper" },
                             React.createElement("div", { className: 'pcitem__img' }, pharmacie.image && React.createElement(Media_1.default, { data: pharmacie.image, type: "image" })),
                             React.createElement("div", { className: 'pcitem__info' },
-                                React.createElement(title_1.default, { name: pharmacie.name && pharmacie.name, buttonText: pharmacie.buttonText && pharmacie.buttonText, buttonUrl: pharmacie.buttonUrl && pharmacie.buttonUrl }),
+                                React.createElement(title_1.default, { name: pharmacie.name && pharmacie.name, buttonText: pharmacie.buttonText, buttonUrl: pharmacie.buttonUrl }),
                                 React.createElement("div", { className: "pcitem__info__details" },
                                     React.createElement("div", { className: "pcitem__info__details__item" },
                                         React.createElement("img", { src: "../../../assets/mediconLekarny/images/geoIcon.svg", alt: "Medicon GeoLocation Icon" }),
@@ -51,14 +51,14 @@ var PharmaciesList = function (props) {
                                             pharmacie.station))),
                                 pharmacie.services &&
                                     React.createElement("div", { className: 'pcitem__info__list' },
-                                        React.createElement(ReactMarkdown, { source: pharmacie.services, renderers: {
+                                        React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: pharmacie.services, renderers: {
                                                 // tslint:disable-next-line:no-any
                                                 paragraph: function (rProps) { return React.createElement("ul", null, rProps.children); },
                                             } })),
                                 pharmacie.description &&
                                     React.createElement("div", { className: 'pcitem__info__desc' },
                                         React.createElement("div", { className: 'pcitem__info__desc__txt' },
-                                            React.createElement(ReactMarkdown, { source: pharmacie.description, renderers: {
+                                            React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: pharmacie.description, renderers: {
                                                     // tslint:disable-next-line:no-any
                                                     paragraph: function (rProps) { return React.createElement("p", null, rProps.children); },
                                                 } }))),

@@ -55,7 +55,7 @@ var HelpPopup = /** @class */ (function (_super) {
                 React.createElement("ul", { className: 'helpPopup__list' },
                     React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
                         React.createElement("p", null, "Pharmacentrum Bud\u011Bjovick\u00E1"),
-                        React.createElement("a", { href: "tel:+420261006330" }, "+420 261 006 330")),
+                        React.createElement("a", { href: "tel:+420227777300" }, "+420 227 777 300")),
                     React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
                         React.createElement("p", null, "Pharmacentrum DBK"),
                         React.createElement("a", { href: "tel:+420296825318" }, "+420 296\u00A0825\u00A0318")),

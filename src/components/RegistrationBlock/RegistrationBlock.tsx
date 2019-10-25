@@ -21,7 +21,11 @@ const RegistrationBlock = (props: RegistrationBlockProps) => {
     <div className={'registration-block'}>
       <div className="container">
         {title && <h3>{title}</h3>}
-        {text && <ReactMarkdown source={text} />}
+        {text && <ReactMarkdown
+          skipHtml={false}
+          escapeHtml={false}
+          source={text}
+        />}
 
         {btnTitle &&
           <div className={'registration-block__btn-holder'}>

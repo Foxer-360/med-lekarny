@@ -29,7 +29,11 @@ const ClubBenefits = (props: ClubBenefitsProps) => {
               {data && data.map((benefit, i) => {
                 return (
                   <div key={i} className={'club-benefits__list__item col-12 col-md-6 col-lg-3'}>
-                    {benefit.title && <ReactMarkdown source={benefit.title} />}
+                    {benefit.title && <ReactMarkdown
+                      skipHtml={false}
+                      escapeHtml={false}                    
+                      source={benefit.title}
+                    />}
                   </div>
                 );
               })}

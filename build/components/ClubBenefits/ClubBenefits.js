@@ -23,7 +23,7 @@ var ClubBenefits = function (props) {
         return (React.createElement("div", { className: 'club-benefits' },
             React.createElement("div", { className: 'container' },
                 React.createElement("div", { className: 'club-benefits__list row' }, data && data.map(function (benefit, i) {
-                    return (React.createElement("div", { key: i, className: 'club-benefits__list__item col-12 col-md-6 col-lg-3' }, benefit.title && React.createElement(ReactMarkdown, { source: benefit.title })));
+                    return (React.createElement("div", { key: i, className: 'club-benefits__list__item col-12 col-md-6 col-lg-3' }, benefit.title && React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: benefit.title })));
                 })),
                 buttonTitle &&
                     React.createElement("div", { className: 'club-benefits__btn-holder' },

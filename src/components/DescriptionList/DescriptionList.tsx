@@ -17,7 +17,11 @@ const DescriptionList = (props: DescriptionListProps) => {
 
         {title && <h3>{title}</h3>}
         <div className={'description-list__content'}>
-          {text && <ReactMarkdown source={text} />}
+          {text && <ReactMarkdown
+            skipHtml={false}
+            escapeHtml={false}
+            source={text}
+          />}
         </div>
 
       </div>

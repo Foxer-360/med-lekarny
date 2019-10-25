@@ -8,7 +8,6 @@ export interface TitleProps {
   buttonUrl?: LooseObject;
 }
 
-
 const Title = (props: TitleProps) => {
   return (
     <div className={'pcTitle'}>
@@ -32,7 +31,9 @@ const Title = (props: TitleProps) => {
         </div>
         {props.buttonUrl && props.buttonUrl.url && props.buttonText &&
         <div className="col-md-6">
-          <Button classes='btn--orangeBorder res_recipe' {...props.buttonUrl} >{(''+props.buttonText).replace('-','-\u2060')}</Button>
+          <Button classes="btn--orangeBorder res_recipe" url={props.buttonUrl}>
+            {('' + props.buttonText).replace('-', '-\u2060')}
+          </Button>
         </div>}
       </div>
     </div>

@@ -21,6 +21,8 @@ const TextBlock = (props: TextBlockProps) => {
           {text && (
             <div className={`textBlock__container__text ${textAlign}`}>
               <ReactMarkdown
+                skipHtml={false}
+                escapeHtml={false}
                 source={text}
                 renderers={{
                   // tslint:disable-next-line:no-any

@@ -4931,6 +4931,7 @@ cite {
         border-bottom: 0;
         border-right: 0; } }
   .description-list p {
+    text-align: left;
     margin-bottom: 2.5rem; }
     .description-list p:last-of-type {
       margin-bottom: 0; }

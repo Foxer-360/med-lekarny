@@ -14,16 +14,15 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-;
+var RecipeSectionHeader_1 = require("./components/RecipeSectionHeader");
 var RecipeReservation = /** @class */ (function (_super) {
     __extends(RecipeReservation, _super);
     function RecipeReservation() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     RecipeReservation.prototype.render = function () {
-        return (React.createElement("div", { className: "recipe-reservation" },
-            React.createElement("div", { className: "container" },
-                React.createElement("h1", null, "Rezervace e-receptu"))));
+        return (React.createElement("div", { className: "recipe-reservation-page" },
+            React.createElement(RecipeSectionHeader_1.default, null)));
     };
     return RecipeReservation;
 }(React.Component));

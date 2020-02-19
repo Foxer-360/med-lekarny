@@ -1,0 +1,14 @@
+$recipe-page-gradient-bg-1: #DDE4EC;
+$recipe-page-gradient-bg-2: #dde4ec;
+
+@mixin bg-gradient() {
+  background: $recipe-page-gradient-bg-1;
+  background: linear-gradient(90deg, $recipe-page-gradient-bg-1 0%,
+    $recipe-page-gradient-bg-2 50%, $recipe-page-gradient-bg-1 100%);
+}
+
+@import "./components/RecipeSectionHeader/style";
+
+.recipe-reservation-page {
+  padding-top: 136px;
+}

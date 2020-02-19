@@ -58,4 +58,6 @@ var BlogArticle_1 = require("./BlogArticle");
 exports.BlogArticle = BlogArticle_1.default;
 var MiniBoxes_1 = require("./MiniBoxes");
 exports.MiniBoxes = MiniBoxes_1.default;
+var RecipeReservation_1 = require("./RecipeReservation");
+exports.RecipeReservation = RecipeReservation_1.default;
 //# sourceMappingURL=index.js.map

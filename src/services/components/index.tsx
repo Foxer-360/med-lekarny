@@ -31,6 +31,7 @@ import {
   PromotionPreviews,
   BlogArticle,
   PromotionsAndDiscounts,
+  RecipeReservation,
 } from '../../components';
 import * as resources from './resources';
 
@@ -67,6 +68,7 @@ class ComponentsService {
     REGISTRATIONBLOCK: 'RegistrationBlock',
     BLOGARTICLE: 'BlogArticle',
     MINIBOXES: 'MiniBoxes',
+    RECIPERESERVATION: 'RecipeReservation',
   };
 
   /***/
@@ -139,7 +141,9 @@ class ComponentsService {
         return MiniBoxes;
       case this.Types.PHARMACIESLIST:
         return PharmaciesList;
-        
+      case this.Types.RECIPERESERVATION:
+        return RecipeReservation;
+
       default:
         return () => <AlertNotFound type="component" />;
     }

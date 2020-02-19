@@ -58,4 +58,6 @@ var blogarticle = require("./blogarticle.json");
 exports.blogarticle = blogarticle;
 var miniboxes = require("./miniboxes.json");
 exports.miniboxes = miniboxes;
+var recipereservation = require("./recipereservation.json");
+exports.recipereservation = recipereservation;
 //# sourceMappingURL=index.js.map

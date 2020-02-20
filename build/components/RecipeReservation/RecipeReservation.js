@@ -15,6 +15,8 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var RecipeSectionHeader_1 = require("./components/RecipeSectionHeader");
+var RecipePickupPick_1 = require("./components/RecipePickupPick/RecipePickupPick");
+var RecipeOwnerInfo_1 = require("./components/RecipeOwnerInfo/RecipeOwnerInfo");
 var RecipeReservation = /** @class */ (function (_super) {
     __extends(RecipeReservation, _super);
     function RecipeReservation() {
@@ -22,7 +24,9 @@ var RecipeReservation = /** @class */ (function (_super) {
     }
     RecipeReservation.prototype.render = function () {
         return (React.createElement("div", { className: "recipe-reservation-page" },
-            React.createElement(RecipeSectionHeader_1.default, null)));
+            React.createElement(RecipeSectionHeader_1.default, null),
+            React.createElement(RecipePickupPick_1.default, null),
+            React.createElement(RecipeOwnerInfo_1.default, null)));
     };
     return RecipeReservation;
 }(React.Component));

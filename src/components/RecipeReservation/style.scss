@@ -8,6 +8,8 @@ $recipe-page-gradient-bg-2: #dde4ec;
 }
 
 @import "./components/RecipeSectionHeader/style";
+@import "./components/RecipePickupPick/style";
+@import "./components/RecipeOwnerInfo/style";
 
 .recipe-reservation-page {
   padding-top: 136px;

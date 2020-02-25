@@ -1,0 +1,133 @@
+
+.recipe-owner-info {
+  padding-top: 70px;
+  padding-bottom: 60px;
+  background: linear-gradient(90deg, #DDE4EC 0%, #dde4ec 50%, #DDE4EC 100%);
+  text-align: center;
+  text-transform: uppercase;
+
+  .form-wrap {
+    label.center {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 1em 0;
+    }
+
+    input {
+      padding: 1.2em 2em 1em;
+      margin-bottom: 14px;
+      box-shadow: inset 0 0 6px 1px rgba(#000, .25);
+      border: 1px solid #DDE4EC;
+      text-align: center;
+      font-style: italic;
+      letter-spacing: 2px;
+
+      &:focus,
+      &:active {
+        border: 1px solid #2EAA9A;
+      }
+    }
+
+    label.checkbox-label {
+      position: relative;
+      margin: auto;
+      width: auto;
+      padding: 0 30px 0 40px;
+
+      &:before {
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        width: 29px;
+        height: 29px;
+        box-shadow: inset 0 0 6px 1px rgba(1, 1, 1, 0.26);
+        background-color: #ffffff;
+      }
+
+      &:hover, &:focus {
+        &:before {
+          background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdBAMAAACkvXo8AAAAAXNSR0IB2cksfwAAABJQTFRFAAAAQq1JQq1JRKtIQ6xKQa5JQG7yQQAAAAZ0Uk5TAP9wQG8/62S3FAAAACZJREFUeJxjEEQBAgxCxkjASIBBmAEJMI/yB5ovEooEQgQY0OIPAENlDN8gdV55AAAAAElFTkSuQmCC');
+        }
+      }
+
+      &.checked {
+        &:before {
+          background-color: #fff;
+          background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAMAAABhTZc9AAAAAXNSR0IB2cksfwAAAEJQTFRFAAAAQq1JQq1JRKtIQK9IQa5JQq1JQq1KQq1JQK9KQq1IQ6xJQq1JQK9QQ6xJQ6xIQq1KQq1JQq1KQq1JQ6xKQa5J3Pj9PwAAABZ0Uk5TAP9wQCCg4IDwMGBQ7xDPsNCPn99vP9YV7rAAAAB1SURBVHiczdLbCoAgEATQ9Va6aVnZ//9qhgmJrvToPHpAZ0BgvQDjggqPKoCKGE1lT9XU0VkbWvE9a+rCkG5lLKc7S6uAVLduUKnHjN7VimxPQz/4udno48E0tH43ssMCi1bSn3loq7PzJY73N35quKiEqL3cSNEFmRsj10kAAAAASUVORK5CYII=');
+          box-shadow: none;
+        }
+      }
+
+      > input {
+        display: none;
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+      }
+
+      &.gdpr-info {
+        width: auto;
+        height: 35px;
+        padding-top: 4px;
+        margin-top: 70px;
+        display: inline-block;
+      }
+    }
+  }
+
+  .contact-choose {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 2em;
+
+    > span {
+      display: block;
+    }
+
+    > label {
+      display: inline-block;
+      width: 49%;
+    }
+  }
+
+  .link {
+    display: block;
+    text-transform: none;
+    margin-bottom: 60px;
+    text-decoration: underline;
+  }
+
+  .submit-btn {
+    color: #fff;
+    background: $gradient-fill;
+    border: none;
+    padding: .9em 3em .8em 1.5em;
+    transition: background .3s;
+
+    &::after {
+      content: url('data:image/svg+xml;charset=UTF-8, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" color="white" viewBox="0 0 59.414 59.414" style="enable-background:new 0 0 59.414 59.414;"><polygon  fill="currentColor" points="15.561,0 14.146,1.414 42.439,29.707 14.146,58 15.561,59.414 45.268,29.707 "/></svg>');
+      width: 20px;
+    }
+
+    &:hover, &:focus, &:active {
+      background: $gradient-fill-hover;
+      &:after {
+        transform: rotate(0);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .recipe-owner-info {
+    .form-wrap {
+      padding-right: 3em;
+      padding-left: 3em;
+    }
+  }
+}

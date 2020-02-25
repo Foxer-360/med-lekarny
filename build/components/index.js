@@ -60,4 +60,6 @@ var MiniBoxes_1 = require("./MiniBoxes");
 exports.MiniBoxes = MiniBoxes_1.default;
 var RecipeReservation_1 = require("./RecipeReservation");
 exports.RecipeReservation = RecipeReservation_1.default;
+var RecipeThankYou_1 = require("./RecipeThankYou");
+exports.RecipeThankYou = RecipeThankYou_1.default;
 //# sourceMappingURL=index.js.map

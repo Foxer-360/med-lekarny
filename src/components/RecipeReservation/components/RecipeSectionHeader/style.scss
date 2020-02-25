@@ -1,3 +1,6 @@
+$gradient-fill: linear-gradient(to right, #3eac49 0%, #00aad0 100%);
+$gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0 100%);
+
 .recipe-header {
   padding-bottom: 2em;
 
@@ -9,12 +12,11 @@
   }
 
   .recipe-input-wrapper {
-    padding: 4em 0;
-
+    padding: 4em 0 2em;
     .headline {
       font-size: 1.15em;
       padding: .5em 0;
-      margin-left: 5em;
+      margin-left: 7em;
       color: #3c3c3b;
       font-weight: 400;
       text-transform: uppercase;
@@ -29,12 +31,13 @@
   }
 
   .recipe-input {
-    padding: 1.2em 5em 1em;
+    padding: 1.2em 3em 1em;
     box-shadow: inset 0 0 6px 1px rgba(#000, .25);
     border: 1px solid #DDE4EC;
     text-align: center;
     font-style: italic;
     letter-spacing: 2px;
+    flex-grow: 1;
 
     &:focus,
     &:active {
@@ -42,11 +45,20 @@
     }
   }
 
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+
   .center-word {
     font-size: 18px;
     color: #9b9b9b;
     text-transform: uppercase;
     font-weight: bold;
+    margin: 0 35px;
+  }
+
+  .form-wrapper {
+    flex-wrap: wrap;
   }
 }
 
@@ -65,7 +77,11 @@
   }
 
   .ilu-text {
-    padding-top: 1em;
+    padding: 1em;
+  }
+
+  .recipe-ilu {
+    max-height: 90px;
   }
 
   .text {
@@ -81,48 +97,73 @@
   }
 }
 
-.recipe-pickup-place {
-  padding-top: 60px;
-  padding-bottom: 20px;
-  .subheadline {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin: 0 auto 45px;
-    font-weight: 300;
-    font-size: 1.6rem;
-    line-height: inherit;
-    letter-spacing: 0.75px;
-    text-transform: uppercase;
-  }
-
-  .pickup-point {
-    margin-bottom: 60px;
-
-    &_wrap {
-      display: flex;
-      justify-content: center;
-    }
-
-    > img {
-      margin-bottom: 14px;
-    }
-
-    max-width: 300px;
-
-    .address {
-      padding-left: 44px;
-      margin-top: 7px;
-      margin-bottom: 0;
-      line-height: 1em;
-
-      &-bold {
-        font-weight: 700;
+@media screen and (min-width: 768px) {
+  .recipe-header {
+    .recipe-illustrations {
+      .recipe-ilu {
+        max-height: 150px;
       }
     }
+  }
+}
 
-    .recipe-btn {
-      margin: 20px 0;
+@media screen and (max-width: 767px) {
+  .recipe-header {
+    .gradientHeading {
+      font-size: 1.5em;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .form-wrapper {
+      flex-direction: column;
+      justify-content: center;
+
+      > * {
+        margin-bottom: 18px;
+      }
+    }
+    .recipe-input-wrapper {
+      padding: 1.5em 0;
+      max-width: 350px;
+      margin: 0 auto;
+
+      .headline {
+        text-align: center;
+        margin: auto;
+      }
+    }
+    .reservation-note {
+      padding-top: 1em;
+      .textform-label_text {
+        display: block;
+        margin: auto;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.reservation-note {
+  display: block;
+  padding-top: 40px;
+
+  .textform-label {
+    width: 100%;
+
+    &_text {
+      margin-left: 92px;
+      font-size: 1.15em;
+      padding: .5em 0;
+      margin-left: 7em;
+      color: #3c3c3b;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .recipe-input {
+      display: block;
+      width: 100%;
     }
   }
 }
@@ -130,7 +171,7 @@
 .recipe-btn {
   position: relative;
   font-size: 1.15em;
-  padding: .9em 4em .8em 1.5em;
+  padding: .9em 4em .8em 2.5em;
   color: #2EAA9A;
   background-color: #fff;
   border: 2px solid #2EAA9A;
@@ -161,66 +202,3 @@
   }
 }
 
-.recipe-owner-info {
-  padding-top: 70px;
-  padding-bottom: 60px;
-  background: linear-gradient(90deg, #DDE4EC 0%, #dde4ec 50%, #DDE4EC 100%);
-  text-align: center;
-  text-transform: uppercase;
-
-  .form-wrap {
-    label.center {
-      display: flex;
-      width: 100%;
-      flex-direction: column;
-      text-transform: uppercase;
-      text-align: center;
-      margin: 1em 0;
-    }
-
-    input {
-      padding: 1.2em 5em 1em;
-      margin-bottom: 14px;
-      box-shadow: inset 0 0 6px 1px rgba(#000, .25);
-      border: 1px solid #DDE4EC;
-      text-align: center;
-      font-style: italic;
-      letter-spacing: 2px;
-
-      &:focus,
-      &:active {
-        border: 1px solid #2EAA9A;
-      }
-    }
-  }
-
-  .contact-choose {
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 2em;
-
-    > span {
-      display: block;
-    }
-
-    > label {
-      display: inline-block;
-      width: 49%;
-    }
-  }
-
-  .gdpr-info {
-    padding-top: 70px;
-    display: block;
-  }
-
-  .link {
-    display: block;
-    text-transform: none;
-    margin-bottom: 60px;
-  }
-
-  .submit-btn {
-
-  }
-}

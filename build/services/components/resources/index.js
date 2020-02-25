@@ -60,4 +60,6 @@ var miniboxes = require("./miniboxes.json");
 exports.miniboxes = miniboxes;
 var recipereservation = require("./recipereservation.json");
 exports.recipereservation = recipereservation;
+var recipethankyou = require("./recipethankyou.json");
+exports.recipethankyou = recipethankyou;
 //# sourceMappingURL=index.js.map

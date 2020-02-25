@@ -28,6 +28,7 @@ import RegistrationBlock from './RegistrationBlock';
 import BlogArticle from './BlogArticle';
 import MiniBoxes from './MiniBoxes';
 import RecipeReservation from './RecipeReservation';
+import RecipeThankYou from './RecipeThankYou';
 
 export {
   AlertNotFound,
@@ -60,4 +61,5 @@ export {
   BlogArticle,
   MiniBoxes,
   RecipeReservation,
+  RecipeThankYou,
 };

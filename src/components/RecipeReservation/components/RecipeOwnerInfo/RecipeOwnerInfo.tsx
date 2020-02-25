@@ -19,14 +19,10 @@ class RecipeOwnerInfo extends React.Component {
                 E-mail
                 <input type="text" name="email" />
               </label>
-              <label className="center">
-                Poznámka
-                <input type="text" name="note" />
-              </label>
 
               <div className="contact-choose">
                 <span>Jak chcete, abychom vás kontaktovali?</span>
-                <label>
+                <label className="checkbox-label">
                   <input
                     name="contactWay"
                     type="checkbox"
@@ -35,18 +31,18 @@ class RecipeOwnerInfo extends React.Component {
                   />
                   E-mailem
                 </label>
-                <label>
+                <label className="checkbox-label checked">
                   <input
                     name="contactWay"
                     type="checkbox"
-                    checked={false}
+                    checked={true}
                     onChange={() => console.log('ahoj')}
                   />
                   Přes sms
                 </label>
               </div>
 
-              <label className="gdpr-info">
+              <label className="gdpr-info checkbox-label">
                 <input
                   name="dgpr"
                   type="checkbox"
@@ -55,8 +51,12 @@ class RecipeOwnerInfo extends React.Component {
                 />
                 Poučení o zpracování údajů
               </label>
-              <a href="https://www.stahnisipodminkyzmediconasapredtimnastavadresu.cz" className="link">Stáhnout podmínky zpracování údajů</a>
-
+              <a
+                href="https://www.mediconas.cz/cs/ochrana-osobnich-udaju"
+                className="link"
+              >
+                Stáhnout podmínky zpracování údajů
+              </a>
               <button
                 type="button"
                 className="recipe-btn submit-btn"

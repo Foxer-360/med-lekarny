@@ -19,12 +19,20 @@ var RecipePickupPick_1 = require("./components/RecipePickupPick/RecipePickupPick
 var RecipeOwnerInfo_1 = require("./components/RecipeOwnerInfo/RecipeOwnerInfo");
 var RecipeReservation = /** @class */ (function (_super) {
     __extends(RecipeReservation, _super);
-    function RecipeReservation() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function RecipeReservation(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            recipeCodesArray: [],
+        };
+        return _this;
     }
+    RecipeReservation.prototype.updateRecipesArray = function (recipes) {
+        console.log('update recipes array', recipes);
+    };
     RecipeReservation.prototype.render = function () {
         return (React.createElement("div", { className: "recipe-reservation-page" },
-            React.createElement(RecipeSectionHeader_1.default, null),
+            console.log(this.state.recipeCodesArray),
+            React.createElement(RecipeSectionHeader_1.default, { recipesArray: this.state.recipeCodesArray, updateRecipesArray: this.updateRecipesArray }),
             React.createElement(RecipePickupPick_1.default, null),
             React.createElement(RecipeOwnerInfo_1.default, null)));
     };

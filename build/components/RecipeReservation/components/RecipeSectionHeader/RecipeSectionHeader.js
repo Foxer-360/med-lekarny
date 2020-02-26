@@ -25,7 +25,6 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var TextBlock_1 = require("../../../TextBlock");
 var RecipeSectionHeader = /** @class */ (function (_super) {
     __extends(RecipeSectionHeader, _super);
     function RecipeSectionHeader(props) {
@@ -77,9 +76,11 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         };
         _this.state = {
             recipeCodeInput: '',
+            noteInput: '',
             errors: ''
         };
         _this.recipeCodeInputChange = _this.recipeCodeInputChange.bind(_this);
+        _this.updateNote = _this.updateNote.bind(_this);
         return _this;
     }
     RecipeSectionHeader.prototype.recipeCodeInputChange = function (e) {
@@ -100,23 +101,39 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         codesArray.push(code);
         this.props.updateRecipesArray(code);
     };
+    RecipeSectionHeader.prototype.updateNote = function (e) {
+        this.setState({ noteInput: e.target.value });
+    };
     RecipeSectionHeader.prototype.render = function () {
         var recipesArray = this.props.recipesArray;
         var _a = this.state, recipeCodeInput = _a.recipeCodeInput, errors = _a.errors;
         var errorCodeBoolean = errors.code && errors.code.length > 0;
         return (React.createElement("header", { className: "recipe-header" },
             React.createElement("div", { className: "container" },
-                React.createElement(TextBlock_1.default, { data: this.data }),
+                React.createElement("h1", { className: "gradientHeading" }, this.data.title),
+                React.createElement("section", { className: "row intro" },
+                    React.createElement("div", { className: "col-md-6" },
+                        React.createElement("p", { className: "text text-left" }, this.data.text)),
+                    React.createElement("div", { className: "col-md-6 steps" },
+                        React.createElement("div", { className: "step" },
+                            React.createElement("img", { src: '/assets/mediconLekarny/images/numbers/1.svg', className: "step-image", alt: "1" }),
+                            React.createElement("p", { className: "step-text" }, "Vypl\u0148te k\u00F3d receptu")),
+                        React.createElement("div", { className: "step" },
+                            React.createElement("img", { src: '/assets/mediconLekarny/images/numbers/2.svg', className: "step-image", alt: "2" }),
+                            React.createElement("p", { className: "step-text" }, "Vypl\u0148te k\u00F3d receptu")),
+                        React.createElement("div", { className: "step" },
+                            React.createElement("img", { src: '/assets/mediconLekarny/images/numbers/3.svg', className: "step-image", alt: "3" }),
+                            React.createElement("p", { className: "step-text" }, "Vypl\u0148te k\u00F3d receptu")))),
                 React.createElement("section", { className: "recipe-illustrations" },
                     React.createElement("div", { className: "row" },
                         React.createElement("div", { className: "col-4 ilu-column" },
-                            React.createElement("img", { className: 'recipe-ilu', alt: 'receipt image', src: '/assets/mediconLekarny/images/recept-list.png' }),
-                            React.createElement("span", { className: "ilu-title" }, "RECEPT")),
+                            React.createElement("img", { className: 'recipe-ilu list', alt: 'receipt image', src: '/assets/mediconLekarny/images/recept-list.png' }),
+                            React.createElement("span", { className: "ilu-title" }, "PR\u016EVODKA")),
                         React.createElement("div", { className: "col-4 ilu-column" },
-                            React.createElement("img", { className: 'recipe-ilu', alt: 'receipt image', src: '/assets/mediconLekarny/images/recept-phone.png' }),
+                            React.createElement("img", { className: 'recipe-ilu phone', alt: 'receipt image', src: '/assets/mediconLekarny/images/recept-phone.png' }),
                             React.createElement("span", { className: "ilu-title" }, "SMS")),
                         React.createElement("div", { className: "col-4 ilu-column" },
-                            React.createElement("img", { className: 'recipe-ilu', alt: 'receipt image', src: '/assets/mediconLekarny/images/recept-pc.png' }),
+                            React.createElement("img", { className: 'recipe-ilu pc', alt: 'receipt image', src: '/assets/mediconLekarny/images/recept-pc.png' }),
                             React.createElement("span", { className: "ilu-title" }, "E-MAIL"))),
                     React.createElement("div", { className: "row ilu-text" },
                         React.createElement("p", { className: "text text-center" }, "Zde najdete identifik\u00E1tor Va\u0161eho receptu."),
@@ -127,7 +144,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                         React.createElement("input", { type: "text", className: "recipe-input " + (errorCodeBoolean ? 'error' : ''), placeholder: "za\u010Dn\u011Bte ps\u00E1t", value: recipeCodeInput, onChange: this.recipeCodeInputChange }),
                         React.createElement("span", { className: "center-word" }, "nebo"),
                         React.createElement("button", { className: "recipe-btn" },
-                            "Nahr\u00E1t foto",
+                            "Vyfotit",
                             React.createElement("span", { className: "plus-icon" }))),
                     React.createElement("section", null,
                         "REZERVACE RECEPT\u016E S K\u00D3DEM:",
@@ -145,8 +162,8 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                         recipeCodeInput),
                     React.createElement("form", { action: "", className: "reservation-note" },
                         React.createElement("label", { className: "textform-label" },
-                            React.createElement("span", { className: "textform-label_text" }, "Pozn\u00E1mka"),
-                            React.createElement("textarea", { name: "note", className: "recipe-input" })))))));
+                            React.createElement("span", { className: "textform-label_text" }, "Dal\u0161\u00ED objedn\u00E1vka recept\u016F"),
+                            React.createElement("textarea", { name: "note", className: "recipe-input", onChange: this.updateNote })))))));
     };
     return RecipeSectionHeader;
 }(React.Component));

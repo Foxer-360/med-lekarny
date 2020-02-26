@@ -10,6 +10,7 @@ interface RecipeReservationProps {
 
 interface RecipeReservationState {
   recipeCodesArray: Array<string>;
+  pickupPlace: string;
 }
 
 class RecipeReservation extends React.Component<RecipeReservationProps, RecipeReservationState> {
@@ -18,11 +19,18 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
 
     this.state = {
       recipeCodesArray: [],
+      pickupPlace: '',
     };
+
+    this.updatePickupPlace = this.updatePickupPlace.bind(this);
   }
 
   updateRecipesArray(recipes: Array<string>) {
     console.log('update recipes array', recipes);
+  }
+
+  updatePickupPlace(placeId: string) {
+    this.setState({pickupPlace: placeId});
   }
 
   render() {
@@ -33,7 +41,9 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
           recipesArray={this.state.recipeCodesArray}
           updateRecipesArray={this.updateRecipesArray}
         />
-        <RecipePickupPick />
+        <RecipePickupPick
+          updatePickupPlace={this.updatePickupPlace}
+        />
         <RecipeOwnerInfo />
         {/* <RecipeReservationSubmit /> */}
       </div>

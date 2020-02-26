@@ -5803,6 +5803,28 @@ cite {
       font-weight: 400;
       text-transform: uppercase;
       text-align: left; }
+  .recipe-header .intro {
+    background-color: #fff;
+    padding-top: calc(1em + 10px);
+    padding-bottom: 1em; }
+    .recipe-header .intro:after {
+      position: absolute; }
+    .recipe-header .intro .text-left {
+      padding: 2em; }
+    .recipe-header .intro .steps {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      padding-top: 2em;
+      padding-bottom: 2em; }
+      .recipe-header .intro .steps .step {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        text-transform: uppercase; }
+      .recipe-header .intro .steps .step-image {
+        max-width: 50px;
+        margin-right: 16px; }
   .recipe-header .form-wrapper {
     display: flex;
     justify-content: space-between;
@@ -5816,7 +5838,8 @@ cite {
     letter-spacing: 2px;
     flex-grow: 1; }
     .recipe-header .recipe-input:focus, .recipe-header .recipe-input:active {
-      border: 1px solid #2EAA9A; }
+      border: 1px solid #2EAA9A;
+      font-style: normal; }
   @media screen and (max-width: 767px) {
     .recipe-header {
       width: 100%; } }
@@ -5852,7 +5875,13 @@ cite {
 
 @media screen and (min-width: 768px) {
   .recipe-header .recipe-illustrations .recipe-ilu {
-    max-height: 150px; } }
+    max-height: 150px; }
+    .recipe-header .recipe-illustrations .recipe-ilu.list {
+      max-height: 130px; }
+    .recipe-header .recipe-illustrations .recipe-ilu.phone {
+      max-height: 170px; }
+    .recipe-header .recipe-illustrations .recipe-ilu.pc {
+      max-height: 110px; } }
 
 @media screen and (max-width: 767px) {
   .recipe-header .gradientHeading {
@@ -5914,11 +5943,18 @@ cite {
     right: 16px;
     transform: rotate(0);
     transition: all linear .3s; }
-  .recipe-btn:hover, .recipe-btn:focus, .recipe-btn.selected {
+  .recipe-btn:hover, .recipe-btn:focus {
     background-color: #2EAA9A;
     color: #fff; }
-    .recipe-btn:hover:after, .recipe-btn:focus:after, .recipe-btn.selected:after {
+    .recipe-btn:hover:after, .recipe-btn:focus:after {
       transform: rotate(180deg); }
+  .recipe-btn.selected {
+    background-color: #2EAA9A;
+    color: #fff; }
+    .recipe-btn.selected:after {
+      content: "✔";
+      transition: none;
+      transform: rotate(0); }
 
 .recipe-pickup-place {
   padding-top: 60px;
@@ -5939,16 +5975,15 @@ cite {
     .recipe-pickup-place .pickup-point_wrap {
       display: flex;
       justify-content: center; }
-    .recipe-pickup-place .pickup-point > img {
-      margin-bottom: 14px; }
     .recipe-pickup-place .pickup-point .address {
-      padding-left: 44px;
+      padding-left: 16px;
       margin-top: 7px;
       margin-bottom: 0;
       line-height: 1em; }
       .recipe-pickup-place .pickup-point .address-bold {
         font-weight: 700; }
     .recipe-pickup-place .pickup-point .recipe-btn {
+      width: 100%;
       margin: 20px 0; }
 
 @media screen and (max-width: 767px) {
@@ -5963,14 +5998,21 @@ cite {
     .recipe-pickup-place .pickup-point .address {
       padding-left: .5em;
       font-size: 14px; }
+      .recipe-pickup-place .pickup-point .address + .address + .address {
+        min-height: 30px; }
     .recipe-pickup-place .pickup-point .recipe-btn {
       display: block;
+      width: 100%;
       padding: .5em 3em .5em 1em;
       margin-top: .5em;
       font-size: 14px;
       text-align: left;
       line-height: 1.4em;
       min-height: 59px; } }
+
+@media screen and (min-width: 768px) {
+  .recipe-pickup-place .pickup-point {
+    width: 300px; } }
 
 .recipe-owner-info {
   padding-top: 70px;
@@ -5994,7 +6036,8 @@ cite {
     font-style: italic;
     letter-spacing: 2px; }
     .recipe-owner-info .form-wrap input:focus, .recipe-owner-info .form-wrap input:active {
-      border: 1px solid #2EAA9A; }
+      border: 1px solid #2EAA9A;
+      font-style: normal; }
   .recipe-owner-info .form-wrap label.checkbox-label {
     position: relative;
     margin: auto;

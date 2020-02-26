@@ -24,6 +24,40 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
     }
   }
 
+  .intro {
+    background-color: #fff;
+    padding-top: calc(1em + 10px);
+    padding-bottom: 1em;
+
+    &:after {
+      position: absolute;
+    }
+
+    .text-left {
+      padding: 2em;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      padding-top: 2em;
+      padding-bottom: 2em;
+
+      .step {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        text-transform: uppercase;
+      }
+
+      .step-image {
+        max-width: 50px;
+        margin-right: 16px;
+      }
+    }
+  }
+
   .form-wrapper {
     display: flex;
     justify-content: space-between;
@@ -42,6 +76,7 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
     &:focus,
     &:active {
       border: 1px solid #2EAA9A;
+      font-style: normal;
     }
   }
 
@@ -102,6 +137,18 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
     .recipe-illustrations {
       .recipe-ilu {
         max-height: 150px;
+
+        &.list {
+          max-height: 130px;
+        }
+
+        &.phone {
+          max-height: 170px;
+        }
+
+        &.pc {
+          max-height: 110px;
+        }
       }
     }
   }
@@ -191,13 +238,23 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
   }
 
   &:hover,
-  &:focus,
-  &.selected {
+  &:focus {
     background-color: #2EAA9A;
     color: #fff;
 
     &:after {
       transform: rotate(180deg);
+    }
+  }
+
+  &.selected {
+    background-color: #2EAA9A;
+    color: #fff;
+
+    &:after {
+      content: "✔";
+      transition: none;
+      transform: rotate(0);
     }
   }
 }

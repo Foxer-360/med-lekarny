@@ -23,17 +23,22 @@ var RecipeReservation = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.state = {
             recipeCodesArray: [],
+            pickupPlace: '',
         };
+        _this.updatePickupPlace = _this.updatePickupPlace.bind(_this);
         return _this;
     }
     RecipeReservation.prototype.updateRecipesArray = function (recipes) {
         console.log('update recipes array', recipes);
     };
+    RecipeReservation.prototype.updatePickupPlace = function (placeId) {
+        this.setState({ pickupPlace: placeId });
+    };
     RecipeReservation.prototype.render = function () {
         return (React.createElement("div", { className: "recipe-reservation-page" },
             console.log(this.state.recipeCodesArray),
             React.createElement(RecipeSectionHeader_1.default, { recipesArray: this.state.recipeCodesArray, updateRecipesArray: this.updateRecipesArray }),
-            React.createElement(RecipePickupPick_1.default, null),
+            React.createElement(RecipePickupPick_1.default, { updatePickupPlace: this.updatePickupPlace }),
             React.createElement(RecipeOwnerInfo_1.default, null)));
     };
     return RecipeReservation;

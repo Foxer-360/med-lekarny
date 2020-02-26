@@ -1,5 +1,5 @@
 import * as React from 'react';
-import TextBlock from '../../../TextBlock';
+// import TextBlock from '../../../TextBlock';
 
 interface iRecipeSectionheaderProps {
   recipesArray: Array<string>;
@@ -8,6 +8,7 @@ interface iRecipeSectionheaderProps {
 
 interface iRecipeSectionheaderState {
   recipeCodeInput: string;
+  noteInput: string;
   errors: any;
 }
 
@@ -31,10 +32,12 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
 
     this.state = {
       recipeCodeInput: '',
+      noteInput: '',
       errors: ''
     };
 
     this.recipeCodeInputChange = this.recipeCodeInputChange.bind(this);
+    this.updateNote = this.updateNote.bind(this);
   }
 
   setErrors = error => {
@@ -95,6 +98,10 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
     // }
   }
 
+  updateNote(e: any) {
+    this.setState({noteInput: e.target.value});
+  }
+
   render() {
     const { recipesArray } = this.props;
     const { recipeCodeInput, errors } = this.state;
@@ -103,20 +110,63 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
     return (
       <header className="recipe-header">
         <div className="container">
-          <TextBlock data={this.data} />
+          {/* <TextBlock data={this.data} /> */}
+
+          <h1 className="gradientHeading">{this.data.title}</h1>
+
+          <section className="row intro">
+            <div className="col-md-6">
+              <p className="text text-left">
+                {this.data.text}
+              </p>
+            </div>
+            <div className="col-md-6 steps">
+              <div className="step">
+                <img
+                  src={'/assets/mediconLekarny/images/numbers/1.svg'}
+                  className="step-image"
+                  alt="1"
+                />
+                <p className="step-text">
+                  Vyplňte kód receptu
+                </p>
+              </div>
+              <div className="step">
+                <img
+                  src={'/assets/mediconLekarny/images/numbers/2.svg'}
+                  className="step-image"
+                  alt="2"
+                />
+                <p className="step-text">
+                  Vyplňte kód receptu
+                </p>
+              </div>
+              <div className="step">
+                <img
+                  src={'/assets/mediconLekarny/images/numbers/3.svg'}
+                  className="step-image"
+                  alt="3"
+                />
+                <p className="step-text">
+                  Vyplňte kód receptu
+                </p>
+              </div>
+            </div>
+          </section>
+
           <section className="recipe-illustrations">
             <div className="row">
               <div className="col-4 ilu-column">
                 <img
-                  className={'recipe-ilu'}
+                  className={'recipe-ilu list'}
                   alt={'receipt image'}
                   src={'/assets/mediconLekarny/images/recept-list.png'}
                 />
-                <span className="ilu-title">RECEPT</span>
+                <span className="ilu-title">PRŮVODKA</span>
               </div>
               <div className="col-4 ilu-column">
                 <img
-                  className={'recipe-ilu'}
+                  className={'recipe-ilu phone'}
                   alt={'receipt image'}
                   src={'/assets/mediconLekarny/images/recept-phone.png'}
                 />
@@ -124,7 +174,7 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
               </div>
               <div className="col-4 ilu-column">
                 <img
-                  className={'recipe-ilu'}
+                  className={'recipe-ilu pc'}
                   alt={'receipt image'}
                   src={'/assets/mediconLekarny/images/recept-pc.png'}
                 />
@@ -154,7 +204,7 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
 
               <span className="center-word">nebo</span>
               <button className="recipe-btn">
-                Nahrát foto
+                Vyfotit
                 <span className="plus-icon" />
               </button>
             </div>
@@ -175,8 +225,12 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
 
             <form action="" className="reservation-note">
               <label className="textform-label">
-                <span className="textform-label_text">Poznámka</span>
-                <textarea name="note" className="recipe-input" />
+                <span className="textform-label_text">Další objednávka receptů</span>
+                <textarea
+                  name="note"
+                  className="recipe-input"
+                  onChange={this.updateNote}
+                />
               </label>
             </form>
           </section>

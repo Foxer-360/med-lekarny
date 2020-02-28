@@ -17,17 +17,24 @@ var React = require("react");
 var pharmaPlaces_1 = require("../../../RecipeReservation/components/pharmaPlaces");
 var RecipeReservationOutpost = /** @class */ (function (_super) {
     __extends(RecipeReservationOutpost, _super);
-    function RecipeReservationOutpost() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function RecipeReservationOutpost(props) {
+        var _this = _super.call(this, props) || this;
+        _this.findPlace = _this.findPlace.bind(_this);
+        return _this;
     }
+    RecipeReservationOutpost.prototype.findPlace = function () {
+        var id = this.props.place;
+        return pharmaPlaces_1.default.filter(function (place) {
+            return place.id === id;
+        })[0];
+    };
     RecipeReservationOutpost.prototype.render = function () {
-        console.log('place v kompo', this.props.place, pharmaPlaces_1.default);
+        var place = this.findPlace();
         return (React.createElement("div", { className: "outpost-wrapper" },
             React.createElement("img", { className: 'outpost-logo', alt: 'Medicon logo', src: '/assets/mediconLekarny/images/logo.svg' }),
-            React.createElement("p", { className: "address address-bold" }, "A. Sta\u0161ka 1670/80"),
-            React.createElement("p", { className: "address" }, "Praha 4"),
-            React.createElement("p", { className: "address" }, "140 00"),
-            React.createElement("p", { className: "address" }, "po-p\u00E1: 8-19, so: 10-18")));
+            React.createElement("p", { className: "address address-bold" }, place.address1),
+            React.createElement("p", { className: "address" }, place.address2),
+            React.createElement("p", { className: "address" }, place.openHours)));
     };
     return RecipeReservationOutpost;
 }(React.Component));

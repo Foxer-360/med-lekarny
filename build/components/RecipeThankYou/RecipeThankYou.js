@@ -22,22 +22,14 @@ var RecipeThankYou = /** @class */ (function (_super) {
     function RecipeThankYou(props) {
         var _this = _super.call(this, props) || this;
         _this.parseCode = _this.parseCode.bind(_this);
+        _this.parsePlace = _this.parsePlace.bind(_this);
         return _this;
     }
-    RecipeThankYou.prototype.componentDidMount = function () {
-        var viceKody = ["bla", "heč", "no"];
-        var stringy = queryString.stringify({ codes: viceKody }, { arrayFormat: 'bracket' });
-        console.log('stringy', stringy);
-        this.props.location.search = stringy;
-    };
     RecipeThankYou.prototype.parseCode = function (query) {
-        console.log('query', query, queryString);
-        var kve = queryString.parse(query);
-        console.log('parsed', kve);
+        var kve = queryString.parse(query, { arrayFormat: 'bracket' });
         return kve.codes;
     };
     RecipeThankYou.prototype.parsePlace = function (query) {
-        console.log('place query', query);
         var kve = queryString.parse(query);
         return kve.place;
     };
@@ -48,6 +40,7 @@ var RecipeThankYou = /** @class */ (function (_super) {
         var search = this.props
             && this.props.location
             && this.props.location.search;
+        var codes = search && (search.length > 0) && this.parseCode(search);
         return (React.createElement("div", { className: "recipe-thankyou-page" },
             React.createElement("div", { className: "gray-part pdt80" },
                 React.createElement("div", { className: "container" },
@@ -57,7 +50,11 @@ var RecipeThankYou = /** @class */ (function (_super) {
                             React.createElement("p", { className: "text" },
                                 "\u010D\u00EDslo va\u0161eho e-receptu je",
                                 React.createElement("br", null),
-                                React.createElement("span", { className: "text-turquoise" }, search && (search.length > 0) && this.parseCode(search))),
+                                React.createElement("span", { className: "text-turquoise" }, codes
+                                    && Array.isArray(codes)
+                                    && codes.map(function (code) {
+                                        return code;
+                                    }))),
                             React.createElement("p", { className: "text" },
                                 "datum va\u0161\u00ED rezervace:",
                                 React.createElement("br", null),
@@ -66,7 +63,6 @@ var RecipeThankYou = /** @class */ (function (_super) {
                 React.createElement("div", { className: "container" },
                     React.createElement("div", { className: "col-md-8 offset-md-2" },
                         React.createElement("p", { className: "text" }, "vybrali jste si pobo\u010Dku"),
-                        console.log('parse u outpostu', search),
                         search
                             && (search.length > 0)
                             && React.createElement(RecipeReservationOutpost_1.default, { place: this.parsePlace(search) })))),

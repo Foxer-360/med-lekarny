@@ -22,11 +22,6 @@ var RecipeOwnerInfo = /** @class */ (function (_super) {
             _this.props.updateMainComponent(data);
         };
         _this.setErrors = function (error) {
-<<<<<<< HEAD
-            _this.setState({
-                errors: __assign({}, _this.state.errors, error)
-            });
-=======
             // this.setState({
             //   errors: { ...this.state.errors, ...error }
             // });
@@ -56,7 +51,6 @@ var RecipeOwnerInfo = /** @class */ (function (_super) {
             else {
                 _this.setErrors({ email: 'Zkontrolujte si prosím zda jste správně vyplnili e-mail.' });
             }
->>>>>>> 37d540fdc6d94fbf04a6599f04819379bc16cdac
         };
         _this.handleInputChange = function (update) {
             _this.setState(update, function () { return _this.updateMainComponent(_this.state); });

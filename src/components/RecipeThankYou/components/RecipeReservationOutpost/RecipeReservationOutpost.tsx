@@ -7,10 +7,21 @@ interface RecipeReservationOutpostProps {
 }
 
 class RecipeReservationOutpost extends React.Component<RecipeReservationOutpostProps, {}> {
+  constructor(props: RecipeReservationOutpostProps) {
+    super(props);
+
+    this.findPlace = this.findPlace.bind(this);
+  }
+
+  findPlace() {
+    const id = this.props.place;
+    return pharmaPlaces.filter((place: any) => {
+      return place.id === id;
+    })[0];
+  }
+
   render() {
-
-    console.log('place v kompo', this.props.place, pharmaPlaces);
-
+    const place = this.findPlace();
     return (
       <div className="outpost-wrapper">
         <img
@@ -18,10 +29,9 @@ class RecipeReservationOutpost extends React.Component<RecipeReservationOutpostP
           alt={'Medicon logo'}
           src={'/assets/mediconLekarny/images/logo.svg'}
         />
-        <p className="address address-bold">A. Staška 1670/80</p>
-        <p className="address">Praha 4</p>
-        <p className="address">140 00</p>
-        <p className="address">po-pá: 8-19, so: 10-18</p>
+        <p className="address address-bold">{place.address1}</p>
+        <p className="address">{place.address2}</p>
+        <p className="address">{place.openHours}</p>
       </div>
     );
   }

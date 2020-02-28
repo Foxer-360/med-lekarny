@@ -28,16 +28,19 @@ var React = require("react");
 var RecipeSectionHeader_1 = require("./components/RecipeSectionHeader");
 var RecipePickupPick_1 = require("./components/RecipePickupPick/RecipePickupPick");
 var RecipeOwnerInfo_1 = require("./components/RecipeOwnerInfo/RecipeOwnerInfo");
+var react_router_dom_1 = require("react-router-dom");
 var axios_1 = require("axios");
+var queryString = require("query-string");
 var RecipeReservation = /** @class */ (function (_super) {
     __extends(RecipeReservation, _super);
     function RecipeReservation(props) {
         var _this = _super.call(this, props) || this;
         _this.onSubmit = function () {
+            console.log('submit');
             var _a = _this.state, recipeOwner = _a.recipeOwner, note = _a.note, pickupPlace = _a.pickupPlace, recipeCodesArray = _a.recipeCodesArray;
             axios_1.default.post('http://medicon.foxer360.com:3030/', __assign({}, recipeOwner, { pharmacy: pickupPlace, body: "eRecepty: " + recipeCodesArray.join(', ') + "\n\n " + note })).then(function () {
                 //todo redirect
-                console.log('ouje');
+                console.log('todo redirect');
             }).catch(function (e) {
                 alert('stala se chyba');
             });
@@ -70,13 +73,21 @@ var RecipeReservation = /** @class */ (function (_super) {
         };
         return _this;
     }
+    RecipeReservation.prototype.buildSearchQuery = function () {
+        var codes = this.state.recipeCodesArray;
+        var place = this.state.pickupPlace;
+        var searchQueryWithCodes = queryString.stringify({ codes: codes }, { arrayFormat: 'bracket' });
+        var searchQueryWithPlace = queryString.stringify({ place: place });
+        var searchQuery = "?" + searchQueryWithCodes + "&" + searchQueryWithPlace;
+        return searchQuery;
+    };
     RecipeReservation.prototype.render = function () {
         return (React.createElement("div", { className: "recipe-reservation-page" },
             React.createElement(RecipeSectionHeader_1.default, { updateNote: this.updateNote, note: this.state.note, recipesArray: this.state.recipeCodesArray, updateRecipesArray: this.updateRecipesArray }),
             React.createElement(RecipePickupPick_1.default, { pickupPlace: this.state.pickupPlace, updatePickupPlace: this.updatePickupPlace }),
             React.createElement(RecipeOwnerInfo_1.default, { owner: this.state.recipeOwner, updateMainComponent: this.updateOwnerInfo }),
-            React.createElement("section", { className: "row recipe-owner-info submit-wrapper", style: { textAlign: 'center', paddingBottom: 30, paddingTop: 0 } },
-                React.createElement("button", { onClick: this.onSubmit, style: { margin: 'auto' }, type: "button", className: "btn recipe-btn submit-btn" }, "Odeslat rezervaci"))));
+            React.createElement("section", { className: "row recipe-owner-info submit-wrapper" },
+                React.createElement(react_router_dom_1.Link, { onClick: this.onSubmit, style: { margin: 'auto' }, type: "button", className: "btn recipe-btn submit-btn", to: "/test-new-design-thankyou" + this.buildSearchQuery() }, "Odeslat rezervaci"))));
     };
     return RecipeReservation;
 }(React.Component));

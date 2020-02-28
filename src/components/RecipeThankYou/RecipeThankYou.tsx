@@ -8,24 +8,15 @@ class RecipeThankYou extends React.Component<RouteComponentProps, {}> {
     super(props);
 
     this.parseCode = this.parseCode.bind(this);
-  }
-
-  componentDidMount() {
-    const viceKody: string[] = ["bla", "heč", "no"];
-    const stringy = queryString.stringify({codes: viceKody}, {arrayFormat: 'bracket'});
-    console.log('stringy', stringy);
-    this.props.location.search = stringy;
+    this.parsePlace = this.parsePlace.bind(this);
   }
 
   parseCode(query: string) {
-    console.log('query', query, queryString);
-    const kve = queryString.parse(query);
-    console.log('parsed', kve);
+    const kve = queryString.parse(query, {arrayFormat: 'bracket'});
     return kve.codes;
   }
 
   parsePlace(query: string) {
-    console.log('place query', query);
     const kve = queryString.parse(query);
     return kve.place;
   }
@@ -37,6 +28,7 @@ class RecipeThankYou extends React.Component<RouteComponentProps, {}> {
     const search = this.props
                     && this.props.location
                     && this.props.location.search;
+    const codes = search && (search.length > 0) && this.parseCode(search);
 
     return (
       <div className="recipe-thankyou-page">
@@ -48,7 +40,12 @@ class RecipeThankYou extends React.Component<RouteComponentProps, {}> {
                 <p className="text">
                   číslo vašeho e-receptu je<br/>
                   <span className="text-turquoise">
-                    {search && (search.length > 0) && this.parseCode(search)}
+                    {codes
+                      && Array.isArray(codes)
+                      && codes.map((code: string) => {
+                        return code;
+                      })
+                    }
                   </span>
                 </p>
                 <p className="text">
@@ -63,7 +60,6 @@ class RecipeThankYou extends React.Component<RouteComponentProps, {}> {
           <div className="container">
             <div className="col-md-8 offset-md-2">
               <p className="text">vybrali jste si pobočku</p>
-              {console.log('parse u outpostu', search)}
               {search
                 && (search.length > 0)
                 && <RecipeReservationOutpost place={this.parsePlace(search)} />}

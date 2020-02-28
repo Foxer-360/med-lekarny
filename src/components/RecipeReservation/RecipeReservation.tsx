@@ -2,7 +2,9 @@ import * as React from 'react';
 import RecipeSectionHeader from './components/RecipeSectionHeader';
 import RecipePickupPick from './components/RecipePickupPick/RecipePickupPick';
 import RecipeOwnerInfo from './components/RecipeOwnerInfo/RecipeOwnerInfo';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import * as queryString from 'query-string';
 
 interface RecipeReservationProps {
 }
@@ -54,7 +56,7 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
       }
     ).then(() => {
       //todo redirect
-      console.log('ouje');
+      console.log('todo redirect');
     }).catch(e => {
       alert('stala se chyba');
     });
@@ -76,6 +78,15 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
     this.setState({ note });
   }
 
+  buildSearchQuery() {
+    const codes = this.state.recipeCodesArray;
+    const place = this.state.pickupPlace;
+    const searchQueryWithCodes = queryString.stringify({codes: codes}, {arrayFormat: 'bracket'});
+    const searchQueryWithPlace = queryString.stringify({place: place});
+    const searchQuery = `?${searchQueryWithCodes}&${searchQueryWithPlace}`;
+    return searchQuery;
+  }
+
   render() {
     return (
       <div className="recipe-reservation-page">
@@ -94,15 +105,16 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
           updateMainComponent={this.updateOwnerInfo}
         />
 
-        <section className="row recipe-owner-info submit-wrapper" style={{ textAlign: 'center', paddingBottom: 30, paddingTop: 0 }}>
-          <button
+        <section className="row recipe-owner-info submit-wrapper">
+          <Link
             onClick={this.onSubmit}
             style={{ margin: 'auto' }}
             type="button"
             className="btn recipe-btn submit-btn"
+            to={`/test-new-design-thankyou${this.buildSearchQuery()}`}
           >
             Odeslat rezervaci
-          </button>
+          </Link>
         </section>
 
       </div>

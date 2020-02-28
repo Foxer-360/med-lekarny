@@ -46,7 +46,7 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
 
   onSubmit = () => {
     const { recipeOwner, note, pickupPlace, recipeCodesArray} = this.state;
-    axios.post('http://localhost:3030',
+    axios.post('http://medicon.foxer360.com:3030/',
       {
         ...recipeOwner,
         pharmacy: pickupPlace,

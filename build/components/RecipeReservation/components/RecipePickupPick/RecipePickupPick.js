@@ -26,9 +26,9 @@ var RecipePickupPick = /** @class */ (function (_super) {
     };
     RecipePickupPick.prototype.render = function () {
         var _this = this;
-        var pickupPlace = this.props.pickupPlace;
+        var _a = this.props, boData = _a.boData, pickupPlace = _a.pickupPlace;
         return (React.createElement("div", { className: "container recipe-pickup-place" },
-            React.createElement("span", { className: "subheadline" }, "V\u00FDb\u011Br lek\u00E1rny, kde si l\u00E9ky vyzvednu"),
+            React.createElement("span", { className: "subheadline" }, boData.placesHeading),
             React.createElement("div", { className: "row" }, pharmaPlaces_1.default.map(function (place) {
                 return (React.createElement("div", { key: place.id, className: "col-6 pickup-point_wrap" },
                     React.createElement("div", { className: "pickup-point" },
@@ -36,7 +36,9 @@ var RecipePickupPick = /** @class */ (function (_super) {
                         React.createElement("p", { className: "address address-bold" }, place.address1),
                         React.createElement("p", { className: "address" }, place.address2),
                         React.createElement("p", { className: "address" }, place.openHours),
-                        React.createElement("button", { className: "recipe-btn btn-plus " + (pickupPlace === place.id ? 'selected' : ''), onClick: function () { return _this.updateSelectedPickupPoint(place.id); } }, pickupPlace === place.id ? 'Vyzvednu zde' : 'Vybrat lékárnu'))));
+                        React.createElement("button", { className: "recipe-btn btn-plus " + (pickupPlace === place.id ? 'selected' : ''), onClick: function () { return _this.updateSelectedPickupPoint(place.id); } }, pickupPlace === place.id
+                            ? boData.placesBtnTextActive
+                            : boData.placesBtnTextInactive))));
             }))));
     };
     return RecipePickupPick;

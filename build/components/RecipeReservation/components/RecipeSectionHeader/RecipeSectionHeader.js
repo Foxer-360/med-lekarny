@@ -36,10 +36,6 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
             'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', '8', '9', '2', '3', '4', '5', '6', '7'
         ];
-        _this.data = {
-            title: 'Rezervace e-receptů',
-            text: 'Rezervujte si léky z Vašeho receptu předem a ušetřete si dvojí cestu do lékárny! Stačí vyplnit kód Vašeho e-receptu nebo název Vašeho léku a my Vám dáme vědět, kdy budou Vaše léky připraveny k vyzvednutí. Můžete si zarezervovat i další volně prodejné přípravky.',
-        };
         _this.translations = {
             code_invalid: 'Kód je neplatný.'
         };
@@ -73,10 +69,10 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         };
         _this.validateCode = function (code) {
             var ereceiptCode = code.replace(/\W/gi, '').toUpperCase();
-            if (ereceiptCode.length !== 12) {
-                _this.setErrors({ code: _this.translations.code_invalid });
-                return false;
-            }
+            // if (ereceiptCode.length !== 12) {
+            //   this.setErrors({ code: this.translations.code_invalid });
+            //   return false;
+            // }
             var total = 0;
             // calculate sum based on base32 table
             for (var i = 0; i < ereceiptCode.length - 1; i++) {
@@ -86,19 +82,12 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
             var isValid = _this.validationTable.indexOf(ereceiptCode[ereceiptCode.length - 1]) === total % 32;
             if (!isValid) {
                 clearTimeout(_this.timeout);
-                _this.timeout = setTimeout(function () { _this.setErrors({ code: _this.translations.code_invalid }); }, 400);
+                _this.timeout = setTimeout(function () { _this.setErrors({ code: _this.translations.code_invalid }); }, 1600);
             }
             else {
                 _this.setErrors({ code: '' });
             }
             return isValid;
-            // test code: PCIFF8GNBLOI
-            // const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            // if (!re.test(String(code).toLowerCase())) {
-            //   setTimeout(() => this.setErrors({ code: 'code is invalid' }), 800);
-            // } else {
-            //   this.setErrors({ code: '' });
-            // }
         };
         _this.showHint = function (e) {
             e.preventDefault();
@@ -109,7 +98,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         };
         _this.state = {
             recipeCodeInput: '',
-            errors: '',
+            errors: {},
             hintVisible: false,
         };
         return _this;
@@ -119,6 +108,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         var _b = this.state, recipeCodeInput = _b.recipeCodeInput, errors = _b.errors;
         var errorCodeBoolean = errors.code && errors.code.length > 0;
         var boData = this.props.boData;
+        console.log('state header', this.state.errors);
         return (React.createElement("header", { className: "recipe-header" },
             React.createElement("div", { className: "container" },
                 React.createElement("h1", { className: "gradientHeading" }, boData.headline),
@@ -145,14 +135,14 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                             "Vyfotit",
                             React.createElement("input", { type: "file", name: "file", className: "file-input", onChange: onLoadFileHandler }),
                             React.createElement("span", { className: "plus-icon" }))),
-                    React.createElement("div", null, this.props.recipesArray.map(function (recipeCode) { return (React.createElement("span", { style: { padding: 5 } }, recipeCode)); })),
+                    React.createElement("div", null, recipesArray.map(function (recipeCode) { return (React.createElement("span", { style: { padding: 5 } }, recipeCode)); })),
                     React.createElement("section", { className: "hint-wrapper" },
-                        React.createElement("p", { className: "text text-center text-cursive" }, "Jde o 12-m\u00EDstn\u00FD alfanumerick\u00FD k\u00F3d, \u010D\u00E1rov\u00FD k\u00F3d, QR k\u00F3d nebo odkaz ke sta\u017Een\u00ED k\u00F3du."),
+                        React.createElement("p", { className: "text text-center text-cursive" }, boData.codeInputHint),
                         !this.state.hintVisible && React.createElement("button", { type: "button", className: "display-hint gradientHeading", onClick: this.showHint }, "( zobrazit n\u00E1pov\u011Bdu )"),
                         this.state.hintVisible && React.createElement(CodeHint_1.default, { hideHint: this.hideHint })),
                     React.createElement("form", { action: "", className: "reservation-note" },
                         React.createElement("label", { className: "textform-label" },
-                            React.createElement("span", { className: "textform-label_text" }, "Dal\u0161\u00ED objedn\u00E1vka recept\u016F"),
+                            React.createElement("span", { className: "textform-label_text" }, boData.noteInputLabel),
                             React.createElement("textarea", { name: "note", className: "recipe-input", onChange: function (e) { return updateNote(e.target.value); } })))))));
     };
     return RecipeSectionHeader;

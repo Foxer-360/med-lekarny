@@ -2,8 +2,7 @@ import * as React from 'react';
 import CodeHint from './components/CodeHint';
 import * as ReactMarkdown from 'react-markdown';
 
-import { runInThisContext } from 'vm';
-// import TextBlock from '../../../TextBlock';
+// test code: PCIFF8GNBLOI
 
 interface iRecipeSectionheaderProps {
   recipesArray: Array<string>;
@@ -27,11 +26,6 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
     'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', '8', '9', '2', '3', '4', '5', '6', '7'
   ];
 
-  private data = {
-    title: 'Rezervace e-receptů',
-    text: 'Rezervujte si léky z Vašeho receptu předem a ušetřete si dvojí cestu do lékárny! Stačí vyplnit kód Vašeho e-receptu nebo název Vašeho léku a my Vám dáme vědět, kdy budou Vaše léky připraveny k vyzvednutí. Můžete si zarezervovat i další volně prodejné přípravky.',
-  };
-
   private translations = {
     code_invalid: 'Kód je neplatný.'
   };
@@ -41,7 +35,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
 
     this.state = {
       recipeCodeInput: '',
-      errors: '',
+      errors: {},
       hintVisible: false,
     };
   }
@@ -81,11 +75,10 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
 
   validateCode = (code: string) => {
     const ereceiptCode = code.replace(/\W/gi, '').toUpperCase();
-    if (ereceiptCode.length !== 12) {
-      this.setErrors({ code: this.translations.code_invalid });
-      return false;
-    }
-
+    // if (ereceiptCode.length !== 12) {
+    //   this.setErrors({ code: this.translations.code_invalid });
+    //   return false;
+    // }
     let total = 0;
     // calculate sum based on base32 table
     for (let i = 0; i < ereceiptCode.length - 1; i++) {
@@ -93,23 +86,13 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
     }
     // check if control number makes sense
     const isValid = this.validationTable.indexOf(ereceiptCode[ereceiptCode.length - 1]) === total % 32;
-
     if (!isValid) {
       clearTimeout(this.timeout);
-      this.timeout = setTimeout(() => { this.setErrors({ code: this.translations.code_invalid }); }, 400);
+      this.timeout = setTimeout(() => { this.setErrors({ code: this.translations.code_invalid }); }, 1600);
     } else {
       this.setErrors({ code: '' });
     }
-
     return isValid;
-
-    // test code: PCIFF8GNBLOI
-    // const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    // if (!re.test(String(code).toLowerCase())) {
-    //   setTimeout(() => this.setErrors({ code: 'code is invalid' }), 800);
-    // } else {
-    //   this.setErrors({ code: '' });
-    // }
   }
 
   showHint = (e: any) => {
@@ -126,6 +109,8 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
     const { recipeCodeInput, errors } = this.state;
     const errorCodeBoolean = errors.code && errors.code.length > 0;
     const boData = this.props.boData;
+
+    console.log('state header', this.state.errors);
 
     return (
       <header className="recipe-header">
@@ -192,13 +177,13 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                TODO: Dodelat mazani a
             */}
             <div>
-              {this.props.recipesArray.map((recipeCode: string) => (
+              {recipesArray.map((recipeCode: string) => (
                 <span style={{ padding: 5 }}>{recipeCode}</span>
               ))}
             </div>
             <section className="hint-wrapper">
               <p className="text text-center text-cursive">
-                Jde o 12-místný alfanumerický kód, čárový kód, QR kód nebo odkaz ke stažení kódu.
+                {boData.codeInputHint}
               </p>
               {!this.state.hintVisible && <button
                 type="button"
@@ -209,22 +194,9 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
               </button>}
               {this.state.hintVisible && <CodeHint hideHint={this.hideHint} />}
             </section>
-
-            {/* REZERVACE RECEPTŮ S KÓDEM:
-            {console.log('recipes', recipesArray)}
-            {Array.isArray(recipesArray)
-              && recipesArray.length > 0
-              && recipesArray.map((recipe: string) => {
-                return <span key={`id${recipe}`}>{recipe} more</span>
-              })
-            }
-            <br/>
-            <br/>
-            kod v inputu -> state v header komponentě {recipeCodeInput} */}
-
             <form action="" className="reservation-note">
               <label className="textform-label">
-                <span className="textform-label_text">Další objednávka receptů</span>
+                <span className="textform-label_text">{boData.noteInputLabel}</span>
                 <textarea
                   name="note"
                   className="recipe-input"

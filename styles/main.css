@@ -6091,6 +6091,16 @@ cite {
       text-align: center; }
     .recipe-reservation-page .text-cursive {
       font-style: italic; }
+  .recipe-reservation-page .form-wrap input.error,
+  .recipe-reservation-page .form-wrap input:focus.error,
+  .recipe-reservation-page .form-wrap input:active.error {
+    border-color: red;
+    margin-bottom: 0; }
+  .recipe-reservation-page input.error,
+  .recipe-reservation-page input:focus.error,
+  .recipe-reservation-page input:active.error {
+    border-color: red;
+    margin-bottom: 0; }
 
 @media screen and (min-width: 767px) {
   .recipe-reservation-page {
@@ -6103,6 +6113,16 @@ cite {
   .recipe-owner-info.submit-wrapper .btn {
     display: block;
     margin: 0 auto; }
+
+.btn.recipe-btn.submit-btn.disabled {
+  background: grey;
+  cursor: not-allowed; }
+
+.recipe-reservation-page .error-msg {
+  margin: 0 auto;
+  font-size: 12px;
+  color: red;
+  text-transform: none; }
 
 .outpost-wrapper .outpost-logo {
   max-width: 80px;

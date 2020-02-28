@@ -1,14 +1,14 @@
 import * as React from 'react';
 import pharmaPlaces from '../pharmaPlaces';
 
-
-interface iRecipePickupPickProps {
-  pickupPlace: string,
+interface RecipePickupPickProps {
+  pickupPlace: string;
   updatePickupPlace: any;
+  boData: any;
 }
 
-class RecipePickupPick extends React.Component<iRecipePickupPickProps> {
-  constructor(props: iRecipePickupPickProps) {
+class RecipePickupPick extends React.Component<RecipePickupPickProps> {
+  constructor(props: RecipePickupPickProps) {
     super(props);
   }
 
@@ -18,11 +18,11 @@ class RecipePickupPick extends React.Component<iRecipePickupPickProps> {
   }
 
   render() {
-    const { pickupPlace } = this.props;
+    const { boData, pickupPlace } = this.props;
 
     return (
         <div className="container recipe-pickup-place">
-          <span className="subheadline">Výběr lekárny, kde si léky vyzvednu</span>
+          <span className="subheadline">{boData.placesHeading}</span>
 
           <div className="row">
             {pharmaPlaces.map((place: any) => {
@@ -37,7 +37,10 @@ class RecipePickupPick extends React.Component<iRecipePickupPickProps> {
                       className={`recipe-btn btn-plus ${pickupPlace === place.id ? 'selected' : ''}`}
                       onClick={() => this.updateSelectedPickupPoint(place.id)}
                     >
-                      {pickupPlace === place.id ? 'Vyzvednu zde' : 'Vybrat lékárnu'}
+                      {pickupPlace === place.id
+                        ?  boData.placesBtnTextActive
+                        : boData.placesBtnTextInactive
+                      }
                     </button>
                   </div>
                 </div>

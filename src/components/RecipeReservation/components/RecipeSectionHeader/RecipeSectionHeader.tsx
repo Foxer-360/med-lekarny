@@ -1,20 +1,24 @@
 import * as React from 'react';
 import CodeHint from './components/CodeHint';
+import { runInThisContext } from 'vm';
 // import TextBlock from '../../../TextBlock';
 
 interface iRecipeSectionheaderProps {
   recipesArray: Array<string>;
   updateRecipesArray: any;
+  note: string,
+
+  updateNote: (note: string) => void;
 }
 
 interface iRecipeSectionheaderState {
   recipeCodeInput: string;
-  noteInput: string;
   errors: any;
   hintVisible: boolean;
 }
 
 class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps, iRecipeSectionheaderState> {
+  private timeout = null;
   private validationTable = [
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
     'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', '8', '9', '2', '3', '4', '5', '6', '7'
@@ -34,15 +38,9 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
 
     this.state = {
       recipeCodeInput: '',
-      noteInput: '',
       errors: '',
       hintVisible: false,
     };
-
-    this.recipeCodeInputChange = this.recipeCodeInputChange.bind(this);
-    this.updateNote = this.updateNote.bind(this);
-    this.showHint = this.showHint.bind(this);
-    this.hideHint = this.hideHint.bind(this);
   }
 
   setErrors = error => {
@@ -51,7 +49,8 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
     });
   }
 
-  recipeCodeInputChange(e: any) {
+  recipeCodeInputChange = (e: any) => {
+    const { recipesArray } = this.props;
     const value = String(e.target && e.target.value).replace(/\s/g, '');
     // maximum length of e-receipe code is 12
     if (value.length > 12) {
@@ -61,44 +60,45 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
     if (value !== null) {
       this.setState({ recipeCodeInput: value.replace(/(\w{1,4})?(\w{1,4})?(\w{1,4})?/, '$1 $2 $3') });
     }
-    const validCode = this.validateCode(value);
-    if (validCode) {
-      console.log('valid code updatni přes props state v main komponentě');
-      this.recipeCodesArrayUpdate(value);
+    const isValid = this.validateCode(value);
+    if (isValid && !recipesArray.includes(value)) {
+      this.props.updateRecipesArray([ ...recipesArray, value ]);
     }
 
-    console.log('valid? value input change', validCode);
+    if (isValid) {
+      this.setState({ recipeCodeInput: '' });
+    }
   }
 
-  recipeCodesArrayUpdate(code: string) {
+  recipeCodesArrayUpdate = (code: string) => {
     let codesArray = this.props.recipesArray;
     this.setState({recipeCodeInput: ''});
     codesArray.push(code);
-    this.props.updateRecipesArray(code);
   }
 
   validateCode = (code: string) => {
     const ereceiptCode = code.replace(/\W/gi, '').toUpperCase();
     if (ereceiptCode.length !== 12) {
-      setTimeout(() => {
-        this.setErrors({ code: this.translations.code_invalid });
-      }, 1600);
+      this.setErrors({ code: this.translations.code_invalid });
+      return false;
     }
 
     let total = 0;
+    // calculate sum based on base32 table
     for (let i = 0; i < ereceiptCode.length - 1; i++) {
       total += this.validationTable.indexOf(ereceiptCode[i]);
     }
-    const validation = this.validationTable.indexOf(ereceiptCode[ereceiptCode.length - 1]) === total % 32;
-    console.log('validation', validation);
-    if (!validation) {
-      setTimeout(() => { this.setErrors({ code: this.translations.code_invalid }); }, 800);
+    // check if control number makes sense
+    const isValid = this.validationTable.indexOf(ereceiptCode[ereceiptCode.length - 1]) === total % 32;
+
+    if (!isValid) {
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => { this.setErrors({ code: this.translations.code_invalid }); }, 400);
     } else {
       this.setErrors({ code: '' });
     }
 
-    console.log('validation', validation, this.state.errors);
-    return validation;
+    return isValid;
 
     // test code: PCIFF8GNBLOI
     // const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -109,21 +109,17 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
     // }
   }
 
-  updateNote(e: any) {
-    this.setState({noteInput: e.target.value});
-  }
-
-  showHint(e: any) {
+  showHint = (e: any) => {
     e.preventDefault();
     this.setState({hintVisible: true});
   }
 
-  hideHint() {
+  hideHint = () => {
     this.setState({hintVisible: false});
   }
 
   render() {
-    const { recipesArray } = this.props;
+    const { recipesArray, updateNote } = this.props;
     const { recipeCodeInput, errors } = this.state;
     const errorCodeBoolean = errors.code && errors.code.length > 0;
 
@@ -184,14 +180,20 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                 value={recipeCodeInput}
                 onChange={this.recipeCodeInputChange}
               />
-
               <span className="center-word">nebo</span>
               <button className="recipe-btn">
                 Vyfotit
                 <span className="plus-icon" />
               </button>
             </div>
-
+            {/*
+               TODO: Dodelat mazani a
+            */}
+            <div>
+              {this.props.recipesArray.map((recipeCode: string) => (
+                <span style={{ padding: 5 }}>{recipeCode}</span>
+              ))}
+            </div>
             <section className="hint-wrapper">
               <p className="text text-center text-cursive">
                 Jde o 12-místný alfanumerický kód, čárový kód, QR kód nebo odkaz ke stažení kódu.
@@ -224,7 +226,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                 <textarea
                   name="note"
                   className="recipe-input"
-                  onChange={this.updateNote}
+                  onChange={(e) => updateNote(e.target.value)}
                 />
               </label>
             </form>

@@ -1,21 +1,15 @@
 import * as React from 'react';
 import pharmaPlaces from '../pharmaPlaces';
 
-interface iRecipePickupPickState {
-  selectedPickupPoint: string;
-}
 
 interface iRecipePickupPickProps {
+  pickupPlace: string,
   updatePickupPlace: any;
 }
 
-class RecipePickupPick extends React.Component<iRecipePickupPickProps, iRecipePickupPickState> {
+class RecipePickupPick extends React.Component<iRecipePickupPickProps> {
   constructor(props: iRecipePickupPickProps) {
     super(props);
-
-    this.state = {
-      selectedPickupPoint: '',
-    };
   }
 
   updateSelectedPickupPoint(id: string) {
@@ -24,7 +18,7 @@ class RecipePickupPick extends React.Component<iRecipePickupPickProps, iRecipePi
   }
 
   render() {
-    const placeState = this.state.selectedPickupPoint;
+    const { pickupPlace } = this.props;
 
     return (
         <div className="container recipe-pickup-place">
@@ -40,10 +34,10 @@ class RecipePickupPick extends React.Component<iRecipePickupPickProps, iRecipePi
                     <p className="address">{place.address2}</p>
                     <p className="address">{place.openHours}</p>
                     <button
-                      className={`recipe-btn btn-plus ${placeState === place.id ? 'selected' : ''}`}
+                      className={`recipe-btn btn-plus ${pickupPlace === place.id ? 'selected' : ''}`}
                       onClick={() => this.updateSelectedPickupPoint(place.id)}
                     >
-                      {placeState === place.id ? 'Vyzvednu zde' : 'Vybrat lékárnu'}
+                      {pickupPlace === place.id ? 'Vyzvednu zde' : 'Vybrat lékárnu'}
                     </button>
                   </div>
                 </div>

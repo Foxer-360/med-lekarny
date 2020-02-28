@@ -37,7 +37,6 @@ var RecipeReservation = /** @class */ (function (_super) {
     };
     RecipeReservation.prototype.updateOwnerInfo = function (info) {
         console.log('main component', info);
-        // this.setState({})
     };
     RecipeReservation.prototype.render = function () {
         return (React.createElement("div", { className: "recipe-reservation-page" },

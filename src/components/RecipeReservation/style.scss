@@ -10,7 +10,6 @@ $recipe-page-gradient-bg-2: #dde4ec;
 @import "./components/RecipeSectionHeader/style";
 @import "./components/RecipePickupPick/style";
 @import "./components/RecipeOwnerInfo/style";
-@import "./components/RecipeReservationSubmit/style";
 
 .recipe-reservation-page {
   padding-top: 115px;
@@ -33,13 +32,13 @@ $recipe-page-gradient-bg-2: #dde4ec;
 }
 
 // Submit part
-.submit-wrapper {
+.recipe-owner-info.submit-wrapper {
   padding-top: 0;
   padding-bottom: 90px;
+  text-align: center;
 
   .btn {
     display: block;
     margin: 0 auto;
   }
 }
-

@@ -6168,6 +6168,14 @@ cite {
   .recipe-reservation-page {
     padding-top: 136px; } }
 
+.recipe-owner-info.submit-wrapper {
+  padding-top: 0;
+  padding-bottom: 90px;
+  text-align: center; }
+  .recipe-owner-info.submit-wrapper .btn {
+    display: block;
+    margin: 0 auto; }
+
 .outpost-wrapper .outpost-logo {
   max-width: 80px;
   margin-bottom: 1em; }

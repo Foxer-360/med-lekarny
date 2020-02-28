@@ -36,8 +36,8 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
         name: '',
         phone: '',
         email: '',
-        contactByPhone: true,
-        contactBySMS: false,
+        contactByPhone: false,
+        contactBySMS: true,
         gdpr: false,
         errors: {}
       },

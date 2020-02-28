@@ -85,7 +85,7 @@ var RecipeOwnerInfo = /** @class */ (function (_super) {
                         React.createElement("div", { className: "contact-choose" },
                             React.createElement("span", null, "Jak chcete, abychom v\u00E1s kontaktovali?"),
                             React.createElement("label", { className: "checkbox-label " + (contactBySMS && 'checked') },
-                                React.createElement("input", { name: "contactBySMS", type: "checkbox", checked: contactBySMS, onChange: function (e) { return _this.handleInputChange({ contactBySMS: false, contactByPhone: true }); } }),
+                                React.createElement("input", { name: "contactBySMS", type: "checkbox", checked: contactBySMS, onChange: function (e) { return _this.handleInputChange({ contactBySMS: true, contactByPhone: false }); } }),
                                 "P\u0159es sms"),
                             React.createElement("label", { className: "checkbox-label " + (contactByPhone && 'checked') },
                                 React.createElement("input", { name: "contactByPhone", type: "checkbox", checked: contactByPhone, onChange: function (e) { return _this.handleInputChange({ contactByPhone: true, contactBySMS: false }); } }),

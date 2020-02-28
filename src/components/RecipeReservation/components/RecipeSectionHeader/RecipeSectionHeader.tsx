@@ -11,6 +11,7 @@ interface iRecipeSectionheaderProps {
   note: string,
   boData: any,
   updateNote: (note: string) => void;
+  onLoadFileHandler: (e: any) => void;
 }
 
 interface iRecipeSectionheaderState {
@@ -121,7 +122,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
   }
 
   render() {
-    const { recipesArray, updateNote } = this.props;
+    const { recipesArray, updateNote, onLoadFileHandler } = this.props;
     const { recipeCodeInput, errors } = this.state;
     const errorCodeBoolean = errors.code && errors.code.length > 0;
     const boData = this.props.boData;
@@ -181,8 +182,9 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                 onChange={this.recipeCodeInputChange}
               />
               <span className="center-word">nebo</span>
-              <button className="recipe-btn">
+              <button className="recipe-btn" >
                 Vyfotit
+                <input type="file" name="file" className="file-input" onChange={onLoadFileHandler} />
                 <span className="plus-icon" />
               </button>
             </div>

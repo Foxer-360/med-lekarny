@@ -115,7 +115,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         return _this;
     }
     RecipeSectionHeader.prototype.render = function () {
-        var _a = this.props, recipesArray = _a.recipesArray, updateNote = _a.updateNote;
+        var _a = this.props, recipesArray = _a.recipesArray, updateNote = _a.updateNote, onLoadFileHandler = _a.onLoadFileHandler;
         var _b = this.state, recipeCodeInput = _b.recipeCodeInput, errors = _b.errors;
         var errorCodeBoolean = errors.code && errors.code.length > 0;
         var boData = this.props.boData;
@@ -143,6 +143,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                         React.createElement("span", { className: "center-word" }, "nebo"),
                         React.createElement("button", { className: "recipe-btn" },
                             "Vyfotit",
+                            React.createElement("input", { type: "file", name: "file", className: "file-input", onChange: onLoadFileHandler }),
                             React.createElement("span", { className: "plus-icon" }))),
                     React.createElement("div", null, this.props.recipesArray.map(function (recipeCode) { return (React.createElement("span", { style: { padding: 5 } }, recipeCode)); })),
                     React.createElement("section", { className: "hint-wrapper" },

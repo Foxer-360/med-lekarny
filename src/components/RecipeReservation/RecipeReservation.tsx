@@ -29,9 +29,10 @@ interface RecipeOwnerInfoState {
 
 interface RecipeReservationState {
   recipeCodesArray: Array<string>;
-  recipeOwner: RecipeOwnerInfoState,
-  note: string,
+  recipeOwner: RecipeOwnerInfoState;
+  note: string;
   pickupPlace: string;
+  files: any[];
 }
 
 class RecipeReservation extends React.Component<RecipeReservationProps, RecipeReservationState> {
@@ -51,27 +52,47 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
       },
       note: '',
       pickupPlace: '',
+      files: [],
     };
   }
 
   onSubmit = () => {
-    const { recipeOwner, note, pickupPlace, recipeCodesArray} = this.state;
-    axios.post('http://medicon.foxer360.com:3030/',
-      {
-        ...recipeOwner,
-        pharmacy: pickupPlace,
-        body: `eRecepty: ${recipeCodesArray.join(', ')}\n\n ${note}`
-      }
-    ).then(() => {
-      //todo redirect
-      console.log('todo redirect');
-    }).catch(e => {
-      alert('stala se chyba');
-    });
+    const { recipeOwner, note, pickupPlace, recipeCodesArray, files } = this.state;
 
+    const form = new FormData();
+    form.set('file', files[0]);
+    form.set('pharmacy', pickupPlace);
+    form.set('body', `eRecepty: ${recipeCodesArray.join(', ')}\n\n ${note}`);
+    Object.keys(recipeOwner).forEach(key => form.set(key, recipeOwner[key]));
+
+    axios({
+      method: 'post',
+      url: 'http://localhost:3030/',
+      // url: 'http://medicon.foxer360.com:3030/',
+      data: form,
+      headers: {'Content-Type': 'multipart/form-data' },
+    })
+      // .post('http://localhost:3030/', {
+      //   ...recipeOwner,
+      //   pharmacy: pickupPlace,
+      //   body: `eRecepty: ${recipeCodesArray.join(', ')}\n\n ${note}`,
+      // })
+      .then(() => {
+        //todo redirect
+        console.log('sumbiting');
+      })
+      .catch(e => {
+        alert('Stala se chyba.');
+      });
   }
+
+  onLoadFileHandler = (e) => {
+    const { files } = e.target;
+    this.setState({ files: Array.from(files) });
+  }
+
   updateRecipesArray = (recipeCodesArray: Array<string>) => {
-    this.setState({ recipeCodesArray })
+    this.setState({ recipeCodesArray });
   }
 
   updatePickupPlace = (pickupPlace: string) => {
@@ -106,6 +127,7 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
           recipesArray={this.state.recipeCodesArray}
           updateRecipesArray={this.updateRecipesArray}
           boData={boData}
+          onLoadFileHandler={this.onLoadFileHandler}
         />
         <RecipePickupPick
           pickupPlace={this.state.pickupPlace}

@@ -2,13 +2,25 @@ import * as React from 'react';
 import RecipeSectionHeader from './components/RecipeSectionHeader';
 import RecipePickupPick from './components/RecipePickupPick/RecipePickupPick';
 import RecipeOwnerInfo from './components/RecipeOwnerInfo/RecipeOwnerInfo';
+import axios from 'axios';
 
 interface RecipeReservationProps {
+}
 
+interface RecipeOwnerInfoState {
+  name: string;
+  phone: string;
+  email: string;
+  contactByPhone: boolean;
+  contactBySMS: boolean;
+  gdpr: boolean;
+  errors: any;
 }
 
 interface RecipeReservationState {
   recipeCodesArray: Array<string>;
+  recipeOwner: RecipeOwnerInfoState,
+  note: string,
   pickupPlace: string;
 }
 
@@ -18,42 +30,74 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
 
     this.state = {
       recipeCodesArray: [],
+      recipeOwner: {
+        name: '',
+        phone: '',
+        email: '',
+        contactByPhone: true,
+        contactBySMS: false,
+        gdpr: false,
+        errors: {}
+      },
+      note: '',
       pickupPlace: '',
     };
-
-    this.updatePickupPlace = this.updatePickupPlace.bind(this);
-    this.updateOwnerInfo = this.updateOwnerInfo.bind(this);
   }
 
-  updateRecipesArray(recipes: Array<string>) {
-    console.log('update recipes array', recipes);
+  onSubmit = () => {
+    const { recipeOwner, note, pickupPlace, recipeCodesArray} = this.state;
+    axios.post('http://localhost:3030',
+      {
+        ...recipeOwner,
+        pharmacy: pickupPlace,
+        body: `eRecepty: ${recipeCodesArray.join(', ')}\n\n ${note}`
+      }
+    ).then(() => {
+      //todo redirect
+      console.log('ouje');
+    }).catch(e => {
+      alert('stala se chyba');
+    });
+
+  }
+  updateRecipesArray = (recipeCodesArray: Array<string>) => {
+    this.setState({ recipeCodesArray })
   }
 
-  updatePickupPlace(placeId: string) {
-    this.setState({pickupPlace: placeId});
+  updatePickupPlace = (pickupPlace: string) => {
+    this.setState({ pickupPlace });
   }
 
-  updateOwnerInfo(info: any) {
-    console.log('main component', info);
+  updateOwnerInfo = (recipeOwner: RecipeOwnerInfoState) => {
+    this.setState({ recipeOwner });
+  }
+
+  updateNote = (note: string) => {
+    this.setState({ note });
   }
 
   render() {
     return (
       <div className="recipe-reservation-page">
-        {console.log(this.state.recipeCodesArray)}
         <RecipeSectionHeader
+          updateNote={this.updateNote}
+          note={this.state.note}
           recipesArray={this.state.recipeCodesArray}
           updateRecipesArray={this.updateRecipesArray}
         />
         <RecipePickupPick
+          pickupPlace={this.state.pickupPlace}
           updatePickupPlace={this.updatePickupPlace}
         />
         <RecipeOwnerInfo
+          owner={this.state.recipeOwner}
           updateMainComponent={this.updateOwnerInfo}
         />
 
-        <section className="row recipe-owner-info submit-wrapper">
+        <section className="row recipe-owner-info submit-wrapper" style={{ textAlign: 'center', paddingBottom: 30, paddingTop: 0 }}>
           <button
+            onClick={this.onSubmit}
+            style={{ margin: 'auto' }}
             type="button"
             className="btn recipe-btn submit-btn"
           >

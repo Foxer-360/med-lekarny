@@ -30,6 +30,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
     __extends(RecipeSectionHeader, _super);
     function RecipeSectionHeader(props) {
         var _this = _super.call(this, props) || this;
+        _this.timeout = null;
         _this.validationTable = [
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
             'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', '8', '9', '2', '3', '4', '5', '6', '7'
@@ -43,30 +44,53 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         };
         _this.setErrors = function (error) {
             _this.setState({
-                errors: __assign(__assign({}, _this.state.errors), error)
+                errors: __assign({}, _this.state.errors, error)
             });
+        };
+        _this.recipeCodeInputChange = function (e) {
+            var recipesArray = _this.props.recipesArray;
+            var value = String(e.target && e.target.value).replace(/\s/g, '');
+            // maximum length of e-receipe code is 12
+            if (value.length > 12) {
+                return;
+            }
+            if (value !== null) {
+                _this.setState({ recipeCodeInput: value.replace(/(\w{1,4})?(\w{1,4})?(\w{1,4})?/, '$1 $2 $3') });
+            }
+            var isValid = _this.validateCode(value);
+            if (isValid && !recipesArray.includes(value)) {
+                _this.props.updateRecipesArray(recipesArray.concat([value]));
+            }
+            if (isValid) {
+                _this.setState({ recipeCodeInput: '' });
+            }
+        };
+        _this.recipeCodesArrayUpdate = function (code) {
+            var codesArray = _this.props.recipesArray;
+            _this.setState({ recipeCodeInput: '' });
+            codesArray.push(code);
         };
         _this.validateCode = function (code) {
             var ereceiptCode = code.replace(/\W/gi, '').toUpperCase();
             if (ereceiptCode.length !== 12) {
-                setTimeout(function () {
-                    _this.setErrors({ code: _this.translations.code_invalid });
-                }, 1600);
+                _this.setErrors({ code: _this.translations.code_invalid });
+                return false;
             }
             var total = 0;
+            // calculate sum based on base32 table
             for (var i = 0; i < ereceiptCode.length - 1; i++) {
                 total += _this.validationTable.indexOf(ereceiptCode[i]);
             }
-            var validation = _this.validationTable.indexOf(ereceiptCode[ereceiptCode.length - 1]) === total % 32;
-            console.log('validation', validation);
-            if (!validation) {
-                setTimeout(function () { _this.setErrors({ code: _this.translations.code_invalid }); }, 800);
+            // check if control number makes sense
+            var isValid = _this.validationTable.indexOf(ereceiptCode[ereceiptCode.length - 1]) === total % 32;
+            if (!isValid) {
+                clearTimeout(_this.timeout);
+                _this.timeout = setTimeout(function () { _this.setErrors({ code: _this.translations.code_invalid }); }, 400);
             }
             else {
                 _this.setErrors({ code: '' });
             }
-            console.log('validation', validation, _this.state.errors);
-            return validation;
+            return isValid;
             // test code: PCIFF8GNBLOI
             // const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             // if (!re.test(String(code).toLowerCase())) {
@@ -75,53 +99,23 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
             //   this.setErrors({ code: '' });
             // }
         };
+        _this.showHint = function (e) {
+            e.preventDefault();
+            _this.setState({ hintVisible: true });
+        };
+        _this.hideHint = function () {
+            _this.setState({ hintVisible: false });
+        };
         _this.state = {
             recipeCodeInput: '',
-            noteInput: '',
             errors: '',
             hintVisible: false,
         };
-        _this.recipeCodeInputChange = _this.recipeCodeInputChange.bind(_this);
-        _this.updateNote = _this.updateNote.bind(_this);
-        _this.showHint = _this.showHint.bind(_this);
-        _this.hideHint = _this.hideHint.bind(_this);
         return _this;
     }
-    RecipeSectionHeader.prototype.recipeCodeInputChange = function (e) {
-        var value = String(e.target && e.target.value).replace(/\s/g, '');
-        // maximum length of e-receipe code is 12
-        if (value.length > 12) {
-            return;
-        }
-        if (value !== null) {
-            this.setState({ recipeCodeInput: value.replace(/(\w{1,4})?(\w{1,4})?(\w{1,4})?/, '$1 $2 $3') });
-        }
-        var validCode = this.validateCode(value);
-        if (validCode) {
-            console.log('valid code updatni přes props state v main komponentě');
-            this.recipeCodesArrayUpdate(value);
-        }
-        console.log('valid? value input change', validCode);
-    };
-    RecipeSectionHeader.prototype.recipeCodesArrayUpdate = function (code) {
-        var codesArray = this.props.recipesArray;
-        this.setState({ recipeCodeInput: '' });
-        codesArray.push(code);
-        this.props.updateRecipesArray(code);
-    };
-    RecipeSectionHeader.prototype.updateNote = function (e) {
-        this.setState({ noteInput: e.target.value });
-    };
-    RecipeSectionHeader.prototype.showHint = function (e) {
-        e.preventDefault();
-        this.setState({ hintVisible: true });
-    };
-    RecipeSectionHeader.prototype.hideHint = function () {
-        this.setState({ hintVisible: false });
-    };
     RecipeSectionHeader.prototype.render = function () {
-        var recipesArray = this.props.recipesArray;
-        var _a = this.state, recipeCodeInput = _a.recipeCodeInput, errors = _a.errors;
+        var _a = this.props, recipesArray = _a.recipesArray, updateNote = _a.updateNote;
+        var _b = this.state, recipeCodeInput = _b.recipeCodeInput, errors = _b.errors;
         var errorCodeBoolean = errors.code && errors.code.length > 0;
         return (React.createElement("header", { className: "recipe-header" },
             React.createElement("div", { className: "container" },
@@ -147,6 +141,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                         React.createElement("button", { className: "recipe-btn" },
                             "Vyfotit",
                             React.createElement("span", { className: "plus-icon" }))),
+                    React.createElement("div", null, this.props.recipesArray.map(function (recipeCode) { return (React.createElement("span", { style: { padding: 5 } }, recipeCode)); })),
                     React.createElement("section", { className: "hint-wrapper" },
                         React.createElement("p", { className: "text text-center text-cursive" }, "Jde o 12-m\u00EDstn\u00FD alfanumerick\u00FD k\u00F3d, \u010D\u00E1rov\u00FD k\u00F3d, QR k\u00F3d nebo odkaz ke sta\u017Een\u00ED k\u00F3du."),
                         !this.state.hintVisible && React.createElement("button", { type: "button", className: "display-hint gradientHeading", onClick: this.showHint }, "( zobrazit n\u00E1pov\u011Bdu )"),
@@ -154,7 +149,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                     React.createElement("form", { action: "", className: "reservation-note" },
                         React.createElement("label", { className: "textform-label" },
                             React.createElement("span", { className: "textform-label_text" }, "Dal\u0161\u00ED objedn\u00E1vka recept\u016F"),
-                            React.createElement("textarea", { name: "note", className: "recipe-input", onChange: this.updateNote })))))));
+                            React.createElement("textarea", { name: "note", className: "recipe-input", onChange: function (e) { return updateNote(e.target.value); } })))))));
     };
     return RecipeSectionHeader;
 }(React.PureComponent));

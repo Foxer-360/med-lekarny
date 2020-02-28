@@ -135,7 +135,7 @@ var ComponentsService = /** @class */ (function () {
         var res = resources.default;
         var typedRes = resources[type.toLowerCase()];
         if (lodash_1.isObjectLike(typedRes)) {
-            res = __assign(__assign({}, res), typedRes);
+            res = __assign({}, res, typedRes);
         }
         return res;
     };

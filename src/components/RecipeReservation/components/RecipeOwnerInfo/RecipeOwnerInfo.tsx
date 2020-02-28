@@ -1,51 +1,32 @@
 import * as React from 'react';
 
-interface RecipeOwnerInfoState {
-  name: string;
-  phone: string;
-  email: string;
-  contactWayMail: boolean;
-  contactWayPhone: boolean;
-  gdpr: boolean;
-  errors: any;
-}
+type IInputType = { key: string, value: string | boolean};
 
 interface RecipeOwnerInfoProps {
-  updateMainComponent: any;
+  owner: {
+    name: string;
+    phone: string;
+    email: string;
+    contactByPhone: boolean;
+    contactBySMS: boolean;
+    gdpr: boolean;
+    errors: any;
+  },
+  updateMainComponent: (data: any) => void;
 }
 
-class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps, RecipeOwnerInfoState> {
-  constructor(props: RecipeOwnerInfoProps) {
-    super(props);
-
-    this.state = {
-      name: '',
-      phone: '',
-      email: '',
-      contactWayMail: false,
-      contactWayPhone: false,
-      gdpr: false,
-      errors: {}
-    };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.setErrors = this.setErrors.bind(this);
-    this.validateName = this.validateName.bind(this);
-    this.validateEmail = this.validateEmail.bind(this);
-    this.updateMainComponent = this.updateMainComponent.bind(this);
-  }
-
-  updateMainComponent(data: any) {
+class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps> {
+  updateMainComponent = (data: any) => {
     this.props.updateMainComponent(data);
   }
 
   setErrors = error => {
-    this.setState({
-      errors: { ...this.state.errors, ...error }
-    });
+    // this.setState({
+    //   errors: { ...this.state.errors, ...error }
+    // });
   }
 
-  validateName(name: string) {
+  validateName = (name: string) => {
     if (name.length < 5) {
       this.setErrors({name: 'Jméno musí být vyplněno'});
     } else {
@@ -53,7 +34,7 @@ class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps, RecipeOwnerI
     }
   }
 
-  validatePhone(phone: string) {
+  validatePhone = (phone: string) => {
     const reg = /^\d+$/;
     if (reg.test(phone)) {
       this.setErrors({phone: ''});
@@ -62,7 +43,7 @@ class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps, RecipeOwnerI
     }
   }
 
-  validateEmail(email: string) {
+  validateEmail = (email: string) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (re.test(String(email).toLowerCase())) {
       this.setErrors({email: ''});
@@ -71,24 +52,13 @@ class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps, RecipeOwnerI
     }
   }
 
-  handleInputChange(e:any) {
-    if (e.target.name === 'name') {
-      this.validateName(e.target.value);
-      this.setState({name: e.target.value});
-    }
-    if (e.target.name === 'phone') {
-      this.validatePhone(e.target.value);
-      this.setState({phone: e.target.value});
-    }
-    if (e.target.name === 'email') {
-      this.validateEmail(e.target.value);
-      this.setState({email: e.target.value});
-    }
-    this.updateMainComponent(this.state);
+
+  handleInputChange = (update: any) => {
+    this.setState(update, () => this.updateMainComponent(this.state));
   }
 
   render() {
-    console.log('state form info owner', this.state);
+    const { owner: { contactBySMS, contactByPhone, gdpr } } = this.props;
 
     return (
       <div className="row recipe-owner-info">
@@ -100,7 +70,7 @@ class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps, RecipeOwnerI
                 <input
                   type="text"
                   name="name"
-                  onChange={this.handleInputChange}
+                  onChange={e => this.handleInputChange({ [e.target.name]: e.target.value })}
                   required={true}
                 />
               </label>
@@ -109,7 +79,7 @@ class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps, RecipeOwnerI
                 <input
                   type="tel"
                   name="phone"
-                  onChange={this.handleInputChange}
+                  onChange={e => this.handleInputChange({ [e.target.name]: e.target.value })}
                   required={true}
                 />
               </label>
@@ -118,39 +88,39 @@ class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps, RecipeOwnerI
                 <input
                   type="email"
                   name="email"
-                  onChange={this.handleInputChange}
+                  onChange={e => this.handleInputChange({ [e.target.name]: e.target.value })}
                   required={true}
                 />
               </label>
 
               <div className="contact-choose">
                 <span>Jak chcete, abychom vás kontaktovali?</span>
-                <label className="checkbox-label">
+                <label className={`checkbox-label ${contactBySMS && 'checked'}`}>
                   <input
-                    name="contactWayMail"
+                    name="contactBySMS"
                     type="checkbox"
-                    checked={false}
-                    onChange={() => console.log('ahoj')}
-                  />
-                  E-mailem
-                </label>
-                <label className="checkbox-label checked">
-                  <input
-                    name="contactWayPhone"
-                    type="checkbox"
-                    checked={true}
-                    onChange={() => console.log('ahoj')}
+                    checked={contactBySMS}
+                    onChange={e => this.handleInputChange({ contactBySMS: false, contactByPhone: true })}
                   />
                   Přes sms
                 </label>
+                <label className={`checkbox-label ${contactByPhone && 'checked'}`}>
+                  <input
+                    name="contactByPhone"
+                    type="checkbox"
+                    checked={contactByPhone}
+                    onChange={e => this.handleInputChange({ contactByPhone: true, contactBySMS: false })}
+                  />
+                  Telefonicky
+                </label>
               </div>
 
-              <label className="gdpr-info checkbox-label">
+              <label className={`gdpr-info checkbox-label ${gdpr && 'checked'}`}>
                 <input
                   name="dgpr"
                   type="checkbox"
                   checked={false}
-                  onChange={() => console.log('ne')}
+                  onChange={() => this.handleInputChange({ gdpr: !gdpr })}
                   required={true}
                 />
                 Poučení o zpracování údajů

@@ -18,11 +18,7 @@ var pharmaPlaces_1 = require("../pharmaPlaces");
 var RecipePickupPick = /** @class */ (function (_super) {
     __extends(RecipePickupPick, _super);
     function RecipePickupPick(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = {
-            selectedPickupPoint: '',
-        };
-        return _this;
+        return _super.call(this, props) || this;
     }
     RecipePickupPick.prototype.updateSelectedPickupPoint = function (id) {
         this.props.updatePickupPlace(id);
@@ -30,7 +26,7 @@ var RecipePickupPick = /** @class */ (function (_super) {
     };
     RecipePickupPick.prototype.render = function () {
         var _this = this;
-        var placeState = this.state.selectedPickupPoint;
+        var pickupPlace = this.props.pickupPlace;
         return (React.createElement("div", { className: "container recipe-pickup-place" },
             React.createElement("span", { className: "subheadline" }, "V\u00FDb\u011Br lek\u00E1rny, kde si l\u00E9ky vyzvednu"),
             React.createElement("div", { className: "row" }, pharmaPlaces_1.default.map(function (place) {
@@ -40,7 +36,7 @@ var RecipePickupPick = /** @class */ (function (_super) {
                         React.createElement("p", { className: "address address-bold" }, place.address1),
                         React.createElement("p", { className: "address" }, place.address2),
                         React.createElement("p", { className: "address" }, place.openHours),
-                        React.createElement("button", { className: "recipe-btn btn-plus " + (placeState === place.id ? 'selected' : ''), onClick: function () { return _this.updateSelectedPickupPoint(place.id); } }, placeState === place.id ? 'Vyzvednu zde' : 'Vybrat lékárnu'))));
+                        React.createElement("button", { className: "recipe-btn btn-plus " + (pickupPlace === place.id ? 'selected' : ''), onClick: function () { return _this.updateSelectedPickupPoint(place.id); } }, pickupPlace === place.id ? 'Vyzvednu zde' : 'Vybrat lékárnu'))));
             }))));
     };
     return RecipePickupPick;

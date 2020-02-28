@@ -37,7 +37,7 @@ var RecipeReservation = /** @class */ (function (_super) {
             var _a = _this.state, recipeOwner = _a.recipeOwner, note = _a.note, pickupPlace = _a.pickupPlace, recipeCodesArray = _a.recipeCodesArray;
             axios_1.default.post('http://medicon.foxer360.com:3030/', __assign({}, recipeOwner, { pharmacy: pickupPlace, body: "eRecepty: " + recipeCodesArray.join(', ') + "\n\n " + note })).then(function () {
                 //todo redirect
-                console.log('ouje');
+                console.log('sumbiting');
             }).catch(function (e) {
                 alert('stala se chyba');
             });
@@ -60,8 +60,8 @@ var RecipeReservation = /** @class */ (function (_super) {
                 name: '',
                 phone: '',
                 email: '',
-                contactByPhone: true,
-                contactBySMS: false,
+                contactByPhone: false,
+                contactBySMS: true,
                 gdpr: false,
                 errors: {}
             },

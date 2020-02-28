@@ -100,7 +100,7 @@ class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps> {
                     name="contactBySMS"
                     type="checkbox"
                     checked={contactBySMS}
-                    onChange={e => this.handleInputChange({ contactBySMS: false, contactByPhone: true })}
+                    onChange={e => this.handleInputChange({ contactBySMS: true, contactByPhone: false })}
                   />
                   Přes sms
                 </label>

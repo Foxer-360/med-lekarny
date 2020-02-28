@@ -20,7 +20,8 @@ var RecipeReservationSubmit = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     RecipeReservationSubmit.prototype.render = function () {
-        return (React.createElement("div", null, "submit"));
+        return (React.createElement("section", { className: "row recipe-owner-info submit-wrapper" },
+            React.createElement("button", { type: "button", className: "btn recipe-btn submit-btn" }, "Odeslat rezervaci")));
     };
     return RecipeReservationSubmit;
 }(React.Component));

@@ -3,6 +3,10 @@ import RecipeReservationOutpost from './components/RecipeReservationOutpost/Reci
 
 class RecipeThankYou extends React.Component {
   render() {
+    const now = new Date(Date.now());
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const date = now.toLocaleDateString('cs-CZ', options);
+
     return (
       <div className="recipe-thankyou-page">
         <div className="gray-part pdt80">
@@ -10,16 +14,16 @@ class RecipeThankYou extends React.Component {
             <div className="row">
               <div className="col-md-8 offset-md-2">
                 <h1 className="gradientHeading">Děkujeme</h1>
-                <p className="text">
+                {/* <p className="text">
                   Vaše rezervace <span className="text-turquoise">č. 1234567890</span> je&nbsp;dokončena.
-                </p>
+                </p> */}
                 <p className="text">
                   číslo vašeho e-receptu je<br/>
                   <span className="text-turquoise"> 1234567890</span>
                 </p>
                 <p className="text">
                   datum vaší rezervace: <br/>
-                  <span className="text-turquoise">12. 3. 2020</span>
+                  <span className="text-turquoise">{date}</span>
                 </p>
               </div>
             </div>

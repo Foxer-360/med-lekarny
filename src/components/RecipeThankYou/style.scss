@@ -5,8 +5,8 @@
 
   .gray-part {
     @include bg-gradient;
-    padding-top: 4em;
-    padding-bottom: 4em;
+    padding-top: 2em;
+    padding-bottom: 2em;
 
     .done {
       margin-top: 3em;
@@ -19,8 +19,8 @@
 
   .white-part {
     display: block;
-    padding-top: 4em;
-    padding-bottom: 4em;
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
 
     .text {
       margin-bottom: 1em;
@@ -31,7 +31,7 @@
     font-size: 18px;
     text-transform: uppercase;
     line-height: 1.8em;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
 
     .text:last-child {
       margin-bottom: 0;

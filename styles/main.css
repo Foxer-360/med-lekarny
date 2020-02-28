@@ -5798,17 +5798,24 @@ cite {
     .recipe-header .recipe-input-wrapper .headline {
       font-size: 1.15em;
       padding: .5em 0;
-      margin-left: 7em;
+      margin-left: 8.3em;
       color: #3c3c3b;
       font-weight: 400;
       text-transform: uppercase;
       text-align: left; }
   .recipe-header .intro {
+    position: relative;
     background-color: #fff;
     padding-top: calc(1em + 10px);
     padding-bottom: 1em; }
     .recipe-header .intro:after {
-      position: absolute; }
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(to right, #3eac49 0%, #00aad0 100%); }
     .recipe-header .intro .text-left {
       padding: 2em; }
     .recipe-header .intro .steps {
@@ -5821,17 +5828,39 @@ cite {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        min-height: 70px; }
       .recipe-header .intro .steps .step-image {
         max-width: 50px;
         margin-right: 16px; }
+  @media screen and (max-width: 768px) {
+    .recipe-header .intro {
+      margin: 1em; }
+      .recipe-header .intro .steps {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        max-width: 100%;
+        padding-top: 0;
+        padding-bottom: 0; }
+        .recipe-header .intro .steps .step {
+          margin-bottom: 1em;
+          align-items: flex-start; }
+          .recipe-header .intro .steps .step .step-text {
+            margin-top: .6em; }
+          .recipe-header .intro .steps .step:last-child {
+            margin-bottom: 0; }
+    .recipe-header .hide-smaller-md {
+      display: none; } }
   .recipe-header .form-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center; }
   .recipe-header .recipe-input {
     padding: 1.2em 3em 1em;
-    box-shadow: inset 0 0 6px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.15);
     border: 1px solid #DDE4EC;
     text-align: center;
     font-style: italic;
@@ -5852,8 +5881,21 @@ cite {
   .recipe-header .form-wrapper {
     flex-wrap: wrap; }
 
+.hint-wrapper .text {
+  padding-top: 1em; }
+
+.hint-wrapper button.display-hint {
+  font-size: 14px;
+  display: block;
+  margin: 0 auto;
+  text-decoration: underline; }
+
 .recipe-illustrations {
-  padding-top: 35px; }
+  margin-top: 1em;
+  padding: 2em 1em 1em;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 3px dashed rgba(255, 255, 255, 0.6);
+  border-radius: 2em; }
   .recipe-illustrations .ilu-column {
     display: flex;
     flex-direction: column;
@@ -5862,16 +5904,15 @@ cite {
     .recipe-illustrations .ilu-column .ilu-title {
       padding-top: 1em; }
   .recipe-illustrations .ilu-text {
-    padding: 1em; }
+    padding: 1em 1em 0; }
+    .recipe-illustrations .ilu-text .text {
+      font-style: italic; }
   .recipe-illustrations .recipe-ilu {
     max-height: 90px; }
-  .recipe-illustrations .text {
+  .recipe-illustrations .btn-hide-hint.gradientHeading {
+    font-size: 14px;
     display: block;
     margin: 0 auto; }
-    .recipe-illustrations .text-center {
-      text-align: center; }
-    .recipe-illustrations .text-cursive {
-      font-style: italic; }
 
 @media screen and (min-width: 768px) {
   .recipe-header .recipe-illustrations .recipe-ilu {
@@ -5883,29 +5924,39 @@ cite {
     .recipe-header .recipe-illustrations .recipe-ilu.pc {
       max-height: 110px; } }
 
+.recipe-header .reservation-note .textform-label_text {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center; }
+
 @media screen and (max-width: 767px) {
-  .recipe-header .gradientHeading {
-    font-size: 1.5em;
-    padding-left: 0;
-    padding-right: 0; }
-  .recipe-header .form-wrapper {
-    flex-direction: column;
-    justify-content: center; }
-    .recipe-header .form-wrapper > * {
-      margin-bottom: 18px; }
-  .recipe-header .recipe-input-wrapper {
-    padding: 1.5em 0;
-    max-width: 350px;
-    margin: 0 auto; }
-    .recipe-header .recipe-input-wrapper .headline {
-      text-align: center;
-      margin: auto; }
-  .recipe-header .reservation-note {
-    padding-top: 1em; }
-    .recipe-header .reservation-note .textform-label_text {
-      display: block;
-      margin: auto;
-      text-align: center; } }
+  .recipe-header {
+    padding-top: 2em; }
+    .recipe-header .gradientHeading {
+      font-size: 1.5em;
+      padding-left: 0;
+      padding-right: 0; }
+    .recipe-header .form-wrapper {
+      flex-direction: column;
+      justify-content: center; }
+      .recipe-header .form-wrapper > * {
+        margin-bottom: 18px; }
+    .recipe-header .recipe-input-wrapper {
+      padding: 1.5em 0;
+      max-width: 350px;
+      margin: 0 auto; }
+      .recipe-header .recipe-input-wrapper .recipe-input {
+        width: 100%; }
+      .recipe-header .recipe-input-wrapper .headline {
+        text-align: center;
+        margin: auto; }
+    .recipe-header .reservation-note {
+      padding-top: 1em; }
+      .recipe-header .reservation-note .textform-label_text {
+        display: block;
+        margin: auto;
+        text-align: center; } }
 
 .reservation-note {
   display: block;
@@ -6016,7 +6067,7 @@ cite {
 
 .recipe-owner-info {
   padding-top: 70px;
-  padding-bottom: 60px;
+  padding-bottom: 0;
   background: linear-gradient(90deg, #DDE4EC 0%, #dde4ec 50%, #DDE4EC 100%);
   text-align: center;
   text-transform: uppercase; }
@@ -6030,7 +6081,7 @@ cite {
   .recipe-owner-info .form-wrap input {
     padding: 1.2em 2em 1em;
     margin-bottom: 14px;
-    box-shadow: inset 0 0 6px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.15);
     border: 1px solid #DDE4EC;
     text-align: center;
     font-style: italic;
@@ -6068,7 +6119,7 @@ cite {
       width: auto;
       height: 35px;
       padding-top: 4px;
-      margin-top: 70px;
+      margin-top: 40px;
       display: inline-block; }
   .recipe-owner-info .contact-choose {
     text-align: center;
@@ -6082,7 +6133,7 @@ cite {
   .recipe-owner-info .link {
     display: block;
     text-transform: none;
-    margin-bottom: 60px;
+    margin-bottom: 45px;
     text-decoration: underline; }
   .recipe-owner-info .submit-btn {
     color: #fff;
@@ -6104,7 +6155,18 @@ cite {
     padding-left: 3em; } }
 
 .recipe-reservation-page {
-  padding-top: 136px; }
+  padding-top: 115px; }
+  .recipe-reservation-page .text {
+    display: block;
+    margin: 0 auto; }
+    .recipe-reservation-page .text-center {
+      text-align: center; }
+    .recipe-reservation-page .text-cursive {
+      font-style: italic; }
+
+@media screen and (min-width: 767px) {
+  .recipe-reservation-page {
+    padding-top: 136px; } }
 
 .outpost-wrapper .outpost-logo {
   max-width: 80px;
@@ -6120,23 +6182,23 @@ cite {
   .recipe-thankyou-page .gray-part {
     background: #DDE4EC;
     background: linear-gradient(90deg, #DDE4EC 0%, #dde4ec 50%, #DDE4EC 100%);
-    padding-top: 4em;
-    padding-bottom: 4em; }
+    padding-top: 2em;
+    padding-bottom: 2em; }
     .recipe-thankyou-page .gray-part .done {
       margin-top: 3em; }
   .recipe-thankyou-page .gray-part.pdt80 {
     padding-top: 200px; }
   .recipe-thankyou-page .white-part {
     display: block;
-    padding-top: 4em;
-    padding-bottom: 4em; }
+    padding-top: 2.5em;
+    padding-bottom: 2.5em; }
     .recipe-thankyou-page .white-part .text {
       margin-bottom: 1em; }
   .recipe-thankyou-page .text {
     font-size: 18px;
     text-transform: uppercase;
     line-height: 1.8em;
-    margin-bottom: 3em; }
+    margin-bottom: 1em; }
     .recipe-thankyou-page .text .text:last-child {
       margin-bottom: 0; }
   .recipe-thankyou-page .text-turquoise {

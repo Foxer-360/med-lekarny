@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface IRecipeOwnerInfoState {
+interface RecipeOwnerInfoState {
   name: string;
   phone: string;
   email: string;
@@ -10,19 +10,34 @@ interface IRecipeOwnerInfoState {
   errors: any;
 }
 
-class RecipeOwnerInfo extends React.Component<{}, IRecipeOwnerInfoState> {
-  constructor(props:any) {
+interface RecipeOwnerInfoProps {
+  updateMainComponent: any;
+}
+
+class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps, RecipeOwnerInfoState> {
+  constructor(props: RecipeOwnerInfoProps) {
     super(props);
 
+    this.state = {
+      name: '',
+      phone: '',
+      email: '',
+      contactWayMail: false,
+      contactWayPhone: false,
+      gdpr: false,
+      errors: {}
+    };
+
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.setErrors = this.setErrors.bind(this);
+    this.validateName = this.validateName.bind(this);
+    this.validateEmail = this.validateEmail.bind(this);
+    this.updateMainComponent = this.updateMainComponent.bind(this);
   }
 
-  // validateEmail = email => {
-  //   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //   if (!re.test(String(email).toLowerCase()))
-  //     setTimeout(() => this.setErrors({ email: "Email is invalid" }), 800);
-  //   else this.setErrors({ email: "" });
-  // };
+  updateMainComponent(data: any) {
+    this.props.updateMainComponent(data);
+  }
 
   setErrors = error => {
     this.setState({
@@ -38,14 +53,43 @@ class RecipeOwnerInfo extends React.Component<{}, IRecipeOwnerInfoState> {
     }
   }
 
+  validatePhone(phone: string) {
+    const reg = /^\d+$/;
+    if (reg.test(phone)) {
+      this.setErrors({phone: ''});
+    } else {
+      this.setErrors({phone: 'Vyplňte prosím telefoní číslo (formát: XXX XXX XXX)'});
+    }
+  }
+
+  validateEmail(email: string) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(String(email).toLowerCase())) {
+      this.setErrors({email: ''});
+    } else {
+      this.setErrors({email: 'Zkontrolujte si prosím zda jste správně vyplnili e-mail.'})
+    }
+  }
+
   handleInputChange(e:any) {
     if (e.target.name === 'name') {
       this.validateName(e.target.value);
       this.setState({name: e.target.value});
     }
+    if (e.target.name === 'phone') {
+      this.validatePhone(e.target.value);
+      this.setState({phone: e.target.value});
+    }
+    if (e.target.name === 'email') {
+      this.validateEmail(e.target.value);
+      this.setState({email: e.target.value});
+    }
+    this.updateMainComponent(this.state);
   }
 
   render() {
+    console.log('state form info owner', this.state);
+
     return (
       <div className="row recipe-owner-info">
         <div className="container">
@@ -65,6 +109,7 @@ class RecipeOwnerInfo extends React.Component<{}, IRecipeOwnerInfoState> {
                 <input
                   type="tel"
                   name="phone"
+                  onChange={this.handleInputChange}
                   required={true}
                 />
               </label>
@@ -73,6 +118,7 @@ class RecipeOwnerInfo extends React.Component<{}, IRecipeOwnerInfoState> {
                 <input
                   type="email"
                   name="email"
+                  onChange={this.handleInputChange}
                   required={true}
                 />
               </label>
@@ -115,12 +161,6 @@ class RecipeOwnerInfo extends React.Component<{}, IRecipeOwnerInfoState> {
               >
                 Stáhnout podmínky zpracování údajů
               </a>
-              <button
-                type="button"
-                className="recipe-btn submit-btn"
-              >
-                Odeslat rezervaci
-              </button>
             </div>
           </div>
         </div>

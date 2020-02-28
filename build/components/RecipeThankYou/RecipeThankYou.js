@@ -21,6 +21,9 @@ var RecipeThankYou = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     RecipeThankYou.prototype.render = function () {
+        var now = new Date(Date.now());
+        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var date = now.toLocaleDateString('cs-CZ', options);
         return (React.createElement("div", { className: "recipe-thankyou-page" },
             React.createElement("div", { className: "gray-part pdt80" },
                 React.createElement("div", { className: "container" },
@@ -28,17 +31,13 @@ var RecipeThankYou = /** @class */ (function (_super) {
                         React.createElement("div", { className: "col-md-8 offset-md-2" },
                             React.createElement("h1", { className: "gradientHeading" }, "D\u011Bkujeme"),
                             React.createElement("p", { className: "text" },
-                                "Va\u0161e rezervace ",
-                                React.createElement("span", { className: "text-turquoise" }, "\u010D. 1234567890"),
-                                " je\u00A0dokon\u010Dena."),
-                            React.createElement("p", { className: "text" },
                                 "\u010D\u00EDslo va\u0161eho e-receptu je",
                                 React.createElement("br", null),
                                 React.createElement("span", { className: "text-turquoise" }, "1234567890")),
                             React.createElement("p", { className: "text" },
                                 "datum va\u0161\u00ED rezervace:",
                                 React.createElement("br", null),
-                                React.createElement("span", { className: "text-turquoise" }, "12. 3. 2020")))))),
+                                React.createElement("span", { className: "text-turquoise" }, date)))))),
             React.createElement("div", { className: "white-part" },
                 React.createElement("div", { className: "container" },
                     React.createElement("div", { className: "col-md-8 offset-md-2" },

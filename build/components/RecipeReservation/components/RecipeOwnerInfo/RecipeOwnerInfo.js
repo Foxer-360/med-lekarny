@@ -29,20 +29,30 @@ var RecipeOwnerInfo = /** @class */ (function (_super) {
     __extends(RecipeOwnerInfo, _super);
     function RecipeOwnerInfo(props) {
         var _this = _super.call(this, props) || this;
-        // validateEmail = email => {
-        //   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        //   if (!re.test(String(email).toLowerCase()))
-        //     setTimeout(() => this.setErrors({ email: "Email is invalid" }), 800);
-        //   else this.setErrors({ email: "" });
-        // };
         _this.setErrors = function (error) {
             _this.setState({
                 errors: __assign(__assign({}, _this.state.errors), error)
             });
         };
+        _this.state = {
+            name: '',
+            phone: '',
+            email: '',
+            contactWayMail: false,
+            contactWayPhone: false,
+            gdpr: false,
+            errors: {}
+        };
         _this.handleInputChange = _this.handleInputChange.bind(_this);
+        _this.setErrors = _this.setErrors.bind(_this);
+        _this.validateName = _this.validateName.bind(_this);
+        _this.validateEmail = _this.validateEmail.bind(_this);
+        _this.updateMainComponent = _this.updateMainComponent.bind(_this);
         return _this;
     }
+    RecipeOwnerInfo.prototype.updateMainComponent = function (data) {
+        this.props.updateMainComponent(data);
+    };
     RecipeOwnerInfo.prototype.validateName = function (name) {
         if (name.length < 5) {
             this.setErrors({ name: 'Jméno musí být vyplněno' });
@@ -51,13 +61,41 @@ var RecipeOwnerInfo = /** @class */ (function (_super) {
             this.setErrors({ name: '' });
         }
     };
+    RecipeOwnerInfo.prototype.validatePhone = function (phone) {
+        var reg = /^\d+$/;
+        if (reg.test(phone)) {
+            this.setErrors({ phone: '' });
+        }
+        else {
+            this.setErrors({ phone: 'Vyplňte prosím telefoní číslo (formát: XXX XXX XXX)' });
+        }
+    };
+    RecipeOwnerInfo.prototype.validateEmail = function (email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (re.test(String(email).toLowerCase())) {
+            this.setErrors({ email: '' });
+        }
+        else {
+            this.setErrors({ email: 'Zkontrolujte si prosím zda jste správně vyplnili e-mail.' });
+        }
+    };
     RecipeOwnerInfo.prototype.handleInputChange = function (e) {
         if (e.target.name === 'name') {
             this.validateName(e.target.value);
             this.setState({ name: e.target.value });
         }
+        if (e.target.name === 'phone') {
+            this.validatePhone(e.target.value);
+            this.setState({ phone: e.target.value });
+        }
+        if (e.target.name === 'email') {
+            this.validateEmail(e.target.value);
+            this.setState({ email: e.target.value });
+        }
+        this.updateMainComponent(this.state);
     };
     RecipeOwnerInfo.prototype.render = function () {
+        console.log('state form info owner', this.state);
         return (React.createElement("div", { className: "row recipe-owner-info" },
             React.createElement("div", { className: "container" },
                 React.createElement("div", { className: "row" },
@@ -67,10 +105,10 @@ var RecipeOwnerInfo = /** @class */ (function (_super) {
                             React.createElement("input", { type: "text", name: "name", onChange: this.handleInputChange, required: true })),
                         React.createElement("label", { className: "center" },
                             "Telefon",
-                            React.createElement("input", { type: "tel", name: "phone", required: true })),
+                            React.createElement("input", { type: "tel", name: "phone", onChange: this.handleInputChange, required: true })),
                         React.createElement("label", { className: "center" },
                             "E-mail",
-                            React.createElement("input", { type: "email", name: "email", required: true })),
+                            React.createElement("input", { type: "email", name: "email", onChange: this.handleInputChange, required: true })),
                         React.createElement("div", { className: "contact-choose" },
                             React.createElement("span", null, "Jak chcete, abychom v\u00E1s kontaktovali?"),
                             React.createElement("label", { className: "checkbox-label" },
@@ -82,8 +120,7 @@ var RecipeOwnerInfo = /** @class */ (function (_super) {
                         React.createElement("label", { className: "gdpr-info checkbox-label" },
                             React.createElement("input", { name: "dgpr", type: "checkbox", checked: false, onChange: function () { return console.log('ne'); }, required: true }),
                             "Pou\u010Den\u00ED o zpracov\u00E1n\u00ED \u00FAdaj\u016F"),
-                        React.createElement("a", { href: "https://www.mediconas.cz/cs/ochrana-osobnich-udaju", className: "link" }, "St\u00E1hnout podm\u00EDnky zpracov\u00E1n\u00ED \u00FAdaj\u016F"),
-                        React.createElement("button", { type: "button", className: "recipe-btn submit-btn" }, "Odeslat rezervaci"))))));
+                        React.createElement("a", { href: "https://www.mediconas.cz/cs/ochrana-osobnich-udaju", className: "link" }, "St\u00E1hnout podm\u00EDnky zpracov\u00E1n\u00ED \u00FAdaj\u016F"))))));
     };
     return RecipeOwnerInfo;
 }(React.Component));

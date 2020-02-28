@@ -2,7 +2,6 @@ import * as React from 'react';
 import RecipeSectionHeader from './components/RecipeSectionHeader';
 import RecipePickupPick from './components/RecipePickupPick/RecipePickupPick';
 import RecipeOwnerInfo from './components/RecipeOwnerInfo/RecipeOwnerInfo';
-// import RecipeReservationSubmit from './components/RecipeReservationSubmit';
 
 interface RecipeReservationProps {
 
@@ -23,6 +22,7 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
     };
 
     this.updatePickupPlace = this.updatePickupPlace.bind(this);
+    this.updateOwnerInfo = this.updateOwnerInfo.bind(this);
   }
 
   updateRecipesArray(recipes: Array<string>) {
@@ -31,6 +31,10 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
 
   updatePickupPlace(placeId: string) {
     this.setState({pickupPlace: placeId});
+  }
+
+  updateOwnerInfo(info: any) {
+    console.log('main component', info);
   }
 
   render() {
@@ -44,8 +48,19 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
         <RecipePickupPick
           updatePickupPlace={this.updatePickupPlace}
         />
-        <RecipeOwnerInfo />
-        {/* <RecipeReservationSubmit /> */}
+        <RecipeOwnerInfo
+          updateMainComponent={this.updateOwnerInfo}
+        />
+
+        <section className="row recipe-owner-info submit-wrapper">
+          <button
+            type="button"
+            className="btn recipe-btn submit-btn"
+          >
+            Odeslat rezervaci
+          </button>
+        </section>
+
       </div>
     );
   }

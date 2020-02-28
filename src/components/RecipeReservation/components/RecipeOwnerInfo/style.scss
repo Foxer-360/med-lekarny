@@ -1,7 +1,7 @@
 
 .recipe-owner-info {
   padding-top: 70px;
-  padding-bottom: 60px;
+  padding-bottom: 0;
   background: linear-gradient(90deg, #DDE4EC 0%, #dde4ec 50%, #DDE4EC 100%);
   text-align: center;
   text-transform: uppercase;
@@ -19,7 +19,7 @@
     input {
       padding: 1.2em 2em 1em;
       margin-bottom: 14px;
-      box-shadow: inset 0 0 6px 1px rgba(#000, .25);
+      box-shadow: inset 0 0 3px 1px rgba(#000, .15);
       border: 1px solid #DDE4EC;
       text-align: center;
       font-style: italic;
@@ -75,7 +75,7 @@
         width: auto;
         height: 35px;
         padding-top: 4px;
-        margin-top: 70px;
+        margin-top: 40px;
         display: inline-block;
       }
     }
@@ -99,7 +99,7 @@
   .link {
     display: block;
     text-transform: none;
-    margin-bottom: 60px;
+    margin-bottom: 45px;
     text-decoration: underline;
   }
 

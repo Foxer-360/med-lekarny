@@ -16,7 +16,7 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
     .headline {
       font-size: 1.15em;
       padding: .5em 0;
-      margin-left: 7em;
+      margin-left: 8.3em;
       color: #3c3c3b;
       font-weight: 400;
       text-transform: uppercase;
@@ -25,12 +25,19 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
   }
 
   .intro {
+    position: relative;
     background-color: #fff;
     padding-top: calc(1em + 10px);
     padding-bottom: 1em;
 
     &:after {
       position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(to right, #3eac49 0%, #00aad0 100%);
     }
 
     .text-left {
@@ -49,12 +56,49 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
         flex-wrap: nowrap;
         align-items: center;
         text-transform: uppercase;
+        min-height: 70px;
       }
 
       .step-image {
         max-width: 50px;
         margin-right: 16px;
       }
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+
+    .intro {
+      margin: 1em;
+
+      .steps {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        max-width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .step {
+          margin-bottom: 1em;
+          align-items: flex-start;
+
+          .step-text {
+            margin-top: .6em;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .hide-smaller-md {
+      display: none;
     }
   }
 
@@ -66,7 +110,7 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
 
   .recipe-input {
     padding: 1.2em 3em 1em;
-    box-shadow: inset 0 0 6px 1px rgba(#000, .25);
+    box-shadow: inset 0 0 3px 1px rgba(#000, .15);
     border: 1px solid #DDE4EC;
     text-align: center;
     font-style: italic;
@@ -97,8 +141,25 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
   }
 }
 
+.hint-wrapper {
+  .text {
+    padding-top: 1em;
+  }
+
+  button.display-hint {
+    font-size: 14px;
+    display: block;
+    margin: 0 auto;
+    text-decoration: underline;
+  }
+}
+
 .recipe-illustrations {
-  padding-top: 35px;
+  margin-top: 1em;
+  padding: 2em 1em 1em;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 3px dashed rgba(255, 255, 255, 0.6);
+  border-radius: 2em;
 
   .ilu-column {
     display: flex;
@@ -112,23 +173,21 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
   }
 
   .ilu-text {
-    padding: 1em;
+    padding: 1em 1em 0;
+
+    .text {
+      font-style: italic;
+    }
   }
 
   .recipe-ilu {
     max-height: 90px;
   }
 
-  .text {
+  .btn-hide-hint.gradientHeading {
+    font-size: 14px;
     display: block;
     margin: 0 auto;
-
-    &-center {
-      text-align: center;
-    }
-    &-cursive {
-      font-style: italic;
-    }
   }
 }
 
@@ -154,8 +213,19 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
   }
 }
 
+.recipe-header {
+  .reservation-note .textform-label_text {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .recipe-header {
+    padding-top: 2em;
+
     .gradientHeading {
       font-size: 1.5em;
       padding-left: 0;
@@ -174,6 +244,10 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
       padding: 1.5em 0;
       max-width: 350px;
       margin: 0 auto;
+
+      .recipe-input {
+        width: 100%;
+      }
 
       .headline {
         text-align: center;

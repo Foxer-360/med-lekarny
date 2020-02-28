@@ -1,4 +1,5 @@
 import * as React from 'react';
+import CodeHint from './components/CodeHint';
 // import TextBlock from '../../../TextBlock';
 
 interface iRecipeSectionheaderProps {
@@ -10,9 +11,10 @@ interface iRecipeSectionheaderState {
   recipeCodeInput: string;
   noteInput: string;
   errors: any;
+  hintVisible: boolean;
 }
 
-class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRecipeSectionheaderState> {
+class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps, iRecipeSectionheaderState> {
   private validationTable = [
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
     'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', '8', '9', '2', '3', '4', '5', '6', '7'
@@ -33,11 +35,14 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
     this.state = {
       recipeCodeInput: '',
       noteInput: '',
-      errors: ''
+      errors: '',
+      hintVisible: false,
     };
 
     this.recipeCodeInputChange = this.recipeCodeInputChange.bind(this);
     this.updateNote = this.updateNote.bind(this);
+    this.showHint = this.showHint.bind(this);
+    this.hideHint = this.hideHint.bind(this);
   }
 
   setErrors = error => {
@@ -47,15 +52,21 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
   }
 
   recipeCodeInputChange(e: any) {
-    const value = e.target && e.target.value;
+    const value = String(e.target && e.target.value).replace(/\s/g, '');
+    // maximum length of e-receipe code is 12
+    if (value.length > 12) {
+      return;
+    }
+
     if (value !== null) {
-      this.setState({recipeCodeInput: value});
+      this.setState({ recipeCodeInput: value.replace(/(\w{1,4})?(\w{1,4})?(\w{1,4})?/, '$1 $2 $3') });
     }
     const validCode = this.validateCode(value);
     if (validCode) {
       console.log('valid code updatni přes props state v main komponentě');
       this.recipeCodesArrayUpdate(value);
     }
+
     console.log('valid? value input change', validCode);
   }
 
@@ -102,6 +113,15 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
     this.setState({noteInput: e.target.value});
   }
 
+  showHint(e: any) {
+    e.preventDefault();
+    this.setState({hintVisible: true});
+  }
+
+  hideHint() {
+    this.setState({hintVisible: false});
+  }
+
   render() {
     const { recipesArray } = this.props;
     const { recipeCodeInput, errors } = this.state;
@@ -115,7 +135,7 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
           <h1 className="gradientHeading">{this.data.title}</h1>
 
           <section className="row intro">
-            <div className="col-md-6">
+            <div className="col-md-6 hide-smaller-md">
               <p className="text text-left">
                 {this.data.text}
               </p>
@@ -138,7 +158,7 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
                   alt="2"
                 />
                 <p className="step-text">
-                  Vyplňte kód receptu
+                  Počkejte na&nbsp;potvrzení rezervace
                 </p>
               </div>
               <div className="step">
@@ -148,46 +168,9 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
                   alt="3"
                 />
                 <p className="step-text">
-                  Vyplňte kód receptu
+                  Vyzvedněte&nbsp;si své léky ve&nbsp;Vaší lékárně Pharmacentrum
                 </p>
               </div>
-            </div>
-          </section>
-
-          <section className="recipe-illustrations">
-            <div className="row">
-              <div className="col-4 ilu-column">
-                <img
-                  className={'recipe-ilu list'}
-                  alt={'receipt image'}
-                  src={'/assets/mediconLekarny/images/recept-list.png'}
-                />
-                <span className="ilu-title">PRŮVODKA</span>
-              </div>
-              <div className="col-4 ilu-column">
-                <img
-                  className={'recipe-ilu phone'}
-                  alt={'receipt image'}
-                  src={'/assets/mediconLekarny/images/recept-phone.png'}
-                />
-                <span className="ilu-title">SMS</span>
-              </div>
-              <div className="col-4 ilu-column">
-                <img
-                  className={'recipe-ilu pc'}
-                  alt={'receipt image'}
-                  src={'/assets/mediconLekarny/images/recept-pc.png'}
-                />
-                <span className="ilu-title">E-MAIL</span>
-              </div>
-            </div>
-            <div className="row ilu-text">
-              <p className="text text-center">
-                Zde najdete identifikátor Vašeho receptu.
-              </p>
-              <p className="text text-center text-cursive">
-                Jde o 12-místný alfanumerický kód, čárový kód, QR kód nebo odkaz ke stažení kódu.
-              </p>
             </div>
           </section>
 
@@ -209,19 +192,31 @@ class RecipeSectionHeader extends React.Component<iRecipeSectionheaderProps, iRe
               </button>
             </div>
 
-            <section>
-              REZERVACE RECEPTŮ S KÓDEM:
-              {console.log('recipes', recipesArray)}
-              {Array.isArray(recipesArray)
-                && recipesArray.length > 0
-                && recipesArray.map((recipe: string) => {
-                  return <span key={`id${recipe}`}>{recipe} more</span>
-                })
-              }
-              <br/>
-              <br/>
-              kod v inputu -> state v header komponentě {recipeCodeInput}
+            <section className="hint-wrapper">
+              <p className="text text-center text-cursive">
+                Jde o 12-místný alfanumerický kód, čárový kód, QR kód nebo odkaz ke stažení kódu.
+              </p>
+              {!this.state.hintVisible && <button
+                type="button"
+                className="display-hint gradientHeading"
+                onClick={this.showHint}
+              >
+                ( zobrazit nápovědu )
+              </button>}
+              {this.state.hintVisible && <CodeHint hideHint={this.hideHint} />}
             </section>
+
+            {/* REZERVACE RECEPTŮ S KÓDEM:
+            {console.log('recipes', recipesArray)}
+            {Array.isArray(recipesArray)
+              && recipesArray.length > 0
+              && recipesArray.map((recipe: string) => {
+                return <span key={`id${recipe}`}>{recipe} more</span>
+              })
+            }
+            <br/>
+            <br/>
+            kod v inputu -> state v header komponentě {recipeCodeInput} */}
 
             <form action="" className="reservation-note">
               <label className="textform-label">

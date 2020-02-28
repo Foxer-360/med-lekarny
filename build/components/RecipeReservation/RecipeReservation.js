@@ -26,6 +26,7 @@ var RecipeReservation = /** @class */ (function (_super) {
             pickupPlace: '',
         };
         _this.updatePickupPlace = _this.updatePickupPlace.bind(_this);
+        _this.updateOwnerInfo = _this.updateOwnerInfo.bind(_this);
         return _this;
     }
     RecipeReservation.prototype.updateRecipesArray = function (recipes) {
@@ -34,12 +35,18 @@ var RecipeReservation = /** @class */ (function (_super) {
     RecipeReservation.prototype.updatePickupPlace = function (placeId) {
         this.setState({ pickupPlace: placeId });
     };
+    RecipeReservation.prototype.updateOwnerInfo = function (info) {
+        console.log('main component', info);
+        // this.setState({})
+    };
     RecipeReservation.prototype.render = function () {
         return (React.createElement("div", { className: "recipe-reservation-page" },
             console.log(this.state.recipeCodesArray),
             React.createElement(RecipeSectionHeader_1.default, { recipesArray: this.state.recipeCodesArray, updateRecipesArray: this.updateRecipesArray }),
             React.createElement(RecipePickupPick_1.default, { updatePickupPlace: this.updatePickupPlace }),
-            React.createElement(RecipeOwnerInfo_1.default, null)));
+            React.createElement(RecipeOwnerInfo_1.default, { updateMainComponent: this.updateOwnerInfo }),
+            React.createElement("section", { className: "row recipe-owner-info submit-wrapper" },
+                React.createElement("button", { type: "button", className: "btn recipe-btn submit-btn" }, "Odeslat rezervaci"))));
     };
     return RecipeReservation;
 }(React.Component));

@@ -25,6 +25,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
+var CodeHint_1 = require("./components/CodeHint");
 var RecipeSectionHeader = /** @class */ (function (_super) {
     __extends(RecipeSectionHeader, _super);
     function RecipeSectionHeader(props) {
@@ -77,16 +78,23 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         _this.state = {
             recipeCodeInput: '',
             noteInput: '',
-            errors: ''
+            errors: '',
+            hintVisible: false,
         };
         _this.recipeCodeInputChange = _this.recipeCodeInputChange.bind(_this);
         _this.updateNote = _this.updateNote.bind(_this);
+        _this.showHint = _this.showHint.bind(_this);
+        _this.hideHint = _this.hideHint.bind(_this);
         return _this;
     }
     RecipeSectionHeader.prototype.recipeCodeInputChange = function (e) {
-        var value = e.target && e.target.value;
+        var value = String(e.target && e.target.value).replace(/\s/g, '');
+        // maximum length of e-receipe code is 12
+        if (value.length > 12) {
+            return;
+        }
         if (value !== null) {
-            this.setState({ recipeCodeInput: value });
+            this.setState({ recipeCodeInput: value.replace(/(\w{1,4})?(\w{1,4})?(\w{1,4})?/, '$1 $2 $3') });
         }
         var validCode = this.validateCode(value);
         if (validCode) {
@@ -104,6 +112,13 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
     RecipeSectionHeader.prototype.updateNote = function (e) {
         this.setState({ noteInput: e.target.value });
     };
+    RecipeSectionHeader.prototype.showHint = function (e) {
+        e.preventDefault();
+        this.setState({ hintVisible: true });
+    };
+    RecipeSectionHeader.prototype.hideHint = function () {
+        this.setState({ hintVisible: false });
+    };
     RecipeSectionHeader.prototype.render = function () {
         var recipesArray = this.props.recipesArray;
         var _a = this.state, recipeCodeInput = _a.recipeCodeInput, errors = _a.errors;
@@ -112,7 +127,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
             React.createElement("div", { className: "container" },
                 React.createElement("h1", { className: "gradientHeading" }, this.data.title),
                 React.createElement("section", { className: "row intro" },
-                    React.createElement("div", { className: "col-md-6" },
+                    React.createElement("div", { className: "col-md-6 hide-smaller-md" },
                         React.createElement("p", { className: "text text-left" }, this.data.text)),
                     React.createElement("div", { className: "col-md-6 steps" },
                         React.createElement("div", { className: "step" },
@@ -120,24 +135,10 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                             React.createElement("p", { className: "step-text" }, "Vypl\u0148te k\u00F3d receptu")),
                         React.createElement("div", { className: "step" },
                             React.createElement("img", { src: '/assets/mediconLekarny/images/numbers/2.svg', className: "step-image", alt: "2" }),
-                            React.createElement("p", { className: "step-text" }, "Vypl\u0148te k\u00F3d receptu")),
+                            React.createElement("p", { className: "step-text" }, "Po\u010Dkejte na\u00A0potvrzen\u00ED rezervace")),
                         React.createElement("div", { className: "step" },
                             React.createElement("img", { src: '/assets/mediconLekarny/images/numbers/3.svg', className: "step-image", alt: "3" }),
-                            React.createElement("p", { className: "step-text" }, "Vypl\u0148te k\u00F3d receptu")))),
-                React.createElement("section", { className: "recipe-illustrations" },
-                    React.createElement("div", { className: "row" },
-                        React.createElement("div", { className: "col-4 ilu-column" },
-                            React.createElement("img", { className: 'recipe-ilu list', alt: 'receipt image', src: '/assets/mediconLekarny/images/recept-list.png' }),
-                            React.createElement("span", { className: "ilu-title" }, "PR\u016EVODKA")),
-                        React.createElement("div", { className: "col-4 ilu-column" },
-                            React.createElement("img", { className: 'recipe-ilu phone', alt: 'receipt image', src: '/assets/mediconLekarny/images/recept-phone.png' }),
-                            React.createElement("span", { className: "ilu-title" }, "SMS")),
-                        React.createElement("div", { className: "col-4 ilu-column" },
-                            React.createElement("img", { className: 'recipe-ilu pc', alt: 'receipt image', src: '/assets/mediconLekarny/images/recept-pc.png' }),
-                            React.createElement("span", { className: "ilu-title" }, "E-MAIL"))),
-                    React.createElement("div", { className: "row ilu-text" },
-                        React.createElement("p", { className: "text text-center" }, "Zde najdete identifik\u00E1tor Va\u0161eho receptu."),
-                        React.createElement("p", { className: "text text-center text-cursive" }, "Jde o 12-m\u00EDstn\u00FD alfanumerick\u00FD k\u00F3d, \u010D\u00E1rov\u00FD k\u00F3d, QR k\u00F3d nebo odkaz ke sta\u017Een\u00ED k\u00F3du."))),
+                            React.createElement("p", { className: "step-text" }, "Vyzvedn\u011Bte\u00A0si sv\u00E9 l\u00E9ky ve\u00A0Va\u0161\u00ED l\u00E9k\u00E1rn\u011B Pharmacentrum")))),
                 React.createElement("section", { className: "recipe-input-wrapper" },
                     React.createElement("h4", { className: "headline" }, "K\u00F3d e-receptu"),
                     React.createElement("div", { className: "form-wrapper" },
@@ -146,26 +147,16 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                         React.createElement("button", { className: "recipe-btn" },
                             "Vyfotit",
                             React.createElement("span", { className: "plus-icon" }))),
-                    React.createElement("section", null,
-                        "REZERVACE RECEPT\u016E S K\u00D3DEM:",
-                        console.log('recipes', recipesArray),
-                        Array.isArray(recipesArray)
-                            && recipesArray.length > 0
-                            && recipesArray.map(function (recipe) {
-                                return React.createElement("span", { key: "id" + recipe },
-                                    recipe,
-                                    " more");
-                            }),
-                        React.createElement("br", null),
-                        React.createElement("br", null),
-                        "kod v inputu -> state v header komponent\u011B ",
-                        recipeCodeInput),
+                    React.createElement("section", { className: "hint-wrapper" },
+                        React.createElement("p", { className: "text text-center text-cursive" }, "Jde o 12-m\u00EDstn\u00FD alfanumerick\u00FD k\u00F3d, \u010D\u00E1rov\u00FD k\u00F3d, QR k\u00F3d nebo odkaz ke sta\u017Een\u00ED k\u00F3du."),
+                        !this.state.hintVisible && React.createElement("button", { type: "button", className: "display-hint gradientHeading", onClick: this.showHint }, "( zobrazit n\u00E1pov\u011Bdu )"),
+                        this.state.hintVisible && React.createElement(CodeHint_1.default, { hideHint: this.hideHint })),
                     React.createElement("form", { action: "", className: "reservation-note" },
                         React.createElement("label", { className: "textform-label" },
                             React.createElement("span", { className: "textform-label_text" }, "Dal\u0161\u00ED objedn\u00E1vka recept\u016F"),
                             React.createElement("textarea", { name: "note", className: "recipe-input", onChange: this.updateNote })))))));
     };
     return RecipeSectionHeader;
-}(React.Component));
+}(React.PureComponent));
 exports.default = RecipeSectionHeader;
 //# sourceMappingURL=RecipeSectionHeader.js.map

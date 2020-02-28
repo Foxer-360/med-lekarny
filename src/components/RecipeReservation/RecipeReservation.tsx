@@ -7,6 +7,14 @@ import axios from 'axios';
 import * as queryString from 'query-string';
 
 interface RecipeReservationProps {
+  data: {
+    headline: string;
+    text: string;
+    step1: string;
+    step2: string;
+    step3: string;
+    url?: LooseObject;
+  };
 }
 
 interface RecipeOwnerInfoState {
@@ -88,6 +96,8 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
   }
 
   render() {
+    const boData = this.props.data;
+
     return (
       <div className="recipe-reservation-page">
         <RecipeSectionHeader
@@ -95,6 +105,7 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
           note={this.state.note}
           recipesArray={this.state.recipeCodesArray}
           updateRecipesArray={this.updateRecipesArray}
+          boData={boData}
         />
         <RecipePickupPick
           pickupPlace={this.state.pickupPlace}
@@ -111,7 +122,7 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
             style={{ margin: 'auto' }}
             type="button"
             className="btn recipe-btn submit-btn"
-            to={`/test-new-design-thankyou${this.buildSearchQuery()}`}
+            to={`${boData.url && boData.url.url}${this.buildSearchQuery()}`}
           >
             Odeslat rezervaci
           </Link>

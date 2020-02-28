@@ -89,7 +89,7 @@ var RecipeOwnerInfo = /** @class */ (function (_super) {
                                 "P\u0159es sms"),
                             React.createElement("label", { className: "checkbox-label " + (contactByPhone && 'checked') },
                                 React.createElement("input", { name: "contactByPhone", type: "checkbox", checked: contactByPhone, onChange: function (e) { return _this.handleInputChange({ contactByPhone: true, contactBySMS: false }); } }),
-                                "Telefonicky")),
+                                "Emailem")),
                         React.createElement("label", { className: "gdpr-info checkbox-label " + (gdpr && 'checked') },
                             React.createElement("input", { name: "dgpr", type: "checkbox", checked: false, onChange: function () { return _this.handleInputChange({ gdpr: !gdpr }); }, required: true }),
                             "Pou\u010Den\u00ED o zpracov\u00E1n\u00ED \u00FAdaj\u016F"),

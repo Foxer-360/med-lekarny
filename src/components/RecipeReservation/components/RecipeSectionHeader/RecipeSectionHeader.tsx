@@ -1,5 +1,7 @@
 import * as React from 'react';
 import CodeHint from './components/CodeHint';
+import * as ReactMarkdown from 'react-markdown';
+
 import { runInThisContext } from 'vm';
 // import TextBlock from '../../../TextBlock';
 
@@ -7,7 +9,7 @@ interface iRecipeSectionheaderProps {
   recipesArray: Array<string>;
   updateRecipesArray: any;
   note: string,
-
+  boData: any,
   updateNote: (note: string) => void;
 }
 
@@ -122,18 +124,16 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
     const { recipesArray, updateNote } = this.props;
     const { recipeCodeInput, errors } = this.state;
     const errorCodeBoolean = errors.code && errors.code.length > 0;
+    const boData = this.props.boData;
 
     return (
       <header className="recipe-header">
         <div className="container">
-          {/* <TextBlock data={this.data} /> */}
-
-          <h1 className="gradientHeading">{this.data.title}</h1>
-
+          <h1 className="gradientHeading">{boData.headline}</h1>
           <section className="row intro">
             <div className="col-md-6 hide-smaller-md">
               <p className="text text-left">
-                {this.data.text}
+                <ReactMarkdown source={boData.text} />
               </p>
             </div>
             <div className="col-md-6 steps">
@@ -144,7 +144,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                   alt="1"
                 />
                 <p className="step-text">
-                  Vyplňte kód receptu
+                  {boData.step1}
                 </p>
               </div>
               <div className="step">
@@ -154,7 +154,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                   alt="2"
                 />
                 <p className="step-text">
-                  Počkejte na&nbsp;potvrzení rezervace
+                  {boData.step2}
                 </p>
               </div>
               <div className="step">
@@ -164,7 +164,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                   alt="3"
                 />
                 <p className="step-text">
-                  Vyzvedněte&nbsp;si své léky ve&nbsp;Vaší lékárně Pharmacentrum
+                  {boData.step3}
                 </p>
               </div>
             </div>

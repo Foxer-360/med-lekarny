@@ -111,7 +111,7 @@ class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps> {
                     checked={contactByPhone}
                     onChange={e => this.handleInputChange({ contactByPhone: true, contactBySMS: false })}
                   />
-                  Telefonicky
+                  E-mailem
                 </label>
               </div>
 

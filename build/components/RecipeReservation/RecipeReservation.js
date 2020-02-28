@@ -81,12 +81,13 @@ var RecipeReservation = /** @class */ (function (_super) {
         return searchQuery;
     };
     RecipeReservation.prototype.render = function () {
+        var boData = this.props.data;
         return (React.createElement("div", { className: "recipe-reservation-page" },
-            React.createElement(RecipeSectionHeader_1.default, { updateNote: this.updateNote, note: this.state.note, recipesArray: this.state.recipeCodesArray, updateRecipesArray: this.updateRecipesArray }),
+            React.createElement(RecipeSectionHeader_1.default, { updateNote: this.updateNote, note: this.state.note, recipesArray: this.state.recipeCodesArray, updateRecipesArray: this.updateRecipesArray, boData: boData }),
             React.createElement(RecipePickupPick_1.default, { pickupPlace: this.state.pickupPlace, updatePickupPlace: this.updatePickupPlace }),
             React.createElement(RecipeOwnerInfo_1.default, { owner: this.state.recipeOwner, updateMainComponent: this.updateOwnerInfo }),
             React.createElement("section", { className: "row recipe-owner-info submit-wrapper" },
-                React.createElement(react_router_dom_1.Link, { onClick: this.onSubmit, style: { margin: 'auto' }, type: "button", className: "btn recipe-btn submit-btn", to: "/test-new-design-thankyou" + this.buildSearchQuery() }, "Odeslat rezervaci"))));
+                React.createElement(react_router_dom_1.Link, { onClick: this.onSubmit, style: { margin: 'auto' }, type: "button", className: "btn recipe-btn submit-btn", to: "" + (boData.url && boData.url.url) + this.buildSearchQuery() }, "Odeslat rezervaci"))));
     };
     return RecipeReservation;
 }(React.Component));

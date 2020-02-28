@@ -26,6 +26,7 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var CodeHint_1 = require("./components/CodeHint");
+var ReactMarkdown = require("react-markdown");
 var RecipeSectionHeader = /** @class */ (function (_super) {
     __extends(RecipeSectionHeader, _super);
     function RecipeSectionHeader(props) {
@@ -117,22 +118,24 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         var _a = this.props, recipesArray = _a.recipesArray, updateNote = _a.updateNote;
         var _b = this.state, recipeCodeInput = _b.recipeCodeInput, errors = _b.errors;
         var errorCodeBoolean = errors.code && errors.code.length > 0;
+        var boData = this.props.boData;
         return (React.createElement("header", { className: "recipe-header" },
             React.createElement("div", { className: "container" },
-                React.createElement("h1", { className: "gradientHeading" }, this.data.title),
+                React.createElement("h1", { className: "gradientHeading" }, boData.headline),
                 React.createElement("section", { className: "row intro" },
                     React.createElement("div", { className: "col-md-6 hide-smaller-md" },
-                        React.createElement("p", { className: "text text-left" }, this.data.text)),
+                        React.createElement("p", { className: "text text-left" },
+                            React.createElement(ReactMarkdown, { source: boData.text }))),
                     React.createElement("div", { className: "col-md-6 steps" },
                         React.createElement("div", { className: "step" },
                             React.createElement("img", { src: '/assets/mediconLekarny/images/numbers/1.svg', className: "step-image", alt: "1" }),
-                            React.createElement("p", { className: "step-text" }, "Vypl\u0148te k\u00F3d receptu")),
+                            React.createElement("p", { className: "step-text" }, boData.step1)),
                         React.createElement("div", { className: "step" },
                             React.createElement("img", { src: '/assets/mediconLekarny/images/numbers/2.svg', className: "step-image", alt: "2" }),
-                            React.createElement("p", { className: "step-text" }, "Po\u010Dkejte na\u00A0potvrzen\u00ED rezervace")),
+                            React.createElement("p", { className: "step-text" }, boData.step2)),
                         React.createElement("div", { className: "step" },
                             React.createElement("img", { src: '/assets/mediconLekarny/images/numbers/3.svg', className: "step-image", alt: "3" }),
-                            React.createElement("p", { className: "step-text" }, "Vyzvedn\u011Bte\u00A0si sv\u00E9 l\u00E9ky ve\u00A0Va\u0161\u00ED l\u00E9k\u00E1rn\u011B Pharmacentrum")))),
+                            React.createElement("p", { className: "step-text" }, boData.step3)))),
                 React.createElement("section", { className: "recipe-input-wrapper" },
                     React.createElement("h4", { className: "headline" }, "K\u00F3d e-receptu"),
                     React.createElement("div", { className: "form-wrapper" },

@@ -31,7 +31,7 @@ var RecipeOwnerInfo = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.setErrors = function (error) {
             _this.setState({
-                errors: __assign(__assign({}, _this.state.errors), error)
+                errors: __assign({}, _this.state.errors, error)
             });
         };
         _this.state = {

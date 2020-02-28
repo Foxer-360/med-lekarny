@@ -14,15 +14,16 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
+var pharmaPlaces_1 = require("../../../RecipeReservation/components/pharmaPlaces");
 var RecipeReservationOutpost = /** @class */ (function (_super) {
     __extends(RecipeReservationOutpost, _super);
-    function RecipeReservationOutpost(props) {
-        return _super.call(this, props) || this;
+    function RecipeReservationOutpost() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     RecipeReservationOutpost.prototype.render = function () {
+        console.log('place v kompo', this.props.place, pharmaPlaces_1.default);
         return (React.createElement("div", { className: "outpost-wrapper" },
             React.createElement("img", { className: 'outpost-logo', alt: 'Medicon logo', src: '/assets/mediconLekarny/images/logo.svg' }),
-            console.log('search', this.props),
             React.createElement("p", { className: "address address-bold" }, "A. Sta\u0161ka 1670/80"),
             React.createElement("p", { className: "address" }, "Praha 4"),
             React.createElement("p", { className: "address" }, "140 00"),

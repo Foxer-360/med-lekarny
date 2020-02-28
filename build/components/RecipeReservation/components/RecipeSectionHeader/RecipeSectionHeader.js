@@ -43,7 +43,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         };
         _this.setErrors = function (error) {
             _this.setState({
-                errors: __assign(__assign({}, _this.state.errors), error)
+                errors: __assign({}, _this.state.errors, error)
             });
         };
         _this.validateCode = function (code) {

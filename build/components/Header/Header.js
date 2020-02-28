@@ -137,7 +137,7 @@ var Header = /** @class */ (function (_super) {
         nav.forEach(function (node) {
             if (node.parent === parent) {
                 var url = urls.find(function (u) { return u.page === node.page; });
-                var item = __assign(__assign({}, node), url);
+                var item = __assign({}, node, url);
                 if (node.page) {
                     var children = _this.buildNavTree(nav, node.page, urls);
                     if (children && children.length > 0) {

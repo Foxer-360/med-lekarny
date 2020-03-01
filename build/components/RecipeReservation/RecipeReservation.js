@@ -45,22 +45,13 @@ var RecipeReservation = /** @class */ (function (_super) {
             Object.keys(recipeOwner).forEach(function (key) { return form.set(key, recipeOwner[key]); });
             axios_1.default({
                 method: 'post',
-                url: 'http://localhost:3030/',
-                // url: 'http://medicon.foxer360.com:3030/',
+                // url: 'http://localhost:3030/',
+                url: 'http://medicon.foxer360.com:3030/',
                 data: form,
                 headers: { 'Content-Type': 'multipart/form-data' },
             })
-                // .post('http://localhost:3030/', {
-                //   ...recipeOwner,
-                //   pharmacy: pickupPlace,
-                //   body: `eRecepty: ${recipeCodesArray.join(', ')}\n\n ${note}`,
-                // })
                 .then(function () {
-                // todo redirect
-                console.log('sumbiting');
-                return (React.createElement(react_router_dom_1.Redirect, { to: "" + (_this.props.data
-                        && _this.props.data.url
-                        && _this.props.data.url.url) + _this.buildSearchQuery() }));
+                return _this.setState({ formSubmited: true });
             })
                 .catch(function (e) {
                 alert('Stala se chyba.');
@@ -93,7 +84,7 @@ var RecipeReservation = /** @class */ (function (_super) {
         _this.requiredInputs = function () {
             var _a = _this.state, files = _a.files, recipeCodesArray = _a.recipeCodesArray, pickupPlace = _a.pickupPlace, recipeOwner = _a.recipeOwner;
             var name = recipeOwner.name, phone = recipeOwner.phone, email = recipeOwner.email, contactByEmail = recipeOwner.contactByEmail, contactBySMS = recipeOwner.contactBySMS, gdpr = recipeOwner.gdpr;
-            if (recipeCodesArray.length < 1 || files.length < 1) {
+            if (recipeCodesArray.length < 1 && files.length < 1) {
                 return false;
             }
             if (pickupPlace === '') {
@@ -182,19 +173,27 @@ var RecipeReservation = /** @class */ (function (_super) {
                 name: null,
                 phone: null,
                 email: null,
-            }
+            },
+            formSubmited: false,
         };
         return _this;
     }
     RecipeReservation.prototype.render = function () {
         var boData = this.props.data;
-        return (React.createElement("div", { className: "recipe-reservation-page" },
-            React.createElement(RecipeSectionHeader_1.default, { updateNote: this.updateNote, note: this.state.note, recipesArray: this.state.recipeCodesArray, updateRecipesArray: this.updateRecipesArray, boData: boData, onLoadFileHandler: this.onLoadFileHandler }),
-            React.createElement(RecipePickupPick_1.default, { pickupPlace: this.state.pickupPlace, boData: boData, updatePickupPlace: this.updatePickupPlace }),
-            React.createElement(RecipeOwnerInfo_1.default, { owner: this.state.recipeOwner, boData: boData, updateMainComponent: this.updateOwnerInfo, errors: this.state.errors, validateOwner: this.validateOwner }),
-            React.createElement("section", { className: "row recipe-owner-info submit-wrapper" }, this.isFormValid()
-                ? React.createElement("button", { onClick: this.onSubmit, type: "button", className: "btn recipe-btn submit-btn" }, "Odeslat rezervaci")
-                : React.createElement("button", { className: "btn recipe-btn submit-btn disabled", disabled: true }, boData.submitBtnText))));
+        if (this.state.formSubmited) {
+            return (React.createElement(react_router_dom_1.Redirect, { to: "" + (this.props.data
+                    && this.props.data.url
+                    && this.props.data.url.url) + this.buildSearchQuery() }));
+        }
+        else {
+            return (React.createElement("div", { className: "recipe-reservation-page" },
+                React.createElement(RecipeSectionHeader_1.default, { updateNote: this.updateNote, note: this.state.note, recipesArray: this.state.recipeCodesArray, updateRecipesArray: this.updateRecipesArray, boData: boData, onLoadFileHandler: this.onLoadFileHandler }),
+                React.createElement(RecipePickupPick_1.default, { pickupPlace: this.state.pickupPlace, boData: boData, updatePickupPlace: this.updatePickupPlace }),
+                React.createElement(RecipeOwnerInfo_1.default, { owner: this.state.recipeOwner, boData: boData, updateMainComponent: this.updateOwnerInfo, errors: this.state.errors, validateOwner: this.validateOwner }),
+                React.createElement("section", { className: "row recipe-owner-info submit-wrapper" }, this.isFormValid()
+                    ? React.createElement("button", { onClick: this.onSubmit, type: "button", className: "btn recipe-btn submit-btn" }, "Odeslat rezervaci")
+                    : React.createElement("button", { className: "btn recipe-btn submit-btn disabled", disabled: true }, boData.submitBtnText))));
+        }
     };
     return RecipeReservation;
 }(React.Component));

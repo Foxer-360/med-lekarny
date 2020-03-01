@@ -34,6 +34,7 @@ interface RecipeReservationState {
   pickupPlace: string;
   files: any[];
   errors: any;
+  formSubmited: boolean;
 }
 
 class RecipeReservation extends React.Component<RecipeReservationProps, RecipeReservationState> {
@@ -59,7 +60,8 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
         name: null,
         phone: null,
         email: null,
-      }
+      },
+      formSubmited: false,
     };
   }
 
@@ -79,23 +81,12 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
       data: form,
       headers: {'Content-Type': 'multipart/form-data' },
     })
-      // .post('http://localhost:3030/', {
-      //   ...recipeOwner,
-      //   pharmacy: pickupPlace,
-      //   body: `eRecepty: ${recipeCodesArray.join(', ')}\n\n ${note}`,
-      // })
-      .then(() => {
-        // todo redirect
-        return (
-          <Redirect
-            to={`${this.props.data
-            && this.props.data.url
-            && this.props.data.url.url}${this.buildSearchQuery()}`}
-          />);
-      })
-      .catch(e => {
-        alert('Stala se chyba.');
-      });
+    .then(() => {
+      return this.setState({formSubmited: true});
+    })
+    .catch(e => {
+      alert('Stala se chyba.');
+    });
   }
 
   onLoadFileHandler = (e) => {
@@ -131,7 +122,7 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
   requiredInputs = () => {
     const { files, recipeCodesArray, pickupPlace, recipeOwner } = this.state;
     const { name, phone, email, contactByEmail, contactBySMS, gdpr } = recipeOwner;
-    if ( recipeCodesArray.length < 1 || files.length < 1 ) {
+    if ( recipeCodesArray.length < 1 && files.length < 1 ) {
       return false;
     }
     if ( pickupPlace === '' ) {
@@ -203,48 +194,58 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
   render() {
     const boData = this.props.data;
 
-    return (
-      <div className="recipe-reservation-page">
-        <RecipeSectionHeader
-          updateNote={this.updateNote}
-          note={this.state.note}
-          recipesArray={this.state.recipeCodesArray}
-          updateRecipesArray={this.updateRecipesArray}
-          boData={boData}
-          onLoadFileHandler={this.onLoadFileHandler}
+    if (this.state.formSubmited) {
+      return (
+        <Redirect
+          to={`${this.props.data
+          && this.props.data.url
+          && this.props.data.url.url}${this.buildSearchQuery()}`}
         />
-        <RecipePickupPick
-          pickupPlace={this.state.pickupPlace}
-          boData={boData}
-          updatePickupPlace={this.updatePickupPlace}
-        />
-        <RecipeOwnerInfo
-          owner={this.state.recipeOwner}
-          boData={boData}
-          updateMainComponent={this.updateOwnerInfo}
-          errors={this.state.errors}
-          validateOwner={this.validateOwner}
-        />
-        <section className="row recipe-owner-info submit-wrapper">
-          {this.isFormValid()
-            ? <button
-                onClick={this.onSubmit}
-                type="button"
-                className="btn recipe-btn submit-btn"
-            >
-              Odeslat rezervaci
-            </button>
-            : <button
-                className="btn recipe-btn submit-btn disabled"
-                disabled={true}
-            >
-              {boData.submitBtnText}
-            </button>
-          }
-        </section>
+      );
+    } else {
+      return (
+        <div className="recipe-reservation-page">
+          <RecipeSectionHeader
+            updateNote={this.updateNote}
+            note={this.state.note}
+            recipesArray={this.state.recipeCodesArray}
+            updateRecipesArray={this.updateRecipesArray}
+            boData={boData}
+            onLoadFileHandler={this.onLoadFileHandler}
+          />
+          <RecipePickupPick
+            pickupPlace={this.state.pickupPlace}
+            boData={boData}
+            updatePickupPlace={this.updatePickupPlace}
+          />
+          <RecipeOwnerInfo
+            owner={this.state.recipeOwner}
+            boData={boData}
+            updateMainComponent={this.updateOwnerInfo}
+            errors={this.state.errors}
+            validateOwner={this.validateOwner}
+          />
+          <section className="row recipe-owner-info submit-wrapper">
+            {this.isFormValid()
+              ? <button
+                  onClick={this.onSubmit}
+                  type="button"
+                  className="btn recipe-btn submit-btn"
+              >
+                Odeslat rezervaci
+              </button>
+              : <button
+                  className="btn recipe-btn submit-btn disabled"
+                  disabled={true}
+              >
+                {boData.submitBtnText}
+              </button>
+            }
+          </section>
 
-      </div>
-    );
+        </div>
+      );
+    }
   }
 }
 

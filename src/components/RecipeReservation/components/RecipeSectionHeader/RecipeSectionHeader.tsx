@@ -2,7 +2,7 @@ import * as React from 'react';
 import CodeHint from './components/CodeHint';
 import * as ReactMarkdown from 'react-markdown';
 
-// test code: PCIFF8GNBLOI
+// test code: PCIFF8GNBLOI PD4R54LQFRNW
 
 interface iRecipeSectionheaderProps {
   recipesArray: Array<string>;
@@ -48,6 +48,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
 
   recipeCodeInputChange = (e: any) => {
     const { recipesArray } = this.props;
+
     const value = String(e.target && e.target.value).replace(/\s/g, '');
     // maximum length of e-receipe code is 12
     if (value.length > 12) {
@@ -55,8 +56,13 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
     }
 
     if (value !== null) {
-      this.setState({ recipeCodeInput: value.replace(/(\w{1,4})?(\w{1,4})?(\w{1,4})?/, '$1 $2 $3') });
+      this.setState({ recipeCodeInput: value});
     }
+
+    if (value.length === 0) {
+      this.setErrors({code: ''});
+    }
+
     const isValid = this.validateCode(value);
     if (isValid && !recipesArray.includes(value)) {
       this.props.updateRecipesArray([ ...recipesArray, value ]);
@@ -75,17 +81,14 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
 
   validateCode = (code: string) => {
     const ereceiptCode = code.replace(/\W/gi, '').toUpperCase();
-    // if (ereceiptCode.length !== 12) {
-    //   this.setErrors({ code: this.translations.code_invalid });
-    //   return false;
-    // }
     let total = 0;
     // calculate sum based on base32 table
     for (let i = 0; i < ereceiptCode.length - 1; i++) {
       total += this.validationTable.indexOf(ereceiptCode[i]);
     }
     // check if control number makes sense
-    const isValid = this.validationTable.indexOf(ereceiptCode[ereceiptCode.length - 1]) === total % 32;
+    const isValid = (this.validationTable.indexOf(ereceiptCode[ereceiptCode.length - 1]) === total % 32)
+                      && ereceiptCode.length === 12;
     if (!isValid) {
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => { this.setErrors({ code: this.translations.code_invalid }); }, 1600);
@@ -104,13 +107,25 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
     this.setState({hintVisible: false});
   }
 
+  deleteCode = (code: string) => {
+    const codeArray = this.props.recipesArray;
+    const indexOfCode = codeArray.indexOf(code);
+
+    if (indexOfCode > -1) {
+      codeArray.splice(indexOfCode, 1);
+      this.props.updateRecipesArray([ ...codeArray ]);
+    }
+  }
+
+  formatCode = (code: string) => {
+    return code.replace(/(\w{1,4})?(\w{1,4})?(\w{1,4})?/, '$1 $2 $3');
+  }
+
   render() {
     const { recipesArray, updateNote, onLoadFileHandler } = this.props;
     const { recipeCodeInput, errors } = this.state;
     const errorCodeBoolean = errors.code && errors.code.length > 0;
     const boData = this.props.boData;
-
-    console.log('state header', this.state.errors);
 
     return (
       <header className="recipe-header">
@@ -173,12 +188,20 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                 <span className="plus-icon" />
               </button>
             </div>
-            {/*
-               TODO: Dodelat mazani a
-            */}
-            <div>
-              {recipesArray.map((recipeCode: string) => (
-                <span style={{ padding: 5 }}>{recipeCode}</span>
+            <div className="codes-wrapper">
+              {Array.isArray(recipesArray) && recipesArray.map((recipeCode: string) => (
+                <span
+                  className={`accepted-code`}
+                >
+                  {this.formatCode(recipeCode)}
+                  <button
+                    className={`accepted-code-delete`}
+                    type="button"
+                    onClick={() => this.deleteCode(recipeCode)}
+                  >
+                    ×
+                  </button>
+                </span>
               ))}
             </div>
             <section className="hint-wrapper">

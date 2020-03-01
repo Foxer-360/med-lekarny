@@ -74,8 +74,8 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
 
     axios({
       method: 'post',
-      url: 'http://localhost:3030/',
-      // url: 'http://medicon.foxer360.com:3030/',
+      // url: 'http://localhost:3030/',
+      url: 'http://medicon.foxer360.com:3030/',
       data: form,
       headers: {'Content-Type': 'multipart/form-data' },
     })
@@ -86,7 +86,6 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
       // })
       .then(() => {
         // todo redirect
-        console.log('sumbiting');
         return (
           <Redirect
             to={`${this.props.data

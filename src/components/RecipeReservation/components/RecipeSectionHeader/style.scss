@@ -82,7 +82,6 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
     }
   }
 
-
   @media screen and (max-width: 768px) {
 
     .intro {
@@ -154,6 +153,44 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
 
   .form-wrapper {
     flex-wrap: wrap;
+  }
+
+  .codes-wrapper {
+    display: flex;
+    padding: .3em;
+    width: 100%;
+    justify-content: flex-start;
+    margin: .3em 0;
+  }
+
+  .accepted-code {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: white;
+    height: 36px;
+    font-size: 16px;
+    margin-left: .2em;
+    padding: .4em 40px .4em .9em;
+    border-radius: 18px;
+    background: linear-gradient(to right, #3eac49 0%, #00aad0 100%);
+
+    &-delete {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 20px;
+      height: 20px;
+      line-height: 1px;
+      padding: 0;
+      border: 1px solid white;
+      border-radius: 10px;
+
+      &:hover, &:focus {
+        background: white;
+        color: black;
+      }
+    }
   }
 }
 
@@ -228,6 +265,7 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
     }
   }
 }
+
 
 .recipe-header {
   .reservation-note .textform-label_text {

@@ -52,7 +52,10 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                 return;
             }
             if (value !== null) {
-                _this.setState({ recipeCodeInput: value.replace(/(\w{1,4})?(\w{1,4})?(\w{1,4})?/, '$1 $2 $3') });
+                _this.setState({ recipeCodeInput: value });
+            }
+            if (value.length === 0) {
+                _this.setErrors({ code: '' });
             }
             var isValid = _this.validateCode(value);
             if (isValid && !recipesArray.includes(value)) {
@@ -69,17 +72,14 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         };
         _this.validateCode = function (code) {
             var ereceiptCode = code.replace(/\W/gi, '').toUpperCase();
-            // if (ereceiptCode.length !== 12) {
-            //   this.setErrors({ code: this.translations.code_invalid });
-            //   return false;
-            // }
             var total = 0;
             // calculate sum based on base32 table
             for (var i = 0; i < ereceiptCode.length - 1; i++) {
                 total += _this.validationTable.indexOf(ereceiptCode[i]);
             }
             // check if control number makes sense
-            var isValid = _this.validationTable.indexOf(ereceiptCode[ereceiptCode.length - 1]) === total % 32;
+            var isValid = (_this.validationTable.indexOf(ereceiptCode[ereceiptCode.length - 1]) === total % 32)
+                && ereceiptCode.length === 12;
             if (!isValid) {
                 clearTimeout(_this.timeout);
                 _this.timeout = setTimeout(function () { _this.setErrors({ code: _this.translations.code_invalid }); }, 1600);
@@ -96,6 +96,17 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         _this.hideHint = function () {
             _this.setState({ hintVisible: false });
         };
+        _this.deleteCode = function (code) {
+            var codeArray = _this.props.recipesArray;
+            var indexOfCode = codeArray.indexOf(code);
+            if (indexOfCode > -1) {
+                codeArray.splice(indexOfCode, 1);
+                _this.props.updateRecipesArray(codeArray.slice());
+            }
+        };
+        _this.formatCode = function (code) {
+            return code.replace(/(\w{1,4})?(\w{1,4})?(\w{1,4})?/, '$1 $2 $3');
+        };
         _this.state = {
             recipeCodeInput: '',
             errors: {},
@@ -104,11 +115,11 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         return _this;
     }
     RecipeSectionHeader.prototype.render = function () {
+        var _this = this;
         var _a = this.props, recipesArray = _a.recipesArray, updateNote = _a.updateNote, onLoadFileHandler = _a.onLoadFileHandler;
         var _b = this.state, recipeCodeInput = _b.recipeCodeInput, errors = _b.errors;
         var errorCodeBoolean = errors.code && errors.code.length > 0;
         var boData = this.props.boData;
-        console.log('state header', this.state.errors);
         return (React.createElement("header", { className: "recipe-header" },
             React.createElement("div", { className: "container" },
                 React.createElement("h1", { className: "gradientHeading" }, boData.headline),
@@ -135,7 +146,9 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                             "Vyfotit",
                             React.createElement("input", { type: "file", name: "file", className: "file-input", onChange: onLoadFileHandler }),
                             React.createElement("span", { className: "plus-icon" }))),
-                    React.createElement("div", null, recipesArray.map(function (recipeCode) { return (React.createElement("span", { style: { padding: 5 } }, recipeCode)); })),
+                    React.createElement("div", { className: "codes-wrapper" }, Array.isArray(recipesArray) && recipesArray.map(function (recipeCode) { return (React.createElement("span", { className: "accepted-code" },
+                        _this.formatCode(recipeCode),
+                        React.createElement("button", { className: "accepted-code-delete", type: "button", onClick: function () { return _this.deleteCode(recipeCode); } }, "\u00D7"))); })),
                     React.createElement("section", { className: "hint-wrapper" },
                         React.createElement("p", { className: "text text-center text-cursive" }, boData.codeInputHint),
                         !this.state.hintVisible && React.createElement("button", { type: "button", className: "display-hint gradientHeading", onClick: this.showHint }, "( zobrazit n\u00E1pov\u011Bdu )"),

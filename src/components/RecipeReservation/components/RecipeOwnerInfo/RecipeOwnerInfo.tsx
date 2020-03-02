@@ -9,8 +9,6 @@ interface RecipeOwnerInfoProps {
     name: string;
     phone: string;
     email: string;
-    contactByEmail: boolean;
-    contactBySMS: boolean;
     gdpr: boolean;
   };
   updateMainComponent: (data: any) => void;
@@ -31,7 +29,7 @@ class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps> {
   }
 
   render() {
-    const { owner: { contactBySMS, contactByEmail, gdpr }, errors } = this.props;
+    const { owner: { gdpr }, errors } = this.props;
 
     return (
       <div className="row recipe-owner-info">
@@ -87,7 +85,7 @@ class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps> {
                 <span className="error-msg">{errors.email}</span>
               </label>
 
-              <div className="contact-choose">
+              {/* <div className="contact-choose">
                 <span>{this.props.boData.contactByText}</span>
                 <label className={`checkbox-label ${contactBySMS && 'checked'}`}>
                   <input
@@ -107,7 +105,7 @@ class RecipeOwnerInfo extends React.Component<RecipeOwnerInfoProps> {
                   />
                   E-mailem
                 </label>
-              </div>
+              </div> */}
 
               <label className={`gdpr-info checkbox-label ${gdpr && 'checked'}`}>
                 <input

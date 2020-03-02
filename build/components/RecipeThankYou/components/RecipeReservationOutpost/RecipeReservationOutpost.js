@@ -25,7 +25,7 @@ var RecipeReservationOutpost = /** @class */ (function (_super) {
     RecipeReservationOutpost.prototype.findPlace = function () {
         var id = this.props.place;
         return pharmaPlaces_1.default.filter(function (place) {
-            return place.id === id;
+            return place.id.toUpperCase() === id.toUpperCase();
         })[0];
     };
     RecipeReservationOutpost.prototype.render = function () {

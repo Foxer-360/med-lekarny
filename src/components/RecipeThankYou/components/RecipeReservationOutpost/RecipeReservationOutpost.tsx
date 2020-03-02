@@ -16,7 +16,7 @@ class RecipeReservationOutpost extends React.Component<RecipeReservationOutpostP
   findPlace() {
     const id = this.props.place;
     return pharmaPlaces.filter((place: any) => {
-      return place.id === id;
+      return place.id.toUpperCase() === id.toUpperCase();
     })[0];
   }
 

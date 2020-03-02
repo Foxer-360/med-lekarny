@@ -31,7 +31,7 @@ var RecipeOwnerInfo = /** @class */ (function (_super) {
     }
     RecipeOwnerInfo.prototype.render = function () {
         var _this = this;
-        var _a = this.props, _b = _a.owner, contactBySMS = _b.contactBySMS, contactByEmail = _b.contactByEmail, gdpr = _b.gdpr, errors = _a.errors;
+        var _a = this.props, gdpr = _a.owner.gdpr, errors = _a.errors;
         return (React.createElement("div", { className: "row recipe-owner-info" },
             React.createElement("div", { className: "container" },
                 React.createElement("div", { className: "row" },
@@ -60,14 +60,6 @@ var RecipeOwnerInfo = /** @class */ (function (_super) {
                                     _this.validate([e.target.name], e.target.value);
                                 }, className: "" + (errors.email && errors.email.length > 0 ? 'error' : ''), required: true }),
                             React.createElement("span", { className: "error-msg" }, errors.email)),
-                        React.createElement("div", { className: "contact-choose" },
-                            React.createElement("span", null, this.props.boData.contactByText),
-                            React.createElement("label", { className: "checkbox-label " + (contactBySMS && 'checked') },
-                                React.createElement("input", { name: "contactBySMS", type: "checkbox", checked: contactBySMS, onChange: function (e) { return _this.handleInputChange({ contactBySMS: true, contactByEmail: false }); } }),
-                                "P\u0159es sms"),
-                            React.createElement("label", { className: "checkbox-label " + (contactByEmail && 'checked') },
-                                React.createElement("input", { name: "contactByEmail", type: "checkbox", checked: contactByEmail, onChange: function (e) { return _this.handleInputChange({ contactByEmail: true, contactBySMS: false }); } }),
-                                "E-mailem")),
                         React.createElement("label", { className: "gdpr-info checkbox-label " + (gdpr && 'checked') },
                             React.createElement("input", { name: "dgpr", type: "checkbox", checked: false, onChange: function () { return _this.handleInputChange({ gdpr: !gdpr }); }, required: true }),
                             "Pou\u010Den\u00ED o zpracov\u00E1n\u00ED \u00FAdaj\u016F"),

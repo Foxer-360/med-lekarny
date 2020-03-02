@@ -41,7 +41,7 @@ var RecipeReservation = /** @class */ (function (_super) {
             var form = new FormData();
             form.set('file', files[0]);
             form.set('pharmacy', pickupPlace);
-            form.set('body', "eRecepty: " + recipeCodesArray.join(', ') + "\n\n " + note);
+            form.set('body', "eRecepty: " + recipeCodesArray.join(', ') + "\n\n " + note + ", Kontakt: email: " + recipeOwner.email + ", tel: " + recipeOwner.phone);
             Object.keys(recipeOwner).forEach(function (key) { return form.set(key, recipeOwner[key]); });
             axios_1.default({
                 method: 'post',
@@ -83,7 +83,7 @@ var RecipeReservation = /** @class */ (function (_super) {
         };
         _this.requiredInputs = function () {
             var _a = _this.state, files = _a.files, recipeCodesArray = _a.recipeCodesArray, pickupPlace = _a.pickupPlace, recipeOwner = _a.recipeOwner;
-            var name = recipeOwner.name, phone = recipeOwner.phone, email = recipeOwner.email, contactByEmail = recipeOwner.contactByEmail, contactBySMS = recipeOwner.contactBySMS, gdpr = recipeOwner.gdpr;
+            var name = recipeOwner.name, phone = recipeOwner.phone, email = recipeOwner.email, gdpr = recipeOwner.gdpr;
             if (recipeCodesArray.length < 1 && files.length < 1) {
                 return false;
             }
@@ -93,7 +93,6 @@ var RecipeReservation = /** @class */ (function (_super) {
             var ownerInfo = name && name.length > 0
                 && phone && phone.length > 0
                 && email && email.length > 0
-                && (contactByEmail || contactBySMS)
                 && gdpr;
             if (ownerInfo) {
                 return true;

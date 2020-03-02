@@ -1,10 +1,19 @@
 import * as React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router';
 import RecipeReservationOutpost from './components/RecipeReservationOutpost/RecipeReservationOutpost';
 import * as queryString from 'query-string';
 
-class RecipeThankYou extends React.Component<RouteComponentProps, {}> {
-  constructor(props: RouteComponentProps) {
+interface RecipeThankYouComponentProps {
+  data?: {
+    headline: string;
+    waitForIt: string;
+  };
+  info: {
+    search: string;
+  };
+}
+
+class RecipeThankYou extends React.Component<RecipeThankYouComponentProps> {
+  constructor(props: RecipeThankYouComponentProps) {
     super(props);
 
     this.parseCode = this.parseCode.bind(this);
@@ -13,11 +22,12 @@ class RecipeThankYou extends React.Component<RouteComponentProps, {}> {
 
   parseCode(query: string) {
     const kve = queryString.parse(query, {arrayFormat: 'bracket'});
+    console.log('kve koceds', kve);
     return kve.codes;
   }
 
   parsePlace(query: string) {
-    const kve = queryString.parse(query);
+    const kve = query && queryString.parse(query);
     return kve.place;
   }
 
@@ -26,17 +36,18 @@ class RecipeThankYou extends React.Component<RouteComponentProps, {}> {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const date = now.toLocaleDateString('cs-CZ', options);
     const search = this.props
-                    && this.props.location
-                    && this.props.location.search;
+                    && this.props.info
+                    && this.props.info.search;
     const codes = search && (search.length > 0) && this.parseCode(search);
 
+    console.log('pičo', this.props.info);
     return (
       <div className="recipe-thankyou-page">
         <div className="gray-part pdt80">
           <div className="container">
             <div className="row">
               <div className="col-md-8 offset-md-2">
-                <h1 className="gradientHeading">Děkujeme</h1>
+                <h1 className="gradientHeading">{this.props && this.props.data && this.props.data.headline}</h1>
                 <p className="text">
                   číslo vašeho e-receptu je<br/>
                   <span className="text-turquoise">
@@ -70,7 +81,13 @@ class RecipeThankYou extends React.Component<RouteComponentProps, {}> {
           <div className="container">
             <div className="row">
               <div className="col-md-8 offset-md-2">
-                <p>Vyčkejte na potvrzovací e-mail / sms,<br/>že jsou Vaše léky připraveny k vyzvednutí.</p>
+                <p>
+                  {
+                    this.props
+                      && this.props.data
+                      && this.props.data.waitForIt
+                  }
+                </p>
                 <img
                   className={'done'}
                   alt={'done'}
@@ -85,4 +102,4 @@ class RecipeThankYou extends React.Component<RouteComponentProps, {}> {
   }
 }
 
-export default withRouter(RecipeThankYou);
+export default RecipeThankYou;

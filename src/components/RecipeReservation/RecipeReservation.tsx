@@ -67,11 +67,10 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
 
   onSubmit = () => {
     const { recipeOwner, note, pickupPlace, recipeCodesArray, files } = this.state;
-
     const form = new FormData();
     form.set('file', files[0]);
     form.set('pharmacy', pickupPlace);
-    form.set('body', `eRecepty: ${recipeCodesArray.join(', ')}\n\n ${note}`);
+    form.set('body', `eRecepty: ${recipeCodesArray.join(', ')}\n\n ${note}, Kontakt: email: ${recipeOwner.email}, tel: ${recipeOwner.phone}`);
     Object.keys(recipeOwner).forEach(key => form.set(key, recipeOwner[key]));
 
     axios({
@@ -121,7 +120,7 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
 
   requiredInputs = () => {
     const { files, recipeCodesArray, pickupPlace, recipeOwner } = this.state;
-    const { name, phone, email, contactByEmail, contactBySMS, gdpr } = recipeOwner;
+    const { name, phone, email, gdpr } = recipeOwner;
     if ( recipeCodesArray.length < 1 && files.length < 1 ) {
       return false;
     }
@@ -131,7 +130,6 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
     const ownerInfo = name && name.length > 0
                         && phone && phone.length > 0
                         && email && email.length > 0
-                        && ( contactByEmail || contactBySMS )
                         && gdpr;
     if ( ownerInfo ) {
       return true;

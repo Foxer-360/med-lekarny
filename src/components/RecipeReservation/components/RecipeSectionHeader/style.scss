@@ -161,12 +161,21 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
     width: 100%;
     justify-content: flex-start;
     margin: .3em 0;
+    flex-wrap: wrap;
+
+    .error {
+      color: red;
+      display: block;
+      flex-grow: 1;
+      width: 100%;
+    }
   }
 
   .accepted-code {
     display: flex;
     justify-content: center;
     position: relative;
+    white-space: nowrap;
     color: white;
     height: 36px;
     font-size: 16px;
@@ -294,6 +303,15 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
         margin-bottom: 18px;
       }
     }
+
+    .codes-wrapper {
+      flex-direction: column;
+
+      > * {
+        margin-bottom: 1em;
+      }
+    }
+
     .recipe-input-wrapper {
       padding: 1.5em 0;
       max-width: 350px;

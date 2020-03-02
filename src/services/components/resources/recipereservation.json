@@ -7,8 +7,12 @@
     "step2": "POČKEJTE NA POTVRZENÍ REZERVACE",
     "step3": "VYZVEDNĚTE SI SVÉ LÉKY VE VAŠÍ LÉKÁRNĚ PHARMACENTRUM",
     "codeInputLabel": "Kód e-receptu",
+    "codeInputPlaceholder": "začněte psát",
+    "shootBtnText": "Vyfotit",
+    "errorInputError": "Zkontrolujte, zda je kód receptu správně.",
     "codeInputHint": "Jde o 12-místný alfanumerický kód, čárový kód, QR kód nebo odkaz ke stažení kódu.",
     "noteInputLabel": "DALŠÍ OBJEDNÁVKA RECEPTŮ",
+    "noteInputPlaceholder": "Další položky k rezervaci",
     "placesHeading": "VÝBĚR LEKÁRNY, KDE SI LÉKY VYZVEDNU",
     "placesBtnTextInactive": "Vybrat lékárnu",
     "placesBtnTextActive": "Vyzvednu zde",
@@ -44,6 +48,18 @@
           "type": "text",
           "title": "Label - Input pro Kód"
         },
+        "shootBtnText": {
+          "type": "text",
+          "title": "Label - vyfotit"
+        },
+        "codeInputPlaceholder": {
+          "type": "text",
+          "title": "Placeholder - Input pro Kód"
+        },
+        "errorInputError": {
+          "type": "text",
+          "title": "Error - Input pro Kód"
+        },
         "codeInputHint": {
           "type": "text",
           "title": "Nápověda Inputu pro Kód"
@@ -51,6 +67,10 @@
         "noteInputLabel": {
           "type": "text",
           "title": "Label - Input poznámky"
+        },
+        "noteInputPlaceholder": {
+          "type": "text",
+          "title": "Placeholder - Input poznámky"
         },
         "placesHeading": {
           "type": "text",

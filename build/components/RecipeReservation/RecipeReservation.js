@@ -113,12 +113,12 @@ var RecipeReservation = /** @class */ (function (_super) {
             }
         };
         _this.validatePhone = function (phone) {
-            var reg = /^\d+$/;
+            var reg = /^\+\d{1,3}\d{1,14}(\s\d{1,13})?/g;
             if (reg.test(phone)) {
                 _this.setErrors({ phone: '' });
             }
             else {
-                _this.setErrors({ phone: 'Vyplňte prosím telefoní číslo (formát: XXX XXX XXX)' });
+                _this.setErrors({ phone: 'Vyplňte prosím telefoní číslo (formát: +420XXXXXXXXX)' });
             }
         };
         _this.validateEmail = function (email) {
@@ -187,7 +187,7 @@ var RecipeReservation = /** @class */ (function (_super) {
         }
         else {
             return (React.createElement("div", { className: "recipe-reservation-page" },
-                React.createElement(RecipeSectionHeader_1.default, { updateNote: this.updateNote, note: this.state.note, recipesArray: this.state.recipeCodesArray, updateRecipesArray: this.updateRecipesArray, boData: boData, onLoadFileHandler: this.onLoadFileHandler }),
+                React.createElement(RecipeSectionHeader_1.default, { updateNote: this.updateNote, note: this.state.note, recipesArray: this.state.recipeCodesArray, updateRecipesArray: this.updateRecipesArray, boData: boData, onLoadFileHandler: this.onLoadFileHandler, uploadedFiles: this.state.files }),
                 React.createElement(RecipePickupPick_1.default, { pickupPlace: this.state.pickupPlace, boData: boData, updatePickupPlace: this.updatePickupPlace }),
                 React.createElement(RecipeOwnerInfo_1.default, { owner: this.state.recipeOwner, boData: boData, updateMainComponent: this.updateOwnerInfo, errors: this.state.errors, validateOwner: this.validateOwner }),
                 React.createElement("section", { className: "row recipe-owner-info submit-wrapper" }, this.isFormValid()

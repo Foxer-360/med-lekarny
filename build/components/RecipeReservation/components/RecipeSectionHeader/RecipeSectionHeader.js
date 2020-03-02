@@ -82,7 +82,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                 && ereceiptCode.length === 12;
             if (!isValid) {
                 clearTimeout(_this.timeout);
-                _this.timeout = setTimeout(function () { _this.setErrors({ code: _this.translations.code_invalid }); }, 1600);
+                _this.timeout = setTimeout(function () { _this.setErrors({ code: _this.translations.code_invalid }); }, 400);
             }
             else {
                 _this.setErrors({ code: '' });
@@ -116,7 +116,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
     }
     RecipeSectionHeader.prototype.render = function () {
         var _this = this;
-        var _a = this.props, recipesArray = _a.recipesArray, updateNote = _a.updateNote, onLoadFileHandler = _a.onLoadFileHandler;
+        var _a = this.props, recipesArray = _a.recipesArray, updateNote = _a.updateNote, onLoadFileHandler = _a.onLoadFileHandler, uploadedFiles = _a.uploadedFiles;
         var _b = this.state, recipeCodeInput = _b.recipeCodeInput, errors = _b.errors;
         var errorCodeBoolean = errors.code && errors.code.length > 0;
         var boData = this.props.boData;
@@ -138,17 +138,23 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                             React.createElement("img", { src: '/assets/mediconLekarny/images/numbers/3.svg', className: "step-image", alt: "3" }),
                             React.createElement("p", { className: "step-text" }, boData.step3)))),
                 React.createElement("section", { className: "recipe-input-wrapper" },
-                    React.createElement("h4", { className: "headline" }, "K\u00F3d e-receptu"),
+                    React.createElement("h4", { className: "headline" }, boData.codeInputLabel),
                     React.createElement("div", { className: "form-wrapper" },
-                        React.createElement("input", { type: "text", className: "recipe-input " + (errorCodeBoolean ? 'error' : ''), placeholder: "za\u010Dn\u011Bte ps\u00E1t", value: recipeCodeInput, onChange: this.recipeCodeInputChange }),
+                        React.createElement("input", { type: "text", className: "recipe-input " + (errorCodeBoolean ? 'error' : ''), placeholder: boData.codeInputPlaceholder, value: recipeCodeInput, onChange: this.recipeCodeInputChange }),
                         React.createElement("span", { className: "center-word" }, "nebo"),
                         React.createElement("button", { className: "recipe-btn" },
-                            "Vyfotit",
+                            boData.shootBtnText,
                             React.createElement("input", { type: "file", name: "file", className: "file-input", onChange: onLoadFileHandler }),
                             React.createElement("span", { className: "plus-icon" }))),
-                    React.createElement("div", { className: "codes-wrapper" }, Array.isArray(recipesArray) && recipesArray.map(function (recipeCode) { return (React.createElement("span", { className: "accepted-code" },
-                        _this.formatCode(recipeCode),
-                        React.createElement("button", { className: "accepted-code-delete", type: "button", onClick: function () { return _this.deleteCode(recipeCode); } }, "\u00D7"))); })),
+                    React.createElement("div", { className: "codes-wrapper" },
+                        errorCodeBoolean
+                            && React.createElement("span", { className: "error" }, boData.errorInputError),
+                        Array.isArray(recipesArray) && recipesArray.map(function (recipeCode) { return (React.createElement("span", { className: "accepted-code" },
+                            _this.formatCode(recipeCode),
+                            React.createElement("button", { className: "accepted-code-delete", type: "button", onClick: function () { return _this.deleteCode(recipeCode); } }, "\u00D7"))); }),
+                        Array.isArray(this.props.uploadedFiles) && this.props.uploadedFiles.map(function (file) {
+                            return React.createElement("span", { key: file.lastModified, className: "accepted-code" }, file.name);
+                        })),
                     React.createElement("section", { className: "hint-wrapper" },
                         React.createElement("p", { className: "text text-center text-cursive" }, boData.codeInputHint),
                         !this.state.hintVisible && React.createElement("button", { type: "button", className: "display-hint gradientHeading", onClick: this.showHint }, "( zobrazit n\u00E1pov\u011Bdu )"),
@@ -156,7 +162,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                     React.createElement("form", { action: "", className: "reservation-note" },
                         React.createElement("label", { className: "textform-label" },
                             React.createElement("span", { className: "textform-label_text" }, boData.noteInputLabel),
-                            React.createElement("textarea", { name: "note", className: "recipe-input", onChange: function (e) { return updateNote(e.target.value); } })))))));
+                            React.createElement("textarea", { name: "note", className: "recipe-input", placeholder: boData.noteInputPlaceholder, onChange: function (e) { return updateNote(e.target.value); } })))))));
     };
     return RecipeSectionHeader;
 }(React.PureComponent));

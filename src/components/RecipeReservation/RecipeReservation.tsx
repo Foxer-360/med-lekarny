@@ -153,11 +153,11 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
   }
 
   validatePhone = (phone: string) => {
-    const reg = /^\d+$/;
+    const reg = /^\+\d{1,3}\d{1,14}(\s\d{1,13})?/g;
     if (reg.test(phone)) {
       this.setErrors({phone: ''});
     } else {
-      this.setErrors({phone: 'Vyplňte prosím telefoní číslo (formát: XXX XXX XXX)'});
+      this.setErrors({phone: 'Vyplňte prosím telefoní číslo (formát: +420XXXXXXXXX)'});
     }
   }
 
@@ -212,6 +212,7 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
             updateRecipesArray={this.updateRecipesArray}
             boData={boData}
             onLoadFileHandler={this.onLoadFileHandler}
+            uploadedFiles={this.state.files}
           />
           <RecipePickupPick
             pickupPlace={this.state.pickupPlace}

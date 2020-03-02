@@ -5809,11 +5809,18 @@ cite {
     padding: .3em;
     width: 100%;
     justify-content: flex-start;
-    margin: .3em 0; }
+    margin: .3em 0;
+    flex-wrap: wrap; }
+    .recipe-header .codes-wrapper .error {
+      color: red;
+      display: block;
+      flex-grow: 1;
+      width: 100%; }
   .recipe-header .accepted-code {
     display: flex;
     justify-content: center;
     position: relative;
+    white-space: nowrap;
     color: white;
     height: 36px;
     font-size: 16px;
@@ -5896,6 +5903,10 @@ cite {
       justify-content: center; }
       .recipe-header .form-wrapper > * {
         margin-bottom: 18px; }
+    .recipe-header .codes-wrapper {
+      flex-direction: column; }
+      .recipe-header .codes-wrapper > * {
+        margin-bottom: 1em; }
     .recipe-header .recipe-input-wrapper {
       padding: 1.5em 0;
       max-width: 350px;

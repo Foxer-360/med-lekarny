@@ -9,6 +9,7 @@ interface iRecipeSectionheaderProps {
   updateRecipesArray: any;
   note: string,
   boData: any,
+  uploadedFiles: any,
   updateNote: (note: string) => void;
   onLoadFileHandler: (e: any) => void;
 }
@@ -91,7 +92,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                       && ereceiptCode.length === 12;
     if (!isValid) {
       clearTimeout(this.timeout);
-      this.timeout = setTimeout(() => { this.setErrors({ code: this.translations.code_invalid }); }, 1600);
+      this.timeout = setTimeout(() => { this.setErrors({ code: this.translations.code_invalid }); }, 400);
     } else {
       this.setErrors({ code: '' });
     }
@@ -122,7 +123,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
   }
 
   render() {
-    const { recipesArray, updateNote, onLoadFileHandler } = this.props;
+    const { recipesArray, updateNote, onLoadFileHandler, uploadedFiles } = this.props;
     const { recipeCodeInput, errors } = this.state;
     const errorCodeBoolean = errors.code && errors.code.length > 0;
     const boData = this.props.boData;
@@ -172,23 +173,28 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
           </section>
 
           <section className="recipe-input-wrapper">
-            <h4 className="headline">Kód e-receptu</h4>
+            <h4 className="headline">{boData.codeInputLabel}</h4>
             <div className="form-wrapper">
               <input
                 type="text"
                 className={`recipe-input ${errorCodeBoolean ? 'error' : ''}`}
-                placeholder="začněte psát"
+                placeholder={boData.codeInputPlaceholder}
                 value={recipeCodeInput}
                 onChange={this.recipeCodeInputChange}
               />
               <span className="center-word">nebo</span>
               <button className="recipe-btn" >
-                Vyfotit
+                {boData.shootBtnText}
                 <input type="file" name="file" className="file-input" onChange={onLoadFileHandler} />
                 <span className="plus-icon" />
               </button>
             </div>
             <div className="codes-wrapper">
+              {errorCodeBoolean
+                && <span className="error">
+                  {boData.errorInputError}
+                </span>
+              }
               {Array.isArray(recipesArray) && recipesArray.map((recipeCode: string) => (
                 <span
                   className={`accepted-code`}
@@ -203,6 +209,11 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                   </button>
                 </span>
               ))}
+              {Array.isArray(this.props.uploadedFiles) && this.props.uploadedFiles.map((file: any) => {
+                return <span key={file.lastModified} className="accepted-code">
+                  {file.name}
+                </span>;
+              })}
             </div>
             <section className="hint-wrapper">
               <p className="text text-center text-cursive">
@@ -223,6 +234,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                 <textarea
                   name="note"
                   className="recipe-input"
+                  placeholder={boData.noteInputPlaceholder}
                   onChange={(e) => updateNote(e.target.value)}
                 />
               </label>

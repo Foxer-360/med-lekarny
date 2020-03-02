@@ -46,7 +46,7 @@ var RecipeReservation = /** @class */ (function (_super) {
             axios_1.default({
                 method: 'post',
                 // url: 'http://localhost:3030/',
-                url: 'http://medicon.foxer360.com:3030/',
+                url: 'https://www.pharmacentrum.cz/reservation/',
                 data: form,
                 headers: { 'Content-Type': 'multipart/form-data' },
             })

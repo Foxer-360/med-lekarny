@@ -18,7 +18,7 @@ class Media extends React.Component<MediaProps, MediaState> {
 
   setDimensions = () => {
     if (!(this.props.width || this.props.height)) { return; }
-    
+
     let result = null;
     result = {
       width: this.props.width && this.props.width,
@@ -29,14 +29,14 @@ class Media extends React.Component<MediaProps, MediaState> {
   }
 
   renderAsImage = data => {
-    const baseUrl = 'http://foxer360-media-library.s3.eu-central-1.amazonaws.com/';
+    const baseUrl = 'https://foxer360-media-library.s3.eu-central-1.amazonaws.com/';
 
     if (data && data.filename) {
       let recommendedSizes = (data && data.recommendedSizes) || null;
       let originalUrl = baseUrl + data.category + data.hash + '_' + data.filename;
 
       recommendedSizes = this.setDimensions();
-      
+
       return (
         <ImgWithFallback
           originalSrc={originalUrl}

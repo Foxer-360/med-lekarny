@@ -4,7 +4,7 @@
   background-color: #fff;
   width: 100%;
   position: fixed;
-  z-index: 4000;
+  z-index: 400;
   -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.05);
   -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.05);
   box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.05);
@@ -26,14 +26,39 @@
       text-align: right;
       padding: 1rem 0;
       @include max-sm { text-align: center; }
-
+      
       li {
-        display: inline !important;
-
         &:first-of-type { padding-left: 0; }
         &:last-of-type {
           margin-right: 0;
           padding-right: 0;
+        }
+        .top_res_recipe {
+          text-transform: uppercase;
+          letter-spacing: 1.8px;
+          text-align: center;
+          font-weight: 600;
+          background-image: linear-gradient(to right, #EE4A37 50%, #CB3F00 100%);
+          padding: 0.8rem 2rem 0.8rem 1rem;
+          font-size: 1.2rem;
+          &:hover {
+            text-decoration: none;
+            .arrow {
+              left: 10px;
+            }
+          }
+          .arrow {
+            padding: 2px;
+            border: solid white;
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            border-width: 0 2px 2px 0;
+            transform: rotate(-45deg);
+            margin-bottom: 1px;
+            transition: ease 230ms;
+            left: 5px;
+          } 
         }
       }
     }
@@ -79,6 +104,19 @@
         height: 70px;
       }
     }
+  }
+
+  .header__top__list.button li {
+    display: none;
+    &:last-of-type {
+      display: inline;
+    }
+    @include md {
+      display: inline;
+    }
+  }
+  .header__top__list.normal li {
+    display: inline;
   }
 
   &__wrapper {
@@ -169,6 +207,21 @@
           }
         }
       }
+    }
+  }
+}
+
+
+@media screen and (max-width: 485px) {
+  .header__top .top_res_recipe {
+    letter-spacing: 0.5px;
+    padding: 0rem 1.5rem 0rem 0.2rem;
+    font-size: 0.7rem;
+  }
+  .container .header__top__list li {
+    padding: 0px 0px 0px 6px;
+    a:not(.top_res_recipe) {
+      font-size: 1rem;
     }
   }
 }

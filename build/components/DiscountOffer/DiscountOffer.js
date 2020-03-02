@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var ReactMarkdown = require("react-markdown");
+var ReactMarkdown = require("react-markdown/with-html");
 var Media_1 = require("../../partials/Media");
 var Link_1 = require("../../partials/Link");
 var DiscountOffer = function (props) {
@@ -21,13 +21,13 @@ var DiscountOffer = function (props) {
         React.createElement("div", { className: "container" },
             React.createElement("div", { className: 'discount-offer__list row' },
                 React.createElement("div", { className: 'discount-offer__list__item col-12 col-xl-6' },
-                    discountText && React.createElement(ReactMarkdown, { source: discountText }),
+                    discountText && React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: discountText }),
                     discountImage && React.createElement(Media_1.default, { type: 'image', data: discountImage })),
                 React.createElement("div", { className: 'discount-offer__list__item col-12 col-xl-6' },
-                    couponText && React.createElement(ReactMarkdown, { source: couponText }),
+                    couponText && React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: couponText }),
                     couponImage && React.createElement(Media_1.default, { type: 'image', data: couponImage })),
                 React.createElement("div", { className: 'discount-offer__list__item col-12 col-xl-6' },
-                    promotionText && React.createElement(ReactMarkdown, { source: promotionText }),
+                    promotionText && React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: promotionText }),
                     promotionImage && React.createElement(Media_1.default, { type: 'image', data: promotionImage })),
                 React.createElement("div", { className: 'discount-offer__list__item col-12 col-xl-6' },
                     React.createElement(Link_1.default, __assign({}, productUrl),

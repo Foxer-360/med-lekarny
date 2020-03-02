@@ -98,3 +98,13 @@ p {
 .gradientHeading {
   @include webkitGradientText;
 }
+
+.textCenter {
+  text-align: center !important;
+}
+.textLeft {
+  text-align: left !important;
+}
+.textRight {
+  text-align: right !important;
+}

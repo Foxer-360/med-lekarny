@@ -1,15 +1,16 @@
 import * as React from 'react';
-import * as ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown/with-html';
 
 export interface TextBlockProps {
   data: {
     title?: string;  
     text?: string;
+    textAlign?: string;
   };   
 }
 
 const TextBlock = (props: TextBlockProps) => {
-  const { title, text } = props.data;
+  const { title, text, textAlign } = props.data;
 
   return (  
     <section className={`textBlock ${title ? '' : 'textBlock--notTitled'}`}>
@@ -18,8 +19,10 @@ const TextBlock = (props: TextBlockProps) => {
           {title && <h3 className={'gradientHeading'}>{title}</h3>}
 
           {text && (
-            <div className="textBlock__container__text">
+            <div className={`textBlock__container__text ${textAlign}`}>
               <ReactMarkdown
+                skipHtml={false}
+                escapeHtml={false}
                 source={text}
                 renderers={{
                   // tslint:disable-next-line:no-any

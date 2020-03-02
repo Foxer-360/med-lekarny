@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var ReactMarkdown = require("react-markdown");
+var ReactMarkdown = require("react-markdown/with-html");
 var List_1 = require("../List");
 var Link_1 = require("../../partials/Link");
 var Media_1 = require("../../partials/Media");
@@ -36,9 +36,9 @@ var Pharmacies = function (props) {
                         image &&
                             React.createElement(Link_1.default, __assign({}, pharmacieUrl),
                                 React.createElement(Media_1.default, { type: 'image', data: image })),
-                        title && React.createElement(ReactMarkdown, { source: title }),
+                        title && React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: title }),
                         React.createElement(Link_1.default, __assign({}, addressUrl), address),
-                        text && React.createElement(ReactMarkdown, { source: text })));
+                        text && React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: text })));
                 })))));
     }));
 };

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown/with-html';
 
 import Media from '../../partials/Media';
 
@@ -20,7 +20,11 @@ const BlogArticle = (props: BlogArticleProps) => {
         {title && <h3>{title}</h3>}
         <div className={'hCenterBlock'} style={{ maxWidth: 820 }}>
           {image && <Media type={'image'} data={image} />}
-          {text && <ReactMarkdown source={text} />}
+          {text && <ReactMarkdown
+            skipHtml={false}
+            escapeHtml={false}                              
+            source={text}
+          />}
         </div>
       </div>
     </div>

@@ -1,14 +1,17 @@
 import * as React from 'react';
-import * as ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown/with-html';
 
 import List from '../List';
 import Link from '../../partials/Link';
 import PcTitle from './components/title';
 import Media from '../../partials/Media';
 import Button from '../../partials/Button';
+import { Url } from 'url';
 
 interface Pharmacie {
   name: string;
+  buttonText: string;
+  buttonUrl?: LooseObject;
   image?: LooseObject;
   description: string;
   address: string;
@@ -46,7 +49,11 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                       </div>
 
                       <div className={'pcitem__info'}>
-                        <PcTitle name={pharmacie.name && pharmacie.name} />
+                        <PcTitle
+                          name={pharmacie.name && pharmacie.name} 
+                          buttonText={pharmacie.buttonText}
+                          buttonUrl={pharmacie.buttonUrl}
+                        />
 
                         <div className="pcitem__info__details">
                           <div className="pcitem__info__details__item">
@@ -89,6 +96,8 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                         {pharmacie.services &&
                           <div className={'pcitem__info__list'}>
                             <ReactMarkdown
+                              skipHtml={false}
+                              escapeHtml={false}
                               source={pharmacie.services}
                               renderers={{
                                 // tslint:disable-next-line:no-any
@@ -102,6 +111,8 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                           <div className={'pcitem__info__desc'}>
                             <div className={'pcitem__info__desc__txt'}>
                               <ReactMarkdown
+                                skipHtml={false}
+                                escapeHtml={false}
                                 source={pharmacie.description}
                                 renderers={{
                                   // tslint:disable-next-line:no-any

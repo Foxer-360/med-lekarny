@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var ReactMarkdown = require("react-markdown");
+var ReactMarkdown = require("react-markdown/with-html");
 var List_1 = require("../List");
 var Media_1 = require("../../partials/Media");
 var BenefitBlocks = function (props) {
@@ -23,14 +23,14 @@ var BenefitBlocks = function (props) {
                                     benefit.subtitle &&
                                         React.createElement("p", { className: 'benefit-blocks__list__item__top__subtitle' }, benefit.subtitle),
                                     benefit.text &&
-                                        React.createElement(ReactMarkdown, { source: benefit.text, className: 'benefit-blocks__list__item__top__text' }),
+                                        React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: benefit.text, className: 'benefit-blocks__list__item__top__text' }),
                                     benefit.gradientText &&
-                                        React.createElement(ReactMarkdown, { source: benefit.gradientText, className: 'benefit-blocks__list__item__top__gradient-text' }),
+                                        React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: benefit.gradientText, className: 'benefit-blocks__list__item__top__gradient-text' }),
                                     benefit.logo && React.createElement(Media_1.default, { type: 'image', data: benefit.logo }))),
                             React.createElement("div", { className: 'benefit-blocks__list__item--divider' }),
                             React.createElement("div", { className: "row" },
                                 React.createElement("div", { className: 'benefit-blocks__list__item__bottom' },
-                                    React.createElement("div", null, benefit.bottomText && React.createElement(ReactMarkdown, { source: benefit.bottomText })))))));
+                                    React.createElement("div", null, benefit.bottomText && React.createElement(ReactMarkdown, { skipHtml: false, escapeHtml: false, source: benefit.bottomText })))))));
                 }))),
             React.createElement("div", { className: "container" },
                 React.createElement("div", { className: 'benefit-blocks__divider' }))));

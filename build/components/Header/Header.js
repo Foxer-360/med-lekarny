@@ -35,7 +35,7 @@ var react_adopt_1 = require("react-adopt");
 var Link_1 = require("../../partials/Link");
 var Loader_1 = require("../../partials/Loader");
 var Hamburger_1 = require("./components/Hamburger");
-var GET_CONTEXT = graphql_tag_1.default(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client \n  }\n"])));
+var GET_CONTEXT = graphql_tag_1.default(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client\n  }\n"], ["\n  {\n    languageData @client\n    pageData @client\n    websiteData @client\n    languagesData @client\n    navigationsData @client\n  }\n"])));
 var GET_PAGES_URLS = graphql_tag_1.default(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  query pagesUrls($language: ID!, $websiteId: ID!) {\n    pagesUrls(where: { language: $language, websiteId: $websiteId }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"], ["\n  query pagesUrls($language: ID!, $websiteId: ID!) {\n    pagesUrls(where: { language: $language, websiteId: $websiteId }) {\n      id\n      page\n      url\n      name\n      description\n    }\n  }\n"])));
 var ComposedQuery = react_adopt_1.adopt({
     context: function (_a) {
@@ -96,8 +96,14 @@ var Header = /** @class */ (function (_super) {
             return (React.createElement("header", { className: "header " + (_this.state.menuActive ? 'menuActive' : '') },
                 React.createElement("div", { className: 'header__top' },
                     React.createElement("div", { style: { position: 'relative' }, className: 'container' },
-                        React.createElement("ul", { className: 'header__top__list' }, topNavItems && topNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
-                            React.createElement(Link_1.default, __assign({}, navItem.url), navItem.name || navItem.title))); })))),
+                        React.createElement("ul", { className: "header__top__list " + (_this.props.data.buttonText && _this.props.data.buttonUrl && _this.props.data.buttonUrl.url ? 'button' : 'normal') },
+                            topNavItems && topNavItems.map(function (navItem, i) { return (React.createElement("li", { key: i },
+                                React.createElement(Link_1.default, __assign({}, navItem.url), navItem.name || navItem.title))); }),
+                            (_this.props.data.buttonUrl && _this.props.data.buttonUrl.url && _this.props.data.buttonText) &&
+                                React.createElement("li", null,
+                                    React.createElement(Link_1.default, __assign({ className: "top_res_recipe" }, _this.props.data.buttonUrl),
+                                        _this.props.data.buttonText,
+                                        React.createElement("span", { className: "arrow" })))))),
                 React.createElement("div", { className: "container" },
                     React.createElement("div", { className: 'header__wrapper' },
                         React.createElement("div", { className: 'header__logo' },

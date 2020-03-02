@@ -1,6 +1,9 @@
 .description-list {
+  text-align: center;
+
   h3 {
     @include webkitGradientText();
+    display: inline-block;
   }
 
   &__content {
@@ -30,6 +33,7 @@
   }
 
   p {
+    text-align: left;
     margin-bottom: 2.5rem;
 
     &:last-of-type() {

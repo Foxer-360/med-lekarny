@@ -4,8 +4,10 @@
         "pharmacies": [
             {
                 "name": "Budějovická",
+                "buttonText": "rezervace e-receptů",
+                "buttonUrl": "",
                 "address": "Antala Staška 1670/80",
-                "addressUrl": "",
+                "addressUrl": "/cs/lekarny",
                 "distric": "140 00 Praha 4",
                 "phone": "+420261006111",
                 "transport": "Metro C",
@@ -40,6 +42,14 @@
                             "name": {
                                 "type": "text",
                                 "title": "Pharmacie Name"
+                            },
+                            "buttonText": {
+                                "type": "text",
+                                "title": "Button text"
+                            },
+                            "buttonUrl": {
+                                "type": "urlAutocomplete",
+                                "title": "Button URL"
                             },
                             "address": {
                                 "type": "text",

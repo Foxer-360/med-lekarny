@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactMarkdown from 'react-markdown';
+import * as ReactMarkdown from 'react-markdown/with-html';
 
 import List from '../List';
 import Link from '../../partials/Link';
@@ -68,13 +68,21 @@ const Pharmacies = (props: PharmaciesProps) => {
                         <Media type={'image'} data={image} />
                       </Link>}
 
-                    {title && <ReactMarkdown source={title} />}
+                    {title && <ReactMarkdown
+                      skipHtml={false}
+                      escapeHtml={false}
+                      source={title}
+                    />}
 
                     <Link {...addressUrl}>
                       {address}
                     </Link>
 
-                    {text && <ReactMarkdown source={text} />}
+                    {text && <ReactMarkdown
+                      skipHtml={false}
+                      escapeHtml={false}
+                      source={text}
+                    />}
                   </div>
                 );
               })}

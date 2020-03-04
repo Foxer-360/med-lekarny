@@ -5,6 +5,7 @@ import RecipeOwnerInfo from './components/RecipeOwnerInfo/RecipeOwnerInfo';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import * as queryString from 'query-string';
+import pharmaPlaces from './components/pharmaPlaces';
 
 interface RecipeReservationProps {
   data: {
@@ -65,25 +66,34 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
     };
   }
 
+  pickupIdAndPlace = (place: string) => {
+    console.log(place);
+    const obj = pharmaPlaces.find(pharma => pharma.id === place);
+    return `${obj.id} - ${obj.name}`;
+  }
+
   onSubmit = () => {
     const { recipeOwner, note, pickupPlace, recipeCodesArray, files } = this.state;
     const form = new FormData();
-    form.set('file', files[0]);
-    form.set('pharmacy', pickupPlace);
-    form.set('body', `eRecepty: ${recipeCodesArray.join(', ')}\n\n ${note}, Kontakt: email: ${recipeOwner.email}, tel: ${recipeOwner.phone}`);
+    const file = files.length > 0 ? files[0] : 'bez přílohy';
+    form.set('file', file);
+    form.set('pharmacy', this.pickupIdAndPlace(pickupPlace));
+    form.set('body', `eRecepty: ${recipeCodesArray.join(', ')}\n\n poznámka: "${note}",\n\n Kontakt: email: ${recipeOwner.email},\n\n tel: ${recipeOwner.phone}`);
     Object.keys(recipeOwner).forEach(key => form.set(key, recipeOwner[key]));
 
     axios({
       method: 'post',
-      // url: 'http://localhost:3030/',
-      url: 'https://www.pharmacentrum.cz/reservation/',
+      url: 'http://localhost:3030/',
+      // url: 'https://www.pharmacentrum.cz/reservation/',
       data: form,
       headers: {'Content-Type': 'multipart/form-data' },
     })
     .then(() => {
+      console.log('form data', form);
       return this.setState({formSubmited: true});
     })
     .catch(e => {
+      console.log('form data', form);
       alert('Stala se chyba.');
     });
   }

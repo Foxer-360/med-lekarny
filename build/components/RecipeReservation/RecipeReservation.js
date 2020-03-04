@@ -31,29 +31,38 @@ var RecipeOwnerInfo_1 = require("./components/RecipeOwnerInfo/RecipeOwnerInfo");
 var react_router_dom_1 = require("react-router-dom");
 var axios_1 = require("axios");
 var queryString = require("query-string");
+var pharmaPlaces_1 = require("./components/pharmaPlaces");
 var RecipeReservation = /** @class */ (function (_super) {
     __extends(RecipeReservation, _super);
     function RecipeReservation(props) {
         var _this = _super.call(this, props) || this;
         _this.timeout = null;
+        _this.pickupIdAndPlace = function (place) {
+            console.log(place);
+            var obj = pharmaPlaces_1.default.find(function (pharma) { return pharma.id === place; });
+            return obj.id + " - " + obj.name;
+        };
         _this.onSubmit = function () {
             var _a = _this.state, recipeOwner = _a.recipeOwner, note = _a.note, pickupPlace = _a.pickupPlace, recipeCodesArray = _a.recipeCodesArray, files = _a.files;
             var form = new FormData();
-            form.set('file', files[0]);
-            form.set('pharmacy', pickupPlace);
-            form.set('body', "eRecepty: " + recipeCodesArray.join(', ') + "\n\n " + note + ", Kontakt: email: " + recipeOwner.email + ", tel: " + recipeOwner.phone);
+            var file = files.length > 0 ? files[0] : 'bez přílohy';
+            form.set('file', file);
+            form.set('pharmacy', _this.pickupIdAndPlace(pickupPlace));
+            form.set('body', "eRecepty: " + recipeCodesArray.join(', ') + "\n\n pozn\u00E1mka: \"" + note + "\",\n\n Kontakt: email: " + recipeOwner.email + ",\n\n tel: " + recipeOwner.phone);
             Object.keys(recipeOwner).forEach(function (key) { return form.set(key, recipeOwner[key]); });
             axios_1.default({
                 method: 'post',
-                // url: 'http://localhost:3030/',
-                url: 'https://www.pharmacentrum.cz/reservation/',
+                url: 'http://localhost:3030/',
+                // url: 'https://www.pharmacentrum.cz/reservation/',
                 data: form,
                 headers: { 'Content-Type': 'multipart/form-data' },
             })
                 .then(function () {
+                console.log('form data', form);
                 return _this.setState({ formSubmited: true });
             })
                 .catch(function (e) {
+                console.log('form data', form);
                 alert('Stala se chyba.');
             });
         };

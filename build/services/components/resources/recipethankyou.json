@@ -1,0 +1,22 @@
+{
+    "name": "RecipeThankYou",
+    "data": {
+        "waitForIt": "Vyčkejte na potvrzovací e-mail / sms, že jsou Vaše léky připraveny k vyzvednutí.",
+        "headline": "Děkujeme"
+    },
+    "form": {
+        "schema": {
+            "type": "object",
+            "properties": {
+                "headline": {
+                    "type": "text",
+                    "title": "Nadpis - poděkování"
+                },
+                "waitForIt": {
+                    "type": "text",
+                    "title": "Info po odeslání"
+                }
+            }
+        }
+    }
+}

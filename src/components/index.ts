@@ -27,8 +27,6 @@ import BenefitBlocks from './BenefitBlocks';
 import RegistrationBlock from './RegistrationBlock';
 import BlogArticle from './BlogArticle';
 import MiniBoxes from './MiniBoxes';
-import RecipeReservation from './RecipeReservation';
-import RecipeThankYou from './RecipeThankYou';
 
 export {
   AlertNotFound,
@@ -60,6 +58,4 @@ export {
   RegistrationBlock,
   BlogArticle,
   MiniBoxes,
-  RecipeReservation,
-  RecipeThankYou,
 };

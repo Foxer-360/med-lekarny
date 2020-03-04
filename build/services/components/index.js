@@ -49,8 +49,6 @@ var ComponentsService = /** @class */ (function () {
             REGISTRATIONBLOCK: 'RegistrationBlock',
             BLOGARTICLE: 'BlogArticle',
             MINIBOXES: 'MiniBoxes',
-            RECIPERESERVATION: 'RecipeReservation',
-            RECIPETHANKYOU: 'RecipeThankYou'
         };
     }
     /***/
@@ -122,10 +120,6 @@ var ComponentsService = /** @class */ (function () {
                 return components_1.MiniBoxes;
             case this.Types.PHARMACIESLIST:
                 return components_1.PharmaciesList;
-            case this.Types.RECIPERESERVATION:
-                return components_1.RecipeReservation;
-            case this.Types.RECIPETHANKYOU:
-                return components_1.RecipeThankYou;
             default:
                 return function () { return React.createElement(components_1.AlertNotFound, { type: "component" }); };
         }

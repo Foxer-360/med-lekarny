@@ -83,8 +83,8 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
 
     axios({
       method: 'post',
-      url: 'http://localhost:3030/',
-      // url: 'https://www.pharmacentrum.cz/reservation/',
+      // url: 'http://localhost:3030/',
+      url: 'https://www.pharmacentrum.cz/reservation/',
       data: form,
       headers: {'Content-Type': 'multipart/form-data' },
     })

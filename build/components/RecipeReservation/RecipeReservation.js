@@ -52,8 +52,8 @@ var RecipeReservation = /** @class */ (function (_super) {
             Object.keys(recipeOwner).forEach(function (key) { return form.set(key, recipeOwner[key]); });
             axios_1.default({
                 method: 'post',
-                url: 'http://localhost:3030/',
-                // url: 'https://www.pharmacentrum.cz/reservation/',
+                // url: 'http://localhost:3030/',
+                url: 'https://www.pharmacentrum.cz/reservation/',
                 data: form,
                 headers: { 'Content-Type': 'multipart/form-data' },
             })

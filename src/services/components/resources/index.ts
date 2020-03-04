@@ -27,6 +27,8 @@ import * as benefitblocks from './benefitblocks.json';
 import * as registrationblock from './registrationblock.json';
 import * as blogarticle from './blogarticle.json';
 import * as miniboxes from './miniboxes.json';
+import * as recipereservation from './recipereservation.json';
+import * as recipethankyou from './recipethankyou.json';
 
 export {
   def as default,
@@ -58,4 +60,6 @@ export {
   registrationblock,
   blogarticle,
   miniboxes,
+  recipereservation,
+  recipethankyou,
 };

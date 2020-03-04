@@ -1,0 +1,77 @@
+$recipe-page-gradient-bg-1: #DDE4EC;
+$recipe-page-gradient-bg-2: #dde4ec;
+
+@mixin bg-gradient() {
+  background: $recipe-page-gradient-bg-1;
+  background: linear-gradient(90deg, $recipe-page-gradient-bg-1 0%,
+    $recipe-page-gradient-bg-2 50%, $recipe-page-gradient-bg-1 100%);
+}
+
+@import "./components/RecipeSectionHeader/style";
+@import "./components/RecipePickupPick/style";
+@import "./components/RecipeOwnerInfo/style";
+
+.recipe-reservation-page {
+  padding-top: 115px;
+  .text {
+    display: block;
+    margin: 0 auto;
+    &-center {
+      text-align: center;
+    }
+    &-cursive {
+      font-style: italic;
+    }
+  }
+
+  .form-wrap {
+    input.error,
+    input:focus.error,
+    input:active.error {
+      border-color: red;
+      margin-bottom: 0;
+    }
+  }
+  input.error,
+  input:focus.error,
+  input:active.error {
+    border-color: red;
+    margin-bottom: 0;
+  }
+
+}
+
+@media screen and (min-width: 767px) {
+  .recipe-reservation-page {
+    padding-top: 136px;
+  }
+}
+
+// Submit part
+.recipe-owner-info.submit-wrapper {
+  padding-top: 0;
+  padding-bottom: 90px;
+  text-align: center;
+
+  .btn {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.btn.recipe-btn.submit-btn {
+  &.disabled {
+    background: grey;
+    cursor: not-allowed;
+  }
+}
+
+.recipe-reservation-page {
+  .error-msg {
+    margin: 0 auto;
+    font-size: 12px;
+    color: red;
+    text-transform: none;
+  }
+}
+

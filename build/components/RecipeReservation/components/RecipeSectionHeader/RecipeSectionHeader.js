@@ -40,6 +40,11 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
             code_invalid: 'Kód je neplatný.'
         };
         _this.setErrors = function (error) {
+            if (_this.state.recipeCodeInput === '') {
+                return _this.setState({
+                    errors: { code: '' }
+                });
+            }
             _this.setState({
                 errors: __assign({}, _this.state.errors, error)
             });
@@ -54,7 +59,7 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
             if (value !== null) {
                 _this.setState({ recipeCodeInput: value });
             }
-            if (value.length === 0) {
+            if (value === '') {
                 _this.setErrors({ code: '' });
             }
             var isValid = _this.validateCode(value);
@@ -71,6 +76,9 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
             codesArray.push(code);
         };
         _this.validateCode = function (code) {
+            if (code.length === 0 || code === null) {
+                return;
+            }
             var ereceiptCode = code.replace(/\W/gi, '').toUpperCase();
             var total = 0;
             // calculate sum based on base32 table
@@ -109,7 +117,9 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
         };
         _this.state = {
             recipeCodeInput: '',
-            errors: {},
+            errors: {
+                code: ''
+            },
             hintVisible: false,
         };
         return _this;

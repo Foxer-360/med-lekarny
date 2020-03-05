@@ -53,9 +53,7 @@ var RecipeThankYou = /** @class */ (function (_super) {
                                 React.createElement("br", null),
                                 React.createElement("span", { className: "text-turquoise" }, codes
                                     && Array.isArray(codes)
-                                    && codes.map(function (code) {
-                                        return code;
-                                    }))),
+                                    && codes.join(', '))),
                             React.createElement("p", { className: "text" },
                                 "datum va\u0161\u00ED rezervace:",
                                 React.createElement("br", null),

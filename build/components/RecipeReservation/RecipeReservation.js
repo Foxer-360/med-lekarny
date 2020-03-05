@@ -38,7 +38,6 @@ var RecipeReservation = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.timeout = null;
         _this.pickupIdAndPlace = function (place) {
-            console.log(place);
             var obj = pharmaPlaces_1.default.find(function (pharma) { return pharma.id === place; });
             return obj.id + " - " + obj.name;
         };
@@ -57,12 +56,11 @@ var RecipeReservation = /** @class */ (function (_super) {
                 data: form,
                 headers: { 'Content-Type': 'multipart/form-data' },
             })
+                // new Promise((resolve, reject) => { return resolve() })
                 .then(function () {
-                console.log('form data', form);
                 return _this.setState({ formSubmited: true });
             })
                 .catch(function (e) {
-                console.log('form data', form);
                 alert('Stala se chyba.');
             });
         };

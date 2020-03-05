@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import * as queryString from 'query-string';
 import pharmaPlaces from './components/pharmaPlaces';
+import { resolve } from 'dns';
 
 interface RecipeReservationProps {
   data: {
@@ -67,7 +68,6 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
   }
 
   pickupIdAndPlace = (place: string) => {
-    console.log(place);
     const obj = pharmaPlaces.find(pharma => pharma.id === place);
     return `${obj.id} - ${obj.name}`;
   }
@@ -88,12 +88,11 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
       data: form,
       headers: {'Content-Type': 'multipart/form-data' },
     })
+    // new Promise((resolve, reject) => { return resolve() })
     .then(() => {
-      console.log('form data', form);
       return this.setState({formSubmited: true});
     })
     .catch(e => {
-      console.log('form data', form);
       alert('Stala se chyba.');
     });
   }

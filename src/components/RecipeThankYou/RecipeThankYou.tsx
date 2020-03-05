@@ -53,9 +53,7 @@ class RecipeThankYou extends React.Component<RecipeThankYouComponentProps> {
                   <span className="text-turquoise">
                     {codes
                       && Array.isArray(codes)
-                      && codes.map((code: string) => {
-                        return code;
-                      })
+                      && codes.join(', ')
                     }
                   </span>
                 </p>

@@ -2,7 +2,7 @@ import * as React from 'react';
 import CodeHint from './components/CodeHint';
 import * as ReactMarkdown from 'react-markdown';
 
-// test code: PCIFF8GNBLOI PD4R54LQFRNW
+// test code: PCIFF8GNBLOI PD4R54LQFRNW PC8F3EBVEDGQ
 
 interface iRecipeSectionheaderProps {
   recipesArray: Array<string>;
@@ -36,12 +36,21 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
 
     this.state = {
       recipeCodeInput: '',
-      errors: {},
+      errors: {
+        code: ''
+      },
       hintVisible: false,
     };
   }
 
   setErrors = error => {
+
+    if (this.state.recipeCodeInput === '') {
+      return this.setState({
+        errors: { code: '' }
+      });
+    }
+
     this.setState({
       errors: { ...this.state.errors, ...error }
     });
@@ -60,7 +69,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
       this.setState({ recipeCodeInput: value});
     }
 
-    if (value.length === 0) {
+    if (value === '') {
       this.setErrors({code: ''});
     }
 
@@ -81,6 +90,9 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
   }
 
   validateCode = (code: string) => {
+    if (code.length === 0 || code === null) {
+      return;
+    }
     const ereceiptCode = code.replace(/\W/gi, '').toUpperCase();
     let total = 0;
     // calculate sum based on base32 table

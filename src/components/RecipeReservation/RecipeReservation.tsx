@@ -77,8 +77,8 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
     const form = new FormData();
     const file = files.length > 0 ? files[0] : 'bez přílohy';
     form.set('file', file);
-    form.set('pharmacy', this.pickupIdAndPlace(pickupPlace));
-    form.set('body', `eRecepty: ${recipeCodesArray.join(', ')}\n\n poznámka: "${note}",\n\n Kontakt: email: ${recipeOwner.email},\n\n tel: ${recipeOwner.phone}`);
+    form.set('pharmacy', pickupPlace);
+    form.set('body', `eRecepty: ${recipeCodesArray.join(', ')}\n\n poznámka: ${note},\n\n Kontakt: email: ${recipeOwner.email},\n\n tel: ${recipeOwner.phone},\n\n ${this.pickupIdAndPlace(pickupPlace)}`);
     Object.keys(recipeOwner).forEach(key => form.set(key, recipeOwner[key]));
 
     axios({
@@ -88,7 +88,6 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
       data: form,
       headers: {'Content-Type': 'multipart/form-data' },
     })
-    // new Promise((resolve, reject) => { return resolve() })
     .then(() => {
       return this.setState({formSubmited: true});
     })

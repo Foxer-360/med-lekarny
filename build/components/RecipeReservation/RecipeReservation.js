@@ -46,8 +46,8 @@ var RecipeReservation = /** @class */ (function (_super) {
             var form = new FormData();
             var file = files.length > 0 ? files[0] : 'bez přílohy';
             form.set('file', file);
-            form.set('pharmacy', _this.pickupIdAndPlace(pickupPlace));
-            form.set('body', "eRecepty: " + recipeCodesArray.join(', ') + "\n\n pozn\u00E1mka: \"" + note + "\",\n\n Kontakt: email: " + recipeOwner.email + ",\n\n tel: " + recipeOwner.phone);
+            form.set('pharmacy', pickupPlace);
+            form.set('body', "eRecepty: " + recipeCodesArray.join(', ') + "\n\n pozn\u00E1mka: " + note + ",\n\n Kontakt: email: " + recipeOwner.email + ",\n\n tel: " + recipeOwner.phone + ",\n\n " + _this.pickupIdAndPlace(pickupPlace));
             Object.keys(recipeOwner).forEach(function (key) { return form.set(key, recipeOwner[key]); });
             axios_1.default({
                 method: 'post',
@@ -56,7 +56,6 @@ var RecipeReservation = /** @class */ (function (_super) {
                 data: form,
                 headers: { 'Content-Type': 'multipart/form-data' },
             })
-                // new Promise((resolve, reject) => { return resolve() })
                 .then(function () {
                 return _this.setState({ formSubmited: true });
             })

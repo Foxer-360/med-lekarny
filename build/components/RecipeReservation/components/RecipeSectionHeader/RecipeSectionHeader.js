@@ -27,6 +27,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var CodeHint_1 = require("./components/CodeHint");
 var ReactMarkdown = require("react-markdown");
+var DividerLine_1 = require("../../../DividerLine");
 var RecipeSectionHeader = /** @class */ (function (_super) {
     __extends(RecipeSectionHeader, _super);
     function RecipeSectionHeader(props) {
@@ -141,9 +142,11 @@ var RecipeSectionHeader = /** @class */ (function (_super) {
                         React.createElement("div", { className: "step" },
                             React.createElement("img", { src: '/assets/mediconLekarny/images/numbers/1.svg', className: "step-image", alt: "1" }),
                             React.createElement("p", { className: "step-text" }, boData.step1)),
+                        React.createElement(DividerLine_1.default, null),
                         React.createElement("div", { className: "step" },
                             React.createElement("img", { src: '/assets/mediconLekarny/images/numbers/2.svg', className: "step-image", alt: "2" }),
                             React.createElement("p", { className: "step-text" }, boData.step2)),
+                        React.createElement(DividerLine_1.default, null),
                         React.createElement("div", { className: "step" },
                             React.createElement("img", { src: '/assets/mediconLekarny/images/numbers/3.svg', className: "step-image", alt: "3" }),
                             React.createElement("p", { className: "step-text" }, boData.step3)))),

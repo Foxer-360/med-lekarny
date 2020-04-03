@@ -5915,6 +5915,8 @@ cite {
       .recipe-header .accepted-code-delete:hover, .recipe-header .accepted-code-delete:focus {
         background: white;
         color: black; }
+  .recipe-header .divider-line {
+    margin: 0px; }
 
 .hint-wrapper .text {
   padding-top: 1em; }

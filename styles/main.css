@@ -3485,6 +3485,12 @@ cite {
 .slick-arrow::before {
   color: black !important; }
 
+@media (min-width: 600px) {
+  .phone {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none; } }
+
 .hero {
   width: 100%;
   height: 420px;

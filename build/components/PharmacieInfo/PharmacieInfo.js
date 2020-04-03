@@ -22,7 +22,7 @@ var PharmacieInfo = function (props) {
             React.createElement("div", { className: 'pharmacie-info__content row' },
                 React.createElement("div", { className: 'pharmacie-info__content__item col-sm-12 col-md-6 col-lg-3' },
                     React.createElement("img", { src: '/assets/mediconLekarny/images/phoneIcon.svg', alt: "phone nubmer" }),
-                    phone && React.createElement("a", { href: "tel:" + phone }, phone)),
+                    phone && React.createElement("a", { className: "phone", href: "tel:" + phone }, phone)),
                 React.createElement("div", { className: 'pharmacie-info__content__item col-sm-12 col-md-6 col-lg-3' },
                     React.createElement("img", { src: '/assets/mediconLekarny/images/geoIcon.svg', alt: "address" }),
                     React.createElement(Link_1.default, __assign({}, geoUrl), geo)),

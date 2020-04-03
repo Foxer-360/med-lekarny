@@ -40,7 +40,8 @@ var PharmaciesList = function (props) {
                                             pharmacie.district)),
                                     React.createElement("div", { className: "pcitem__info__details__item" },
                                         React.createElement("img", { src: "../../../assets/mediconLekarny/images/phoneIcon.svg", alt: "Medicon Phone Icon" }),
-                                        pharmacie.phone && React.createElement("a", { href: "tel:" + pharmacie.phone }, pharmacie.phone)),
+                                        pharmacie.phone &&
+                                            React.createElement("a", { className: "phone", href: "tel:" + pharmacie.phone }, pharmacie.phone)),
                                     React.createElement("div", { className: "pcitem__info__details__item" },
                                         pharmacie.transportImage && React.createElement(Media_1.default, { data: pharmacie.transportImage, type: "image" }),
                                         !pharmacie.transportImage &&

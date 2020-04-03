@@ -1,15 +1,16 @@
 import * as React from 'react';
 import CodeHint from './components/CodeHint';
 import * as ReactMarkdown from 'react-markdown';
+import DividerLine from '../../../DividerLine';
 
 // test code: PCIFF8GNBLOI PD4R54LQFRNW PC8F3EBVEDGQ
 
 interface iRecipeSectionheaderProps {
   recipesArray: Array<string>;
   updateRecipesArray: any;
-  note: string,
-  boData: any,
-  uploadedFiles: any,
+  note: string;
+  boData: LooseObject;
+  uploadedFiles: LooseObject;
   updateNote: (note: string) => void;
   onLoadFileHandler: (e: any) => void;
 }
@@ -161,6 +162,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                   {boData.step1}
                 </p>
               </div>
+              <DividerLine/>
               <div className="step">
                 <img
                   src={'/assets/mediconLekarny/images/numbers/2.svg'}
@@ -171,6 +173,7 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                   {boData.step2}
                 </p>
               </div>
+              <DividerLine/>
               <div className="step">
                 <img
                   src={'/assets/mediconLekarny/images/numbers/3.svg'}

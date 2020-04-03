@@ -25,7 +25,7 @@ const PharmacieInfo = (props: PharmacieInfoProps) => {
         <div className={'pharmacie-info__content row'}>
           <div className={'pharmacie-info__content__item col-sm-12 col-md-6 col-lg-3'}>
             <img src={'/assets/mediconLekarny/images/phoneIcon.svg'} alt="phone nubmer"/>
-            {phone && <a href={`tel:${phone}`}>{phone}</a>}
+            {phone && <a className="phone" href={`tel:${phone}`}>{phone}</a>}
           </div>
           <div className={'pharmacie-info__content__item col-sm-12 col-md-6 col-lg-3'}>
             <img src={'/assets/mediconLekarny/images/geoIcon.svg'} alt="address"/>

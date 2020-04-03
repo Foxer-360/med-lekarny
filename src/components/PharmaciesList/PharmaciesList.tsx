@@ -75,7 +75,8 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                               src="../../../assets/mediconLekarny/images/phoneIcon.svg"
                               alt="Medicon Phone Icon"
                             />
-                            {pharmacie.phone && <a href={`tel:${pharmacie.phone}`}>{pharmacie.phone}</a>}
+                            {pharmacie.phone &&
+                            <a className="phone" href={`tel:${pharmacie.phone}`}>{pharmacie.phone}</a>}
                           </div>
 
                           <div className="pcitem__info__details__item">

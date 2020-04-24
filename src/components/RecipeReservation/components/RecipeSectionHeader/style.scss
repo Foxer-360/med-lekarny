@@ -6,11 +6,16 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
 
   @include bg-gradient;
 
+  .step-container {
+    width: 100%;
+
+  }
+  
   .container {
     max-width: 820px;
     margin: 0 auto;
   }
-
+  
   .recipe-input-wrapper {
     padding: 4em 0 2em;
     .headline {
@@ -78,6 +83,10 @@ $gradient-fill-hover: linear-gradient(to right, #3eac49 0%, #3eac49 50%, #00aad0
       .step-image {
         max-width: 50px;
         margin-right: 16px;
+      }
+
+      .container {
+        padding: 0;
       }
     }
   }

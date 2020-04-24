@@ -158,22 +158,26 @@ class RecipeSectionHeader extends React.PureComponent<iRecipeSectionheaderProps,
                   className="step-image"
                   alt="1"
                 />
-                <p className="step-text">
-                  {boData.step1}
-                </p>
+                <div className="step-container">
+                  <p className="step-text">
+                    {boData.step1}
+                  </p>
+                  <DividerLine/>
+                </div>
               </div>
-              <DividerLine/>
               <div className="step">
                 <img
                   src={'/assets/mediconLekarny/images/numbers/2.svg'}
                   className="step-image"
                   alt="2"
                 />
-                <p className="step-text">
-                  {boData.step2}
-                </p>
+                <div className="step-container">
+                  <p className="step-text">
+                    {boData.step2}
+                  </p>
+                  <DividerLine/>
+                </div>
               </div>
-              <DividerLine/>
               <div className="step">
                 <img
                   src={'/assets/mediconLekarny/images/numbers/3.svg'}

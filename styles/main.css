@@ -3029,8 +3029,6 @@ a {
   text-decoration: inherit;
   /* no underline */ }
   a:hover, a:focus {
-    color: inherit;
-    /* blue colors for links too */
     text-decoration: inherit;
     /* no underline */ }
   a:visited {
@@ -3697,30 +3695,11 @@ cite {
       .header__top__list li:last-of-type {
         margin-right: 0;
         padding-right: 0; }
-      .header__top__list li .top_res_recipe {
-        text-transform: uppercase;
-        letter-spacing: 1.8px;
-        text-align: center;
-        font-weight: 600;
-        background-image: linear-gradient(to right, #EE4A37 50%, #CB3F00 100%);
-        padding: 0.8rem 2rem 0.8rem 1rem;
-        font-size: 1.2rem; }
-        .header__top__list li .top_res_recipe:hover {
+      .header__top__list li a.top-res-recipe {
+        display: inline;
+        padding: 0.7rem 2.6rem; }
+        .header__top__list li a.top-res-recipe:hover {
           text-decoration: none; }
-          .header__top__list li .top_res_recipe:hover .arrow {
-            left: 10px; }
-        .header__top__list li .top_res_recipe .arrow {
-          padding: 2px;
-          border: solid white;
-          display: inline-block;
-          position: relative;
-          vertical-align: middle;
-          border-width: 0 2px 2px 0;
-          -webkit-transform: rotate(-45deg);
-                  transform: rotate(-45deg);
-          margin-bottom: 1px;
-          transition: ease 230ms;
-          left: 5px; }
     .header__top a {
       color: white !important;
       font-size: 1.5rem;
@@ -4079,20 +4058,23 @@ cite {
         font-weight: 600;
         font-size: 1.8rem; }
 
-.cookiePopup p {
+.cookieConsent p {
   display: inline;
   padding-left: 10px; }
 
-.cookiePopup img {
+.cookieConsent img {
   display: inline;
   max-height: 19px;
   max-width: 19px; }
 
-.cookiePopup a {
+.cookieConsent a {
   color: #3eac49 !important;
   text-decoration: underline; }
-  .cookiePopup a:hover {
+  .cookieConsent a:hover {
     text-decoration: none; }
+
+.cookieConsent button {
+  border-radius: 20px !important; }
 
 .footer {
   width: 100%;
@@ -4644,7 +4626,7 @@ cite {
   .info-rectangles__list {
     justify-content: space-between; }
     .info-rectangles__list__item {
-      height: 225px;
+      height: 94%;
       width: 100%;
       margin-bottom: 2rem;
       display: table;
@@ -4658,13 +4640,12 @@ cite {
         -webkit-box-shadow: 0 0 20px rgba(15, 52, 86, 0.2); }
       .info-rectangles__list__item__content {
         display: table-cell;
-        vertical-align: bottom;
-        padding: 0 0 3.5rem 5rem;
+        padding: 3.5rem 5rem;
         position: relative;
         z-index: 2; }
         @media (max-width: 768px) {
           .info-rectangles__list__item__content {
-            padding: 0 0 2.5rem 2.5rem; } }
+            padding: 2.5rem 2.5rem; } }
         .info-rectangles__list__item__content .mediaRatio {
           padding: 0 !important;
           width: 84px;
@@ -4674,7 +4655,8 @@ cite {
           font-weight: 600;
           font-size: 2.2rem;
           letter-spacing: 2px;
-          padding-top: 3.5rem;
+          padding-top: 2.5rem;
+          padding-bottom: 2.5rem;
           text-transform: uppercase;
           text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }
           @media (max-width: 992px) {
@@ -4685,6 +4667,11 @@ cite {
           @media (max-width: 576px) {
             .info-rectangles__list__item__content p {
               font-size: 1.8rem; } }
+        .info-rectangles__list__item__content .btn {
+          max-width: 173px;
+          font-size: 1.4rem;
+          padding: 7px 35px;
+          white-space: nowrap; }
       .info-rectangles__list__item--colorGradient {
         position: absolute;
         z-index: 1;
@@ -4706,7 +4693,8 @@ cite {
     display: block;
     background-color: #7fd4e7; }
   .pharmacie-info__content {
-    padding: 5rem 0; }
+    padding: 3rem 0 1rem;
+    justify-content: space-around; }
     @media (max-width: 991px) {
       .pharmacie-info__content {
         padding-bottom: 3rem; } }
@@ -4714,10 +4702,12 @@ cite {
       .pharmacie-info__content {
         padding: 2.5rem 0; } }
     .pharmacie-info__content__item {
-      display: table; }
-      @media (max-width: 991px) {
-        .pharmacie-info__content__item {
-          margin-bottom: 2rem; } }
+      display: flex;
+      padding: 0;
+      max-width: -webkit-fit-content;
+      max-width: -moz-fit-content;
+      max-width: fit-content;
+      margin-bottom: 2rem; }
       @media (max-width: 768px) {
         .pharmacie-info__content__item {
           margin: 0; }
@@ -4725,25 +4715,34 @@ cite {
             margin-bottom: 2rem; } }
       .pharmacie-info__content__item img {
         max-width: initial; }
-      .pharmacie-info__content__item a:hover {
-        color: #3eac49;
-        text-decoration: underline; }
+      .pharmacie-info__content__item a {
+        max-width: -webkit-fit-content;
+        max-width: -moz-fit-content;
+        max-width: fit-content; }
+        .pharmacie-info__content__item a:hover {
+          color: #3eac49;
+          text-decoration: underline; }
       .pharmacie-info__content__item .mediaRatio {
         padding: 0 !important;
         width: 50px;
         height: 50px;
         display: inline-block;
         vertical-align: middle; }
+        .pharmacie-info__content__item .mediaRatio .inner {
+          -o-object-fit: fill;
+             object-fit: fill; }
       .pharmacie-info__content__item a, .pharmacie-info__content__item p {
-        max-width: 80%;
+        max-width: -webkit-fit-content;
+        max-width: -moz-fit-content;
+        max-width: fit-content;
         font-size: 1.8rem;
         line-height: 2rem;
-        padding-left: 2rem;
-        display: table-cell;
+        padding-left: 1rem;
+        display: inline-flex;
         vertical-align: middle; }
-        @media (max-width: 768px) {
+        @media (max-width: 425px) {
           .pharmacie-info__content__item a, .pharmacie-info__content__item p {
-            display: inline-block; } }
+            font-size: 4.5vw; } }
 
 .my-masonry-grid {
   display: flex;
@@ -5039,8 +5038,7 @@ cite {
     height: 100%;
     min-height: 225px;
     position: relative;
-    padding-left: 35px;
-    padding-top: 30px;
+    padding: 30px 35px;
     font-size: 1.8rem;
     background-size: cover;
     transition: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -5049,17 +5047,14 @@ cite {
     @media (max-width: 768px) {
       .menu-blocks__item {
         font-size: 1.6rem; } }
-    .menu-blocks__item:hover {
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.25); }
-      .menu-blocks__item:hover .menu-blocks__item__colorGradient {
-        opacity: 1; }
     .menu-blocks__item p {
       z-index: 3;
       color: white;
       font-weight: 600;
       position: relative;
       line-height: initial;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      padding-bottom: 25px; }
     .menu-blocks__item .mediaRatio {
       z-index: 3;
       position: relative;
@@ -5067,6 +5062,18 @@ cite {
       padding: 0 !important;
       height: 80px;
       width: 80px; }
+    .menu-blocks__item__content {
+      position: relative;
+      z-index: 300;
+      height: 100%;
+      display: table; }
+      .menu-blocks__item__content .btn {
+        max-width: 173px;
+        font-size: 1.4rem;
+        padding: 7px 35px;
+        white-space: nowrap; }
+      .menu-blocks__item__content__bottom {
+        display: table-footer-group; }
     .menu-blocks__item__colorGradient {
       z-index: 2;
       width: 100%;
@@ -5927,7 +5934,8 @@ cite {
         background: white;
         color: black; }
   .recipe-header .divider-line {
-    margin: 0px; }
+    margin: 0px;
+    background-color: #EEE; }
 
 .hint-wrapper .text {
   padding-top: 1em; }
@@ -6290,12 +6298,12 @@ cite {
 
 .btn {
   border: none;
+  border-radius: 50px;
   outline: none;
   display: block;
   cursor: pointer;
   font-weight: 600;
   padding: 12px 35px;
-  transition: ease 0.2s;
   letter-spacing: 1.8px;
   box-sizing: border-box;
   font-family: 'Montserrat';
@@ -6347,22 +6355,35 @@ cite {
     padding: 10px 40px; }
   .btn--greenBkg {
     color: white;
-    background-image: linear-gradient(to right, #3eac49 0%, #00aad0 100%);
+    background-image: linear-gradient(to right, #3eac49 50%, #00aad0 100%);
     background-repeat: no-repeat;
-    background-position: center;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.8s ease;
     padding: 14px 36px; }
     .btn--greenBkg:hover {
+      background-position: 0 0;
       color: white; }
-      @media (min-width: 768px) {
-        .btn--greenBkg:hover {
-          background-image: linear-gradient(to right, #3eac49 0%, #3eac49 100%);
-          background-color: #3eac49; } }
       .btn--greenBkg:hover .arrow {
+        border-color: white; }
+  .btn--orangeBkg {
+    color: white;
+    background-image: linear-gradient(to right, #C8493F 60%, #E6975C 100%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.8s ease;
+    padding: 14px 36px; }
+    .btn--orangeBkg:hover {
+      background-position: 0 0;
+      color: white; }
+      .btn--orangeBkg:hover .arrow {
         border-color: white; }
   .btn--whiteBorder {
     color: white;
     border: 2px solid white;
-    background-color: transparent; }
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.2s ease; }
     @media (min-width: 768px) {
       .btn--whiteBorder:hover {
         color: #3eac49;
@@ -6373,38 +6394,38 @@ cite {
     color: #3eac49;
     background-color: transparent;
     border: 2px solid transparent;
-    -o-border-image: linear-gradient(to right, #3eac49 0%, #00aad0 100%);
-       border-image: linear-gradient(to right, #3eac49 0%, #00aad0 100%);
-    border-image-slice: 1;
-    transition: auto; }
+    background: linear-gradient(#fff, #fff) padding-box, linear-gradient(to right, #3eac49 50%, #00aad0 100%) border-box;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 1.2s ease; }
     .btn--greenBorder .arrow {
       border-color: #3eac49; }
     .btn--greenBorder:hover {
-      color: #3eac49;
-      border: 2px solid #3eac49; }
+      background-position: 0 0;
+      color: #3eac49; }
   .btn--greyBkg {
     background-color: #f4f5f7;
     text-transform: none; }
     .btn--greyBkg .arrow {
       border-color: #3eac49; }
   .btn--orangeBorder {
-    color: #EE4A37;
+    color: #C8493F;
     background-color: transparent;
     border: 2px solid transparent;
-    -o-border-image: linear-gradient(to right, #EE4A37 0%, #CB3F00 100%);
-       border-image: linear-gradient(to right, #EE4A37 0%, #CB3F00 100%);
-    border-image-slice: 1;
-    transition: auto; }
+    background: linear-gradient(#fff, #fff) padding-box, linear-gradient(to right, #C8493F 50%, #E6975C 100%) border-box;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 1.2s ease; }
     .btn--orangeBorder .arrow {
-      border-color: #EE4A37; }
+      border-color: #C8493F; }
     .btn--orangeBorder:hover {
-      color: #EE4A37;
-      border: 2px solid #EE4A37; }
+      background-position: 0 0;
+      color: #C8493F; }
   .btn--greyBkg {
     background-color: #f4f5f7;
     text-transform: none; }
     .btn--greyBkg .arrow {
-      border-color: #EE4A37; }
+      border-color: #C8493F; }
   @media (max-width: 576px) {
     .btn--fullWidth {
       width: 100%; }

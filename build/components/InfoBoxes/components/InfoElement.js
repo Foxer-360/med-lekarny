@@ -9,7 +9,7 @@ function InfoElement(props) {
         React.createElement("div", { className: 'info-boxes__list__element', style: { backgroundImage: image && "url(" + getImgUrl_1.default(image) + ")" } },
             React.createElement("div", { className: 'fullWidthContainer info-boxes__list__element__content' },
                 title && React.createElement("h5", null, title),
-                React.createElement(Button_1.default, { url: url, classes: 'btn--fullWidth btn--greenBkg' }, "vice info")),
+                React.createElement(Button_1.default, { url: url, classes: 'btn--fullWidth btn--greenBkg' }, "v\u00EDce info")),
             React.createElement("div", { className: 'info-boxes__list__element--colorGradient', style: { background: "linear-gradient(to bottom, rgba(125, 185, 232, 0) 0%, white 100%)", } }))));
 }
 exports.default = InfoElement;

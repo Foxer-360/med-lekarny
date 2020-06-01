@@ -64,7 +64,7 @@ var PharmaciesList = function (props) {
                                                     paragraph: function (rProps) { return React.createElement("p", null, rProps.children); },
                                                 } }))),
                                 React.createElement("div", { className: 'pcitem__info__btnHolder' },
-                                    React.createElement(Button_1.default, { url: pharmacie.url, classes: "btn btn--greenBorder" }, "vice info")))))))); })));
+                                    React.createElement(Button_1.default, { url: pharmacie.url, classes: "btn btn--greenBorder" }, "v\u00EDce info")))))))); })));
     }));
 };
 exports.default = PharmaciesList;

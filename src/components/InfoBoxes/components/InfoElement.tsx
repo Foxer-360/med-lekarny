@@ -23,7 +23,7 @@ export default function InfoElement(props: InfoElementProps) {
           {title && <h5>{title}</h5>}
 
           <Button url={url} classes={'btn--fullWidth btn--greenBkg'}>
-            vice info
+            více info
           </Button>
         </div>
 

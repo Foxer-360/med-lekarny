@@ -17,7 +17,8 @@
   }
 
   &__content {
-    padding: 5rem 0;
+    padding: 3rem 0 1rem;
+    justify-content: space-around;
 
     @media (max-width: 991px) {
       padding-bottom: 3rem;
@@ -28,11 +29,12 @@
     }
 
     &__item {
-      display: table;
-
-      @media (max-width: 991px) {
-        margin-bottom: 2rem;
-      }
+      display: flex;
+      // justify-content: center;
+      padding: 0;
+      // white-space: nowrap;
+      max-width: fit-content;
+      margin-bottom: 2rem;
 
       @include max-md {
         margin: 0;
@@ -47,6 +49,7 @@
       }
 
       a {
+        max-width: fit-content;
         &:hover {
           color: $green;
           text-decoration: underline;
@@ -59,18 +62,21 @@
         height: 50px;
         display: inline-block;
         vertical-align: middle;
+        .inner {
+          object-fit: fill;
+        }
       }
   
       a, p {
-        max-width: 80%;
+        max-width: fit-content;
         font-size: 1.8rem;
         line-height: 2rem;
-        padding-left: 2rem;
-        display: table-cell;
+        padding-left: 1rem;
+        display: inline-flex;
         vertical-align: middle;
 
-        @include max-md {
-          display: inline-block;
+        @include max-xs {
+          font-size: 4.5vw;
         }
       }
     }

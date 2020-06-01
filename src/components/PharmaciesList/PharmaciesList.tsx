@@ -125,7 +125,7 @@ const PharmaciesList = (props: PharmaciesListProps) => {
                         }
 
                         <div className={'pcitem__info__btnHolder'}>
-                          <Button url={pharmacie.url} classes="btn btn--greenBorder">vice info</Button>
+                          <Button url={pharmacie.url} classes="btn btn--greenBorder">více info</Button>
                         </div>
                       </div>
                     </div>

@@ -1,4 +1,4 @@
-.cookiePopup {
+.cookieConsent {
   p {
     display: inline;
     padding-left: 10px;
@@ -12,5 +12,8 @@
     color: #3eac49 !important;
     text-decoration: underline;
     &:hover { text-decoration: none; }
+  }
+  button {
+    border-radius: 20px !important;
   }
 }

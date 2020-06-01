@@ -18,12 +18,16 @@
       "type": "object",
       "properties": {
         "geo": {
-          "type": "text",
+          "type": "markdown",
           "title": "Address"
         },
         "geoUrl": {
           "type": "urlAutocomplete",
           "title": "Address URL"
+        },
+        "emailAddress": {
+          "type": "markdown",
+          "title": "Email Address"
         },
         "phone": {
           "type": "text",

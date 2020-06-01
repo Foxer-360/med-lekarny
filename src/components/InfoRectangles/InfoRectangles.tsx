@@ -4,6 +4,7 @@ import List from '../List';
 import Link from '../../partials/Link';
 import Media from '../../partials/Media';
 import getImgUrl from '../../helpers/getImgUrl';
+import Button from '../../partials/Button';
 
 interface InfoRectangles {
   opacity: number;
@@ -41,22 +42,15 @@ const InfoRectangles = (props: InfoRectanglesProps) => {
                       <div className={'info-rectangles__list__item__content'}>
                         {rectangle.icon && <Media type={'image'} data={rectangle.icon} />}
 
-                        <Link
-                          {...rectangle.url}
-                          style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            zIndex: 1000
-                          }}
-                        />
-
-                        {rectangle.title && 
-                          <p style={rectangle.titleColor && { color: `${rectangle.titleColor}` } || {}}>
-                            {rectangle.title}
-                          </p>}
+                        <div className={'info-rectangles__item__content__bottom'}>
+                          {rectangle.title 
+                          && <p style={rectangle.titleColor && { color: `${rectangle.titleColor}` } || {}}>
+                              {rectangle.title}
+                            </p>}
+                          {rectangle.url && <Button url={rectangle.url} classes={'btn btn--fullWidth btn--whiteBorder'}>
+                            více info
+                          </Button>}
+                        </div>
                       </div>
 
                       {rectangle.gradientColor && (

@@ -6,6 +6,7 @@ import { adopt } from 'react-adopt';
 import Link from '../../partials/Link';
 import Loader from '../../partials/Loader';
 import Hamburger from './components/Hamburger';
+import Button from '../../partials/Button';
 
 const GET_CONTEXT = gql`
   {
@@ -123,9 +124,14 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                       </li>
                     ))}
                     {(this.props.data.buttonUrl && this.props.data.buttonUrl.url && this.props.data.buttonText) &&
-                    <li><Link className="top_res_recipe" {...this.props.data.buttonUrl}>
+                    <li>
+                      <Button classes="btn btn--orangeBkg top-res-recipe" url={this.props.data.buttonUrl}>
+                        {this.props.data.buttonText}
+                      </Button>
+                      {/* <Link className="top_res_recipe" {...this.props.data.buttonUrl}>
                     {this.props.data.buttonText}
-                    <span className="arrow" /></Link></li>}
+                    <span className="arrow" /></Link> */}
+                    </li>}
                   </ul>
                 </div>
               </div>

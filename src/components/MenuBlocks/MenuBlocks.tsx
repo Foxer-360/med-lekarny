@@ -4,6 +4,7 @@ import List from '../List';
 import Link from '../../partials/Link';
 import Media from '../../partials/Media';
 import getImgUrl from '../../helpers/getImgUrl';
+import Button from '../../partials/Button';
 
 interface MenuBlock {
   title: string;
@@ -34,20 +35,17 @@ const MenuBlocks = (props: MenuBlocksProps) => {
                     className={`menu-blocks__item ${i <= 1 ? 'bigMenuBlock' : ''}`}
                     style={{ backgroundImage: block.image && `url(${getImgUrl(block.image)})` }}
                   >
-                    <Link
-                      {...block.url}
-                      style={{ 
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        zIndex: 1000
-                      }}
-                    />
-                    
-                    {block.icon && <Media type={'image'} data={block.icon} />}
-                    {block.title && <p>{block.title}</p>}
+
+                    <div className={'menu-blocks__item__content'}>
+                      {block.icon && <Media type={'image'} data={block.icon} />}
+
+                      <div className={'menu-blocks__item__content__bottom'}>
+                        {block.title && <p>{block.title}</p>}
+                        {block.url && <Button url={block.url} classes={'btn btn--fullWidth btn--whiteBorder'}>
+                          více info
+                        </Button>}
+                      </div>
+                    </div>
 
                     <div
                       className={'menu-blocks__item__colorGradient'}

@@ -1,11 +1,11 @@
 .btn {
   border: none;
+  border-radius: 50px;
   outline: none;
   display: block;
   cursor: pointer;
   font-weight: 600;
   padding: 12px 35px;
-  transition: ease 0.2s;
   letter-spacing: 1.8px;
   box-sizing: border-box;
   font-family: 'Montserrat';
@@ -86,18 +86,35 @@
 
   &--greenBkg {
     color: white;
-    background-image: linear-gradient(to right, $green 0%, $lightBlue 100%);
+    background-image: linear-gradient(to right, $green 50%, $lightBlue 100%);
     background-repeat: no-repeat;
-    background-position: center;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.8s ease;
     padding: 14px 36px;
 
     &:hover {
+      background-position: 0 0;
       color: white;
-      
-      @include md {
-        background-image: linear-gradient(to right, $green 0%, $green 100%);
-        background-color: $green;
+
+      .arrow {
+        border-color: white;
       }
+    }
+  }
+
+  &--orangeBkg {
+    color: white;
+    background-image: linear-gradient(to right, $orange 60%, $lightOrange 100%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.8s ease;
+    padding: 14px 36px;
+
+    &:hover {
+      background-position: 0 0;
+      color: white;
 
       .arrow {
         border-color: white;
@@ -108,13 +125,14 @@
   &--whiteBorder {
     color: white;
     border: 2px solid white;
-    background-color: transparent;
+    background-color: rgba(white, 0);
+    transition: background-color 0.2s ease;
 
     &:hover {
       
       @include md {
         color: $green;
-        background-color: white;
+        background-color: rgba(white, 1);
 
         .arrow {
           border-color: $green;
@@ -127,17 +145,18 @@
     color: $green;
     background-color: transparent;
     border: 2px solid transparent;
-    border-image: linear-gradient(to right, $green 0%, $lightBlue 100%);
-    border-image-slice: 1;
-    transition: auto;
+    background: linear-gradient(#fff, #fff) padding-box, linear-gradient(to right, $green 50%, $lightBlue 100%) border-box;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 1.2s ease;
 
     .arrow {
       border-color: $green;
     }
 
     &:hover {
+      background-position: 0 0;
       color: $green;
-      border: 2px solid $green;
     }
   }
 
@@ -151,20 +170,21 @@
   }
 
   &--orangeBorder {
-    color: #EE4A37;
+    color: $orange;
     background-color: transparent;
     border: 2px solid transparent;
-    border-image: linear-gradient(to right, #EE4A37 0%, #CB3F00 100%);
-    border-image-slice: 1;
-    transition: auto;
+    background: linear-gradient(#fff, #fff) padding-box, linear-gradient(to right, $orange 50%, $lightOrange 100%) border-box;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 1.2s ease;
 
     .arrow {
-      border-color: #EE4A37;
+      border-color: $orange;
     }
 
     &:hover {
-      color: #EE4A37;
-      border: 2px solid #EE4A37;
+      background-position: 0 0;
+      color: $orange;
     }
   }
 
@@ -173,7 +193,7 @@
     text-transform: none;
 
     .arrow {
-      border-color: #EE4A37;
+      border-color: $orange;
     }
   }
 

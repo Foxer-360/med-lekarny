@@ -180,15 +180,15 @@ var Carousel = /** @class */ (function (_super) {
             return (React.createElement("div", null,
                 displayOnTop ? React.createElement("div", { className: 'carousel__divider' }) : '',
                 React.createElement("div", { className: 'carousel' },
-                    React.createElement("div", { className: 'carousel__images' }, _this.renderSlider(data)),
-                    React.createElement("div", { className: 'carousel__titles' },
-                        React.createElement("ul", { className: 'carousel__titles__list' }, data && data.map(function (slide, i) { return (React.createElement("li", { key: i, onClick: function () { return _this.goTo(i); }, className: 'carousel__titles__list__item', style: i === _this.state.currentIndex ? {
-                                color: '#3eac49',
-                                backgroundColor: 'white',
-                                boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
-                                borderBottom: 'none !important'
-                            } : {} },
-                            React.createElement("i", null, slide.title))); }))))));
+                    React.createElement("div", { className: 'carousel__images' }, _this.renderSlider(data))),
+                React.createElement("div", { className: 'carousel__titles' },
+                    React.createElement("ul", { className: 'carousel__titles__list' }, data && data.map(function (slide, i) { return (React.createElement("li", { key: i, onClick: function () { return _this.goTo(i); }, className: 'carousel__titles__list__item', style: i === _this.state.currentIndex ? {
+                            color: '#3eac49',
+                            backgroundColor: 'white',
+                            boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
+                            borderBottom: 'none !important'
+                        } : {} },
+                        React.createElement("i", null, slide.title))); })))));
         }));
     };
     return Carousel;

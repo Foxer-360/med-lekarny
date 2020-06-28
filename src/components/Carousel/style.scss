@@ -67,6 +67,10 @@
     position: relative;
     align-items: center;
     justify-content: center;
+    @include md {
+      width: 0;
+      display: none;
+    }
 
 
     &__dot {

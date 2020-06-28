@@ -14,6 +14,12 @@
     position: relative;
     height: 100%;
     width: 100%;
+
+    .mediaRatio {
+      img {
+        object-fit: contain
+      }
+    }
   }
 
   &__slide {
@@ -109,7 +115,9 @@
 
   ul {
     @include reset-list;
-    li { padding: 0; }
+    li {
+      padding: 0;
+    }
   }
 
   .mediaRatio  {
@@ -118,7 +126,7 @@
   }
 
   &__images {
-    width: 75%;
+    width: 100%;
     height: 100%;
     overflow: hidden;
     display: inline-block;
@@ -129,7 +137,7 @@
   }
 
   &__titles {
-    width: 25%;
+    width: 100%;
     height: 100%;
     font-size: 1.8rem;
     overflow-y: hidden;
@@ -147,23 +155,36 @@
 
     &__list {
       height: 100%;
+      display: flex;
+      justify-content: center;
 
       &__item {
-        width: 100%;
-        height: 20%;
+        width: 300px;
+        height: 80px;
+        // width: 100%;
         display: table;
+        table-layout: fixed;
+        // display: inline;
         cursor: pointer;
         text-align: center;
         line-height: initial;
         text-transform: lowercase;
 
         &:not(:last-of-type) {
-          border-bottom: 2px solid #dddedf;
+          border-right: 2px solid #dddedf;
+        }
+
+        &:before {
+          width: 0px;
+          height: 0px;
         }
 
         & > * {
+          text-align: center;
           display: table-cell;
           vertical-align: middle;
+          width: 100%;
+          height: 100%
         }
       }
     }

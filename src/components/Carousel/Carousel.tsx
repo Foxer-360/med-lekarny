@@ -221,25 +221,25 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
                 {this.renderSlider(data)}
               </div>
               
-              <div className={'carousel__titles'}>
-                <ul className={'carousel__titles__list'}>
-                  {data && data.map((slide, i) => (
-                    <li 
-                      key={i} 
-                      onClick={() => this.goTo(i)}
-                      className={'carousel__titles__list__item'}
-                      style={i === this.state.currentIndex ? { 
-                        color: '#3eac49', 
-                        backgroundColor: 'white',
-                        boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
-                        borderBottom: 'none !important'
-                      } : {}}
-                    >
-                      <i>{slide.title}</i>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            </div>
+            <div className={'carousel__titles'}>
+              <ul className={'carousel__titles__list'}>
+                {data && data.map((slide, i) => (
+                  <li 
+                    key={i} 
+                    onClick={() => this.goTo(i)}
+                    className={'carousel__titles__list__item'}
+                    style={i === this.state.currentIndex ? { 
+                      color: '#3eac49', 
+                      backgroundColor: 'white',
+                      boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
+                      borderBottom: 'none !important'
+                    } : {}}
+                  >
+                    <i>{slide.title}</i>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         )}

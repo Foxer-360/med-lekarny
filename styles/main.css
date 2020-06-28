@@ -5184,6 +5184,10 @@ cite {
     position: relative;
     align-items: center;
     justify-content: center; }
+    @media (min-width: 768px) {
+      .slider__dots {
+        width: 0;
+        display: none; } }
     .slider__dots__dot {
       display: block;
       width: 14px;

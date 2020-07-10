@@ -3,6 +3,7 @@ import * as React from 'react';
 import List from '../List';
 import Link from '../../partials/Link';
 import Media from '../../partials/Media';
+import getImgUrl from '../../helpers/getImgUrl';
 
 import Dots from './components/Dots';
 import Slide from './components/Slide';
@@ -13,6 +14,7 @@ interface Slide {
   image: LooseObject;
   url: LooseObject;
   title: string;
+  lowWidthImage: LooseObject;
 }
 
 export interface CarouselProps {
@@ -162,12 +164,22 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
 
     if (data) {
       data.map((slide, i) => {
-        if (slide.image) {
+        if (slide.image && slide.lowWidthImage) {
           result.push
           (
             <div key={i} className="slider__slide" id={'slider__slide'}>
               <Link {...slide.url}>
-                <Media type={'image'} data={slide.image} />
+                <Media type={'image'} data={slide.image} className={'high_width'} />
+                <Media type={'image'} data={slide.lowWidthImage} className={'low_width'}/>
+              </Link>
+            </div>
+          );
+        } else if (slide.image) {
+          result.push
+          (
+            <div key={i} className="slider__slide" id={'slider__slide'}>
+              <Link {...slide.url}>
+                <Media type={'image'} data={slide.image}/>
               </Link>
             </div>
           );
@@ -183,7 +195,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
         <div 
           className="slider__wrapper"
           style={{ 
-            transform: `translateX(${this.state.translateValue}px)`, 
+            transform: `translateX(${this.state.currentIndex * -100}%)`, 
             transition: 'transform ease-out 0.25s'}}
         >  
           {this.renderSlides(data)}
@@ -209,37 +221,35 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
 
   render() {
     const { displayOnTop } = this.props.data;
- 
+
     return (
       <List data={this.state.slides}>
         {({ data }) => (
           <div>
-            {displayOnTop ? <div className={'carousel__divider'} /> : ''}
-
             <div className={'carousel'}>      
               <div className={'carousel__images'}>
                 {this.renderSlider(data)}
               </div>
               
-              <div className={'carousel__titles'}>
-                <ul className={'carousel__titles__list'}>
-                  {data && data.map((slide, i) => (
-                    <li 
-                      key={i} 
-                      onClick={() => this.goTo(i)}
-                      className={'carousel__titles__list__item'}
-                      style={i === this.state.currentIndex ? { 
-                        color: '#3eac49', 
-                        backgroundColor: 'white',
-                        boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
-                        borderBottom: 'none !important'
-                      } : {}}
-                    >
-                      <i>{slide.title}</i>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            </div>
+            <div className={'carousel__titles'}>
+              <ul className={'carousel__titles__list'}>
+                {data && data.map((slide, i) => (
+                  <li 
+                    key={i} 
+                    onClick={() => this.goTo(i)}
+                    className={'carousel__titles__list__item'}
+                    style={i === this.state.currentIndex ? { 
+                      color: '#3eac49', 
+                      backgroundColor: 'white',
+                      boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
+                      borderBottom: 'none !important'
+                    } : {}}
+                  >
+                    <i>{slide.title}</i>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         )}

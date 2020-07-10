@@ -78,6 +78,9 @@
               "url": {
                 "type": "urlAutocomplete",
                 "title": "URL"
+              },
+              "lowWidthImage": {
+                "type": "image"
               }
             }
           }

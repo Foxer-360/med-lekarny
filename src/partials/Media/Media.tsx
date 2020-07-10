@@ -5,6 +5,7 @@ export interface MediaProps {
   type: string;
   width?: string;
   height?: string;
+  className?: string;
   // tslint:disable:no-any
   data: any;
 }
@@ -45,6 +46,7 @@ class Media extends React.Component<MediaProps, MediaState> {
           recommendedSizes={recommendedSizes}
           originalData={data}
           hash={data.hash}
+          className={this.props.className}
         />
       );
     } else {

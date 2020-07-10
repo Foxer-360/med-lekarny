@@ -150,7 +150,13 @@ var Carousel = /** @class */ (function (_super) {
         var result = [];
         if (data) {
             data.map(function (slide, i) {
-                if (slide.image) {
+                if (slide.image && slide.lowWidthImage) {
+                    result.push(React.createElement("div", { key: i, className: "slider__slide", id: 'slider__slide' },
+                        React.createElement(Link_1.default, __assign({}, slide.url),
+                            React.createElement(Media_1.default, { type: 'image', data: slide.image, className: 'high_width' }),
+                            React.createElement(Media_1.default, { type: 'image', data: slide.lowWidthImage, className: 'low_width' }))));
+                }
+                else if (slide.image) {
                     result.push(React.createElement("div", { key: i, className: "slider__slide", id: 'slider__slide' },
                         React.createElement(Link_1.default, __assign({}, slide.url),
                             React.createElement(Media_1.default, { type: 'image', data: slide.image }))));
@@ -163,7 +169,7 @@ var Carousel = /** @class */ (function (_super) {
         var _this = this;
         return (React.createElement("div", { className: "slider", onMouseEnter: function (e) { return _this.pause(e); }, onMouseLeave: function (e) { return _this.run(e); } },
             React.createElement("div", { className: "slider__wrapper", style: {
-                    transform: "translateX(" + this.state.translateValue + "px)",
+                    transform: "translateX(" + this.state.currentIndex * -100 + "%)",
                     transition: 'transform ease-out 0.25s'
                 } }, this.renderSlides(data)),
             this.state.showArrows ? (React.createElement(React.Fragment, null,
@@ -178,17 +184,16 @@ var Carousel = /** @class */ (function (_super) {
         return (React.createElement(List_1.default, { data: this.state.slides }, function (_a) {
             var data = _a.data;
             return (React.createElement("div", null,
-                displayOnTop ? React.createElement("div", { className: 'carousel__divider' }) : '',
                 React.createElement("div", { className: 'carousel' },
-                    React.createElement("div", { className: 'carousel__images' }, _this.renderSlider(data)),
-                    React.createElement("div", { className: 'carousel__titles' },
-                        React.createElement("ul", { className: 'carousel__titles__list' }, data && data.map(function (slide, i) { return (React.createElement("li", { key: i, onClick: function () { return _this.goTo(i); }, className: 'carousel__titles__list__item', style: i === _this.state.currentIndex ? {
-                                color: '#3eac49',
-                                backgroundColor: 'white',
-                                boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
-                                borderBottom: 'none !important'
-                            } : {} },
-                            React.createElement("i", null, slide.title))); }))))));
+                    React.createElement("div", { className: 'carousel__images' }, _this.renderSlider(data))),
+                React.createElement("div", { className: 'carousel__titles' },
+                    React.createElement("ul", { className: 'carousel__titles__list' }, data && data.map(function (slide, i) { return (React.createElement("li", { key: i, onClick: function () { return _this.goTo(i); }, className: 'carousel__titles__list__item', style: i === _this.state.currentIndex ? {
+                            color: '#3eac49',
+                            backgroundColor: 'white',
+                            boxShadow: '0 0 40px rgba(0, 0, 0, 0.1)',
+                            borderBottom: 'none !important'
+                        } : {} },
+                        React.createElement("i", null, slide.title))); })))));
         }));
     };
     return Carousel;

@@ -1,7 +1,7 @@
 .slider {
   position: relative;
-  width: 100%;
-  margin: 0 auto;
+  // width: 100%;
+  // margin: 0 auto;
   height: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -13,7 +13,7 @@
   &__wrapper {
     position: relative;
     height: 100%;
-    width: 100%;
+    // width: 100%;
 
     .mediaRatio {
       img {
@@ -67,7 +67,8 @@
     position: relative;
     align-items: center;
     justify-content: center;
-    @include md {
+    display: none;
+      @include md {
       width: 0;
       display: none;
     }
@@ -99,21 +100,22 @@
 }
 
 .carousel {
-  height: 490px;
-  background-color: #f4f5f6;
+  max-height: 40vh;
+  height: 44vw;
+  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-  
-  @media (max-width: 720px) {
-    height: 260px;
-  }
 
-  &__divider {
-    display: block;
-    width: 100%;
-    height: 136px;
-    
-    @include max-md {
-      height: 116px;
+  @media (min-width: 450px) {
+    .low_width {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 450px) {
+    max-height: 60vh;
+    height: 90vw;
+    .high_width {
+      display: none;
     }
   }
 
@@ -150,8 +152,7 @@
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
 
     @include max-md {
-      width: 0;
-      display: none;
+      overflow: auto;
     }
     @media (max-width: 955px) { font-size: 1.6rem; }
     @media (max-width: 900px) { font-size: 1.4rem; }
@@ -160,7 +161,6 @@
     &__list {
       height: 100%;
       display: flex;
-      justify-content: center;
 
       &__item {
         width: 300px;
@@ -171,6 +171,15 @@
         text-align: center;
         line-height: initial;
         text-transform: lowercase;
+        min-width: 150px;
+
+        &:first-of-type {
+          margin-left: auto
+        }
+
+        &:last-of-type {
+          margin-right: auto
+        }
 
         &:not(:last-of-type) {
           border-right: 2px solid #dddedf;

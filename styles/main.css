@@ -3668,7 +3668,8 @@ cite {
 .header {
   background-color: #fff;
   width: 100%;
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   z-index: 400;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.05); }
   .header__logo img {
@@ -5133,8 +5134,6 @@ cite {
 
 .slider {
   position: relative;
-  width: 100%;
-  margin: 0 auto;
   height: 100%;
   overflow: hidden;
   white-space: nowrap; }
@@ -5142,8 +5141,7 @@ cite {
     white-space: normal; }
   .slider__wrapper {
     position: relative;
-    height: 100%;
-    width: 100%; }
+    height: 100%; }
     .slider__wrapper .mediaRatio img {
       -o-object-fit: contain;
          object-fit: contain; }
@@ -5183,7 +5181,8 @@ cite {
     display: flex;
     position: relative;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    display: none; }
     @media (min-width: 768px) {
       .slider__dots {
         width: 0;
@@ -5203,19 +5202,19 @@ cite {
         margin-right: 15px; }
 
 .carousel {
-  height: 490px;
-  background-color: #f4f5f6;
+  max-height: 40vh;
+  height: 44vw;
+  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px; }
-  @media (max-width: 720px) {
+  @media (min-width: 450px) {
+    .carousel .low_width {
+      display: none; } }
+  @media (max-width: 450px) {
     .carousel {
-      height: 260px; } }
-  .carousel__divider {
-    display: block;
-    width: 100%;
-    height: 136px; }
-    @media (max-width: 768px) {
-      .carousel__divider {
-        height: 116px; } }
+      max-height: 60vh;
+      height: 90vw; }
+      .carousel .high_width {
+        display: none; } }
   .carousel ul {
     padding: 0;
     margin: 0;
@@ -5247,8 +5246,7 @@ cite {
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.08); }
     @media (max-width: 768px) {
       .carousel__titles {
-        width: 0;
-        display: none; } }
+        overflow: auto; } }
     @media (max-width: 955px) {
       .carousel__titles {
         font-size: 1.6rem; } }
@@ -5260,8 +5258,7 @@ cite {
         font-size: 1.2rem; } }
     .carousel__titles__list {
       height: 100%;
-      display: flex;
-      justify-content: center; }
+      display: flex; }
       .carousel__titles__list__item {
         width: 300px;
         height: 80px;
@@ -5270,7 +5267,12 @@ cite {
         cursor: pointer;
         text-align: center;
         line-height: initial;
-        text-transform: lowercase; }
+        text-transform: lowercase;
+        min-width: 150px; }
+        .carousel__titles__list__item:first-of-type {
+          margin-left: auto; }
+        .carousel__titles__list__item:last-of-type {
+          margin-right: auto; }
         .carousel__titles__list__item:not(:last-of-type) {
           border-right: 2px solid #dddedf; }
         .carousel__titles__list__item:before {

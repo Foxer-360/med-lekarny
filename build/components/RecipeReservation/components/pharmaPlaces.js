@@ -17,7 +17,7 @@ var pharmaPlaces = [
     },
     {
         id: 'LK4',
-        name: 'OD DBK',
+        name: 'OC DBK',
         address1: 'Budějovická 1667/64',
         address2: 'Praha 4 - Krč',
         openHours: 'Po - Pá 8:00 - 20:00 So-Ne, Svátky 9:00 - 19:00',

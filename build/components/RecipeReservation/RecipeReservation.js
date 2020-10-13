@@ -89,7 +89,7 @@ var RecipeReservation = /** @class */ (function (_super) {
         };
         _this.requiredInputs = function () {
             var _a = _this.state, files = _a.files, recipeCodesArray = _a.recipeCodesArray, pickupPlace = _a.pickupPlace, recipeOwner = _a.recipeOwner;
-            var name = recipeOwner.name, phone = recipeOwner.phone, email = recipeOwner.email, gdpr = recipeOwner.gdpr;
+            var name = recipeOwner.name, phone = recipeOwner.phone, gdpr = recipeOwner.gdpr;
             if (recipeCodesArray.length < 1 && files.length < 1) {
                 return false;
             }
@@ -98,7 +98,6 @@ var RecipeReservation = /** @class */ (function (_super) {
             }
             var ownerInfo = name && name.length > 0
                 && phone && phone.length > 0
-                && email && email.length > 0
                 && gdpr;
             if (ownerInfo) {
                 return true;
@@ -126,16 +125,6 @@ var RecipeReservation = /** @class */ (function (_super) {
                 _this.setErrors({ phone: 'Vyplňte prosím telefoní číslo (formát: +420XXXXXXXXX)' });
             }
         };
-        _this.validateEmail = function (email) {
-            // tslint:disable-next-line: max-line-length
-            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if (re.test(String(email).toLowerCase())) {
-                _this.setErrors({ email: '' });
-            }
-            else {
-                _this.setErrors({ email: 'Zkontrolujte si prosím zda jste správně vyplnili e-mail.' });
-            }
-        };
         _this.isFormValid = function () {
             var er = _this.state.errors;
             var codesBoolean = _this.requiredInputs();
@@ -152,9 +141,6 @@ var RecipeReservation = /** @class */ (function (_super) {
                         break;
                     case 'phone':
                         _this.validatePhone(value);
-                        break;
-                    case 'email':
-                        _this.validateEmail(value);
                         break;
                     default: return null;
                 }
@@ -177,7 +163,6 @@ var RecipeReservation = /** @class */ (function (_super) {
                 pickupPlace: null,
                 name: null,
                 phone: null,
-                email: null,
             },
             formSubmited: false,
         };

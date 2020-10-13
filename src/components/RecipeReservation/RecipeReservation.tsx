@@ -61,7 +61,6 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
         pickupPlace: null,
         name: null,
         phone: null,
-        email: null,
       },
       formSubmited: false,
     };
@@ -128,7 +127,7 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
 
   requiredInputs = () => {
     const { files, recipeCodesArray, pickupPlace, recipeOwner } = this.state;
-    const { name, phone, email, gdpr } = recipeOwner;
+    const { name, phone, gdpr } = recipeOwner;
     if ( recipeCodesArray.length < 1 && files.length < 1 ) {
       return false;
     }
@@ -137,7 +136,6 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
     }
     const ownerInfo = name && name.length > 0
                         && phone && phone.length > 0
-                        && email && email.length > 0
                         && gdpr;
     if ( ownerInfo ) {
       return true;
@@ -167,16 +165,6 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
     }
   }
 
-  validateEmail = (email: string) => {
-    // tslint:disable-next-line: max-line-length
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (re.test(String(email).toLowerCase())) {
-      this.setErrors({email: ''});
-    } else {
-      this.setErrors({email: 'Zkontrolujte si prosím zda jste správně vyplnili e-mail.'});
-    }
-  }
-
   isFormValid = () => {
     const er = this.state.errors;
     const codesBoolean = this.requiredInputs();
@@ -191,7 +179,6 @@ class RecipeReservation extends React.Component<RecipeReservationProps, RecipeRe
       switch (fieldName[0]) {
         case 'name': this.validateName(value); break;
         case 'phone': this.validatePhone(value); break;
-        case 'email': this.validateEmail(value); break;
         default: return null;
       }
     }, 400);

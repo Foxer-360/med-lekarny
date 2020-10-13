@@ -25,7 +25,7 @@ const pharmaPlaces = [
     name: 'Poliklinika Holešovice',
     address1: 'Plynární 1617/10',
     address2: 'Praha 7 - Holešovice',
-    openHours: 'Po - Čt 8:00 - 18:00, Pá 8:00 - 17:00',
+    openHours: 'Po-Pá 8:00 - 17:00',
   },
 ];
 

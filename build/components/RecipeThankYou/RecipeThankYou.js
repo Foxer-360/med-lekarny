@@ -26,7 +26,7 @@ var RecipeThankYou = /** @class */ (function (_super) {
     }
     RecipeThankYou.prototype.parseCode = function (query) {
         var kve = queryString.parse(query, { arrayFormat: 'bracket' });
-        console.log('kve koceds', kve);
+        console.log(kve);
         return kve.codes;
     };
     RecipeThankYou.prototype.parsePlace = function (query) {
@@ -41,7 +41,7 @@ var RecipeThankYou = /** @class */ (function (_super) {
             && this.props.info
             && this.props.info.search;
         var codes = search && (search.length > 0) && this.parseCode(search);
-        console.log('pičo', this.props.info);
+        console.log(this.props.info);
         return (React.createElement("div", { className: "recipe-thankyou-page" },
             React.createElement("div", { className: "gray-part pdt80" },
                 React.createElement("div", { className: "container" },

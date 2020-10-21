@@ -22,7 +22,7 @@ class RecipeThankYou extends React.Component<RecipeThankYouComponentProps> {
 
   parseCode(query: string) {
     const kve = queryString.parse(query, {arrayFormat: 'bracket'});
-    console.log('kve koceds', kve);
+    console.log(kve);
     return kve.codes;
   }
 
@@ -40,7 +40,7 @@ class RecipeThankYou extends React.Component<RecipeThankYouComponentProps> {
                     && this.props.info.search;
     const codes = search && (search.length > 0) && this.parseCode(search);
 
-    console.log('pičo', this.props.info);
+    console.log(this.props.info);
     return (
       <div className="recipe-thankyou-page">
         <div className="gray-part pdt80">

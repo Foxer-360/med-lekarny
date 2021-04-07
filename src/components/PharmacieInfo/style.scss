@@ -31,10 +31,15 @@
     &__item {
       display: flex;
       // justify-content: center;
-      padding: 0;
+      padding: 0 1rem;
       // white-space: nowrap;
-      max-width: fit-content;
       margin-bottom: 2rem;
+      
+      @media (min-width: 1200px) {
+        max-width: 30%;
+        flex: 0 0 20%;
+        padding: 0;
+    }
 
       @include max-md {
         margin: 0;

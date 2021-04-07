@@ -34,6 +34,7 @@
 @import '../src/components/MenuBlocks/style';
 @import '../src/components/PromotionPreviews/style';
 @import '../src/components/Carousel/style';
+@import '../src/components/Carousel/components/CarouselImageText/style';
 @import '../src/components/Headline/styles';
 @import '../src/components/CustomInfoBoxes/style';
 @import '../src/components/Gallery/style';
@@ -54,3 +55,5 @@
 @import '../src/partials/SvgIcon/style';
 @import '../src/partials/Media/style';
 @import '../src/partials/Loader/style';
+@import '../src/partials/PrevArrow/style';
+@import '../src/partials/NextArrow/style';

@@ -1,200 +1,84 @@
-.slider {
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  
-  p, span, h1, h2, h3, h4, h5, h6 {
-    white-space: normal;
-  }
-
-  &__wrapper {
-    position: relative;
-    height: 100%;
-
-    .mediaRatio {
-      img {
-        object-fit: contain
-      }
-    }
-  }
-
-  &__slide {
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-  }
-
-  &__arrow {
-    height: 50px;
-    width: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f9f9f9;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform ease-in .1s;
-
-    .fa-arrow-right:before, 
-    .fa-arrow-left:before {
-      color: #222
-    }
-  }
-
-  &__nextArrow {
-    position: absolute;
-    top: 50%;
-    right: 25px;
-    z-index: 999;
-    color: #fff;
-  }
-
-  &__backArrow {
-    position: absolute;
-    top: 50%;
-    left: 25px;
-    z-index: 999;
-    color: #fff;
-  }
-
-  &__dots {    
-    bottom: 35px;
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    display: none;
-      @include md {
-      width: 0;
-      display: none;
-    }
-
-
-    &__dot {
-      display: block;
-      width: 14px;
-      height: 14px;
-      cursor: pointer;
-      border-radius: 50px;
-      background-color: white;
-      -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
-      -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
-      box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
-
-      &--active {
-        background-color: $green;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        box-shadow: none;
-      }
-    
-      &:not(:last-child()) {
-        margin-right: 15px;
-      }
-    }
-  }
-}
-
 .carousel {
-  max-height: 40vh;
-  height: 44vw;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-
-  @media (min-width: 450px) {
-    .low_width {
-      display: none;
-    }
-  }
-  
-  @media (max-width: 450px) {
-    max-height: 60vh;
-    height: 90vw;
-    .high_width {
-      display: none;
-    }
+  line-height: 1.15;
+  .slick-track {
+    display: flex;
   }
 
-  ul {
-    @include reset-list;
-    li {
-      padding: 0;
-    }
-  }
+  .slick-slide {
+    display: flex;
+    height: unset;
+    float: unset;
 
-  .mediaRatio  {
-    height: 100%;
-    padding-top: 0!important;
-  }
-
-  &__images {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    display: inline-block;
-
-    @include max-md {
+    > div {
       width: 100%;
     }
   }
 
-  &__titles {
-    width: 100%;
-    height: 100%;
-    font-size: 1.8rem;
-    overflow-y: hidden;
-    display: inline-block;
-    text-transform: uppercase;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+  &--prevArrow {
+    left: 1.5rem;
 
     @include max-md {
-      overflow: auto;
+      left: 2.5rem !important;
+      width: 16px !important;
+      height: 9px !important;
+
+      .prevArrow--top,
+      .prevArrow--bottom {
+        height: 3px !important;
+      }
     }
-    @media (max-width: 955px) { font-size: 1.6rem; }
-    @media (max-width: 900px) { font-size: 1.4rem; }
-    @media (max-width: 720px) { font-size: 1.2rem; }
+  }
+  &--nextArrow {
+    right: 1.8rem;
 
-    &__list {
-      height: 100%;
-      display: flex;
+    @include max-md {
+      right: 2.8rem !important;
+      width: 16px !important;
+      height: 9px !important;
 
-      &__item {
-        width: 300px;
-        height: 80px;
-        display: table;
-        table-layout: fixed;
-        cursor: pointer;
-        text-align: center;
-        line-height: initial;
-        text-transform: lowercase;
-        min-width: 150px;
+      .nextArrow--top,
+      .nextArrow--bottom {
+        height: 3px !important;
+      }
+    }
+  }
 
-        &:first-of-type {
-          margin-left: auto
-        }
+  .slick-prev {
+    @media screen and (max-width: 600px) {
+      left: -10px;
+    }
+  }
 
-        &:last-of-type {
-          margin-right: auto
-        }
+  .slick-next {
+    @media screen and (max-width: 600px) {
+      right: -10px;
+    }
+  }
+  
+  .slick-dots {
+    display:none;
+    bottom: 2.5rem;
 
-        &:not(:last-of-type) {
-          border-right: 2px solid #dddedf;
-        }
+    li {
+      width: 6rem;
+      height: 4px;
+      background-color: #BFBFBF;
 
-        &:before {
-          width: 0px;
-          height: 0px;
-        }
+      button {
+        width: 100%;
+        height: 100%;
 
-        & > * {
-          text-align: center;
-          display: table-cell;
-          vertical-align: middle;
-          width: 100%;
-          height: 100%
+        &::before {
+          display: none;
         }
       }
+      &::before {
+        display: none;
+      }
+    }
+
+    .slick-active {
+      background-color: $green;
     }
   }
 }

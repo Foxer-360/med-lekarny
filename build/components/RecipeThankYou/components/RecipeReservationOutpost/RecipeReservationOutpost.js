@@ -32,9 +32,11 @@ var RecipeReservationOutpost = /** @class */ (function (_super) {
         var place = this.findPlace();
         return (React.createElement("div", { className: "outpost-wrapper" },
             React.createElement("img", { className: 'outpost-logo', alt: 'Medicon logo', src: '/assets/mediconLekarny/images/logo.svg' }),
-            React.createElement("p", { className: "address address-bold" }, place.address1),
+            React.createElement("p", { className: "address address-bold" }, place.name),
+            React.createElement("p", { className: "address" }, place.address1),
             React.createElement("p", { className: "address" }, place.address2),
-            React.createElement("p", { className: "address" }, place.openHours)));
+            React.createElement("p", { className: "address" }, place.openHours1),
+            React.createElement("p", { className: "address" }, place.openHours2)));
     };
     return RecipeReservationOutpost;
 }(React.Component));

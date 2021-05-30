@@ -33,9 +33,11 @@ var RecipePickupPick = /** @class */ (function (_super) {
                 return (React.createElement("div", { key: place.id, className: "col-6 pickup-point_wrap" },
                     React.createElement("div", { className: "pickup-point" },
                         React.createElement("img", { src: '/assets/mediconLekarny/images/mediconLekarnyLogo.png', alt: 'pharmacentrum logo' }),
-                        React.createElement("p", { className: "address address-bold" }, place.address1),
+                        React.createElement("p", { className: "address address-bold" }, place.name),
+                        React.createElement("p", { className: "address" }, place.address1),
                         React.createElement("p", { className: "address" }, place.address2),
-                        React.createElement("p", { className: "address" }, place.openHours),
+                        React.createElement("p", { className: "address" }, place.openHours1),
+                        React.createElement("p", { className: "address" }, place.openHours2),
                         React.createElement("button", { className: "recipe-btn btn-plus " + (pickupPlace === place.id ? 'selected' : ''), onClick: function () { return _this.updateSelectedPickupPoint(place.id); } }, pickupPlace === place.id
                             ? boData.placesBtnTextActive
                             : boData.placesBtnTextInactive))));

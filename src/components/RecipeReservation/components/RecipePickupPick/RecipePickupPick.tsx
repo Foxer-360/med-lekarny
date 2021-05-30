@@ -30,9 +30,11 @@ class RecipePickupPick extends React.Component<RecipePickupPickProps> {
                 <div key={place.id} className="col-6 pickup-point_wrap">
                   <div className="pickup-point">
                     <img src={'/assets/mediconLekarny/images/mediconLekarnyLogo.png'} alt={'pharmacentrum logo'} />
-                    <p className="address address-bold">{place.address1}</p>
+                    <p className="address address-bold">{place.name}</p>
+                    <p className="address">{place.address1}</p>
                     <p className="address">{place.address2}</p>
-                    <p className="address">{place.openHours}</p>
+                    <p className="address">{place.openHours1}</p>
+                    <p className="address">{place.openHours2}</p>
                     <button
                       className={`recipe-btn btn-plus ${pickupPlace === place.id ? 'selected' : ''}`}
                       onClick={() => this.updateSelectedPickupPoint(place.id)}

@@ -29,9 +29,11 @@ class RecipeReservationOutpost extends React.Component<RecipeReservationOutpostP
           alt={'Medicon logo'}
           src={'/assets/mediconLekarny/images/logo.svg'}
         />
-        <p className="address address-bold">{place.address1}</p>
+        <p className="address address-bold">{place.name}</p>
+        <p className="address">{place.address1}</p>
         <p className="address">{place.address2}</p>
-        <p className="address">{place.openHours}</p>
+        <p className="address">{place.openHours1}</p>
+        <p className="address">{place.openHours2}</p>
       </div>
     );
   }

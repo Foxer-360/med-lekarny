@@ -62,7 +62,7 @@ export default class HelpPopup extends React.Component<HelpPopupProps, HelpPopup
 
                 <li style={{ backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' }}>
                   <p>Pharmacentrum Vysočany</p>
-                  <a href="tel:+420266006324">+420 266 006 324</a>
+                  <a href="tel:+420227777322">+420 227 777 322</a>
                 </li>
 
                 <li style={{ backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' }}>

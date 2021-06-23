@@ -64,7 +64,10 @@ var HelpPopup = /** @class */ (function (_super) {
                         React.createElement("a", { href: "tel:+420227777322" }, "+420 227 777 322")),
                     React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
                         React.createElement("p", null, "Pharmacentrum Hole\u0161ovice"),
-                        React.createElement("a", { href: "tel:+420227777699" }, "+420 227 777 699"))))) : '';
+                        React.createElement("a", { href: "tel:+420227777699" }, "+420 227 777 699")),
+                    React.createElement("li", { style: { backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' } },
+                        React.createElement("p", null, "Pharmacentrum H\u00E1je"),
+                        React.createElement("a", { href: "tel:+420227777328" }, "+420 227 777 328"))))) : '';
         }));
     };
     return HelpPopup;

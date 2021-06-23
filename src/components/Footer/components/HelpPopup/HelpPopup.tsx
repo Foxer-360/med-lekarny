@@ -69,6 +69,11 @@ export default class HelpPopup extends React.Component<HelpPopupProps, HelpPopup
                   <p>Pharmacentrum Holešovice</p>
                   <a href="tel:+420227777699">+420 227 777 699</a>
                 </li>
+
+                <li style={{ backgroundImage: 'url(/assets/mediconLekarny/images/phoneIcon.svg)' }}>
+                  <p>Pharmacentrum Háje</p>
+                  <a href="tel:+420227777328">+420 227 777 328</a>
+                </li>
               </ul>
             </div>
           ) : '';

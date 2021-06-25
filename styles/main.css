@@ -4995,7 +4995,7 @@ cite {
         justify-content: space-around; } }
     .pharmacies__list__item {
       height: 100%;
-      max-width: 220px;
+      max-width: 250px;
       min-width: 210px;
       position: relative; }
       @media (max-width: 991px) {
@@ -5027,7 +5027,7 @@ cite {
           display: block;
           width: 1px;
           top: 0;
-          right: -20%;
+          right: 0%;
           height: 100%;
           background-color: #d4d4d3; } }
 
